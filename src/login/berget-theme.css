@@ -1,0 +1,273 @@
+/* Berget Keycloak Theme Styles */
+
+/* Import Berget fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ovo&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* CSS Variables for Berget Design System */
+:root {
+  --berget-background: 0 0% 10%;
+  --berget-foreground: 0 0% 100%;
+  --berget-card: 0 0% 10%;
+  --berget-card-foreground: 0 0% 100%;
+  --berget-primary: 142 33% 46%;
+  --berget-primary-foreground: 0 0% 100%;
+  --berget-secondary: 151 33% 62%;
+  --berget-secondary-foreground: 0 0% 10%;
+  --berget-accent: 45 100% 50%;
+  --berget-accent-foreground: 0 0% 10%;
+  --berget-muted: 0 0% 15%;
+  --berget-muted-foreground: 0 0% 60%;
+  --berget-border: 0 0% 20%;
+  --berget-input: 0 0% 20%;
+  --berget-ring: 142 33% 46%;
+  --berget-grid-line: rgba(229, 221, 213, 0.02);
+}
+
+/* Global styles for Storybook */
+body {
+  background-color: hsl(var(--berget-background)) !important;
+  color: hsl(var(--berget-foreground)) !important;
+  font-family: 'DM Sans', sans-serif;
+  font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  background-image:
+    linear-gradient(to bottom, var(--berget-grid-line) 1px, transparent 1px),
+    linear-gradient(to right, var(--berget-grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Override Storybook styles */
+.sb-main-padded {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sb-show-main {
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  min-height: 100vh !important;
+}
+
+/* Berget Auth Container */
+.berget-auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+}
+
+/* Berget Input Styles */
+.berget-input {
+  background-color: hsl(var(--berget-input));
+  border: 1px solid hsl(var(--berget-border));
+  color: hsl(var(--berget-foreground));
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.berget-input:focus {
+  outline: none;
+  border-color: hsl(var(--berget-ring));
+  box-shadow: 0 0 0 2px hsl(var(--berget-ring) / 0.2);
+}
+
+.berget-input::placeholder {
+  color: hsl(var(--berget-muted-foreground));
+}
+
+/* Reset default styles */
+.berget-keycloak-body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Typography */
+.berget-keycloak-body h1,
+.berget-keycloak-body h2,
+.berget-keycloak-body h3 {
+  font-family: 'Ovo', serif;
+  font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+/* Form inputs */
+.berget-keycloak-body input[type="text"],
+.berget-keycloak-body input[type="password"],
+.berget-keycloak-body input[type="email"] {
+  background-color: hsl(var(--berget-input));
+  border: 1px solid hsl(var(--berget-border));
+  color: hsl(var(--berget-foreground));
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.berget-keycloak-body input[type="text"]:focus,
+.berget-keycloak-body input[type="password"]:focus,
+.berget-keycloak-body input[type="email"]:focus {
+  outline: none;
+  border-color: hsl(var(--berget-ring));
+  box-shadow: 0 0 0 2px hsl(var(--berget-ring) / 0.2);
+}
+
+.berget-keycloak-body input[type="text"]::placeholder,
+.berget-keycloak-body input[type="password"]::placeholder,
+.berget-keycloak-body input[type="email"]::placeholder {
+  color: hsl(var(--berget-muted-foreground));
+}
+
+.berget-keycloak-body input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+  accent-color: hsl(var(--berget-primary));
+}
+
+/* Form labels */
+.berget-keycloak-body label {
+  color: hsl(var(--berget-muted-foreground));
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Submit buttons */
+.berget-keycloak-body input[type="submit"],
+.berget-keycloak-body button[type="submit"] {
+  background: hsl(var(--berget-primary));
+  color: hsl(var(--berget-primary-foreground));
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.berget-keycloak-body input[type="submit"]:hover,
+.berget-keycloak-body button[type="submit"]:hover {
+  background: hsl(var(--berget-secondary));
+}
+
+.berget-keycloak-body input[type="submit"]:focus,
+.berget-keycloak-body button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--berget-ring) / 0.2);
+}
+
+/* Links */
+.berget-keycloak-body a {
+  color: hsl(var(--berget-primary));
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.berget-keycloak-body a:hover {
+  color: hsl(var(--berget-secondary));
+}
+
+/* Error messages */
+.berget-keycloak-body .kc-feedback-text {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Social providers */
+.berget-keycloak-body .kc-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem;
+  background: linear-gradient(to right, transparent, rgba(229, 221, 213, 0.01));
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  color: hsl(var(--berget-foreground));
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 120px;
+}
+
+.berget-keycloak-body .kc-social-link:hover {
+  border-color: hsl(var(--berget-border));
+  background: linear-gradient(to right, transparent, rgba(229, 221, 213, 0.02));
+}
+
+.berget-keycloak-body .kc-social-link i {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Form groups */
+.berget-keycloak-body .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.berget-keycloak-body .form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Checkbox group */
+.berget-keycloak-body .checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .berget-keycloak-body .kc-social-link {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+}
+
+/* Additional Berget-specific styles */
+.berget-keycloak-body .kc-form-card {
+  background: #1A1A1A/40;
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(229, 221, 213, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.berget-keycloak-body .kc-form-card:hover {
+  border-color: rgba(229, 221, 213, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 0 1px rgba(229, 221, 213, 0.05),
+    0 20px 40px -20px rgba(0, 0, 0, 0.5),
+    0 0 50px -12px rgba(229, 221, 213, 0.02);
+}

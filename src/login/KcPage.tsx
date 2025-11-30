@@ -1,40 +1,27 @@
-import { Suspense, lazy } from "react";
-import type { ClassKey } from "keycloakify/login";
+import { Suspense } from "react";
 import type { KcContext } from "./KcContext";
 import { useI18n } from "./i18n";
-import DefaultPage from "keycloakify/login/DefaultPage";
-import Template from "keycloakify/login/Template";
-const UserProfileFormFields = lazy(
-    () => import("keycloakify/login/UserProfileFormFields")
-);
-
-const doMakeUserConfirmPassword = true;
+import Login from "./Login";
 
 export default function KcPage(props: { kcContext: KcContext }) {
     const { kcContext } = props;
-
     const { i18n } = useI18n({ kcContext });
 
     return (
         <Suspense>
             {(() => {
                 switch (kcContext.pageId) {
+                    case "login.ftl":
+                        return <Login kcContext={kcContext} i18n={i18n} />;
                     default:
-                        return (
-                            <DefaultPage
-                                kcContext={kcContext}
-                                i18n={i18n}
-                                classes={classes}
-                                Template={Template}
-                                doUseDefaultCss={true}
-                                UserProfileFormFields={UserProfileFormFields}
-                                doMakeUserConfirmPassword={doMakeUserConfirmPassword}
-                            />
-                        );
+                        return <div className="berget-auth-container">
+                            <div className="text-white text-center">
+                                <h2 className="text-2xl font-serif mb-4">Page: {kcContext.pageId}</h2>
+                                <p className="text-white/60">This page is not implemented yet</p>
+                            </div>
+                        </div>;
                 }
             })()}
         </Suspense>
     );
 }
-
-const classes = {} satisfies { [key in ClassKey]?: string };
