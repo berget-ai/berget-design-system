@@ -1,7 +1,10 @@
 /* Berget Keycloak Theme Styles */
 
-/* Import Berget fonts */
-@import url("https://fonts.googleapis.com/css2?family=Ovo&family=DM+Sans:wght@400;500;600&display=swap");
+/* Import Berget fonts from Fontsource (self-hosted, no Google tracking) */
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "@fontsource/dm-sans/600.css";
+@import "@fontsource/ovo/400.css";
 
 /* CSS Variables for Berget Design System */
 :root {
