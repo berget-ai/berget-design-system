@@ -9,7 +9,7 @@ export type KcContextExtension = {
     // See: https://docs.keycloakify.dev/faq-and-help/some-values-you-need-are-missing-from-in-kccontext
 };
 
-// Magic Link / OTP form page context extension (Phase Two plugin)
+// Magic Link pages context extension (Phase Two plugin)
 export type KcContextExtensionPerPage = {
     "otp-form.ftl": {
         auth: {
@@ -18,6 +18,20 @@ export type KcContextExtensionPerPage = {
         url: {
             loginRestartFlowUrl: string;
             loginAction: string;
+        };
+    };
+    "view-email.ftl": {
+        auth: {
+            attemptedUsername: string;
+        };
+        url: {
+            loginRestartFlowUrl: string;
+        };
+    };
+    "email-confirmation.ftl": {
+        magicLinkContinuation: {
+            sameBrowser: boolean;
+            url: string;
         };
     };
 };

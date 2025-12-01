@@ -20,6 +20,20 @@ const kcContextExtensionPerPage: KcContextExtensionPerPage = {
             loginRestartFlowUrl: "#",
             loginAction: "#"
         }
+    },
+    "view-email.ftl": {
+        auth: {
+            attemptedUsername: "user@example.com"
+        },
+        url: {
+            loginRestartFlowUrl: "#"
+        }
+    },
+    "email-confirmation.ftl": {
+        magicLinkContinuation: {
+            sameBrowser: true,
+            url: "#"
+        }
     }
 };
 

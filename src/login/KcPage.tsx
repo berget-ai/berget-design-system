@@ -6,6 +6,8 @@ import DefaultPage from "keycloakify/login/DefaultPage";
 import Template from "./Template";
 import Login from "./Login";
 import OtpForm from "./pages/OtpForm";
+import ViewEmail from "./pages/ViewEmail";
+import EmailConfirmation from "./pages/EmailConfirmation";
 
 // Lazy load UserProfileFormFields for pages that need it
 const UserProfileFormFields = lazy(
@@ -27,6 +29,26 @@ export default function KcPage(props: { kcContext: KcContext }) {
                     case "otp-form.ftl":
                         return (
                             <OtpForm
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classes}
+                                Template={Template}
+                                doUseDefaultCss={false}
+                            />
+                        );
+                    case "view-email.ftl":
+                        return (
+                            <ViewEmail
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classes}
+                                Template={Template}
+                                doUseDefaultCss={false}
+                            />
+                        );
+                    case "email-confirmation.ftl":
+                        return (
+                            <EmailConfirmation
                                 kcContext={kcContext}
                                 i18n={i18n}
                                 classes={classes}
