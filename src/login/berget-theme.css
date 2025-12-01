@@ -497,7 +497,7 @@ span.kc-feedback-text,
     margin-top: 0.375rem;
 }
 
-/* Social login buttons */
+/* Social login section */
 #kc-social-providers,
 .kc-social-providers {
     margin-top: 1.5rem;
@@ -505,33 +505,81 @@ span.kc-feedback-text,
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.kc-social-provider-name,
-.kc-social-icon-text {
-    margin-left: 0.5rem;
+/* Social providers heading */
+#kc-social-providers h2,
+.kc-social-providers h2,
+#kc-social-providers h3,
+.kc-social-providers h3,
+#kc-social-providers h4,
+.kc-social-providers h4 {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    font-family: "DM Sans", sans-serif;
 }
 
+/* Social providers list - make it a grid */
+#kc-social-providers ul,
+.kc-social-providers ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Social provider list items */
+#kc-social-providers li,
+.kc-social-providers li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Social provider links as buttons */
+#kc-social-providers a,
+.kc-social-providers a,
 #social-providers .zocial,
 .kc-social-link {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.75rem;
     width: 100%;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
+    padding: 0.875rem 1.5rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.75rem;
-    color: white;
+    color: white !important;
     font-family: "DM Sans", sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
     transition: all 0.2s ease;
-    text-decoration: none;
+    text-decoration: none !important;
+    cursor: pointer;
 }
 
+#kc-social-providers a:hover,
+.kc-social-providers a:hover,
 #social-providers .zocial:hover,
 .kc-social-link:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Provider icons */
+#kc-social-providers a i,
+.kc-social-providers a i,
+.kc-social-link i {
+    font-size: 1.25rem;
+}
+
+.kc-social-provider-name,
+.kc-social-icon-text {
+    margin-left: 0;
 }
 
 /* Separators */
