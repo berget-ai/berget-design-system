@@ -302,6 +302,21 @@ body {
    These styles apply to DefaultPage components
    ============================================ */
 
+/* Hide extra horizontal rules */
+hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1.5rem 0;
+}
+
+/* Remove duplicate hr elements */
+hr + hr,
+.form-group + hr,
+hr:first-child,
+hr:last-child {
+    display: none;
+}
+
 /* Form styling */
 #kc-form,
 .kc-form {
@@ -500,9 +515,15 @@ span.kc-feedback-text,
 /* Social login section */
 #kc-social-providers,
 .kc-social-providers {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hide extra hr/borders in social section */
+#kc-social-providers hr,
+.kc-social-providers hr {
+    display: none;
 }
 
 /* Social providers heading */
@@ -523,50 +544,56 @@ span.kc-feedback-text,
 /* Social providers list - make it a grid */
 #kc-social-providers ul,
 .kc-social-providers ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
 }
 
 /* Social provider list items */
 #kc-social-providers li,
 .kc-social-providers li {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
 }
 
 /* Social provider links as buttons */
-#kc-social-providers a,
-.kc-social-providers a,
+#kc-social-providers ul a,
+.kc-social-providers ul a,
+#kc-social-providers li a,
+.kc-social-providers li a,
 #social-providers .zocial,
 .kc-social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    width: 100%;
-    padding: 0.875rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.75rem;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    padding: 0.875rem 1.5rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0.75rem !important;
     color: white !important;
-    font-family: "DM Sans", sans-serif;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 0.9375rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
     text-decoration: none !important;
-    cursor: pointer;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
 }
 
-#kc-social-providers a:hover,
-.kc-social-providers a:hover,
+#kc-social-providers ul a:hover,
+.kc-social-providers ul a:hover,
+#kc-social-providers li a:hover,
+.kc-social-providers li a:hover,
 #social-providers .zocial:hover,
 .kc-social-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
     transform: translateY(-1px);
 }
 
@@ -622,17 +649,29 @@ span.kc-feedback-text,
 #kc-registration,
 .kc-registration-link {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.875rem;
 }
 
+/* Hide extra hr elements */
+#kc-registration hr,
+.kc-registration-link hr {
+    display: none;
+}
+
 #kc-registration a,
 .kc-registration-link a {
-    color: hsl(142 33% 46%);
+    color: hsl(142 33% 46%) !important;
     font-weight: 500;
+    text-decoration: none;
+}
+
+#kc-registration a:hover,
+.kc-registration-link a:hover {
+    color: hsl(151 33% 62%) !important;
 }
 
 /* Remember me / forgot password row */
@@ -641,9 +680,23 @@ span.kc-feedback-text,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+/* Forgot password link in form options */
+#kc-form-options a,
+.login-pf-settings a {
+    color: hsl(142 33% 46%) !important;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+#kc-form-options a:hover,
+.login-pf-settings a:hover {
+    color: hsl(151 33% 62%) !important;
 }
 
 /* Info page */
