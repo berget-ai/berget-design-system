@@ -9,18 +9,6 @@ import "../../index.css";
 const BERGET_LOGO =
     "data:image/svg+xml,%3csvg%20width='463'%20height='419'%20viewBox='0%200%20463%20419'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cfilter%20id='invertFilter'%3e%3cfeColorMatrix%20type='matrix'%20values='-1%200%200%200%201%200%20-1%200%200%201%200%200%20-1%200%201%200%200%200%201%200'/%3e%3c/filter%3e%3c/defs%3e%3cpath%20d='M208.739%2017L255.261%2017L446%20403L398%20403L313.5%20255L261.5%20176L233.163%2096.1677L237.815%2098.6522H226.185L230.837%2096.1677L113%20331L64.5%20403L18%20403L208.739%2017Z'%20fill='black'%20filter='url(%23invertFilter)'/%3e%3c/svg%3e";
 
-// Email icon SVG
-const EmailIcon = () => (
-    <svg className="w-16 h-16 text-white/80 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        />
-    </svg>
-);
-
 export default function ViewEmail(props: PageProps<Extract<KcContext, { pageId: "view-email.ftl" }>, I18n>) {
     const { kcContext, i18n } = props;
     const { msgStr, advancedMsgStr } = i18n;
@@ -37,9 +25,7 @@ export default function ViewEmail(props: PageProps<Extract<KcContext, { pageId: 
                 </CardHeader>
 
                 <CardContent className="space-y-6 text-center">
-                    <EmailIcon />
-
-                    <div className="space-y-2">
+                    <div className="space-y-3 py-4">
                         <p className="text-white font-medium text-lg">{auth.attemptedUsername}</p>
                         <p className="text-white/60">{advancedMsgStr("magicLinkConfirmation")}</p>
                     </div>
