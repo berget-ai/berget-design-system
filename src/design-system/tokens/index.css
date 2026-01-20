@@ -1,0 +1,323 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Import Berget fonts from Fontsource (self-hosted, no Google tracking) */
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "@fontsource/dm-sans/600.css";
+@import "@fontsource/ovo/400.css";
+
+/* ============================================================================
+   BERGET DESIGN SYSTEM - DESIGN TOKENS
+   ============================================================================
+   
+   This file contains the foundational design tokens for the Berget Design System.
+   All colors, spacing, typography, and animations are defined here.
+   
+   Philosophy: Scandinavian design - minimal, functional, natural colors
+   ============================================================================ */
+
+@layer base {
+  /* ========================================================================
+     COLOR TOKENS
+     ======================================================================== */
+  
+  :root {
+    /* Brand Colors - Berget Natural Palette */
+    --berget-stone: 45 15% 88%;        /* #E5DDD5 - Primary brand color */
+    --berget-moss: 151 29% 49%;        /* #60A580 - Nature accent */
+    --berget-sage: 151 33% 62%;        /* #8EB29F - Secondary green */
+    --berget-earth: 30 8% 20%;         /* #342F2D - Dark earth tone */
+    
+    /* Semantic Colors - Dark Theme (Default) */
+    --background: 0 0% 10%;            /* #1A1A1A - Main background */
+    --foreground: 0 0% 100%;           /* #FFFFFF - Main text */
+    
+    --card: 0 0% 10%;                  /* #1A1A1A - Card background */
+    --card-foreground: 0 0% 100%;      /* #FFFFFF - Card text */
+    
+    --popover: 0 0% 10%;               /* #1A1A1A - Popover background */
+    --popover-foreground: 0 0% 100%;   /* #FFFFFF - Popover text */
+    
+    --primary: 45 15% 88%;             /* Stone - Primary actions */
+    --primary-foreground: 0 0% 10%;    /* Dark text on primary */
+    
+    --secondary: 151 29% 49%;          /* Moss - Secondary actions */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+    
+    --accent: 151 33% 62%;             /* Sage - Accents and highlights */
+    --accent-foreground: 0 0% 10%;     /* Dark text on accent */
+    
+    --muted: 0 0% 15%;                 /* Muted backgrounds */
+    --muted-foreground: 0 0% 60%;      /* Muted text */
+    
+    --destructive: 0 72% 51%;          /* Error/destructive actions */
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 142 71% 45%;            /* Success states */
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;             /* Warning states */
+    --warning-foreground: 0 0% 10%;
+    
+    --border: 0 0% 20%;                /* Border color */
+    --input: 0 0% 15%;                 /* Input backgrounds */
+    --ring: 45 15% 88%;                /* Focus ring color */
+    
+    /* Special Effects */
+    --grid-line: rgba(229, 221, 213, 0.02);  /* Subtle grid lines */
+    --glass: rgba(26, 26, 26, 0.4);          /* Glass morphism */
+    --glow: rgba(229, 221, 213, 0.1);        /* Glow effects */
+  }
+
+  /* Light Theme */
+  :root.light,
+  [data-theme='light'] {
+    --background: 0 0% 96%;            /* Light background */
+    --foreground: 0 0% 10%;            /* Dark text */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    
+    --primary: 151 29% 49%;            /* Moss in light mode */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 151 33% 62%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --accent: 45 15% 88%;
+    --accent-foreground: 0 0% 10%;
+    
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+    
+    --border: 0 0% 85%;
+    --input: 0 0% 90%;
+    --ring: 151 29% 49%;
+    
+    --grid-line: rgba(26, 26, 26, 0.02);
+    --glass: rgba(255, 255, 255, 0.6);
+    --glow: rgba(96, 165, 128, 0.15);
+  }
+
+  /* ========================================================================
+     TYPOGRAPHY TOKENS
+     ======================================================================== */
+  
+  html {
+    /* Enable OpenType features for better typography */
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  body {
+    @apply antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    
+    /* Subtle grid background */
+    background-image:
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Headings use Ovo serif font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ovo', Georgia, serif;
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+    font-weight: 400;
+    letter-spacing: -0.04em;
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* ========================================================================
+     SCROLLBAR STYLING
+     ======================================================================== */
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsla(var(--foreground), 0.1);
+    @apply rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(var(--foreground), 0.2);
+  }
+}
+
+/* ============================================================================
+   COMPONENT TOKENS & UTILITIES
+   ============================================================================ */
+
+@layer components {
+  /* ========================================================================
+     ANIMATION TOKENS
+     ======================================================================== */
+  
+  @keyframes bokeh-float {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(10px, 10px);
+    }
+    50% {
+      transform: translate(-5px, 15px);
+    }
+    75% {
+      transform: translate(-15px, -5px);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes gradient-flow {
+    0%, 100% {
+      stop-color: rgba(229, 221, 213, 0.1);
+    }
+    50% {
+      stop-color: rgba(229, 221, 213, 0.2);
+    }
+  }
+
+  /* ========================================================================
+     GLASS MORPHISM EFFECTS
+     ======================================================================== */
+  
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-strong {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* ========================================================================
+     CARD EFFECTS
+     ======================================================================== */
+  
+  .berget-card {
+    @apply rounded-2xl border border-white/10 bg-[#1A1A1A]/40 backdrop-blur-xl;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .berget-card:hover {
+    @apply border-white/20;
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 0 1px rgba(229, 221, 213, 0.05),
+      0 20px 40px -20px rgba(0, 0, 0, 0.5),
+      0 0 50px -12px rgba(229, 221, 213, 0.02);
+  }
+
+  /* ========================================================================
+     BOKEH EFFECT (Animated background glow)
+     ======================================================================== */
+  
+  .bokeh {
+    @apply absolute inset-0 overflow-hidden pointer-events-none opacity-30;
+    filter: blur(80px);
+    border-radius: inherit;
+  }
+
+  .bokeh-circle {
+    @apply absolute rounded-full;
+    animation: bokeh-float 20s infinite ease-in-out;
+    background: radial-gradient(
+      circle at center,
+      var(--color) 0%,
+      transparent 70%
+    );
+  }
+
+  /* ========================================================================
+     INPUT STYLES
+     ======================================================================== */
+  
+  .berget-input {
+    background-color: hsl(var(--input));
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+    @apply rounded-xl px-4 py-3.5 text-sm transition-all duration-200;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .berget-input:focus {
+    outline: none;
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.15);
+  }
+
+  .berget-input::placeholder {
+    color: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* ========================================================================
+     UTILITY CLASSES
+     ======================================================================== */
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

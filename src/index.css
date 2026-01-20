@@ -1,94 +1,41 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+/* ============================================================================
+   BERGET DESIGN SYSTEM - Main Entry Point
+   ============================================================================
+   
+   This file imports the unified Berget Design System tokens and provides
+   backward compatibility for existing Keycloak-specific styles.
+   ============================================================================ */
 
-/* Import Berget fonts from Fontsource (self-hosted, no Google tracking) */
-@import "@fontsource/dm-sans/400.css";
-@import "@fontsource/dm-sans/500.css";
-@import "@fontsource/dm-sans/600.css";
-@import "@fontsource/ovo/400.css";
+/* Import unified Berget Design System tokens */
+@import "./design-system/tokens/index.css";
 
-/* CSS Variables for Berget Design System */
-:root {
-    --berget-background: 0 0% 10%;
-    --berget-foreground: 0 0% 100%;
-    --berget-card: 0 0% 10%;
-    --berget-card-foreground: 0 0% 100%;
-    --berget-primary: 142 33% 46%;
-    --berget-primary-foreground: 0 0% 100%;
-    --berget-secondary: 151 33% 62%;
-    --berget-secondary-foreground: 0 0% 10%;
-    --berget-accent: 45 100% 50%;
-    --berget-accent-foreground: 0 0% 10%;
-    --berget-muted: 0 0% 15%;
-    --berget-muted-foreground: 0 0% 60%;
-    --berget-border: 0 0% 25%;
-    --berget-input: 0 0% 15%;
-    --berget-ring: 142 33% 46%;
-    --berget-grid-line: rgba(229, 221, 213, 0.02);
-}
+/* ============================================================================
+   KEYCLOAK-SPECIFIC LEGACY STYLES
+   ============================================================================
+   These styles are kept for backward compatibility with existing Keycloak pages.
+   New components should use the design system components instead.
+   ============================================================================ */
 
-/* Global styles */
-body {
-    font-family: "DM Sans", sans-serif;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
-    -webkit-tap-highlight-color: transparent;
-}
-
-h1,
-h2,
-h3 {
-    font-family: "Ovo", serif;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
-    font-weight: 400;
-    letter-spacing: -0.04em;
-}
-
-/* Berget Auth Container */
-.berget-auth-container {
+@layer components {
+  /* Berget Auth Container - Used by Keycloak login pages */
+  .berget-auth-container {
     @apply min-h-screen flex items-center justify-center;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(12px);
-    background-image: linear-gradient(
-            to bottom,
-            rgba(229, 221, 213, 0.02) 1px,
-            transparent 1px
-        ),
-        linear-gradient(to right, rgba(229, 221, 213, 0.02) 1px, transparent 1px);
+    background-image: 
+      linear-gradient(to bottom, rgba(229, 221, 213, 0.02) 1px, transparent 1px),
+      linear-gradient(to right, rgba(229, 221, 213, 0.02) 1px, transparent 1px);
     background-size: 24px 24px;
     padding: 20px;
-}
+  }
 
-/* Berget Input Styles */
-.berget-input {
-    background-color: hsl(var(--berget-input));
-    border: 1px solid hsl(var(--berget-border));
-    color: hsl(var(--berget-foreground));
-    border-radius: 0.75rem;
-    padding: 0.875rem 1rem;
-    font-size: 0.9375rem;
-    font-family: "DM Sans", sans-serif;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 100%;
-}
-
-.berget-input:focus {
-    outline: none;
-    border-color: hsl(var(--berget-primary));
-    box-shadow: 0 0 0 2px hsl(var(--berget-primary) / 0.15);
-}
-
-.berget-input::placeholder {
-    color: hsl(var(--berget-muted-foreground) / 0.5);
-}
-
-/* Berget Card Styles */
-.stat-card {
+  /* Legacy stat-card - Prefer using Card component from design system */
+  .stat-card {
     background: linear-gradient(
-        135deg,
-        rgba(26, 26, 26, 0.8) 0%,
-        rgba(26, 26, 26, 0.6) 50%,
-        rgba(32, 32, 32, 0.5) 100%
+      135deg,
+      rgba(26, 26, 26, 0.8) 0%,
+      rgba(26, 26, 26, 0.6) 50%,
+      rgba(32, 32, 32, 0.5) 100%
     );
     backdrop-filter: blur(20px);
     border-radius: 1rem;
@@ -97,48 +44,15 @@ h3 {
     position: relative;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow:
-        0 10px 40px -10px rgba(0, 0, 0, 0.5),
-        0 0 1px rgba(255, 255, 255, 0.05);
-}
+      0 10px 40px -10px rgba(0, 0, 0, 0.5),
+      0 0 1px rgba(255, 255, 255, 0.05);
+  }
 
-.stat-card:hover {
+  .stat-card:hover {
     border-color: rgba(255, 255, 255, 0.12);
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.05),
-        0 20px 50px -15px rgba(0, 0, 0, 0.6),
-        0 0 60px -12px rgba(229, 221, 213, 0.03);
-}
-
-/* Bokeh effect - subtle animated glow */
-.bokeh {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    opacity: 0.3;
-    filter: blur(80px);
-    border-radius: inherit;
-}
-
-.bokeh-circle {
-    position: absolute;
-    border-radius: 50%;
-    animation: bokeh-float 20s infinite;
-    background: radial-gradient(circle at center, var(--color) 0%, transparent 70%);
-}
-
-@keyframes bokeh-float {
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
-    25% {
-        transform: translate(10px, 10px);
-    }
-    50% {
-        transform: translate(-5px, 15px);
-    }
-    75% {
-        transform: translate(-15px, -5px);
-    }
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 20px 50px -15px rgba(0, 0, 0, 0.6),
+      0 0 60px -12px rgba(229, 221, 213, 0.03);
+  }
 }
