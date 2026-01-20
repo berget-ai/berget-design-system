@@ -340,7 +340,7 @@ export const SystemNotification: Story = {
               marginBottom: '24px',
             }}
           >
-            <p style={{ margin: 0, color: '#FBB F24', fontSize: '14px' }}>
+            <p style={{ margin: 0, color: '#FBBF24', fontSize: '14px' }}>
               ⚠️ Scheduled maintenance window
             </p>
           </div>
