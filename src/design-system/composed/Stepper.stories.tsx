@@ -148,7 +148,10 @@ const sampleSteps: Step[] = [
  * Interactive Stepper with Navigation
  */
 export const Interactive: Story = {
-  args: {},
+  args: {
+    steps: sampleSteps,
+    currentStep: 0,
+  },
   render: () => {
     const [currentStep, setCurrentStep] = useState(0)
 
@@ -190,7 +193,10 @@ export const Interactive: Story = {
  * Minimal variant without descriptions
  */
 export const Minimal: Story = {
-  args: {},
+  args: {
+    steps: sampleSteps,
+    currentStep: 1,
+  },
   render: () => {
     const [currentStep, setCurrentStep] = useState(1)
 
@@ -211,7 +217,10 @@ export const Minimal: Story = {
  * Without step numbers
  */
 export const WithoutNumbers: Story = {
-  args: {},
+  args: {
+    steps: sampleSteps,
+    currentStep: 2,
+  },
   render: () => {
     const [currentStep, setCurrentStep] = useState(2)
 
@@ -232,7 +241,10 @@ export const WithoutNumbers: Story = {
  * Registration Flow Example
  */
 export const RegistrationFlow: Story = {
-  args: {},
+  args: {
+    steps: sampleSteps,
+    currentStep: 0,
+  },
   render: () => {
     const [currentStep, setCurrentStep] = useState(0)
 
@@ -310,7 +322,10 @@ export const RegistrationFlow: Story = {
  * Checkout Flow Example
  */
 export const CheckoutFlow: Story = {
-  args: {},
+  args: {
+    steps: sampleSteps,
+    currentStep: 0,
+  },
   render: () => {
     const [currentStep, setCurrentStep] = useState(0)
 
