@@ -1,27 +1,117 @@
 # Berget Design System
 
-A Scandinavian-inspired design system built with React, TypeScript, and Tailwind CSS.
+A world-class, Scandinavian-inspired design system built with React, TypeScript, and Tailwind CSS.
 
 ## Philosophy
 
-Berget Design System draws inspiration from Scandinavian design principles:
+Berget Design System embodies Scandinavian design principles with a modern twist:
 
-- **Minimalism** - Clean, uncluttered interfaces
-- **Functionality** - Form follows function
-- **Natural Colors** - Earth tones, moss greens, stone grays
-- **Quality** - Attention to detail and craftsmanship
-- **Timeless** - Classic design that ages well
+- **Minimalism** - Clean, uncluttered interfaces that breathe
+- **Functionality** - Every element serves a purpose
+- **Natural Colors** - Earth tones, moss greens, stone grays inspired by Nordic landscapes
+- **Quality** - Meticulous attention to detail and craftsmanship
+- **Consistency** - One visual language across all touchpoints
+- **Timelessness** - Design that ages gracefully
+
+## Core Principles
+
+### 1. **Composition Over Duplication**
+Components build upon each other. `Card` extends `Panel`. `FeatureCard` extends `Panel`. One source of truth for styling.
+
+### 2. **Minimal API Surface**
+Fewer props = easier to use. Only expose what's truly necessary.
+
+### 3. **Semantic Naming**
+- **Primitives:** Semantic names (`default`, `primary`, `destructive`)
+- **Blocks:** Brand color names (`moss`, `sage`, `earth`, `stone`)
+
+### 4. **Documentation is Code**
+Every component is thoroughly documented with examples and guidance.
 
 ## Structure
 
 ```
 design-system/
 ├── tokens/          # Design tokens (colors, typography, spacing)
-├── primitives/      # Base components (Button, Card, Badge, Input)
-├── effects/         # Visual effects (Bokeh, NoiseGradient, AnimatedLine)
-├── layout/          # Layout components (Container, Grid, Stack)
-├── composed/        # Complex components (GradientCard, IconBox)
-└── marketing/       # Marketing sections (Hero, Pricing, Features)
+├── primitives/      # Base components (Button, Panel, Input, Badge, etc.)
+├── layout/          # Layout & spacing (Container, Stack)
+├── blocks/          # Marketing blocks (FeatureCard, HeroBlock, SectionHeader)
+├── effects/         # Visual effects (backgrounds, animations)
+└── templates/       # Complete templates (EmailTemplate)
+```
+
+### Component Categories
+
+#### **Primitives** - Foundation
+Basic building blocks that everything else builds upon.
+
+- `Panel` - Base for all card-like surfaces ⭐ **NEW**
+- `Button` - Actions and interactions
+- `Card` - Structured content containers (extends Panel)
+- `Badge` - Status indicators and labels
+- `Alert` - Important messages and notifications
+- `Input` - Text input fields
+- `Logo` - Official Berget branding
+
+#### **Layout** - Structure
+Components for page structure and spacing.
+
+- `Container` - Responsive page width constraints
+- `Stack` - Consistent spacing between elements
+
+#### **Blocks** - Compositions
+Opinionated compositions for common marketing patterns.
+
+- `FeatureCard` - Feature showcases (extends Panel)
+- `HeroBlock` - Full-width hero sections
+- `SectionHeader` - Consistent section headers
+
+#### **Effects** - Visual Enhancement
+Background effects and visual flourishes.
+
+- `GridBackground` - Subtle grid pattern
+- `GradientBackground` - Animated gradients
+- `NetworkBackground` - Particle network animation
+
+#### **Templates** - Complete Layouts
+Fully structured templates for specific use cases.
+
+- `EmailTemplate` - Transactional and marketing emails
+
+## Quick Start
+
+### Installation
+
+```bash
+npm install
+```
+
+### Import Components
+
+```tsx
+// Primitives
+import { Button, Panel, Card, Badge, Alert, Input } from '@/design-system/primitives'
+
+// Layout
+import { Container, Stack } from '@/design-system/layout'
+
+// Blocks
+import { FeatureCard, HeroBlock, SectionHeader } from '@/design-system/blocks'
+
+// Effects
+import { GridBackground, GradientBackground } from '@/design-system/effects'
+```
+
+### Use Design Tokens
+
+```tsx
+// Import tokens CSS
+import '@/design-system/tokens'
+
+// Use CSS variables
+<div className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
+  Content
+</div>
 ```
 
 ## Design Tokens
@@ -29,184 +119,227 @@ design-system/
 ### Colors
 
 **Brand Colors:**
-- `--berget-stone` (#E5DDD5) - Primary brand color, inspired by Scandinavian stone
-- `--berget-moss` (#60A580) - Nature accent, Nordic forest green
-- `--berget-sage` (#8EB29F) - Secondary green, soft sage
-- `--berget-earth` (#342F2D) - Dark earth tone
+- `--berget-stone` (#E5DDD5) - Primary brand color
+- `--berget-moss` (#52B788) - Nature accent, forest green
+- `--berget-sage` (#74C69D) - Secondary green, soft sage
+- `--berget-earth` (#2D6A4F) - Dark earth tone
 
 **Semantic Colors:**
-- Dark theme (default) with `#1A1A1A` background
-- Light theme support via `.light` class or `data-theme="light"`
+- Dark theme (default): `#1A1A1A` background
+- Semantic tokens: `--primary`, `--secondary`, `--accent`, `--destructive`
 
 ### Typography
 
 **Fonts:**
-- **Headings:** Ovo (serif) - Classic, readable serif for headings
+- **Headings:** Ovo (serif) - Classic, readable serif
 - **Body:** DM Sans (sans-serif) - Modern, clean sans-serif
 
-**OpenType Features:**
-- Stylistic sets (ss01, ss02)
-- Contextual alternates (cv01, cv02)
-- Antialiasing enabled
+**Features:**
+- OpenType features enabled (ss01, ss02, cv01, cv02)
+- Optimized for screen rendering
+- Consistent letter-spacing: -0.04em for headings
 
 ### Animations
 
-- `bokeh-float` - Gentle floating effect for background elements
+- `bokeh-float` - Gentle floating effect
 - `fadeIn` - Smooth fade and scale entrance
-- `slideUp` - Slide up entrance animation
+- `slideUp` - Slide up entrance
 - `shimmer` - Loading shimmer effect
 - `gradient-flow` - Flowing gradient animation
 
-## Component Categories
+All animations: 150-500ms duration for responsiveness.
 
-### Primitives
-Basic building blocks that other components are built upon:
-- Button
-- Card
-- Badge
-- Alert
-- Input
-- Checkbox
-- Switch
+## Usage Examples
 
-### Effects
-Visual enhancements and animations:
-- Bokeh (animated background glow)
-- NoiseGradient (textured gradient backgrounds)
-- AnimatedLine (flowing connection lines)
-- GlowingDot (status indicators)
-- GridBackground (subtle grid pattern)
-
-### Layout
-Structural components:
-- Container
-- Grid
-- Stack
-- Section
-
-### Composed
-Complex components built from primitives:
-- GradientCard
-- IconBox
-- StatusBadge
-- FeatureCard
-
-### Marketing
-Section components for marketing pages:
-- Hero
-- Pricing
-- Features
-- CTA (Call to Action)
-
-## Usage
-
-### Basic Import
+### Building a Feature Section
 
 ```tsx
-import { Button } from '@/design-system/primitives/Button'
-import { Card } from '@/design-system/primitives/Card'
-import { Bokeh } from '@/design-system/effects/Bokeh'
+import { Container, Stack } from '@/design-system/layout'
+import { SectionHeader } from '@/design-system/blocks'
+import { FeatureCard } from '@/design-system/blocks'
+import { Cloud, Zap, Shield } from 'lucide-react'
+
+function FeaturesSection() {
+  return (
+    <section className="py-24">
+      <Container>
+        <SectionHeader
+          title="Why Choose Berget"
+          description="European AI infrastructure built for privacy and performance"
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <FeatureCard
+            icon={Cloud}
+            title="Serverless"
+            description="Deploy without infrastructure"
+            features={["Auto-scaling", "Pay per use", "EU regions"]}
+            variant="moss"
+          />
+          <FeatureCard
+            icon={Zap}
+            title="Fast"
+            description="Sub-100ms inference"
+            features={["Edge locations", "Optimized", "CDN"]}
+            variant="sage"
+          />
+          <FeatureCard
+            icon={Shield}
+            title="Secure"
+            description="GDPR compliant"
+            features={["EU data", "Encrypted", "Audited"]}
+            variant="earth"
+          />
+        </div>
+      </Container>
+    </section>
+  )
+}
 ```
 
-### With Design Tokens
+### Creating a Landing Page
 
 ```tsx
-// Import the design tokens CSS
-import '@/design-system/tokens'
+import { HeroBlock, SectionHeader } from '@/design-system/blocks'
+import { Button } from '@/design-system/primitives'
+import { Shield } from 'lucide-react'
 
-// Use CSS variables in your components
-<div className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
-  Content
-</div>
+function LandingPage() {
+  return (
+    <main>
+      <HeroBlock
+        taglineIcon={Shield}
+        tagline="Built for Europe"
+        title="AI That Respects Your Data"
+        description="The only AI platform designed for European organizations"
+        variant="moss"
+        actions={
+          <>
+            <Button size="lg">Get Started</Button>
+            <Button size="lg" variant="outline">Book Demo</Button>
+          </>
+        }
+      />
+      
+      {/* More sections... */}
+    </main>
+  )
+}
 ```
 
-### Theme Switching
+### Using Panel as a Base
 
 ```tsx
-// Toggle between light and dark themes
-document.documentElement.classList.toggle('light')
+import { Panel } from '@/design-system/primitives'
+
+// Simple panel
+function SimplePanel() {
+  return (
+    <Panel>
+      Content
+    </Panel>
+  )
+}
+
+// Custom card extending Panel
+function CustomCard({ title, children }) {
+  return (
+    <Panel variant="elevated" padding="lg">
+      <h3 className="text-xl font-medium mb-4">{title}</h3>
+      {children}
+    </Panel>
+  )
+}
 ```
 
-## Storybook
+## Development
 
-All components have Storybook stories for development and documentation.
+### Run Storybook
 
-Run Storybook:
 ```bash
 npm run storybook
 ```
 
-## Development Guidelines
+Visit `http://localhost:6006` to browse components.
 
-### Component Structure
+### Create a New Component
 
-Each component should have:
-1. **Component file** (`Component.tsx`)
-2. **Story file** (`Component.stories.tsx`)
-3. **Type definitions** (included in component file)
-4. **Documentation** (in Story file)
+See [CONTRIBUTING.md](../../CONTRIBUTING.md) for detailed guidelines.
 
-### Naming Conventions
-
-- **Components:** PascalCase (e.g., `Button`, `GradientCard`)
-- **Files:** PascalCase matching component name
-- **CSS Classes:** kebab-case or Tailwind utilities
-- **CSS Variables:** `--berget-*` prefix for brand tokens
-
-### Props Pattern
-
-Use TypeScript interfaces and React.forwardRef:
+Quick template:
 
 ```tsx
-export interface ButtonProps 
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '../../utils/cn'
+
+const componentVariants = cva('base-classes', {
+  variants: { /* ... */ },
+  defaultVariants: { /* ... */ },
+})
+
+export interface ComponentProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof componentVariants> {
+  children: React.ReactNode
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
-    // Component implementation
-  }
+/**
+ * Component Name
+ * 
+ * Description here.
+ * 
+ * @example
+ * ```tsx
+ * <Component>Content</Component>
+ * ```
+ */
+const Component = React.forwardRef<HTMLDivElement, ComponentProps>(
+  ({ className, variant, children, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(componentVariants({ variant }), className)}
+      {...props}
+    >
+      {children}
+    </div>
+  )
 )
+Component.displayName = 'Component'
+
+export { Component, componentVariants }
 ```
 
-### Variant Pattern
+## Best Practices
 
-Use `class-variance-authority` for component variants:
+### ✅ Do
 
-```tsx
-import { cva, type VariantProps } from 'class-variance-authority'
+- Build on existing primitives (especially Panel)
+- Use semantic variant names for primitives
+- Use color names for blocks
+- Include comprehensive JSDoc
+- Create Storybook stories with real-world examples
+- Test accessibility (keyboard, screen readers)
+- Use design tokens, not hardcoded colors
 
-const variants = cva(
-  'base-classes',
-  {
-    variants: {
-      variant: {
-        default: 'variant-classes',
-        primary: 'primary-classes',
-      },
-      size: {
-        sm: 'small-classes',
-        md: 'medium-classes',
-      }
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'md'
-    }
-  }
-)
-```
+### ❌ Don't
+
+- Duplicate styling from existing components
+- Mix semantic and color variant names
+- Skip documentation
+- Use random colors outside the palette
+- Create overlapping components
 
 ## Accessibility
 
 All components follow WAI-ARIA guidelines:
+
 - Semantic HTML elements
 - Proper ARIA attributes
 - Keyboard navigation support
 - Focus management
-- Screen reader support
+- Screen reader compatibility
+- WCAG 2.1 AA color contrast
 
 ## Browser Support
 
@@ -214,7 +347,22 @@ All components follow WAI-ARIA guidelines:
 - ES2020+ features
 - CSS Grid and Flexbox
 - CSS Custom Properties
+- No IE11 support
+
+## Contributing
+
+See [CONTRIBUTING.md](../../CONTRIBUTING.md) for detailed guidelines on:
+
+- Component structure
+- Naming conventions
+- Documentation standards
+- Composition patterns
+- Testing checklist
 
 ## License
 
 MIT
+
+---
+
+**Built with ❤️ for European AI infrastructure**
