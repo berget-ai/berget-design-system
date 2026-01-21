@@ -60,7 +60,7 @@ export const Default: Story = {
     ],
   },
   render: (args) => (
-    <div className="w-[400px]">
+    <div className="w-full max-w-md">
       <FeatureCard {...args} />
     </div>
   ),
@@ -83,7 +83,7 @@ export const Moss: Story = {
     variant: 'moss',
   },
   render: (args) => (
-    <div className="w-[400px]">
+    <div className="w-full max-w-md">
       <FeatureCard {...args} />
     </div>
   ),
@@ -106,7 +106,7 @@ export const Sage: Story = {
     variant: 'sage',
   },
   render: (args) => (
-    <div className="w-[400px]">
+    <div className="w-full max-w-md">
       <FeatureCard {...args} />
     </div>
   ),
@@ -129,7 +129,7 @@ export const Earth: Story = {
     variant: 'earth',
   },
   render: (args) => (
-    <div className="w-[400px]">
+    <div className="w-full max-w-md">
       <FeatureCard {...args} />
     </div>
   ),
@@ -148,7 +148,7 @@ export const WithoutCheckmarks: Story = {
     showCheckmarks: false,
   },
   render: (args) => (
-    <div className="w-[400px]">
+    <div className="w-full max-w-md">
       <FeatureCard {...args} />
     </div>
   ),
@@ -165,7 +165,7 @@ export const WithoutFeatures: Story = {
       'All data stays in the EU with full GDPR compliance. Your data, your control, your sovereignty.',
   },
   render: (args) => (
-    <div className="w-[400px]">
+    <div className="w-full max-w-md">
       <FeatureCard {...args} />
     </div>
   ),
@@ -176,7 +176,8 @@ export const WithoutFeatures: Story = {
  */
 export const ThreeColumnGrid: Story = {
   render: () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl">
+    <div className="w-full max-w-6xl px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <FeatureCard
         icon={Cloud}
         iconColor="text-[#52B788]"
@@ -213,6 +214,7 @@ export const ThreeColumnGrid: Story = {
           'Local compliance',
         ]}
       />
+      </div>
     </div>
   ),
 }
@@ -222,7 +224,8 @@ export const ThreeColumnGrid: Story = {
  */
 export const BenefitsSection: Story = {
   render: () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
+    <div className="w-full max-w-6xl px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <FeatureCard
         icon={Shield}
         iconColor="text-white"
@@ -262,6 +265,7 @@ export const BenefitsSection: Story = {
         ]}
         variant="default"
       />
+      </div>
     </div>
   ),
 }
@@ -271,7 +275,8 @@ export const BenefitsSection: Story = {
  */
 export const TwoColumnLayout: Story = {
   render: () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+    <div className="w-full max-w-4xl px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <FeatureCard
         icon={Database}
         iconColor="text-[#52B788]"
@@ -298,6 +303,7 @@ export const TwoColumnLayout: Story = {
         ]}
         variant="sage"
       />
+      </div>
     </div>
   ),
 }
@@ -326,7 +332,7 @@ export const LargeFeatureList: Story = {
     variant: 'moss',
   },
   render: (args) => (
-    <div className="w-[450px]">
+    <div className="w-full max-w-md">
       <FeatureCard {...args} />
     </div>
   ),
