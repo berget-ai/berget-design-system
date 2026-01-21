@@ -15,13 +15,13 @@ const badgeVariants = cva(
           'border-transparent bg-accent text-accent-foreground hover:bg-accent/80',
         destructive:
           'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
-        outline: 'text-foreground border-border',
+        outline: 'text-foreground border-[hsl(var(--border))]',
         success:
-          'border-transparent bg-green-500/10 text-green-500 border-green-500/20',
+          'border-[hsl(var(--border-success))] bg-[hsl(var(--success))]/10 text-[hsl(var(--success))]',
         warning:
-          'border-transparent bg-yellow-500/10 text-yellow-500 border-yellow-500/20',
+          'border-[hsl(var(--border-warning))] bg-[hsl(var(--warning))]/10 text-[hsl(var(--warning))]',
         info:
-          'border-transparent bg-blue-500/10 text-blue-500 border-blue-500/20',
+          'border-[hsl(var(--border-info))] bg-[hsl(var(--info))]/10 text-[hsl(var(--info))]',
       },
     },
     defaultVariants: {
@@ -48,6 +48,13 @@ export interface BadgeProps
  * - `success` - Success/positive badge
  * - `warning` - Warning/caution badge
  * - `info` - Informational badge
+ * 
+ * **Border System:**
+ * Uses semantic border tokens for state variants:
+ * - outline: `--border` (standard)
+ * - success: `--border-success` (green)
+ * - warning: `--border-warning` (yellow)
+ * - info: `--border-info` (blue)
  * 
  * **Use Cases:**
  * - Status indicators (Active, Pending, Failed)

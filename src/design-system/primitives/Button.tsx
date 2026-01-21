@@ -68,6 +68,9 @@ export interface ButtonProps
  * - `lg` - Large (48px height)
  * - `icon` - Square for icon-only buttons
  * 
+ * **Border System:**
+ * Outline variant uses semantic `--border` token that adapts to theme.
+ * 
  * **Composition:**
  * Supports `asChild` prop for composition with other components like links.
  * 

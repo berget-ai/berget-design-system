@@ -8,10 +8,10 @@ const featureCardVariants = cva('', {
   variants: {
     variant: {
       default: '',
-      moss: 'bg-[#52B788]/5 border-[#74C69D]/20 hover:bg-[#52B788]/10',
-      sage: 'bg-[#74C69D]/5 border-[#74C69D]/20 hover:bg-[#74C69D]/10',
-      earth: 'bg-[#2D6A4F]/5 border-[#40916C]/20 hover:bg-[#2D6A4F]/10',
-      stone: 'bg-[hsl(var(--primary))]/5 border-[hsl(var(--primary))]/20 hover:bg-[hsl(var(--primary))]/10',
+      moss: 'bg-[#52B788]/5 border-[hsl(var(--border-moss))] hover:bg-[#52B788]/10',
+      sage: 'bg-[#74C69D]/5 border-[hsl(var(--border-sage))] hover:bg-[#74C69D]/10',
+      earth: 'bg-[#2D6A4F]/5 border-[hsl(var(--border-earth))] hover:bg-[#2D6A4F]/10',
+      stone: 'bg-[hsl(var(--primary))]/5 border-[hsl(var(--border-stone))] hover:bg-[hsl(var(--primary))]/10',
     },
   },
   defaultVariants: {
@@ -60,6 +60,14 @@ export interface FeatureCardProps
  * - `sage` - Sage green tint (#74C69D)
  * - `earth` - Earth tone tint (#2D6A4F)
  * - `stone` - Berget Stone tint
+ * 
+ * **Border System:**
+ * Uses semantic border tokens:
+ * - default: `--border` (standard)
+ * - moss: `--border-moss` (moss green)
+ * - sage: `--border-sage` (sage green)
+ * - earth: `--border-earth` (earth tone)
+ * - stone: `--border-stone` (berget stone)
  * 
  * **Design System Role:**
  * FeatureCard extends Panel with opinionated structure for feature showcases.

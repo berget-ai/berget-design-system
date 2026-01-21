@@ -7,12 +7,12 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-background text-foreground border-border',
-        info: 'border-blue-500/50 bg-blue-500/10 text-blue-500 [&>svg]:text-blue-500',
-        success: 'border-green-500/50 bg-green-500/10 text-green-500 [&>svg]:text-green-500',
-        warning: 'border-yellow-500/50 bg-yellow-500/10 text-yellow-500 [&>svg]:text-yellow-500',
+        default: 'bg-background text-foreground border-[hsl(var(--border))]',
+        info: 'border-[hsl(var(--border-info))] bg-[hsl(var(--info))]/10 text-[hsl(var(--info))] [&>svg]:text-[hsl(var(--info))]',
+        success: 'border-[hsl(var(--border-success))] bg-[hsl(var(--success))]/10 text-[hsl(var(--success))] [&>svg]:text-[hsl(var(--success))]',
+        warning: 'border-[hsl(var(--border-warning))] bg-[hsl(var(--warning))]/10 text-[hsl(var(--warning))] [&>svg]:text-[hsl(var(--warning))]',
         destructive:
-          'border-destructive/50 bg-destructive/10 text-destructive [&>svg]:text-destructive',
+          'border-[hsl(var(--border-destructive))] bg-[hsl(var(--destructive))]/10 text-[hsl(var(--destructive))] [&>svg]:text-[hsl(var(--destructive))]',
       },
     },
     defaultVariants: {
@@ -36,6 +36,14 @@ export interface AlertProps
  * - `success` - Green success alert
  * - `warning` - Yellow warning alert
  * - `destructive` - Red error/danger alert
+ * 
+ * **Border System:**
+ * Uses semantic border tokens for each variant:
+ * - default: `--border` (standard)
+ * - info: `--border-info` (blue)
+ * - success: `--border-success` (green)
+ * - warning: `--border-warning` (yellow)
+ * - destructive: `--border-destructive` (red)
  * 
  * **Composition:**
  * - AlertTitle - Optional title/heading

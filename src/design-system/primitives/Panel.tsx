@@ -7,11 +7,11 @@ const panelVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-[hsl(var(--card))] border border-white/10',
-        glass: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-white/10',
-        elevated: 'bg-[hsl(var(--card))] border border-white/10 shadow-lg hover:shadow-xl hover:-translate-y-1',
+        default: 'bg-[hsl(var(--card))] border border-[hsl(var(--border))]',
+        glass: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-[hsl(var(--border))]',
+        elevated: 'bg-[hsl(var(--card))] border border-[hsl(var(--border))] shadow-lg hover:shadow-xl hover:-translate-y-1',
         flat: 'bg-[hsl(var(--card))]',
-        outline: 'bg-transparent border border-white/10',
+        outline: 'bg-transparent border border-[hsl(var(--border))]',
       },
       padding: {
         none: 'p-0',
@@ -54,6 +54,12 @@ export interface PanelProps
  * - `sm` - Small padding (16px)
  * - `md` - Medium padding (24px, default)
  * - `lg` - Large padding (32px)
+ * 
+ * **Border System:**
+ * Panel uses semantic border tokens from the design system:
+ * - `--border` - Default subtle border
+ * - Automatically adapts to light/dark theme
+ * - Consistent across all panel-based components
  * 
  * **Design System Role:**
  * Panel is the foundational component for all surfaces. Other components
