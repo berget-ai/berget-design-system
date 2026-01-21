@@ -82,10 +82,10 @@
        - border-[hsl(var(--border-info))]      - Info borders
        ======================================================================== */
     
-    /* Base Borders */
-    --border: 0 0% 100% / 0.1;         /* rgba(255, 255, 255, 0.1) - Default subtle border */
-    --border-hover: 0 0% 100% / 0.2;   /* rgba(255, 255, 255, 0.2) - Hover state */
-    --border-strong: 0 0% 100% / 0.15; /* rgba(255, 255, 255, 0.15) - Stronger border */
+    /* Base Borders - Console-inspired subtle borders */
+    --border: 0 0% 100% / 0.05;        /* rgba(255, 255, 255, 0.05) - Barely visible, console-style */
+    --border-hover: 0 0% 100% / 0.1;   /* rgba(255, 255, 255, 0.1) - Subtle hover brightening */
+    --border-strong: 0 0% 100% / 0.08; /* rgba(255, 255, 255, 0.08) - Slightly stronger */
     
     /* Themed Borders - For blocks with brand colors */
     --border-moss: 151 29% 49% / 0.2;    /* Moss green border */
@@ -315,17 +315,17 @@
   }
 
   /* ========================================================================
-     PANEL GLOW - Organic border lighting effect
+     PANEL GLOW - Organic border lighting effect (console-inspired)
      ======================================================================== */
   
-  /* Subtle static glow around panel borders */
+  /* Very subtle static glow - barely visible like console */
   .panel-glow {
     box-shadow:
-      0 0 0 1px rgba(229, 221, 213, 0.03),
-      0 0 20px -8px rgba(229, 221, 213, 0.015);
+      0 0 0 1px rgba(229, 221, 213, 0.02),
+      0 0 20px -10px rgba(229, 221, 213, 0.01);
   }
 
-  /* Enhanced glow on hover - borders feel alive */
+  /* Enhanced glow on hover - borders feel alive but still subtle */
   .panel-glow-hover:hover {
     box-shadow:
       0 0 0 1px rgba(229, 221, 213, 0.05),
