@@ -3,13 +3,13 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../utils/cn'
 
 const panelVariants = cva(
-  'relative transition-all duration-300',
+  'relative transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]',
   {
     variants: {
       variant: {
-        default: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-[hsl(var(--border))] hover:border-[hsl(var(--border-hover))] hover:-translate-y-0.5',
-        glass: 'bg-[hsl(var(--card))]/40 liquid-glass border border-[hsl(var(--border))] hover:border-[hsl(var(--border-hover))]',
-        elevated: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-[hsl(var(--border))] shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-[hsl(var(--border-hover))]',
+        default: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-[hsl(var(--border))] panel-glow hover:panel-glow-hover hover:border-[hsl(var(--border-hover))] hover:-translate-y-0.5',
+        glass: 'bg-[hsl(var(--card))]/40 liquid-glass border border-[hsl(var(--border))] panel-glow hover:panel-glow-hover hover:border-[hsl(var(--border-hover))]',
+        elevated: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-[hsl(var(--border))] shadow-lg panel-glow hover:panel-glow-hover hover:shadow-xl hover:-translate-y-1 hover:border-[hsl(var(--border-hover))]',
         flat: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl',
         outline: 'bg-transparent border border-[hsl(var(--border))] hover:border-[hsl(var(--border-hover))]',
       },

@@ -313,4 +313,23 @@
       -webkit-backdrop-filter: blur(12px);
     }
   }
+
+  /* ========================================================================
+     PANEL GLOW - Organic border lighting effect
+     ======================================================================== */
+  
+  /* Subtle static glow around panel borders */
+  .panel-glow {
+    box-shadow:
+      0 0 0 1px rgba(229, 221, 213, 0.03),
+      0 0 20px -8px rgba(229, 221, 213, 0.015);
+  }
+
+  /* Enhanced glow on hover - borders feel alive */
+  .panel-glow-hover:hover {
+    box-shadow:
+      0 0 0 1px rgba(229, 221, 213, 0.05),
+      0 20px 40px -20px rgba(0, 0, 0, 0.5),
+      0 0 50px -12px rgba(229, 221, 213, 0.02);
+  }
 }
