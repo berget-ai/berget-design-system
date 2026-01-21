@@ -327,7 +327,9 @@ Before submitting a component:
 - [ ] Accessibility attributes are included
 - [ ] Component compiles without TypeScript errors
 
-## Color Usage
+## Color & Border Usage
+
+### Colors
 
 Use design tokens, not hardcoded colors:
 
@@ -336,11 +338,94 @@ Use design tokens, not hardcoded colors:
 className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]"
 
 // ✅ ALSO GOOD - Uses Berget color names for blocks
-className="bg-[#52B788]/5 border-[#74C69D]/20"
+className="bg-[#52B788]/5"
 
 // ❌ BAD - Hardcoded random colors
 className="bg-blue-500 text-white"
 ```
+
+### Borders - Semantic System
+
+**ALWAYS use semantic border tokens.** Never hardcode border colors.
+
+#### Base Borders (for panels, cards, containers)
+
+```tsx
+// ✅ GOOD - Default border
+className="border border-[hsl(var(--border))]"
+
+// ✅ GOOD - Hover state
+className="hover:border-[hsl(var(--border-hover))]"
+
+// ✅ GOOD - Stronger border
+className="border border-[hsl(var(--border-strong))]"
+
+// ❌ BAD - Hardcoded
+className="border border-white/10"  // Don't do this!
+```
+
+#### Themed Borders (for branded blocks)
+
+Use themed borders for components with brand color variants:
+
+```tsx
+// ✅ GOOD - Moss variant
+className="border-[hsl(var(--border-moss))]"
+
+// ✅ GOOD - Sage variant
+className="border-[hsl(var(--border-sage))]"
+
+// ✅ GOOD - Earth variant
+className="border-[hsl(var(--border-earth))]"
+
+// ✅ GOOD - Stone variant
+className="border-[hsl(var(--border-stone))]"
+
+// ❌ BAD - Hardcoded green
+className="border-[#74C69D]/20"  // Don't do this!
+```
+
+#### State Borders (for alerts, badges, status)
+
+Use state borders for success/warning/error/info states:
+
+```tsx
+// ✅ GOOD - Success state
+className="border-[hsl(var(--border-success))]"
+
+// ✅ GOOD - Warning state
+className="border-[hsl(var(--border-warning))]"
+
+// ✅ GOOD - Error state
+className="border-[hsl(var(--border-destructive))]"
+
+// ✅ GOOD - Info state
+className="border-[hsl(var(--border-info))]"
+
+// ❌ BAD - Hardcoded colors
+className="border-green-500/50"  // Don't do this!
+```
+
+#### Quick Reference
+
+| Use Case | Token | Example |
+|----------|-------|---------|
+| Default panel | `--border` | `<Panel>` |
+| Hover state | `--border-hover` | Interactive cards |
+| Moss themed | `--border-moss` | `<FeatureCard variant="moss">` |
+| Sage themed | `--border-sage` | `<FeatureCard variant="sage">` |
+| Earth themed | `--border-earth` | `<FeatureCard variant="earth">` |
+| Stone themed | `--border-stone` | `<FeatureCard variant="stone">` |
+| Success message | `--border-success` | `<Alert variant="success">` |
+| Warning message | `--border-warning` | `<Alert variant="warning">` |
+| Error message | `--border-destructive` | `<Alert variant="destructive">` |
+| Info message | `--border-info` | `<Alert variant="info">` |
+
+**Benefits:**
+- ✅ Automatic theme support (light/dark)
+- ✅ Consistent across all components
+- ✅ Easy to update globally
+- ✅ Semantic and clear intent
 
 ## Accessibility Requirements
 
