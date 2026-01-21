@@ -157,16 +157,18 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
     }, [showOutput, currentStep, steps, outputSpeed])
 
     const renderOutputLine = (line: string, lineIndex: number) => {
+      if (!line && line !== '') return null // Guard against undefined
+      
       let icon = null
       let displayLine = line
 
-      if (line.startsWith('✓')) {
+      if (line && line.startsWith('✓')) {
         icon = <CheckCircle2 className="w-4 h-4 text-[#22C55E] mt-0.5 flex-shrink-0" />
         displayLine = line.replace('✓ ', '')
-      } else if (line.startsWith('✗')) {
+      } else if (line && line.startsWith('✗')) {
         icon = <XCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
         displayLine = line.replace('✗ ', '')
-      } else if (line.startsWith('⚠')) {
+      } else if (line && line.startsWith('⚠')) {
         icon = <AlertCircle className="w-4 h-4 text-[#FBB034] mt-0.5 flex-shrink-0" />
         displayLine = line.replace('⚠ ', '')
       }
