@@ -254,7 +254,7 @@
   }
 
   /* ========================================================================
-     BOKEH EFFECT - Subtle organic lighting for panels
+     BOKEH EFFECT - Organic lighting for panels (console-style)
      ======================================================================== */
   
   .bokeh {
@@ -263,13 +263,13 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.3;
+    opacity: 0.5;
+    filter: blur(60px);
   }
   
   .bokeh-circle {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
     animation: bokeh-float 20s ease-in-out infinite;
     background: radial-gradient(
       circle at center,

@@ -111,11 +111,11 @@ const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
           <div
             className="bokeh-circle"
             style={{
-              width: '150px',
-              height: '150px',
-              top: '-20px',
-              left: '-20px',
-              '--color': 'rgba(229, 221, 213, 0.12)',
+              width: '180px',
+              height: '180px',
+              top: '-30px',
+              left: '-30px',
+              '--color': 'rgba(229, 221, 213, 0.4)',
               animationDelay: '0s',
             } as React.CSSProperties}
           />
@@ -123,11 +123,11 @@ const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
           <div
             className="bokeh-circle"
             style={{
-              width: '120px',
-              height: '120px',
-              top: '40%',
-              left: '10%',
-              '--color': 'rgba(229, 221, 213, 0.06)',
+              width: '150px',
+              height: '150px',
+              top: '35%',
+              left: '5%',
+              '--color': 'rgba(229, 221, 213, 0.25)',
               animationDelay: '5s',
             } as React.CSSProperties}
           />
@@ -135,11 +135,11 @@ const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
           <div
             className="bokeh-circle"
             style={{
-              width: '100px',
-              height: '100px',
+              width: '130px',
+              height: '130px',
               bottom: '10%',
-              right: '15%',
-              '--color': 'rgba(82, 183, 136, 0.08)',
+              right: '10%',
+              '--color': 'rgba(82, 183, 136, 0.3)',
               animationDelay: '10s',
             } as React.CSSProperties}
           />
