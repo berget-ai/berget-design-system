@@ -53,6 +53,15 @@ The foundational component for all card-like surfaces in the design system.
       options: ['none', 'sm', 'md', 'lg'],
       description: 'Internal padding',
     },
+    radius: {
+      control: 'select',
+      options: ['default', 'lg', 'xl'],
+      description: 'Border radius size',
+    },
+    bokeh: {
+      control: 'boolean',
+      description: 'Enable subtle bokeh effect (default: true)',
+    },
   },
 } satisfies Meta<typeof Panel>
 
@@ -66,8 +75,10 @@ export const Interactive: Story = {
   args: {
     variant: 'default',
     padding: 'md',
+    radius: 'default',
+    bokeh: true,
     children: (
-      <div>
+      <div className="relative z-10">
         <h3 className="font-medium mb-2">Panel Component</h3>
         <p className="text-sm text-muted-foreground">
           The foundational component for all card-like surfaces. Use the controls to explore variants.
@@ -128,6 +139,67 @@ export const PaddingOptions: Story = {
       </Panel>
       <Panel padding="lg">
         <p className="text-sm">Large - Generous spacing</p>
+      </Panel>
+    </div>
+  ),
+}
+
+/**
+ * Border radius variants - Console style with larger corners
+ */
+export const RadiusVariants: Story = {
+  render: () => (
+    <div className="flex flex-col gap-6 w-[600px]">
+      <Panel radius="default" padding="lg">
+        <div className="relative z-10">
+          <p className="text-base font-medium mb-1">Default (rounded-2xl)</p>
+          <p className="text-sm text-white/60">Standard 32px border radius</p>
+        </div>
+      </Panel>
+
+      <Panel radius="lg" padding="lg">
+        <div className="relative z-10">
+          <p className="text-base font-medium mb-1">Large (rounded-3xl)</p>
+          <p className="text-sm text-white/60">
+            Larger 48px radius - perfect for stat cards
+          </p>
+        </div>
+      </Panel>
+
+      <Panel radius="xl" padding="lg">
+        <div className="relative z-10">
+          <p className="text-base font-medium mb-1">XL (rounded-[2rem])</p>
+          <p className="text-sm text-white/60">
+            Extra large 64px radius - for big content panels
+          </p>
+        </div>
+      </Panel>
+    </div>
+  ),
+}
+
+/**
+ * Bokeh effect comparison
+ */
+export const BokehEffect: Story = {
+  render: () => (
+    <div className="grid grid-cols-2 gap-6">
+      <Panel bokeh={true} padding="lg" radius="lg">
+        <div className="relative z-10">
+          <p className="text-base font-medium mb-2">With Bokeh (Default)</p>
+          <p className="text-sm text-white/60">
+            Subtle organic floating lights create visual interest and depth
+          </p>
+        </div>
+      </Panel>
+
+      <Panel bokeh={false} padding="lg" radius="lg">
+        <div className="relative z-10">
+          <p className="text-base font-medium mb-2">Without Bokeh</p>
+          <p className="text-sm text-white/60">
+            Clean minimal look without animated effects
+          </p>
+        </div>
       </Panel>
     </div>
   ),

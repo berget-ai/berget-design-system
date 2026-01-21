@@ -4,7 +4,8 @@ import { Panel, type PanelProps } from './Panel'
 
 export interface CardProps extends Omit<PanelProps, 'padding'> {
   /**
-   * Add Bokeh effect background
+   * Add Bokeh effect background (legacy prop, use bokeh instead)
+   * @deprecated Use bokeh prop from Panel instead
    */
   withBokeh?: boolean
 }
@@ -46,17 +47,23 @@ export interface CardProps extends Omit<PanelProps, 'padding'> {
  * ```
  */
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, withBokeh = false, children, ...props }, ref) => (
-    <Panel
-      ref={ref}
-      padding="none"
-      className={cn('relative', className)}
-      {...props}
-    >
-      {withBokeh && <Bokeh />}
-      <div className="relative z-10">{children}</div>
-    </Panel>
-  )
+  ({ className, withBokeh = false, bokeh, children, ...props }, ref) => {
+    // Support legacy withBokeh prop, but prefer bokeh from Panel
+    const shouldShowBokeh = bokeh !== undefined ? bokeh : withBokeh
+
+    return (
+      <Panel
+        ref={ref}
+        padding="none"
+        bokeh={shouldShowBokeh}
+        className={cn('relative', className)}
+        {...props}
+      >
+        {withBokeh && !bokeh && <Bokeh />}
+        <div className="relative z-10">{children}</div>
+      </Panel>
+    )
+  }
 )
 Card.displayName = 'Card'
 

@@ -254,7 +254,7 @@
   }
 
   /* ========================================================================
-     BOKEH EFFECT
+     BOKEH EFFECT - Subtle organic lighting for panels
      ======================================================================== */
   
   .bokeh {
@@ -263,14 +263,19 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
+    opacity: 0.3;
   }
   
   .bokeh-circle {
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
+    filter: blur(80px);
     animation: bokeh-float 20s ease-in-out infinite;
-    background: var(--color, rgba(96, 165, 128, 0.3));
+    background: radial-gradient(
+      circle at center,
+      var(--color) 0%,
+      transparent 70%
+    );
   }
 
   /* ========================================================================

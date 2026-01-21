@@ -3,15 +3,15 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../utils/cn'
 
 const panelVariants = cva(
-  'rounded-2xl transition-all duration-300',
+  'relative transition-all duration-300',
   {
     variants: {
       variant: {
-        default: 'bg-[hsl(var(--card))] border border-[hsl(var(--border))]',
-        glass: 'bg-[hsl(var(--card))]/40 liquid-glass border border-[hsl(var(--border))]',
-        elevated: 'bg-[hsl(var(--card))] border border-[hsl(var(--border))] shadow-lg hover:shadow-xl hover:-translate-y-1',
-        flat: 'bg-[hsl(var(--card))]',
-        outline: 'bg-transparent border border-[hsl(var(--border))]',
+        default: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-[hsl(var(--border))] hover:border-[hsl(var(--border-hover))] hover:-translate-y-0.5',
+        glass: 'bg-[hsl(var(--card))]/40 liquid-glass border border-[hsl(var(--border))] hover:border-[hsl(var(--border-hover))]',
+        elevated: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-[hsl(var(--border))] shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-[hsl(var(--border-hover))]',
+        flat: 'bg-[hsl(var(--card))]/40 backdrop-blur-xl',
+        outline: 'bg-transparent border border-[hsl(var(--border))] hover:border-[hsl(var(--border-hover))]',
       },
       padding: {
         none: 'p-0',
@@ -19,10 +19,16 @@ const panelVariants = cva(
         md: 'p-6',
         lg: 'p-8',
       },
+      radius: {
+        default: 'rounded-2xl',
+        lg: 'rounded-3xl',
+        xl: 'rounded-[2rem]',
+      },
     },
     defaultVariants: {
       variant: 'default',
       padding: 'md',
+      radius: 'default',
     },
   }
 )
@@ -34,6 +40,11 @@ export interface PanelProps
    * Content to render inside the panel
    */
   children: React.ReactNode
+  /**
+   * Enable subtle bokeh effect (organic floating lights)
+   * @default true
+   */
+  bokeh?: boolean
 }
 
 /**
@@ -43,10 +54,10 @@ export interface PanelProps
  * Provides consistent styling for containers, cards, and panels.
  * 
  * **Variants:**
- * - `default` - Standard panel with border
+ * - `default` - Console-style panel with backdrop blur and hover effect
  * - `glass` - Liquid Glass morphism with refraction effect (Chromium) / backdrop blur (fallback)
  * - `elevated` - Shadow with hover lift effect
- * - `flat` - No border, subtle background
+ * - `flat` - No border, subtle background with blur
  * - `outline` - Transparent with border only
  * 
  * **Padding:**
@@ -54,6 +65,11 @@ export interface PanelProps
  * - `sm` - Small padding (16px)
  * - `md` - Medium padding (24px, default)
  * - `lg` - Large padding (32px)
+ * 
+ * **Radius:**
+ * - `default` - Standard rounded corners (32px)
+ * - `lg` - Large rounded corners (48px)
+ * - `xl` - Extra large rounded corners (64px)
  * 
  * **Border System:**
  * Panel uses semantic border tokens from the design system:
@@ -83,12 +99,38 @@ export interface PanelProps
  * ```
  */
 const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
-  ({ className, variant, padding, children, ...props }, ref) => (
+  ({ className, variant, padding, radius, bokeh = true, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(panelVariants({ variant, padding }), className)}
+      className={cn(panelVariants({ variant, padding, radius }), className)}
       {...props}
     >
+      {bokeh && (
+        <div className="bokeh">
+          <div
+            className="bokeh-circle"
+            style={{
+              width: '120px',
+              height: '120px',
+              top: '10%',
+              left: '15%',
+              '--color': 'rgba(229, 221, 213, 0.08)',
+              animationDelay: '0s',
+            } as React.CSSProperties}
+          />
+          <div
+            className="bokeh-circle"
+            style={{
+              width: '100px',
+              height: '100px',
+              top: '60%',
+              right: '20%',
+              '--color': 'rgba(82, 183, 136, 0.06)',
+              animationDelay: '7s',
+            } as React.CSSProperties}
+          />
+        </div>
+      )}
       {children}
     </div>
   )
