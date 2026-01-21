@@ -3,18 +3,6 @@ import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../utils/cn'
 
-/**
- * Button component variants using class-variance-authority
- * 
- * Variants:
- * - default: Primary Berget stone/beige button with dark text
- * - primary: Moss green button with white text
- * - secondary: Sage green button  
- * - outline: Transparent with border
- * - ghost: Transparent, hover effect only
- * - destructive: Red for dangerous actions
- * - link: Styled as a link
- */
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50',
   {
@@ -53,23 +41,52 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   /**
-   * Change the component to a Slot component that merges props
-   * Useful for wrapping components like Next.js Link
+   * Change the component to a Slot component that merges props.
+   * Useful for wrapping components like Next.js Link or React Router Link.
    */
   asChild?: boolean
 }
 
 /**
- * Berget Design System Button Component
+ * Button Component
  * 
- * A versatile button component with multiple variants and sizes.
+ * Versatile button with multiple variants and sizes.
  * Follows Scandinavian design principles with natural colors and smooth interactions.
+ * 
+ * **Variants:**
+ * - `default` - Primary Berget Stone button (beige)
+ * - `primary` - Moss green button
+ * - `secondary` - Sage green button
+ * - `outline` - Transparent with border
+ * - `ghost` - Transparent, hover effect only
+ * - `destructive` - Red for dangerous actions
+ * - `link` - Styled as a link
+ * 
+ * **Sizes:**
+ * - `sm` - Small (36px height)
+ * - `default` - Medium (44px height)
+ * - `lg` - Large (48px height)
+ * - `icon` - Square for icon-only buttons
+ * 
+ * **Composition:**
+ * Supports `asChild` prop for composition with other components like links.
  * 
  * @example
  * ```tsx
- * <Button variant="default">Click me</Button>
+ * // Basic button
+ * <Button>Click me</Button>
+ * 
+ * // Different variants
  * <Button variant="primary" size="lg">Large Primary</Button>
- * <Button variant="outline" disabled>Disabled</Button>
+ * <Button variant="outline">Outlined</Button>
+ * 
+ * // As link (with React Router)
+ * <Button asChild>
+ *   <Link to="/products">View Products</Link>
+ * </Button>
+ * 
+ * // Disabled state
+ * <Button disabled>Disabled</Button>
  * ```
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

@@ -1,47 +1,8 @@
 import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../utils/cn'
+import { Panel, type PanelProps } from './Panel'
 
-/**
- * Card component variants
- * 
- * Variants:
- * - default: Standard card with subtle border
- * - glass: Glass morphism effect with backdrop blur
- * - elevated: Card with shadow and hover lift effect
- * - flat: Minimal card without border
- */
-const cardVariants = cva(
-  'rounded-2xl text-[hsl(var(--card-foreground))] transition-all duration-300',
-  {
-    variants: {
-      variant: {
-        default:
-          'bg-[hsl(var(--card))] border border-white/10',
-        glass:
-          'bg-[hsl(var(--card))]/40 backdrop-blur-xl border border-white/10',
-        elevated:
-          'bg-[hsl(var(--card))] border border-white/10 shadow-lg hover:shadow-xl hover:-translate-y-1',
-        flat:
-          'bg-[hsl(var(--card))]',
-      },
-      padding: {
-        none: 'p-0',
-        sm: 'p-4',
-        default: 'p-6',
-        lg: 'p-8',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      padding: 'default',
-    },
-  }
-)
-
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof cardVariants> {
+export interface CardProps extends Omit<PanelProps, 'padding'> {
   /**
    * Add Bokeh effect background
    */
@@ -49,40 +10,59 @@ export interface CardProps
 }
 
 /**
- * Berget Design System Card Component
+ * Card Component
  * 
- * A versatile card component with multiple variants and optional Bokeh effect.
+ * Structured content container with optional sections.
+ * Built on top of Panel for consistent styling.
+ * 
+ * **Features:**
+ * - Header, Title, Description sections
+ * - Content and Footer areas
+ * - Optional Bokeh background effect
+ * - All Panel variants supported
+ * 
+ * **Composition:**
+ * Card is composed of:
+ * - CardHeader (optional)
+ * - CardTitle (in header)
+ * - CardDescription (in header)
+ * - CardContent (main area)
+ * - CardFooter (optional)
  * 
  * @example
  * ```tsx
- * <Card>
+ * <Card variant="elevated">
  *   <CardHeader>
  *     <CardTitle>Card Title</CardTitle>
- *     <CardDescription>Card description</CardDescription>
+ *     <CardDescription>Description text</CardDescription>
  *   </CardHeader>
  *   <CardContent>
- *     Content goes here
+ *     Main content goes here
  *   </CardContent>
+ *   <CardFooter>
+ *     <Button>Action</Button>
+ *   </CardFooter>
  * </Card>
  * ```
  */
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant, padding, withBokeh = false, children, ...props }, ref) => (
-    <div
+  ({ className, withBokeh = false, children, ...props }, ref) => (
+    <Panel
       ref={ref}
-      className={cn(cardVariants({ variant, padding }), 'relative', className)}
+      padding="none"
+      className={cn('relative', className)}
       {...props}
     >
       {withBokeh && <Bokeh />}
       <div className="relative z-10">{children}</div>
-    </div>
+    </Panel>
   )
 )
 Card.displayName = 'Card'
 
 /**
- * Bokeh background effect component
- * Subtle animated glow circles in the background
+ * Bokeh background effect
+ * Subtle animated glow circles
  */
 const Bokeh = () => (
   <div className="bokeh">
@@ -129,7 +109,9 @@ const Bokeh = () => (
 )
 
 /**
- * Card Header - Contains title and description
+ * Card Header
+ * 
+ * Container for card title and description.
  */
 const CardHeader = React.forwardRef<
   HTMLDivElement,
@@ -144,7 +126,9 @@ const CardHeader = React.forwardRef<
 CardHeader.displayName = 'CardHeader'
 
 /**
- * Card Title - Heading for the card
+ * Card Title
+ * 
+ * Main heading for the card.
  */
 const CardTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -159,7 +143,9 @@ const CardTitle = React.forwardRef<
 CardTitle.displayName = 'CardTitle'
 
 /**
- * Card Description - Subheading for the card
+ * Card Description
+ * 
+ * Supporting text for the card title.
  */
 const CardDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -174,7 +160,9 @@ const CardDescription = React.forwardRef<
 CardDescription.displayName = 'CardDescription'
 
 /**
- * Card Content - Main content area
+ * Card Content
+ * 
+ * Main content area of the card.
  */
 const CardContent = React.forwardRef<
   HTMLDivElement,
@@ -185,7 +173,9 @@ const CardContent = React.forwardRef<
 CardContent.displayName = 'CardContent'
 
 /**
- * Card Footer - Bottom section of the card
+ * Card Footer
+ * 
+ * Bottom section for actions or metadata.
  */
 const CardFooter = React.forwardRef<
   HTMLDivElement,
@@ -206,5 +196,4 @@ export {
   CardDescription,
   CardContent,
   CardFooter,
-  cardVariants,
 }

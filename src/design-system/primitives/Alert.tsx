@@ -37,18 +37,15 @@ export interface AlertProps
  * - `warning` - Yellow warning alert
  * - `destructive` - Red error/danger alert
  * 
- * **Use Cases:**
- * - System notifications
- * - Form validation messages
- * - Status updates
- * - Important announcements
- * - Error messages
+ * **Composition:**
+ * - AlertTitle - Optional title/heading
+ * - AlertDescription - Message content
+ * - Icons - Place icon before title for visual reinforcement
  * 
  * **Accessibility:**
- * - Use appropriate semantic HTML
- * - Include icons for visual reinforcement
- * - Ensure sufficient color contrast
- * - Consider aria-live regions for dynamic alerts
+ * - Uses role="alert" for screen readers
+ * - Color is not the only indicator (includes text)
+ * - Sufficient color contrast ratios
  * 
  * @example
  * ```tsx
@@ -76,9 +73,9 @@ export interface AlertTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement> {}
 
 /**
- * Alert Title Component
+ * Alert Title
  * 
- * Title/heading for alert messages.
+ * Optional heading for alert messages.
  */
 const AlertTitle = React.forwardRef<HTMLParagraphElement, AlertTitleProps>(
   ({ className, ...props }, ref) => (
@@ -95,9 +92,9 @@ export interface AlertDescriptionProps
   extends React.HTMLAttributes<HTMLParagraphElement> {}
 
 /**
- * Alert Description Component
+ * Alert Description
  * 
- * Description/body text for alert messages.
+ * Main message content for alerts.
  */
 const AlertDescription = React.forwardRef<
   HTMLParagraphElement,

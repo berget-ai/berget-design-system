@@ -53,7 +53,7 @@ export interface BadgeProps
  * - Status indicators (Active, Pending, Failed)
  * - Tags and labels
  * - Feature flags (New, Beta, Premium)
- * - Notifications counts
+ * - Notification counts
  * - Category labels
  * 
  * @example

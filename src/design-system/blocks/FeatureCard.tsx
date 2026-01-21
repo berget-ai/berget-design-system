@@ -2,30 +2,25 @@ import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../utils/cn'
 import { Check, LucideIcon } from 'lucide-react'
+import { Panel } from '../primitives/Panel'
 
-const featureCardVariants = cva(
-  'p-6 rounded-xl border transition-colors group',
-  {
-    variants: {
-      variant: {
-        default:
-          'bg-white/[0.02] border-white/10 hover:bg-white/[0.04]',
-        moss:
-          'bg-[#52B788]/5 border-[#74C69D]/20 hover:bg-[#52B788]/10',
-        sage:
-          'bg-[#74C69D]/5 border-[#74C69D]/20 hover:bg-[#74C69D]/10',
-        earth:
-          'bg-[#2D6A4F]/5 border-[#40916C]/20 hover:bg-[#2D6A4F]/10',
-      },
+const featureCardVariants = cva('', {
+  variants: {
+    variant: {
+      default: '',
+      moss: 'bg-[#52B788]/5 border-[#74C69D]/20 hover:bg-[#52B788]/10',
+      sage: 'bg-[#74C69D]/5 border-[#74C69D]/20 hover:bg-[#74C69D]/10',
+      earth: 'bg-[#2D6A4F]/5 border-[#40916C]/20 hover:bg-[#2D6A4F]/10',
+      stone: 'bg-[hsl(var(--primary))]/5 border-[hsl(var(--primary))]/20 hover:bg-[hsl(var(--primary))]/10',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+})
 
 export interface FeatureCardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>,
     VariantProps<typeof featureCardVariants> {
   /**
    * Icon component from lucide-react
@@ -56,20 +51,19 @@ export interface FeatureCardProps
 /**
  * Feature Card Component
  * 
- * Reusable card for displaying features with icon, title, description, and feature list.
- * Based on the pattern from products/why-berget pages.
+ * Card for displaying features with icon, title, description, and feature list.
+ * Built on Panel component for consistency.
  * 
  * **Variants:**
- * - `default` - Subtle white background
- * - `moss` - Moss green tint
- * - `sage` - Sage green tint
- * - `earth` - Earth tone tint
+ * - `default` - Standard panel styling
+ * - `moss` - Moss green tint (#52B788)
+ * - `sage` - Sage green tint (#74C69D)
+ * - `earth` - Earth tone tint (#2D6A4F)
+ * - `stone` - Berget Stone tint
  * 
- * **Use Cases:**
- * - Product feature grids
- * - Benefits sections
- * - Service offerings
- * - Capability showcases
+ * **Design System Role:**
+ * FeatureCard extends Panel with opinionated structure for feature showcases.
+ * Used throughout marketing pages for consistent feature presentation.
  * 
  * @example
  * ```tsx
@@ -99,9 +93,14 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
     ref
   ) => {
     return (
-      <div
+      <Panel
         ref={ref}
-        className={cn(featureCardVariants({ variant }), className)}
+        variant={variant === 'default' ? 'default' : 'outline'}
+        className={cn(
+          'transition-colors group',
+          featureCardVariants({ variant }),
+          className
+        )}
         {...props}
       >
         {Icon && (
@@ -112,9 +111,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
 
         <h3 className="text-xl font-medium mb-3">{title}</h3>
 
-        {description && (
-          <p className="text-white/60 mb-4">{description}</p>
-        )}
+        {description && <p className="text-white/60 mb-4">{description}</p>}
 
         {features && features.length > 0 && (
           <ul className="space-y-3">
@@ -130,7 +127,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             ))}
           </ul>
         )}
-      </div>
+      </Panel>
     )
   }
 )
