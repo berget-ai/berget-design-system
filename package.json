@@ -1,10 +1,10 @@
 {
-    "name": "keycloakify-starter",
-    "version": "1.2.15",
-    "description": "Starter for Keycloakify 11",
+    "name": "@berget/design-system",
+    "version": "2.0.0",
+    "description": "Berget Design System - Scandinavian-inspired design system with console aesthetic",
     "repository": {
         "type": "git",
-        "url": "git://github.com/codegouvfr/keycloakify-starter.git"
+        "url": "git://github.com/berget-ai/berget-design-system.git"
     },
     "type": "module",
     "scripts": {
@@ -17,7 +17,16 @@
         "format": "prettier . --write"
     },
     "license": "MIT",
-    "keywords": [],
+    "keywords": [
+        "design-system",
+        "berget",
+        "react",
+        "typescript",
+        "tailwindcss",
+        "storybook",
+        "console-style",
+        "scandinavian-design"
+    ],
     "dependencies": {
         "@fontsource/dm-sans": "^5.2.8",
         "@fontsource/ovo": "^5.2.8",
