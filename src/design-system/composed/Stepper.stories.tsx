@@ -8,7 +8,7 @@ const meta = {
   title: 'Organisms/Stepper',
   component: Stepper,
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
     docs: {
       description: {
         component: `
@@ -152,7 +152,8 @@ export const Interactive: Story = {
     const [currentStep, setCurrentStep] = useState(0)
 
     return (
-      <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen p-8 flex items-center justify-center">
+        <div className="max-w-4xl w-full">
         <Stepper
           steps={sampleSteps}
           currentStep={currentStep}
@@ -180,6 +181,7 @@ export const Interactive: Story = {
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
+        </div>
       </div>
     )
   },
@@ -193,13 +195,15 @@ export const Minimal: Story = {
     const [currentStep, setCurrentStep] = useState(1)
 
     return (
-      <div className="max-w-4xl mx-auto">
-        <Stepper
-          steps={sampleSteps}
-          currentStep={currentStep}
-          onStepChange={setCurrentStep}
-          variant="minimal"
-        />
+      <div className="min-h-screen p-8 flex items-center justify-center">
+        <div className="max-w-4xl w-full">
+          <Stepper
+            steps={sampleSteps}
+            currentStep={currentStep}
+            onStepChange={setCurrentStep}
+            variant="minimal"
+          />
+        </div>
       </div>
     )
   },
@@ -213,13 +217,15 @@ export const WithoutNumbers: Story = {
     const [currentStep, setCurrentStep] = useState(2)
 
     return (
-      <div className="max-w-4xl mx-auto">
-        <Stepper
-          steps={sampleSteps}
+      <div className="min-h-screen p-8 flex items-center justify-center">
+        <div className="max-w-4xl w-full">
+          <Stepper
+            steps={sampleSteps}
           currentStep={currentStep}
           onStepChange={setCurrentStep}
           showNumbers={false}
         />
+        </div>
       </div>
     )
   },
@@ -254,7 +260,8 @@ export const RegistrationFlow: Story = {
     ]
 
     return (
-      <div className="max-w-3xl mx-auto bg-[#1A1A1A]/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+      <div className="min-h-screen p-8 flex items-center justify-center">
+        <div className="max-w-3xl w-full bg-[#1A1A1A]/40 backdrop-blur-xl rounded-2xl p-8 border border-[hsl(var(--border))]">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-medium mb-2">Create Account</h2>
           <p className="text-white/60">
@@ -296,6 +303,7 @@ export const RegistrationFlow: Story = {
               : 'Continue'}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
+        </div>
         </div>
       </div>
     )
@@ -373,8 +381,9 @@ export const CheckoutFlow: Story = {
     ]
 
     return (
-      <div className="max-w-2xl mx-auto">
-        <Stepper
+      <div className="min-h-screen p-8 flex items-center justify-center">
+        <div className="max-w-2xl w-full">
+          <Stepper
           steps={checkoutSteps}
           currentStep={currentStep}
           onStepChange={setCurrentStep}
@@ -397,6 +406,7 @@ export const CheckoutFlow: Story = {
           >
             {currentStep === checkoutSteps.length - 1 ? 'Pay Now' : 'Next'}
           </Button>
+        </div>
         </div>
       </div>
     )
