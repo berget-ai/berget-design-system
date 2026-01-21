@@ -288,6 +288,99 @@ export const DatabaseMigration: Story = {
 }
 
 /**
+ * Long Output - Tests Scrolling
+ */
+export const LongOutput: Story = {
+  args: {
+    steps: [
+      {
+        command: 'npm install',
+        output: [
+          'Installing dependencies...',
+          '✓ Resolved 1 package',
+          '✓ Resolved 5 packages',
+          '✓ Resolved 10 packages',
+          '✓ Resolved 20 packages',
+          '✓ Resolved 50 packages',
+          '✓ Resolved 100 packages',
+          '',
+          'Downloading packages...',
+          '✓ Downloaded @berget/design-system@2.0.0',
+          '✓ Downloaded react@18.2.0',
+          '✓ Downloaded react-dom@18.2.0',
+          '✓ Downloaded typescript@5.2.2',
+          '✓ Downloaded tailwindcss@3.4.14',
+          '✓ Downloaded lucide-react@0.427.0',
+          '✓ Downloaded class-variance-authority@0.7.0',
+          '✓ Downloaded clsx@2.1.1',
+          '✓ Downloaded tailwind-merge@2.5.2',
+          '',
+          'Building fresh packages...',
+          '✓ Built @berget/design-system',
+          '✓ Built react',
+          '✓ Built react-dom',
+          '',
+          'Linking dependencies...',
+          '✓ Linked 127 packages',
+          '',
+          'Running lifecycle scripts...',
+          '✓ Ran postinstall for @berget/design-system',
+          '',
+          'Generating TypeScript declarations...',
+          '✓ Generated declarations',
+          '',
+          'Optimizing packages...',
+          '✓ Optimized all packages',
+          '',
+          '✓ All dependencies installed successfully',
+          '',
+          'added 127 packages in 8.2s',
+          '',
+          '23 packages are looking for funding',
+          '  run `npm fund` for details',
+        ],
+        delay: 2000,
+      },
+      {
+        command: 'npm run build',
+        output: [
+          'Building for production...',
+          '',
+          'Compiling TypeScript...',
+          '✓ src/components/Button.tsx',
+          '✓ src/components/Panel.tsx',
+          '✓ src/components/Card.tsx',
+          '✓ src/components/Badge.tsx',
+          '✓ src/components/Input.tsx',
+          '✓ src/components/Alert.tsx',
+          '✓ src/components/List.tsx',
+          '✓ src/components/Terminal.tsx',
+          '',
+          'Bundling with Vite...',
+          '✓ Generated dist/index.js',
+          '✓ Generated dist/index.css',
+          '✓ Generated dist/types',
+          '',
+          '✓ Build completed successfully!',
+          '',
+          'Output directory: dist/',
+          'Bundle size: 142.3 KB (minified)',
+          'Gzipped: 38.7 KB',
+        ],
+        delay: 1500,
+      },
+    ],
+    autoStart: true,
+    loop: false,
+  },
+  render: (args) => (
+    <div className="w-[700px]">
+      <Terminal {...args} />
+    </div>
+  ),
+}
+
+/**
  * Static Terminal - No Animation
  */
 export const Static: Story = {

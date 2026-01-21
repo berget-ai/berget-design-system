@@ -89,6 +89,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
     const [showOutput, setShowOutput] = useState(false)
     const [outputLines, setOutputLines] = useState<string[]>([])
     const [completedSteps, setCompletedSteps] = useState<TerminalStep[]>([])
+    const contentRef = React.useRef<HTMLDivElement>(null)
 
     // Reset animation
     const resetAnimation = React.useCallback(() => {
@@ -138,6 +139,10 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
         if (lineIndex < step.output.length) {
           setOutputLines(prev => [...prev, step.output[lineIndex]])
           lineIndex++
+          // Auto-scroll to bottom
+          if (contentRef.current) {
+            contentRef.current.scrollTop = contentRef.current.scrollHeight
+          }
         } else {
           clearInterval(outputInterval)
           // Move to next step
@@ -207,7 +212,10 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
         </div>
 
         {/* Terminal content */}
-        <div className="p-6 font-mono text-sm min-h-[400px]">
+        <div 
+          ref={contentRef}
+          className="p-6 font-mono text-sm h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+        >
           {/* Completed steps */}
           {completedSteps.map((step, stepIndex) => (
             <div key={stepIndex} className="mb-4">
