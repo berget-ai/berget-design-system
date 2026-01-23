@@ -180,6 +180,23 @@ export const SageWithIcons: Story = {
                     </Badge>
                 </div>
             </div>
+
+            <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-3">
+                    Hero Tagline Badges
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                    <Badge variant="sage" icon={Shield}>
+                        Built for Europe
+                    </Badge>
+                    <Badge variant="sage" icon={Check}>
+                        GDPR Compliant
+                    </Badge>
+                    <Badge variant="sage" icon={Lock}>
+                        Secure by Design
+                    </Badge>
+                </div>
+            </div>
         </div>
     )
 };

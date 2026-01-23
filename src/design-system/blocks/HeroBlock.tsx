@@ -2,6 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 import { LucideIcon } from "lucide-react";
+import { Badge } from "../primitives/Badge";
 
 const heroBlockVariants = cva("relative overflow-hidden min-h-[70vh] flex items-center", {
     variants: {
@@ -121,15 +122,14 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-3xl mx-auto text-center">
                         {tagline && (
-                            <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#40916C]/15 text-[#52B788] mb-6">
-                                {TaglineIcon && (
-                                    <TaglineIcon
-                                        className="w-7 h-7 mr-2"
-                                        strokeWidth={2}
-                                    />
-                                )}
-                                <span className="text-sm font-medium">{tagline}</span>
-                            </div>
+                            <Badge
+                                variant="sage"
+                                icon={TaglineIcon}
+                                iconGap={2}
+                                className="mb-6"
+                            >
+                                {tagline}
+                            </Badge>
                         )}
 
                         <h1 className="text-5xl font-medium mb-6 leading-tight">

@@ -91,6 +91,11 @@ export interface BadgeProps
  * <Badge variant="sage" icon={Shield}>
  *   No data leaves Sweden
  * </Badge>
+ *
+ * // Hero tagline badge (moss variant)
+ * <Badge variant="moss" icon={Shield}>
+ *   Built for Europe
+ * </Badge>
  * ```
  */
 function Badge({
