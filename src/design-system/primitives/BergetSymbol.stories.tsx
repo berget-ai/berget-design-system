@@ -49,9 +49,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Light variant for dark backgrounds (default)
+ * Default variant for dark backgrounds
  */
-export const Light: Story = {
+export const Default: Story = {
     args: {
         size: 48,
         variant: "light"
