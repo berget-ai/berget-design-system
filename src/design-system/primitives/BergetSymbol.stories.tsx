@@ -135,10 +135,7 @@ export const InNavigation: Story = {
     render: () => (
         <div className="w-full bg-background border-b border-[hsl(var(--border))]">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                    <BergetSymbol size={32} variant="light" />
-                    <span className="text-lg font-medium">Berget AI</span>
-                </div>
+                <BergetSymbol size={32} variant="light" />
                 <nav className="flex gap-4">
                     <a
                         href="#"
