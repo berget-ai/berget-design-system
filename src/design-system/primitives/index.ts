@@ -24,7 +24,6 @@ export {
     type CardProps
 } from "./Card";
 export { Input, type InputProps } from "./Input";
-export { Logo, type LogoProps } from "./Logo";
 export { BergetSymbol, type BergetSymbolProps } from "./BergetSymbol";
 export { BergetLogotype, type BergetLogotypeProps } from "./BergetLogotype";
 export { Panel, panelVariants, type PanelProps } from "./Panel";

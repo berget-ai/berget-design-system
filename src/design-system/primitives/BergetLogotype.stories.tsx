@@ -59,19 +59,6 @@ export const Light: Story = {
 };
 
 /**
- * Dark variant for light backgrounds
- */
-export const Dark: Story = {
-    args: {
-        size: 48,
-        variant: "dark"
-    },
-    parameters: {
-        backgrounds: { default: "#ffffff" }
-    }
-};
-
-/**
  * Small size (24px) - For compact headers
  */
 export const Small: Story = {
