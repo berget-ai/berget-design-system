@@ -67,7 +67,7 @@ export const Dark: Story = {
         variant: "dark"
     },
     parameters: {
-        backgrounds: { default: "light" }
+        backgrounds: { default: "#ffffff" }
     }
 };
 
@@ -146,26 +146,17 @@ export const SizeComparison: Story = {
  */
 export const InNavigation: Story = {
     render: () => (
-        <div className="w-full bg-background border-b border-[hsl(var(--border))]">
+        <div className="w-full bg-white border-b border-gray-200">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                <BergetLogotype size={32} variant="light" />
+                <BergetLogotype size={32} variant="dark" />
                 <nav className="flex gap-4">
-                    <a
-                        href="#"
-                        className="text-sm text-muted-foreground hover:text-foreground"
-                    >
+                    <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
                         Dashboard
                     </a>
-                    <a
-                        href="#"
-                        className="text-sm text-muted-foreground hover:text-foreground"
-                    >
+                    <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
                         Models
                     </a>
-                    <a
-                        href="#"
-                        className="text-sm text-muted-foreground hover:text-foreground"
-                    >
+                    <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
                         Docs
                     </a>
                 </nav>
