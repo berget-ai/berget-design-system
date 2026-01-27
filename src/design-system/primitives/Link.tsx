@@ -7,13 +7,11 @@ const linkVariants = cva(
     {
         variants: {
             variant: {
-                default:
-                    "text-white hover:text-white/80 underline underline-offset-4 hover:underline-offset-2",
-                primary:
-                    "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80 underline underline-offset-4 hover:underline-offset-2",
+                default: "text-white hover:text-white/80",
+                primary: "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80",
                 secondary:
-                    "text-[hsl(var(--secondary))] hover:text-[hsl(var(--secondary))]/80 underline underline-offset-4 hover:underline-offset-2",
-                ghost: "text-white/60 hover:text-white hover:underline underline-offset-4",
+                    "text-[hsl(var(--secondary))] hover:text-[hsl(var(--secondary))]/80",
+                ghost: "text-white/60 hover:text-white",
                 muted: "text-white/40 hover:text-white/60",
                 code: "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80 font-mono text-sm bg-[hsl(var(--primary))]/10 px-2 py-1 rounded hover:bg-[hsl(var(--primary))]/20"
             },
@@ -21,17 +19,11 @@ const linkVariants = cva(
                 sm: "text-sm",
                 default: "text-base",
                 lg: "text-lg"
-            },
-            underline: {
-                none: "no-underline hover:underline",
-                always: "underline",
-                hover: "no-underline hover:underline"
             }
         },
         defaultVariants: {
             variant: "default",
-            size: "default",
-            underline: "hover"
+            size: "default"
         }
     }
 );
@@ -68,7 +60,7 @@ export interface LinkProps
  * Follows Scandinavian design principles with clean, minimal styling.
  *
  * **Variants:**
- * - `default` - White text with underline on hover
+ * - `default` - White text with opacity change on hover
  * - `primary` - Berget Stone color (beige)
  * - `secondary` - Moss green color
  * - `ghost` - Subtle, appears on hover
@@ -79,11 +71,6 @@ export interface LinkProps
  * - `sm` - Small text
  * - `default` - Base text size
  * - `lg` - Large text
- *
- * **Underline:**
- * - `none` - No underline
- * - `always` - Always underlined
- * - `hover` - Underline on hover (default)
  *
  * **Accessibility:**
  * - Keyboard accessible
@@ -118,7 +105,6 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
             className,
             variant,
             size,
-            underline,
             external = false,
             icon,
             showExternalIcon = false,
@@ -140,7 +126,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         return (
             <a
                 ref={ref}
-                className={cn(linkVariants({ variant, size, underline }), className)}
+                className={cn(linkVariants({ variant, size }), className)}
                 {...(disabled && {
                     "aria-disabled": true,
                     onClick: e => e.preventDefault()

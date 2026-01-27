@@ -14,15 +14,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Interactive link - use Controls to change variant, size, and underline style
+ * Interactive link - use Controls to change variant and size
  */
 export const Interactive: Story = {
     args: {
         href: "#",
         children: "Click me",
         variant: "default",
-        size: "default",
-        underline: "hover"
+        size: "default"
     }
 };
 
@@ -72,23 +71,6 @@ export const AllVariants: Story = {
                     </Link>
                     <Link href="#" size="lg">
                         Large link
-                    </Link>
-                </div>
-            </div>
-
-            <div className="border-t border-[hsl(var(--border))] pt-4">
-                <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Underline styles
-                </h3>
-                <div className="flex flex-col gap-3">
-                    <Link href="#" underline="none">
-                        No underline
-                    </Link>
-                    <Link href="#" underline="always">
-                        Always underlined
-                    </Link>
-                    <Link href="#" underline="hover">
-                        Underline on hover
                     </Link>
                 </div>
             </div>
