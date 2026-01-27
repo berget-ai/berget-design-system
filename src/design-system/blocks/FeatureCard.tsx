@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 import { Check, LucideIcon } from "lucide-react";
-import { Panel } from "../primitives/Panel";
+import { Card } from "../primitives/Card";
 
 const featureCardVariants = cva("", {
     variants: {
@@ -101,11 +101,11 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
         ref
     ) => {
         return (
-            <Panel
+            <Card
                 ref={ref}
                 variant="highlight"
                 className={cn(
-                    "flex flex-col items-start gap-4 p-[30px] transition-colors group backdrop-blur-[10px] border border-[#1a1a1a]",
+                    "flex flex-col items-start gap-4 p-[30px] transition-colors group backdrop-blur-[10px]",
                     featureCardVariants({ variant }),
                     className
                 )}
@@ -146,7 +146,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                         ))}
                     </ul>
                 )}
-            </Panel>
+            </Card>
         );
     }
 );
