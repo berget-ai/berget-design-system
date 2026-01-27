@@ -21,6 +21,9 @@ type Story = StoryObj<typeof meta>;
  * Full example matching the console API keys page design.
  */
 export const APIKeysList: Story = {
+    args: {
+        children: ""
+    },
     render: () => (
         <div className="w-[1200px]">
             {/* Header Section */}
@@ -37,7 +40,7 @@ export const APIKeysList: Story = {
             </div>
 
             {/* List Panel */}
-            <Panel variant="default" padding="none" radius="lg">
+            <Panel variant="highlight" padding="none" radius="lg">
                 <div className="relative z-10">
                     {/* Table Header */}
                     <ListHeader>
@@ -127,8 +130,11 @@ export const APIKeysList: Story = {
  * Simple List - Basic Usage
  */
 export const SimpleList: Story = {
+    args: {
+        children: ""
+    },
     render: () => (
-        <Panel variant="default" padding="none" radius="lg" className="w-[600px]">
+        <Panel variant="highlight" padding="none" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <List>
                     <ListItem
@@ -173,8 +179,11 @@ export const SimpleList: Story = {
  * List with Header
  */
 export const WithHeader: Story = {
+    args: {
+        children: ""
+    },
     render: () => (
-        <Panel variant="default" padding="none" radius="lg" className="w-[800px]">
+        <Panel variant="highlight" padding="none" radius="lg" className="w-[800px]">
             <div className="relative z-10">
                 <ListHeader>
                     <div className="flex items-center gap-4 pl-14">
@@ -252,8 +261,11 @@ export const WithHeader: Story = {
  * Compact List - Without Icons
  */
 export const CompactList: Story = {
+    args: {
+        children: ""
+    },
     render: () => (
-        <Panel variant="default" padding="none" radius="lg" className="w-[500px]">
+        <Panel variant="highlight" padding="none" radius="lg" className="w-[500px]">
             <div className="relative z-10">
                 <List>
                     <ListItem icon={null} interactive={false}>
@@ -297,8 +309,11 @@ export const CompactList: Story = {
  * Interactive List - Hover States
  */
 export const InteractiveList: Story = {
+    args: {
+        children: ""
+    },
     render: () => (
-        <Panel variant="default" padding="none" radius="lg" className="w-[600px]">
+        <Panel variant="highlight" padding="none" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <div className="px-6 py-4 border-b border-[hsl(var(--border))]">
                     <h2 className="text-xl font-medium">Recent Activity</h2>
