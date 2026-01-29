@@ -123,8 +123,12 @@ export const Disabled: Story = {
 /**
  * With Label
  * Best practice: always use labels with inputs
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const WithLabel: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[350px] space-y-2">
             <label htmlFor="email-input" className="text-sm font-medium text-foreground">
@@ -138,8 +142,12 @@ export const WithLabel: Story = {
 /**
  * With Helper Text
  * Provide additional context or instructions
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const WithHelperText: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[350px] space-y-2">
             <label
@@ -159,8 +167,12 @@ export const WithHelperText: Story = {
 /**
  * With Error State
  * Show validation errors clearly
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const WithError: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[350px] space-y-2">
             <label htmlFor="error-input" className="text-sm font-medium text-foreground">
@@ -184,8 +196,12 @@ export const WithError: Story = {
 /**
  * With Success State
  * Show successful validation
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const WithSuccess: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[350px] space-y-2">
             <label
@@ -210,8 +226,12 @@ export const WithSuccess: Story = {
 /**
  * With Badge Label
  * Combine with badges for additional context
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const WithBadgeLabel: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[350px] space-y-2">
             <div className="flex items-center gap-2">
@@ -231,8 +251,12 @@ export const WithBadgeLabel: Story = {
 /**
  * Login Form
  * Common use case: authentication forms
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const LoginForm: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[350px] space-y-4">
             <div className="space-y-2">
@@ -261,8 +285,12 @@ export const LoginForm: Story = {
 /**
  * Registration Form
  * Common use case: user registration
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const RegistrationForm: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[350px] space-y-4">
             <div className="space-y-2">
@@ -311,8 +339,12 @@ export const RegistrationForm: Story = {
 /**
  * API Configuration
  * Common use case: technical settings
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const APIConfiguration: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[450px] space-y-4">
             <div className="space-y-2">
@@ -372,8 +404,12 @@ export const APIConfiguration: Story = {
 /**
  * Search Bar
  * Common use case: search functionality
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const SearchBar: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="w-[500px]">
             <Input
@@ -388,8 +424,12 @@ export const SearchBar: Story = {
 /**
  * Input Sizes
  * Different input widths for various contexts
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const InputSizes: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <div className="space-y-2">

@@ -72,8 +72,12 @@ export const Interactive: Story = {
 
 /**
  * Alla varianter av Select-komponenten.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllVariants: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select
@@ -107,8 +111,12 @@ export const AllVariants: Story = {
 
 /**
  * Alla storlekar av Select-komponenten.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllSizes: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select
@@ -136,8 +144,12 @@ export const AllSizes: Story = {
 
 /**
  * Select med olika tillstånd.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const States: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select
@@ -163,8 +175,12 @@ export const States: Story = {
 
 /**
  * Select med felmeddelande.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithError: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select
@@ -187,8 +203,12 @@ export const WithError: Story = {
 
 /**
  * Select med beskrivning.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithDescription: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select
@@ -218,8 +238,12 @@ export const WithDescription: Story = {
 
 /**
  * Select med inaktiverade alternativ.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithDisabledOptions: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select
@@ -248,8 +272,12 @@ export const WithDisabledOptions: Story = {
 
 /**
  * Select i formulär.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const InForm: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="bg-white/5 rounded-xl p-6 space-y-6">
             <h3 className="text-white font-semibold text-lg">Profilinställningar</h3>
@@ -293,8 +321,12 @@ export const InForm: Story = {
 
 /**
  * Select-grupp för relaterade val.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const SelectGroup: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <h3 className="text-white font-semibold text-lg">Leveransadress</h3>
@@ -337,8 +369,12 @@ export const SelectGroup: Story = {
 
 /**
  * Select med många alternativ.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const ManyOptions: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select
@@ -364,8 +400,12 @@ export const ManyOptions: Story = {
 
 /**
  * Select i kort.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const InCard: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="bg-white/5 rounded-xl p-6">
             <h3 className="text-white font-semibold mb-6">Inställningar</h3>
@@ -398,8 +438,12 @@ export const InCard: Story = {
 
 /**
  * Select med validering.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithValidation: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Select

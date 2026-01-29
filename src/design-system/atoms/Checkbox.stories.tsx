@@ -65,8 +65,12 @@ export const Interactive: Story = {
 
 /**
  * Alla varianter av Checkbox-komponenten.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllVariants: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <Checkbox
@@ -96,8 +100,12 @@ export const AllVariants: Story = {
 
 /**
  * Alla storlekar av Checkbox-komponenten.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllSizes: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <Checkbox
@@ -122,8 +130,12 @@ export const AllSizes: Story = {
 
 /**
  * Checkbox med olika tillstånd.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const States: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <Checkbox label="Omarkerad" />
@@ -137,8 +149,12 @@ export const States: Story = {
 
 /**
  * Checkbox med felmeddelande.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithError: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <Checkbox
@@ -158,8 +174,12 @@ export const WithError: Story = {
 
 /**
  * Checkbox med beskrivning.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithDescription: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <Checkbox
@@ -183,8 +203,12 @@ export const WithDescription: Story = {
 
 /**
  * Checkbox-grupp för flera alternativ.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const CheckboxGroup: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <h3 className="text-white font-semibold">Välj dina intressen</h3>
@@ -207,8 +231,12 @@ export const CheckboxGroup: Story = {
 
 /**
  * Checkbox i formulär.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const InForm: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="bg-white/5 rounded-xl p-6 space-y-6">
             <h3 className="text-white font-semibold text-lg">Kontoinställningar</h3>
@@ -247,8 +275,12 @@ export const InForm: Story = {
 
 /**
  * Checkbox med olika varianter i grupp.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const MixedVariants: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-4">
             <h3 className="text-white font-semibold">Behörigheter</h3>

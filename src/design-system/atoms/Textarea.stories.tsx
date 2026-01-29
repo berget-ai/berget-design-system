@@ -78,8 +78,12 @@ export const Interactive: Story = {
 
 /**
  * Alla varianter av Textarea-komponenten.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllVariants: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
@@ -112,8 +116,12 @@ export const AllVariants: Story = {
 
 /**
  * Alla storlekar av Textarea-komponenten.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllSizes: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
@@ -140,8 +148,12 @@ export const AllSizes: Story = {
 
 /**
  * Textarea med olika tillstånd.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const States: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea label="Tom" placeholder="Skriv ditt meddelande..." rows={3} />
@@ -162,8 +174,12 @@ export const States: Story = {
 
 /**
  * Textarea med felmeddelande.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithError: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
@@ -185,8 +201,12 @@ export const WithError: Story = {
 
 /**
  * Textarea med beskrivning.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithDescription: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
@@ -207,8 +227,12 @@ export const WithDescription: Story = {
 
 /**
  * Textarea med teckenräkning.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithCharacterCount: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
@@ -240,8 +264,12 @@ export const WithCharacterCount: Story = {
 
 /**
  * Textarea med olika antal rader.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const DifferentRows: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea label="Kort text" placeholder="Skriv kort text..." rows={2} />
@@ -257,8 +285,12 @@ export const DifferentRows: Story = {
 
 /**
  * Textarea i formulär.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const InForm: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="bg-white/5 rounded-xl p-6 space-y-6">
             <h3 className="text-white font-semibold text-lg">Skicka feedback</h3>
@@ -290,8 +322,12 @@ export const InForm: Story = {
 
 /**
  * Textarea-grupp för relaterade fält.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const TextareaGroup: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <h3 className="text-white font-semibold text-lg">Produktbeskrivning</h3>
@@ -323,8 +359,12 @@ export const TextareaGroup: Story = {
 
 /**
  * Textarea med validering.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithValidation: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
@@ -356,8 +396,12 @@ export const WithValidation: Story = {
 
 /**
  * Textarea i kort.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const InCard: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="bg-white/5 rounded-xl p-6">
             <h3 className="text-white font-semibold mb-6">Anteckningar</h3>
@@ -384,8 +428,12 @@ export const InCard: Story = {
 
 /**
  * Textarea med autofokus.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithAutoFocus: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
@@ -400,8 +448,12 @@ export const WithAutoFocus: Story = {
 
 /**
  * Textarea med readonly.
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const Readonly: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
     render: () => (
         <div className="space-y-6">
             <Textarea
