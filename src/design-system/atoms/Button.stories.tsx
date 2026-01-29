@@ -78,9 +78,13 @@ export const Interactive: Story = {
 };
 
 /**
- * All variants showcase
+ * All variants showcase - shows all button variants, sizes, and states
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllVariants: Story = {
+    args: {
+        children: undefined as any
+    },
     render: () => (
         <div className="flex flex-col gap-8">
             <div>
@@ -122,9 +126,13 @@ export const AllVariants: Story = {
 };
 
 /**
- * Buttons with icons
+ * Buttons with icons - shows icon button patterns
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const WithIcons: Story = {
+    args: {
+        children: undefined as any
+    },
     render: () => (
         <div className="flex flex-wrap gap-3">
             <Button>
