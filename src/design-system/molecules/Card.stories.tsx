@@ -99,10 +99,11 @@ export const Highlight: Story = {
 
 /**
  * Glass morphism variant with backdrop blur
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const Glass: Story = {
     args: {
-        children: ""
+        children: undefined as any
     },
     render: () => (
         <div
@@ -188,10 +189,11 @@ export const FeatureCard: Story = {
 
 /**
  * Grid of feature cards
+ * Note: This is a static showcase. Use FeatureCard story to test individual variants with controls.
  */
 export const FeatureGrid: Story = {
     args: {
-        children: ""
+        children: undefined as any
     },
     render: () => (
         <div
@@ -266,10 +268,11 @@ export const FeatureGrid: Story = {
 
 /**
  * All card variants showcase
+ * Note: This is a static showcase. Use Default story to test individual variants with controls.
  */
 export const AllVariants: Story = {
     args: {
-        children: ""
+        children: undefined as any
     },
     render: () => (
         <div className="flex flex-col gap-6 w-[400px]">
