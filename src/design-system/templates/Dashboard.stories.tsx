@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Panel } from "../primitives/Panel";
+import { Panel } from "../atoms/Panel";
 import { Activity, ArrowUpRight, TrendingUp, Cpu } from "lucide-react";
 
 const meta: Meta = {
@@ -23,6 +23,12 @@ type Story = StoryObj;
  * - Backdrop blur and transparency
  */
 export const ConsoleDashboard: Story = {
+    parameters: {
+
+        controls: { hide: true }
+
+    },
+
     render: () => (
         <div className="min-h-screen bg-background p-8">
             {/* Header */}
@@ -230,6 +236,12 @@ export const ConsoleDashboard: Story = {
  * Just the stat cards for focused testing of the console-style panels.
  */
 export const StatCards: Story = {
+    parameters: {
+
+        controls: { hide: true }
+
+    },
+
     render: () => (
         <div className="min-h-screen bg-background p-8">
             <div className="max-w-7xl mx-auto">
