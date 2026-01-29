@@ -4,7 +4,7 @@ import { cn } from "../../utils/cn";
 import { ChevronDown } from "lucide-react";
 
 const selectVariants = cva(
-    "flex w-full items-center justify-between rounded-xl border bg-white/5 px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
+    "flex w-full items-center justify-between rounded-xl border bg-white/5 px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
     {
         variants: {
             variant: {
