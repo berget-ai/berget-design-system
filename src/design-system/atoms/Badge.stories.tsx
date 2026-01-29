@@ -68,9 +68,13 @@ export const Interactive: Story = {
 };
 
 /**
- * All variants showcase
+ * All variants showcase - shows all badge variants
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllVariants: Story = {
+    args: {
+        children: undefined as any
+    },
     render: () => (
         <div className="flex flex-col gap-6">
             <div>
@@ -101,9 +105,13 @@ export const AllVariants: Story = {
 };
 
 /**
- * Common use cases
+ * Common use cases - shows badge usage patterns
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const Examples: Story = {
+    args: {
+        children: undefined as any
+    },
     render: () => (
         <div className="flex flex-col gap-6">
             <div>
@@ -146,8 +154,12 @@ export const Examples: Story = {
 
 /**
  * Sage variant with icons - Figma spec
+ * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const SageWithIcons: Story = {
+    args: {
+        children: undefined as any
+    },
     render: () => (
         <div className="flex flex-col gap-6">
             <div>
