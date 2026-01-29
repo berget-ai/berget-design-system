@@ -103,8 +103,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                                     size === "sm" && "w-3 h-3",
                                     size === "default" && "w-3.5 h-3.5",
                                     size === "lg" && "w-4 h-4",
-                                    "text-white",
-                                    "bg-red-500" // Debug: röd bakgrund
+                                    "text-white"
                                 )}
                                 strokeWidth={2}
                             />
