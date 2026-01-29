@@ -81,16 +81,23 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                             className
                         )}
                     >
-                        <Check
-                            className={cn(
-                                "opacity-0 peer-checked:opacity-100 transition-opacity",
-                                size === "sm" && "w-3 h-3",
-                                size === "default" && "w-3.5 h-3.5",
-                                size === "lg" && "w-4 h-4",
-                                "peer-checked:text-white"
-                            )}
-                            strokeWidth={2}
-                        />
+                        {checkedIcon ? (
+                            <span className="opacity-0 peer-checked:opacity-100 transition-opacity">
+                                {checkedIcon}
+                            </span>
+                        ) : (
+                            <Check
+                                className={cn(
+                                    "opacity-0 peer-checked:opacity-100 transition-opacity",
+                                    size === "sm" && "w-3 h-3",
+                                    size === "default" && "w-3.5 h-3.5",
+                                    size === "lg" && "w-4 h-4",
+                                    "peer-checked:text-white",
+                                    "bg-red-500" // Debug: röd bakgrund för att se om ikonen finns
+                                )}
+                                strokeWidth={2}
+                            />
+                        )}
                     </div>
                 </div>
 
