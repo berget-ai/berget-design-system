@@ -67,7 +67,12 @@ export const Interactive: Story = {
         label: "Välj ett alternativ",
         placeholder: "Välj...",
         options: defaultOptions
-    }
+    },
+    render: args => (
+        <div className="p-4">
+            <Select {...args} />
+        </div>
+    )
 };
 
 /**
@@ -79,7 +84,7 @@ export const AllVariants: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 variant="default"
                 label="Variant: Default"
@@ -118,7 +123,7 @@ export const AllSizes: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 size="sm"
                 label="Liten select"
@@ -151,7 +156,7 @@ export const States: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 label="Tom"
                 placeholder="Välj ett alternativ"
@@ -182,7 +187,7 @@ export const WithError: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 label="Land"
                 placeholder="Välj land"
@@ -210,7 +215,7 @@ export const WithDescription: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 label="Roll"
                 description="Välj din roll i projektet"
@@ -245,7 +250,7 @@ export const WithDisabledOptions: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 label="Prenumeration"
                 placeholder="Välj prenumeration..."
@@ -279,7 +284,7 @@ export const InForm: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="bg-white/5 rounded-xl p-6 space-y-6">
+        <div className="p-4 bg-white/5 rounded-xl p-6 space-y-6">
             <h3 className="text-white font-semibold text-lg">Profilinställningar</h3>
 
             <Select
@@ -328,7 +333,7 @@ export const SelectGroup: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <h3 className="text-white font-semibold text-lg">Leveransadress</h3>
 
             <div className="space-y-4">
@@ -376,7 +381,7 @@ export const ManyOptions: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 label="Stad"
                 placeholder="Välj stad..."
@@ -407,7 +412,7 @@ export const InCard: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="bg-white/5 rounded-xl p-6">
+        <div className="p-4 bg-white/5 rounded-xl p-6">
             <h3 className="text-white font-semibold mb-6">Inställningar</h3>
 
             <div className="space-y-6">
@@ -445,7 +450,7 @@ export const WithValidation: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Select
                 label="Land"
                 placeholder="Välj land..."

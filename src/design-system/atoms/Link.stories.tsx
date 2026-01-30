@@ -22,7 +22,12 @@ export const Interactive: Story = {
         children: "Click me",
         variant: "default",
         size: "default"
-    }
+    },
+    render: args => (
+        <div className="p-4">
+            <Link {...args} />
+        </div>
+    )
 };
 
 /**

@@ -64,7 +64,12 @@ export const Interactive: Story = {
     args: {
         children: "Badge",
         variant: "default"
-    }
+    },
+    render: args => (
+        <div className="p-4">
+            <Badge {...args} />
+        </div>
+    )
 };
 
 /**
