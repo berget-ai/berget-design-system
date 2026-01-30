@@ -57,7 +57,7 @@ export const Default: Story = {
         variant: "light"
     },
     render: args => (
-        <div className={args.variant === "light" ? "bg-background" : "bg-white"}>
+        <div className={args.variant === "light" ? "bg-background p-4" : "bg-white p-4"}>
             <BergetLogotype {...args} />
         </div>
     )
