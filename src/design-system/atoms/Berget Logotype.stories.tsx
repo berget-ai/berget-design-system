@@ -55,7 +55,12 @@ export const Default: Story = {
     args: {
         size: 48,
         variant: "light"
-    }
+    },
+    render: args => (
+        <div className={args.variant === "light" ? "bg-background" : "bg-white"}>
+            <BergetLogotype {...args} />
+        </div>
+    )
 };
 
 /**
