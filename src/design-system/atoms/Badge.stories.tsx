@@ -7,7 +7,9 @@ import {
     AlertCircle,
     Info,
     AlertTriangle,
-    XCircle
+    XCircle,
+    Wifi,
+    WifiOff
 } from "lucide-react";
 
 /**
@@ -56,8 +58,9 @@ Badge component for displaying small status indicators and labels.
                 "active",
                 "tagDefault",
                 "tagActive",
-                "success",
+                "tagGhost",
                 "info",
+                "success",
                 "warning",
                 "error"
             ],
@@ -78,7 +81,9 @@ Badge component for displaying small status indicators and labels.
                 "AlertCircle",
                 "Info",
                 "AlertTriangle",
-                "XCircle"
+                "XCircle",
+                "Wifi",
+                "WifiOff"
             ],
             mapping: {
                 none: undefined,
@@ -88,7 +93,9 @@ Badge component for displaying small status indicators and labels.
                 AlertCircle,
                 Info,
                 AlertTriangle,
-                XCircle
+                XCircle,
+                Wifi,
+                WifiOff
             },
             description: "Optional icon"
         }
@@ -152,7 +159,7 @@ export const AllVariants: Story = {
             {/* Tag Variant */}
             <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-4">
-                    Tag Variant (2 status options)
+                    Tag Variant (3 status options)
                 </h3>
                 <div className="flex flex-wrap gap-2">
                     <Badge variant="tag" status="tagDefault">
@@ -167,6 +174,12 @@ export const AllVariants: Story = {
                     <Badge variant="tag" status="tagActive" icon={Check}>
                         Tag Active
                     </Badge>
+                    <Badge variant="tag" status="tagGhost">
+                        Tag Ghost
+                    </Badge>
+                    <Badge variant="tag" status="tagGhost" icon={Check}>
+                        Tag Ghost
+                    </Badge>
                 </div>
             </div>
 
@@ -176,11 +189,11 @@ export const AllVariants: Story = {
                     Semantic Variant (4 status options)
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                    <Badge variant="semantic" status="success">
-                        Success
-                    </Badge>
                     <Badge variant="semantic" status="info">
                         Info
+                    </Badge>
+                    <Badge variant="semantic" status="success">
+                        Success
                     </Badge>
                     <Badge variant="semantic" status="warning">
                         Warning
@@ -206,11 +219,11 @@ export const AllVariants: Story = {
                             <Badge size="sm" variant="tag" status="tagDefault">
                                 Tag
                             </Badge>
-                            <Badge size="sm" variant="semantic" status="success">
-                                Success
-                            </Badge>
                             <Badge size="sm" variant="semantic" status="info">
                                 Info
+                            </Badge>
+                            <Badge size="sm" variant="semantic" status="success">
+                                Success
                             </Badge>
                             <Badge size="sm" variant="semantic" status="warning">
                                 Warning
@@ -229,11 +242,11 @@ export const AllVariants: Story = {
                             <Badge size="md" variant="tag" status="tagDefault">
                                 Tag
                             </Badge>
-                            <Badge size="md" variant="semantic" status="success">
-                                Success
-                            </Badge>
                             <Badge size="md" variant="semantic" status="info">
                                 Info
+                            </Badge>
+                            <Badge size="md" variant="semantic" status="success">
+                                Success
                             </Badge>
                             <Badge size="md" variant="semantic" status="warning">
                                 Warning
@@ -271,6 +284,9 @@ export const AllVariants: Story = {
                             >
                                 Active
                             </Badge>
+                            <Badge size="sm" variant="semantic" status="info" icon={Info}>
+                                Info
+                            </Badge>
                             <Badge
                                 size="sm"
                                 variant="semantic"
@@ -294,9 +310,6 @@ export const AllVariants: Story = {
                                 icon={XCircle}
                             >
                                 Error
-                            </Badge>
-                            <Badge size="sm" variant="semantic" status="info" icon={Info}>
-                                Info
                             </Badge>
                         </div>
                     </div>
@@ -319,6 +332,9 @@ export const AllVariants: Story = {
                             >
                                 Active
                             </Badge>
+                            <Badge size="md" variant="semantic" status="info" icon={Info}>
+                                Info
+                            </Badge>
                             <Badge
                                 size="md"
                                 variant="semantic"
@@ -343,9 +359,73 @@ export const AllVariants: Story = {
                             >
                                 Error
                             </Badge>
-                            <Badge size="md" variant="semantic" status="info" icon={Info}>
-                                Info
-                            </Badge>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Icon-Only Badges */}
+            <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-4">
+                    Icon-Only Badges (Semantic)
+                </h3>
+                <div className="space-y-4">
+                    <div>
+                        <h4 className="text-xs text-muted-foreground mb-2">Size: sm</h4>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge
+                                size="sm"
+                                variant="semantic"
+                                status="info"
+                                icon={Wifi}
+                            />
+                            <Badge
+                                size="sm"
+                                variant="semantic"
+                                status="success"
+                                icon={Wifi}
+                            />
+                            <Badge
+                                size="sm"
+                                variant="semantic"
+                                status="warning"
+                                icon={WifiOff}
+                            />
+                            <Badge
+                                size="sm"
+                                variant="semantic"
+                                status="error"
+                                icon={WifiOff}
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <h4 className="text-xs text-muted-foreground mb-2">Size: md</h4>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge
+                                size="md"
+                                variant="semantic"
+                                status="info"
+                                icon={Wifi}
+                            />
+                            <Badge
+                                size="md"
+                                variant="semantic"
+                                status="success"
+                                icon={Wifi}
+                            />
+                            <Badge
+                                size="md"
+                                variant="semantic"
+                                status="warning"
+                                icon={WifiOff}
+                            />
+                            <Badge
+                                size="md"
+                                variant="semantic"
+                                status="error"
+                                icon={WifiOff}
+                            />
                         </div>
                     </div>
                 </div>
@@ -372,6 +452,9 @@ export const Examples: Story = {
                     Status Indicators (Semantic)
                 </h3>
                 <div className="flex flex-wrap gap-2">
+                    <Badge variant="semantic" status="info">
+                        Processing
+                    </Badge>
                     <Badge variant="semantic" status="success">
                         Active
                     </Badge>
@@ -380,9 +463,6 @@ export const Examples: Story = {
                     </Badge>
                     <Badge variant="semantic" status="error">
                         Failed
-                    </Badge>
-                    <Badge variant="semantic" status="info">
-                        Processing
                     </Badge>
                 </div>
             </div>
@@ -421,6 +501,35 @@ export const Examples: Story = {
                     <Badge variant="tag" status="tagDefault">
                         Berget
                     </Badge>
+                </div>
+            </div>
+
+            <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-3">
+                    Ghost Tags (Tag)
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                    <Badge variant="tag" status="tagGhost">
+                        Disabled
+                    </Badge>
+                    <Badge variant="tag" status="tagGhost" icon={Check}>
+                        Inactive
+                    </Badge>
+                    <Badge variant="tag" status="tagGhost">
+                        Archived
+                    </Badge>
+                </div>
+            </div>
+
+            <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-3">
+                    Icon-Only Badges (Semantic)
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                    <Badge variant="semantic" status="info" icon={Wifi} />
+                    <Badge variant="semantic" status="success" icon={Wifi} />
+                    <Badge variant="semantic" status="warning" icon={WifiOff} />
+                    <Badge variant="semantic" status="error" icon={WifiOff} />
                 </div>
             </div>
 

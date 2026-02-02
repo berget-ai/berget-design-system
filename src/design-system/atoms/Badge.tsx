@@ -10,17 +10,18 @@ const badgeVariants = cva(
             variant: {
                 default: "px-8",
                 tag: "px-4",
-                semantic: "border px-3"
+                semantic: "px-3"
             },
             status: {
                 default: "bg-[#2D6A4F] text-[#F0F479]",
                 active: "bg-[#2D6A4F] text-[rgba(255,255,255,0.8)]",
                 tagDefault: "bg-[#E5DDD5] text-[rgba(26,26,26,0.8)]",
                 tagActive: "bg-[#1a1a1a] text-[#E5DDD5]",
-                success: "border-[#10B981] text-[#10B981]",
-                info: "border-[#0284C7] text-[#0284C7]",
-                warning: "border-[#fef08a] text-[#fef08a]",
-                error: "border-[#E11D48] text-[#E11D48]"
+                tagGhost: "bg-[#E5DDD5]/30 text-[rgba(26,26,26,0.6)]",
+                info: "bg-[#3975D6]/20 text-[#3975D6]",
+                success: "bg-[#52B788]/20 text-[#52B788]",
+                warning: "bg-[#EEFF8B]/20 text-[#EEFF8B]",
+                error: "bg-[#D1392E]/20 text-[#D1392E]"
             },
             size: {
                 sm: "text-xs h-5",
@@ -122,7 +123,7 @@ function Badge({
                 <Icon
                     className={iconSize}
                     strokeWidth={1.5}
-                    style={{ marginRight: `${iconGap * 0.25}rem` }}
+                    style={{ marginRight: children ? `${iconGap * 0.25}rem` : "0" }}
                 />
             )}
             {children}
