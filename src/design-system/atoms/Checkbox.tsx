@@ -4,7 +4,7 @@ import { cn } from "../../utils/cn";
 import { Check } from "lucide-react";
 
 const checkboxVariants = cva(
-    "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
+    "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:cursor-not-allowed disabled:opacity-50",
     {
         variants: {
             variant: {
@@ -51,12 +51,14 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             checkedIcon,
             id,
             disabled,
+            defaultChecked,
             ...props
         },
         ref
     ) => {
         const checkboxId = id || React.useId();
         const errorId = `${checkboxId}-error`;
+        const [isChecked, setIsChecked] = React.useState(defaultChecked || false);
 
         return (
             <div className="flex items-start gap-3">
@@ -69,29 +71,44 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                         aria-invalid={!!error}
                         aria-describedby={error ? errorId : undefined}
                         className="peer sr-only"
+                        checked={isChecked}
+                        onChange={e => setIsChecked(e.target.checked)}
                         {...props}
                     />
-                    <div
+                    <label
+                        htmlFor={checkboxId}
                         className={cn(
                             checkboxVariants({ variant, size }),
-                            "peer-checked:bg-primary peer-checked:border-primary peer-checked:text-white",
+                            isChecked && "border-primary",
                             error && "border-red-500/50 bg-red-500/10",
                             "cursor-pointer",
-                            disabled && "cursor-not-allowed",
+                            disabled && "cursor-not-allowed pointer-events-none",
                             className
                         )}
                     >
-                        <Check
-                            className={cn(
-                                "hidden peer-checked:block",
-                                size === "sm" && "w-3 h-3",
-                                size === "default" && "w-3.5 h-3.5",
-                                size === "lg" && "w-4 h-4",
-                                "text-white"
-                            )}
-                            strokeWidth={2}
-                        />
-                    </div>
+                        {checkedIcon ? (
+                            <span
+                                className={cn(
+                                    "transition-opacity",
+                                    isChecked ? "opacity-100" : "opacity-0"
+                                )}
+                            >
+                                {checkedIcon}
+                            </span>
+                        ) : (
+                            <Check
+                                className={cn(
+                                    "transition-opacity",
+                                    isChecked ? "opacity-100" : "opacity-0",
+                                    size === "sm" && "w-3 h-3",
+                                    size === "default" && "w-3.5 h-3.5",
+                                    size === "lg" && "w-4 h-4",
+                                    "text-white"
+                                )}
+                                strokeWidth={2}
+                            />
+                        )}
+                    </label>
                 </div>
 
                 {(label || description || error) && (
