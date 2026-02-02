@@ -180,50 +180,6 @@ export const GradientBerget: StoryObj = {
 };
 
 /**
- * Gradient Background - Warm
- *
- * Warm earth tones for cozy, trustworthy feeling.
- */
-export const GradientWarm: StoryObj = {
-    parameters: {
-        controls: { hide: true }
-    },
-    render: () => (
-        <GradientBackground variant="warm" className="flex items-center justify-center">
-            <div className="text-center max-w-2xl px-6">
-                <h1 className="text-5xl mb-4 text-white">Warm Gradient</h1>
-                <p className="text-white/90 text-lg mb-8">
-                    Warm earth tones. Perfect for sustainability, organic products, or
-                    creating a cozy, trustworthy feeling.
-                </p>
-            </div>
-        </GradientBackground>
-    )
-};
-
-/**
- * Gradient Background - Cool
- *
- * Cool blue-green tones for professional, tech feel.
- */
-export const GradientCool: StoryObj = {
-    parameters: {
-        controls: { hide: true }
-    },
-    render: () => (
-        <GradientBackground variant="cool" className="flex items-center justify-center">
-            <div className="text-center max-w-2xl px-6">
-                <h1 className="text-5xl mb-4 text-white">Cool Gradient</h1>
-                <p className="text-white/90 text-lg mb-8">
-                    Cool blue-green tones. Ideal for B2B, security, reliability, and
-                    professional/technical contexts.
-                </p>
-            </div>
-        </GradientBackground>
-    )
-};
-
-/**
  * Gradient Background - Subtle
  *
  * Very subtle dark gradient for sections that need gentle separation.
