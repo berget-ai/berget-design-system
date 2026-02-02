@@ -146,12 +146,12 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                     {/* Category & Language */}
                     <div className="flex items-center gap-2 mb-3">
                         {post.category && (
-                            <Badge variant="secondary" className="text-xs">
+                            <Badge variant="default" className="text-xs">
                                 {post.category}
                             </Badge>
                         )}
                         {post.language && (
-                            <Badge variant="outline" className="text-xs bg-white/5">
+                            <Badge variant="tag" className="text-xs bg-white/5">
                                 {post.language === "en" ? "🇬🇧 English" : "🇸🇪 Svenska"}
                             </Badge>
                         )}

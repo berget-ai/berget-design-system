@@ -241,7 +241,9 @@ export const WithBadgeLabel: Story = {
                 >
                     API Key
                 </label>
-                <Badge variant="warning">Required</Badge>
+                <Badge variant="semantic" status="warning">
+                    Required
+                </Badge>
             </div>
             <Input id="api-key-input" type="password" placeholder="sk_live_..." />
         </div>
@@ -355,7 +357,7 @@ export const APIConfiguration: Story = {
                     >
                         API Endpoint
                     </label>
-                    <Badge variant="outline">Optional</Badge>
+                    <Badge variant="tag">Optional</Badge>
                 </div>
                 <Input
                     id="api-endpoint"
@@ -373,7 +375,9 @@ export const APIConfiguration: Story = {
                     >
                         API Key
                     </label>
-                    <Badge variant="destructive">Required</Badge>
+                    <Badge variant="semantic" status="error">
+                        Required
+                    </Badge>
                 </div>
                 <Input id="api-key-config" type="password" placeholder="sk_live_..." />
                 <p className="text-sm text-muted-foreground">
