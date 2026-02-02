@@ -1,6 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "./Badge";
-import { Shield, Lock, Check, AlertCircle } from "lucide-react";
+import {
+    Shield,
+    Lock,
+    Check,
+    AlertCircle,
+    Info,
+    AlertTriangle,
+    XCircle
+} from "lucide-react";
 
 /**
  * Badge component for status indicators, labels, and metadata.
@@ -38,18 +46,51 @@ Badge component for displaying small status indicators and labels.
     argTypes: {
         variant: {
             control: "select",
+            options: ["default", "tag", "semantic"],
+            description: "Variant type"
+        },
+        status: {
+            control: "select",
             options: [
                 "default",
-                "secondary",
-                "accent",
-                "destructive",
-                "outline",
+                "active",
+                "tagDefault",
+                "tagActive",
                 "success",
-                "warning",
                 "info",
-                "sage"
+                "warning",
+                "error"
             ],
-            description: "Visual style variant"
+            description: "Status (depends on variant)"
+        },
+        size: {
+            control: "select",
+            options: ["sm", "md"],
+            description: "Size variant"
+        },
+        icon: {
+            control: "select",
+            options: [
+                "none",
+                "Shield",
+                "Lock",
+                "Check",
+                "AlertCircle",
+                "Info",
+                "AlertTriangle",
+                "XCircle"
+            ],
+            mapping: {
+                none: undefined,
+                Shield,
+                Lock,
+                Check,
+                AlertCircle,
+                Info,
+                AlertTriangle,
+                XCircle
+            },
+            description: "Optional icon"
         }
     }
 } satisfies Meta<typeof Badge>;
@@ -63,7 +104,9 @@ type Story = StoryObj<typeof meta>;
 export const Interactive: Story = {
     args: {
         children: "Badge",
-        variant: "default"
+        variant: "default",
+        status: "default",
+        size: "md"
     },
     render: args => (
         <div className="p-4">
@@ -73,7 +116,7 @@ export const Interactive: Story = {
 };
 
 /**
- * All variants showcase - shows all badge variants
+ * All variants showcase - shows all badge combinations
  * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
  */
 export const AllVariants: Story = {
@@ -84,28 +127,227 @@ export const AllVariants: Story = {
         children: undefined as any
     },
     render: () => (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-8">
+            {/* Default Variant */}
             <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Base Variants
+                <h3 className="text-sm font-medium text-muted-foreground mb-4">
+                    Default Variant (2 status options)
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                    <Badge variant="default">Default</Badge>
-                    <Badge variant="secondary">Secondary</Badge>
-                    <Badge variant="accent">Accent</Badge>
-                    <Badge variant="destructive">Destructive</Badge>
-                    <Badge variant="outline">Outline</Badge>
+                    <Badge variant="default" status="default">
+                        Default
+                    </Badge>
+                    <Badge variant="default" status="default" icon={Check}>
+                        GDPR compliant
+                    </Badge>
+                    <Badge variant="default" status="active">
+                        Active
+                    </Badge>
+                    <Badge variant="default" status="active" icon={Check}>
+                        Verified
+                    </Badge>
                 </div>
             </div>
 
+            {/* Tag Variant */}
             <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    State Variants
+                <h3 className="text-sm font-medium text-muted-foreground mb-4">
+                    Tag Variant (2 status options)
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                    <Badge variant="success">Success</Badge>
-                    <Badge variant="warning">Warning</Badge>
-                    <Badge variant="info">Info</Badge>
+                    <Badge variant="tag" status="tagDefault">
+                        Tag Default
+                    </Badge>
+                    <Badge variant="tag" status="tagDefault" icon={Check}>
+                        Tag Default
+                    </Badge>
+                    <Badge variant="tag" status="tagActive">
+                        Tag Active
+                    </Badge>
+                    <Badge variant="tag" status="tagActive" icon={Check}>
+                        Tag Active
+                    </Badge>
+                </div>
+            </div>
+
+            {/* Semantic Variant */}
+            <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-4">
+                    Semantic Variant (4 status options)
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                    <Badge variant="semantic" status="success">
+                        Success
+                    </Badge>
+                    <Badge variant="semantic" status="info">
+                        Info
+                    </Badge>
+                    <Badge variant="semantic" status="warning">
+                        Warning
+                    </Badge>
+                    <Badge variant="semantic" status="error">
+                        Error
+                    </Badge>
+                </div>
+            </div>
+
+            {/* Size Variants */}
+            <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-4">
+                    Size Variants
+                </h3>
+                <div className="space-y-4">
+                    <div>
+                        <h4 className="text-xs text-muted-foreground mb-2">Size: sm</h4>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge size="sm" variant="default" status="default">
+                                Default
+                            </Badge>
+                            <Badge size="sm" variant="tag" status="tagDefault">
+                                Tag
+                            </Badge>
+                            <Badge size="sm" variant="semantic" status="success">
+                                Success
+                            </Badge>
+                            <Badge size="sm" variant="semantic" status="info">
+                                Info
+                            </Badge>
+                            <Badge size="sm" variant="semantic" status="warning">
+                                Warning
+                            </Badge>
+                            <Badge size="sm" variant="semantic" status="error">
+                                Error
+                            </Badge>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 className="text-xs text-muted-foreground mb-2">Size: md</h4>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge size="md" variant="default" status="default">
+                                Default
+                            </Badge>
+                            <Badge size="md" variant="tag" status="tagDefault">
+                                Tag
+                            </Badge>
+                            <Badge size="md" variant="semantic" status="success">
+                                Success
+                            </Badge>
+                            <Badge size="md" variant="semantic" status="info">
+                                Info
+                            </Badge>
+                            <Badge size="md" variant="semantic" status="warning">
+                                Warning
+                            </Badge>
+                            <Badge size="md" variant="semantic" status="error">
+                                Error
+                            </Badge>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* With Icons */}
+            <div>
+                <h3 className="text-sm font-medium text-muted-foreground mb-4">
+                    With Icons
+                </h3>
+                <div className="space-y-4">
+                    <div>
+                        <h4 className="text-xs text-muted-foreground mb-2">Size: sm</h4>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge
+                                size="sm"
+                                variant="default"
+                                status="default"
+                                icon={Check}
+                            >
+                                GDPR compliant
+                            </Badge>
+                            <Badge
+                                size="sm"
+                                variant="tag"
+                                status="tagActive"
+                                icon={Check}
+                            >
+                                Active
+                            </Badge>
+                            <Badge
+                                size="sm"
+                                variant="semantic"
+                                status="success"
+                                icon={Check}
+                            >
+                                Verified
+                            </Badge>
+                            <Badge
+                                size="sm"
+                                variant="semantic"
+                                status="warning"
+                                icon={AlertCircle}
+                            >
+                                Attention
+                            </Badge>
+                            <Badge
+                                size="sm"
+                                variant="semantic"
+                                status="error"
+                                icon={XCircle}
+                            >
+                                Error
+                            </Badge>
+                            <Badge size="sm" variant="semantic" status="info" icon={Info}>
+                                Info
+                            </Badge>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 className="text-xs text-muted-foreground mb-2">Size: md</h4>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge
+                                size="md"
+                                variant="default"
+                                status="default"
+                                icon={Check}
+                            >
+                                GDPR compliant
+                            </Badge>
+                            <Badge
+                                size="md"
+                                variant="tag"
+                                status="tagActive"
+                                icon={Check}
+                            >
+                                Active
+                            </Badge>
+                            <Badge
+                                size="md"
+                                variant="semantic"
+                                status="success"
+                                icon={Check}
+                            >
+                                Verified
+                            </Badge>
+                            <Badge
+                                size="md"
+                                variant="semantic"
+                                status="warning"
+                                icon={AlertCircle}
+                            >
+                                Attention
+                            </Badge>
+                            <Badge
+                                size="md"
+                                variant="semantic"
+                                status="error"
+                                icon={XCircle}
+                            >
+                                Error
+                            </Badge>
+                            <Badge size="md" variant="semantic" status="info" icon={Info}>
+                                Info
+                            </Badge>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,99 +369,74 @@ export const Examples: Story = {
         <div className="flex flex-col gap-6">
             <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Status Indicators
+                    Status Indicators (Semantic)
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                    <Badge variant="success">Active</Badge>
-                    <Badge variant="warning">Pending</Badge>
-                    <Badge variant="destructive">Failed</Badge>
-                    <Badge variant="info">Processing</Badge>
+                    <Badge variant="semantic" status="success">
+                        Active
+                    </Badge>
+                    <Badge variant="semantic" status="warning">
+                        Pending
+                    </Badge>
+                    <Badge variant="semantic" status="error">
+                        Failed
+                    </Badge>
+                    <Badge variant="semantic" status="info">
+                        Processing
+                    </Badge>
                 </div>
             </div>
 
             <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Feature Flags
+                    Feature Flags (Tag)
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                    <Badge variant="accent">New</Badge>
-                    <Badge variant="info">Beta</Badge>
-                    <Badge variant="secondary">Premium</Badge>
+                    <Badge variant="tag" status="tagActive">
+                        New
+                    </Badge>
+                    <Badge variant="tag" status="tagDefault">
+                        Beta
+                    </Badge>
+                    <Badge variant="tag" status="tagActive">
+                        Premium
+                    </Badge>
                 </div>
             </div>
 
             <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Tags & Categories
+                    Tags & Categories (Tag)
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline">TypeScript</Badge>
-                    <Badge variant="outline">React</Badge>
-                    <Badge variant="outline">Design Systems</Badge>
-                    <Badge variant="outline">Berget</Badge>
+                    <Badge variant="tag" status="tagDefault">
+                        TypeScript
+                    </Badge>
+                    <Badge variant="tag" status="tagDefault">
+                        React
+                    </Badge>
+                    <Badge variant="tag" status="tagDefault">
+                        Design Systems
+                    </Badge>
+                    <Badge variant="tag" status="tagDefault">
+                        Berget
+                    </Badge>
                 </div>
             </div>
-        </div>
-    )
-};
 
-/**
- * Sage variant with icons - Figma spec
- * Note: This is a static showcase. Use Interactive story to test individual variants with controls.
- */
-export const SageWithIcons: Story = {
-    parameters: {
-        controls: { hide: true }
-    },
-    args: {
-        children: undefined as any
-    },
-    render: () => (
-        <div className="flex flex-col gap-6">
             <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Privacy & Security Badges
+                    Privacy & Security Badges (Default)
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                    <Badge variant="sage" icon={Shield}>
+                    <Badge variant="default" status="default" icon={Shield}>
                         No data leaves Sweden
                     </Badge>
-                    <Badge variant="sage" icon={Lock}>
+                    <Badge variant="default" status="active" icon={Lock}>
                         End-to-end encrypted
                     </Badge>
-                    <Badge variant="sage" icon={Check}>
+                    <Badge variant="default" status="default" icon={Check}>
                         GDPR compliant
-                    </Badge>
-                </div>
-            </div>
-
-            <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Status with Icons
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                    <Badge variant="sage" icon={Check}>
-                        Verified
-                    </Badge>
-                    <Badge variant="sage" icon={AlertCircle}>
-                        Attention needed
-                    </Badge>
-                </div>
-            </div>
-
-            <div>
-                <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Hero Tagline Badges
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                    <Badge variant="sage" icon={Shield}>
-                        Built for Europe
-                    </Badge>
-                    <Badge variant="sage" icon={Check}>
-                        GDPR Compliant
-                    </Badge>
-                    <Badge variant="sage" icon={Lock}>
-                        Secure by Design
                     </Badge>
                 </div>
             </div>

@@ -4,28 +4,33 @@ import { cn } from "../../utils/cn";
 import { LucideIcon } from "lucide-react";
 
 const badgeVariants = cva(
-    "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-ring focus:ring-offset-2 focus:ring-opacity-20",
+    "inline-flex items-center rounded-full font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-ring focus:ring-offset-2 focus:ring-opacity-20",
     {
         variants: {
             variant: {
-                default:
-                    "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-                secondary:
-                    "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-                accent: "border-transparent bg-accent text-accent-foreground hover:bg-accent/80",
-                destructive:
-                    "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-                outline: "text-foreground border-[hsl(var(--border))]",
-                success:
-                    "border-[hsl(var(--border-success))] bg-[hsl(var(--success))]/10 text-[hsl(var(--success))]",
-                warning:
-                    "border-[hsl(var(--border-warning))] bg-[hsl(var(--warning))]/10 text-[hsl(var(--warning))]",
-                info: "border-[hsl(var(--border-info))] bg-[hsl(var(--info))]/10 text-[hsl(var(--info))]",
-                sage: "bg-[#52B788]/40 border-transparent text-[#74C69D] px-3 py-1"
+                default: "px-8",
+                tag: "px-4",
+                semantic: "border px-3"
+            },
+            status: {
+                default: "bg-[#2D6A4F] text-[#F0F479]",
+                active: "bg-[#2D6A4F] text-[rgba(255,255,255,0.8)]",
+                tagDefault: "bg-[#E5DDD5] text-[rgba(26,26,26,0.8)]",
+                tagActive: "bg-[#1a1a1a] text-[#E5DDD5]",
+                success: "border-[#10B981] text-[#10B981]",
+                info: "border-[#0284C7] text-[#0284C7]",
+                warning: "border-[#fef08a] text-[#fef08a]",
+                error: "border-[#E11D48] text-[#E11D48]"
+            },
+            size: {
+                sm: "text-xs h-5",
+                md: "text-sm h-6"
             }
         },
         defaultVariants: {
-            variant: "default"
+            variant: "default",
+            status: "default",
+            size: "md"
         }
     }
 );
@@ -50,26 +55,22 @@ export interface BadgeProps
  * Small status indicators and labels.
  *
  * **Variants:**
- * - `default` - Primary Berget Stone badge
- * - `secondary` - Moss green badge
- * - `accent` - Sage green badge
- * - `destructive` - Error/danger badge
- * - `outline` - Outlined badge
- * - `success` - Success/positive badge
- * - `warning` - Warning/caution badge
- * - `info` - Informational badge
- * - `sage` - Sage green badge with icon support (Figma spec)
+ * - `default` - Default badges with 2 status options (default, active)
+ * - `tag` - Tag badges with 2 status options (default, active)
+ * - `semantic` - Semantic badges with 4 status options (success, info, warning, error)
  *
- * **Border System:**
- * Uses semantic border tokens for state variants:
- * - outline: `--border` (standard)
- * - success: `--border-success` (green)
- * - warning: `--border-warning` (yellow)
- * - info: `--border-info` (blue)
+ * **Status (Color):**
+ * - **Default variant:** `default`, `active`
+ * - **Tag variant:** `default`, `active`
+ * - **Semantic variant:** `success`, `info`, `warning`, `error`
+ *
+ * **Sizes:**
+ * - `sm` - Text text-xs (0.75rem), height h-5 (1.25rem)
+ * - `md` - Text text-sm (0.875rem), height h-6 (1.5rem)
  *
  * **Icon Support:**
  * Badges can optionally include an icon from lucide-react.
- * The `sage` variant is designed for use with icons.
+ * Icons scale proportionally with text: size-3 for sm, size-4 for md.
  *
  * **Use Cases:**
  * - Status indicators (Active, Pending, Failed)
@@ -81,37 +82,46 @@ export interface BadgeProps
  *
  * @example
  * ```tsx
- * // Basic badges
- * <Badge>Default</Badge>
- * <Badge variant="success">Active</Badge>
- * <Badge variant="warning">Beta</Badge>
- * <Badge variant="destructive">Error</Badge>
+ * // Default variant
+ * <Badge variant="default" status="default">GDPR compliant</Badge>
+ * <Badge variant="default" status="active" icon={Check}>Verified</Badge>
  *
- * // Badge with icon (sage variant)
- * <Badge variant="sage" icon={Shield}>
- *   No data leaves Sweden
- * </Badge>
+ * // Tag variant
+ * <Badge variant="tag" status="default">Tag</Badge>
+ * <Badge variant="tag" status="active" icon={Check}>Active</Badge>
  *
- * // Hero tagline badge (moss variant)
- * <Badge variant="moss" icon={Shield}>
- *   Built for Europe
- * </Badge>
+ * // Semantic variant
+ * <Badge variant="semantic" status="success">Success</Badge>
+ * <Badge variant="semantic" status="info">Info</Badge>
+ * <Badge variant="semantic" status="warning">Warning</Badge>
+ * <Badge variant="semantic" status="error">Error</Badge>
+ *
+ * // Size variants
+ * <Badge size="sm">Small</Badge>
+ * <Badge size="md">Medium</Badge>
  * ```
  */
 function Badge({
     className,
     variant,
+    status,
+    size,
     icon: Icon,
     iconGap = 2,
     children,
     ...props
 }: BadgeProps) {
+    const iconSize = size === "sm" ? "size-3" : "size-4";
+
     return (
-        <div className={cn(badgeVariants({ variant }), className)} {...props}>
+        <div
+            className={cn(badgeVariants({ variant, status, size }), className)}
+            {...props}
+        >
             {Icon && (
                 <Icon
-                    className="w-4 h-4"
-                    strokeWidth={1}
+                    className={iconSize}
+                    strokeWidth={1.5}
                     style={{ marginRight: `${iconGap * 0.25}rem` }}
                 />
             )}
