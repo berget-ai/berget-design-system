@@ -13,14 +13,14 @@ const badgeVariants = cva(
                 semantic: "px-3"
             },
             status: {
-                default: "bg-[#2D6A4F] text-[#EEFF8B]",
+                default: "bg-[#2D6A4F] text-[#CFFF8B]",
                 active: "bg-[#2D6A4F] text-[rgba(255,255,255,0.8)]",
                 tagDefault: "bg-[#E5DDD5] text-[rgba(26,26,26,0.8)]",
                 tagActive: "bg-[#1a1a1a] text-[#E5DDD5]",
                 tagGhost: "bg-[#E5DDD5]/30 text-[rgba(26,26,26,0.6)]",
                 info: "bg-[#3975D6]/20 text-[#3975D6]",
                 success: "bg-[#52B788]/20 text-[#52B788]",
-                warning: "bg-[#EEFF8B]/20 text-[#EEFF8B]",
+                warning: "bg-[#CFFF8B]/20 text-[#CFFF8B]",
                 error: "bg-[#D1392E]/20 text-[#D1392E]"
             },
             size: {

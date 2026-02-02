@@ -84,9 +84,7 @@ const DemoContent = () => (
  */
 export const Small: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -103,9 +101,7 @@ export const Small: Story = {
  */
 export const Medium: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -122,9 +118,7 @@ export const Medium: Story = {
  */
 export const Large: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -141,9 +135,7 @@ export const Large: Story = {
  */
 export const ExtraLarge: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -160,9 +152,7 @@ export const ExtraLarge: Story = {
  */
 export const FullWidth: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -179,9 +169,7 @@ export const FullWidth: Story = {
  */
 export const AllSizes: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -236,9 +224,7 @@ export const AllSizes: Story = {
  */
 export const ArticleLayout: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -290,9 +276,7 @@ export const ArticleLayout: Story = {
  */
 export const DashboardLayout: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (

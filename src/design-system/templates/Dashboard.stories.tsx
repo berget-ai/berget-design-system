@@ -24,9 +24,7 @@ type Story = StoryObj;
  */
 export const ConsoleDashboard: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -237,9 +235,7 @@ export const ConsoleDashboard: Story = {
  */
 export const StatCards: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (

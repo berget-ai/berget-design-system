@@ -33,9 +33,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const ProductsPageExample: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -134,9 +132,7 @@ export const ProductsPageExample: Story = {
  */
 export const WhyBergetPageExample: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -239,9 +235,7 @@ export const WhyBergetPageExample: Story = {
  */
 export const SimpleLandingPage: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
