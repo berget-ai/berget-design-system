@@ -13,7 +13,7 @@ const badgeVariants = cva(
                 semantic: "px-3"
             },
             status: {
-                default: "bg-[#2D6A4F] text-[#F0F479]",
+                default: "bg-[#2D6A4F] text-[#EEFF8B]",
                 active: "bg-[#2D6A4F] text-[rgba(255,255,255,0.8)]",
                 tagDefault: "bg-[#E5DDD5] text-[rgba(26,26,26,0.8)]",
                 tagActive: "bg-[#1a1a1a] text-[#E5DDD5]",
