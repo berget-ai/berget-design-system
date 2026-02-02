@@ -18,10 +18,10 @@ const badgeVariants = cva(
                 tagDefault: "bg-[#E5DDD5] text-[rgba(26,26,26,0.8)]",
                 tagActive: "bg-[#1a1a1a] text-[#E5DDD5]",
                 tagGhost: "bg-[#E5DDD5]/30 text-[rgba(26,26,26,0.6)]",
-                info: "bg-[#3975D6]/20 text-[#3975D6]",
-                success: "bg-[#52B788]/20 text-[#52B788]",
-                warning: "bg-[#CFFF8B]/20 text-[#CFFF8B]",
-                error: "bg-[#D1392E]/20 text-[#D1392E]"
+                info: "bg-[#3975D6]/20 text-[#3975D6] border border-[#3975D6]/40",
+                success: "bg-[#52B788]/20 text-[#52B788] border border-[#52B788]/40",
+                warning: "bg-[#CFFF8B]/20 text-[#CFFF8B] border border-[#CFFF8B]/40",
+                error: "bg-[#D1392E]/20 text-[#D1392E] border border-[#D1392E]/40"
             },
             size: {
                 sm: "text-xs h-5",
