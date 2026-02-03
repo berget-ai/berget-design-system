@@ -81,7 +81,22 @@ const preview: Preview = {
                 }
             ]
         },
-        darkMode: "dark" // Enable dark mode by default
+        darkMode: "dark", // Enable dark mode by default
+        options: {
+            storySort: {
+                method: "alphabetical",
+                order: [
+                    "Foundations",
+                    "Atoms",
+                    "Molecules",
+                    "Organisms",
+                    "Templates",
+                    "Utilities",
+                    "Sandbox",
+                    "*"
+                ]
+            }
+        }
     },
 
     globalTypes: {
