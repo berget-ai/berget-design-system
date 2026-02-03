@@ -9,7 +9,7 @@ const cardVariants = cva(
             variant: {
                 highlight:
                     "bg-[rgba(26,26,26,0.4)] border border-[rgba(26,26,26,0.4)] backdrop-blur-[5px]",
-                glass: "bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] shadow-[0px_21px_14.6px_5px_rgba(0,0,0,0.24)] backdrop-blur-[10px]",
+                glass: "bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] shadow-[0px_8px_8px_2px_rgba(0,0,0,0.10)] backdrop-blur-[10px]",
                 solid: "bg-[#1A1A1A] border border-[rgba(26,26,26,0.4)] backdrop-blur-[5px]"
             }
         },

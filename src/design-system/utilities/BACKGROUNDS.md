@@ -123,7 +123,7 @@ import { GridBackground } from '@/design-system/effects/GridBackground'
 ### 🎨 Utseende
 
 -   Fullskärms gradient från mörkt till ljusare
--   4 färgvarianter: berget, warm, cool, subtle
+-   2 färgvarianter: berget, subtle
 
 ### 📍 Använd när:
 
@@ -166,36 +166,6 @@ Grön gradient med Berget varumärkesfärger
 -   Berget's hero section
 -   Main landing page
 -   Brand storytelling
-
-#### **Warm**
-
-Varma jordfärger
-
-```tsx
-<GradientBackground variant="warm">
-// Gradient: #342F2D → #52433D → #6B5442
-```
-
-**Använd för:**
-
--   Cozy, trustworthy feel
--   Sustainability content
--   Natural/organic products
-
-#### **Cool**
-
-Kalla blå-gröna toner
-
-```tsx
-<GradientBackground variant="cool">
-// Gradient: #1A3A3A → #2D5555 → #40706F
-```
-
-**Använd för:**
-
--   Tech/professional
--   Security/reliability
--   B2B content
 
 #### **Subtle**
 

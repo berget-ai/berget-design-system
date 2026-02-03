@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "./Input";
 import { Badge } from "./Badge";
+import { Search as SearchIcon } from "lucide-react";
 
 const meta = {
     title: "Atoms/Input",
@@ -91,10 +92,15 @@ export const Password: Story = {
  * Search input
  */
 export const Search: Story = {
-    args: {
-        type: "search",
-        placeholder: "Search..."
-    }
+    parameters: {
+        controls: { hide: true }
+    },
+    render: () => (
+        <div className="relative w-[350px]">
+            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input type="search" placeholder="Search..." className="pl-10" />
+        </div>
+    )
 };
 
 /**
@@ -214,11 +220,9 @@ export const WithSuccess: Story = {
                 id="success-input"
                 type="email"
                 value="user@example.com"
-                className="border-[hsl(var(--border-success))] focus-visible:ring-[hsl(var(--success))]"
+                className="border-[#52B788] focus-visible:border-[#52B788]"
             />
-            <p className="text-sm text-[hsl(var(--success))]">
-                ✓ Email address is valid.
-            </p>
+            <p className="text-sm text-[#52B788]">✓ Email address is valid.</p>
         </div>
     )
 };
@@ -241,7 +245,9 @@ export const WithBadgeLabel: Story = {
                 >
                     API Key
                 </label>
-                <Badge variant="warning">Required</Badge>
+                <Badge variant="semantic" status="warning">
+                    Required
+                </Badge>
             </div>
             <Input id="api-key-input" type="password" placeholder="sk_live_..." />
         </div>
@@ -355,7 +361,7 @@ export const APIConfiguration: Story = {
                     >
                         API Endpoint
                     </label>
-                    <Badge variant="outline">Optional</Badge>
+                    <Badge variant="tag">Optional</Badge>
                 </div>
                 <Input
                     id="api-endpoint"
@@ -373,7 +379,9 @@ export const APIConfiguration: Story = {
                     >
                         API Key
                     </label>
-                    <Badge variant="destructive">Required</Badge>
+                    <Badge variant="semantic" status="error">
+                        Required
+                    </Badge>
                 </div>
                 <Input id="api-key-config" type="password" placeholder="sk_live_..." />
                 <p className="text-sm text-muted-foreground">
@@ -411,11 +419,12 @@ export const SearchBar: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="w-[500px]">
+        <div className="w-[500px] relative">
+            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
                 type="search"
                 placeholder="Search models, documentation, or deployments..."
-                className="w-full"
+                className="w-full pl-10"
             />
         </div>
     )

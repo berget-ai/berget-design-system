@@ -95,4 +95,4 @@ export const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProp
         );
     }
 );
-BergetLogotype.displayName = "BergetLogotype";
+BergetLogotype.displayName = "Berget Logotype";

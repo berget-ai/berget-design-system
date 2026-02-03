@@ -5,12 +5,10 @@ export interface GradientBackgroundProps extends React.HTMLAttributes<HTMLDivEle
     /**
      * Gradient variant
      * - berget: Green gradient (Berget brand colors)
-     * - warm: Warm earth tones
-     * - cool: Cool blue-green tones
      * - subtle: Very subtle dark gradient
      * @default "berget"
      */
-    variant?: "berget" | "warm" | "cool" | "subtle";
+    variant?: "berget" | "subtle";
     /**
      * Children to render on top of the gradient
      */
@@ -19,8 +17,6 @@ export interface GradientBackgroundProps extends React.HTMLAttributes<HTMLDivEle
 
 const gradientVariants = {
     berget: "from-[#2D6A4F] via-[#40916C] to-[#52B788]",
-    warm: "from-[#342F2D] via-[#52433D] to-[#6B5442]",
-    cool: "from-[#1A3A3A] via-[#2D5555] to-[#40706F]",
     subtle: "from-[#0A0A0A] via-[#121212] to-[#1A1A1A]"
 };
 

@@ -58,9 +58,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -78,9 +76,7 @@ export const Default: Story = {
  */
 export const Info: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -98,9 +94,7 @@ export const Info: Story = {
  */
 export const Success: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -118,9 +112,7 @@ export const Success: Story = {
  */
 export const Warning: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -138,9 +130,7 @@ export const Warning: Story = {
  */
 export const Destructive: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -159,9 +149,7 @@ export const Destructive: Story = {
  */
 export const TitleOnly: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -176,9 +164,7 @@ export const TitleOnly: Story = {
  */
 export const DescriptionOnly: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -197,9 +183,7 @@ export const DescriptionOnly: Story = {
  */
 export const FormValidation: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -224,9 +208,7 @@ export const FormValidation: Story = {
  */
 export const SystemStatus: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -263,9 +245,7 @@ export const SystemStatus: Story = {
  */
 export const DeploymentNotifications: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -305,9 +285,7 @@ export const DeploymentNotifications: Story = {
  */
 export const FeatureAnnouncements: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -327,9 +305,7 @@ export const FeatureAnnouncements: Story = {
  */
 export const AllVariants: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (

@@ -123,7 +123,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
                     <div className="max-w-3xl mx-auto text-center">
                         {tagline && (
                             <Badge
-                                variant="sage"
+                                variant="default"
                                 icon={TaglineIcon}
                                 iconGap={2}
                                 className="mb-6"

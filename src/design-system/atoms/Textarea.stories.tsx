@@ -73,7 +73,12 @@ export const Interactive: Story = {
         label: "Meddelande",
         placeholder: "Skriv ditt meddelande här...",
         rows: 4
-    }
+    },
+    render: args => (
+        <div className="p-4">
+            <Textarea {...args} />
+        </div>
+    )
 };
 
 /**
@@ -85,7 +90,7 @@ export const AllVariants: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 variant="default"
                 label="Variant: Default"
@@ -123,7 +128,7 @@ export const AllSizes: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 size="sm"
                 label="Liten textarea"
@@ -155,7 +160,7 @@ export const States: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea label="Tom" placeholder="Skriv ditt meddelande..." rows={3} />
             <Textarea
                 label="Med text"
@@ -181,7 +186,7 @@ export const WithError: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 label="Kommentar"
                 placeholder="Skriv din kommentar..."
@@ -208,7 +213,7 @@ export const WithDescription: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 label="Feedback"
                 description="Din feedback hjälper oss att förbättra tjänsten"
@@ -234,7 +239,7 @@ export const WithCharacterCount: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 label="Kort beskrivning"
                 placeholder="Skriv en kort beskrivning..."
@@ -271,7 +276,7 @@ export const DifferentRows: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea label="Kort text" placeholder="Skriv kort text..." rows={2} />
             <Textarea
                 label="Medellång text"
@@ -292,30 +297,32 @@ export const InForm: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="bg-white/5 rounded-xl p-6 space-y-6">
-            <h3 className="text-white font-semibold text-lg">Skicka feedback</h3>
+        <div className="p-4">
+            <div className="bg-white/5 rounded-xl p-6 space-y-6">
+                <h3 className="text-white font-semibold text-lg">Skicka feedback</h3>
 
-            <Textarea
-                label="Titel"
-                placeholder="Kort titel på din feedback..."
-                rows={2}
-            />
+                <Textarea
+                    label="Titel"
+                    placeholder="Kort titel på din feedback..."
+                    rows={2}
+                />
 
-            <Textarea
-                label="Beskrivning"
-                description="Beskriv din feedback i detalj"
-                placeholder="Skriv en detaljerad beskrivning..."
-                rows={4}
-            />
+                <Textarea
+                    label="Beskrivning"
+                    description="Beskriv din feedback i detalj"
+                    placeholder="Skriv en detaljerad beskrivning..."
+                    rows={4}
+                />
 
-            <Textarea
-                variant="primary"
-                label="Förslag på förbättringar"
-                placeholder="Har du några förslag på hur vi kan förbättra?"
-                rows={3}
-                maxLength={500}
-                showCount
-            />
+                <Textarea
+                    variant="primary"
+                    label="Förslag på förbättringar"
+                    placeholder="Har du några förslag på hur vi kan förbättra?"
+                    rows={3}
+                    maxLength={500}
+                    showCount
+                />
+            </div>
         </div>
     )
 };
@@ -329,7 +336,7 @@ export const TextareaGroup: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <h3 className="text-white font-semibold text-lg">Produktbeskrivning</h3>
 
             <div className="space-y-4">
@@ -366,7 +373,7 @@ export const WithValidation: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 label="Kommentar"
                 placeholder="Skriv din kommentar..."
@@ -403,24 +410,26 @@ export const InCard: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="bg-white/5 rounded-xl p-6">
-            <h3 className="text-white font-semibold mb-6">Anteckningar</h3>
+        <div className="p-4">
+            <div className="bg-white/5 rounded-xl p-6">
+                <h3 className="text-white font-semibold mb-6">Anteckningar</h3>
 
-            <div className="space-y-6">
-                <Textarea
-                    label="Snabbnote"
-                    placeholder="Skriv en snabbnote..."
-                    rows={2}
-                />
+                <div className="space-y-6">
+                    <Textarea
+                        label="Snabbnote"
+                        placeholder="Skriv en snabbnote..."
+                        rows={2}
+                    />
 
-                <Textarea
-                    variant="primary"
-                    label="Detaljerad anteckning"
-                    placeholder="Skriv en detaljerad anteckning..."
-                    rows={4}
-                    maxLength={300}
-                    showCount
-                />
+                    <Textarea
+                        variant="primary"
+                        label="Detaljerad anteckning"
+                        placeholder="Skriv en detaljerad anteckning..."
+                        rows={4}
+                        maxLength={300}
+                        showCount
+                    />
+                </div>
             </div>
         </div>
     )
@@ -435,7 +444,7 @@ export const WithAutoFocus: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 label="Meddelande"
                 placeholder="Börja skriva direkt..."
@@ -455,7 +464,7 @@ export const Readonly: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-6">
+        <div className="p-4 space-y-6">
             <Textarea
                 label="Läsbar information"
                 defaultValue="Denna text kan inte redigeras men kan kopieras. Det är användbart för att visa information som användaren ska kunna läsa men inte ändra."

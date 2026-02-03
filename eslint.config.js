@@ -39,13 +39,15 @@ export default typescriptEslint.config(
             ],
             "react-hooks/exhaustive-deps": "off",
             "@typescript-eslint/no-redeclare": "off",
-            "no-labels": "off"
+            "no-labels": "off",
+            "react/prop-types": "off"
         }
     },
     {
         files: ["**/*.stories.*"],
         rules: {
-            "import/no-anonymous-default-export": "off"
+            "import/no-anonymous-default-export": "off",
+            "storybook/no-renderer-packages": "off"
         }
     }
 );

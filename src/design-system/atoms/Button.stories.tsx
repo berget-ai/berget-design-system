@@ -74,7 +74,12 @@ export const Interactive: Story = {
         children: "Button",
         variant: "default",
         size: "default"
-    }
+    },
+    render: args => (
+        <div className="p-4">
+            <Button {...args} />
+        </div>
+    )
 };
 
 /**

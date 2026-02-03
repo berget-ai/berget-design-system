@@ -53,7 +53,12 @@ export const Interactive: Story = {
         orientation: "horizontal",
         variant: "default",
         size: "thin"
-    }
+    },
+    render: args => (
+        <div className="p-4">
+            <Divider {...args} />
+        </div>
+    )
 };
 
 /**
@@ -64,7 +69,7 @@ export const AllVariants: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-8">
+        <div className="p-4 space-y-8">
             <div>
                 <h3 className="text-white mb-4">Variant: Default</h3>
                 <Divider variant="default" />
@@ -102,7 +107,7 @@ export const AllSizes: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-8">
+        <div className="p-4 space-y-8">
             <div>
                 <h3 className="text-white mb-4">Size: Thin</h3>
                 <Divider size="thin" />
@@ -130,7 +135,7 @@ export const Orientations: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-8">
+        <div className="p-4 space-y-8">
             <div>
                 <h3 className="text-white mb-4">Horisontell</h3>
                 <Divider orientation="horizontal" />
@@ -157,7 +162,7 @@ export const WithLabels: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-8">
+        <div className="p-4 space-y-8">
             <div>
                 <h3 className="text-white mb-4">Centrerad etikett</h3>
                 <Divider label="Eller" />
@@ -190,7 +195,7 @@ export const InContext: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-8">
+        <div className="p-4 space-y-8">
             <div className="bg-white/5 rounded-xl p-6">
                 <h3 className="text-white font-semibold mb-4">Kort med sektioner</h3>
                 <p className="text-white/60 mb-4">Första sektionen med lite text.</p>
@@ -217,7 +222,7 @@ export const InNavigation: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="bg-white/5 rounded-xl p-4 w-64">
+        <div className="p-4 bg-white/5 rounded-xl p-4 w-64">
             <nav className="space-y-1">
                 <a
                     href="#"
@@ -264,7 +269,7 @@ export const InFooter: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="bg-white/5 rounded-xl p-6">
+        <div className="p-4 bg-white/5 rounded-xl p-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="text-white/60 text-sm">
                     © 2024 Berget Design System. Alla rättigheter förbehållna.
@@ -298,7 +303,7 @@ export const MixedVariants: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-8">
+        <div className="p-4 space-y-8">
             <div className="bg-white/5 rounded-xl p-6">
                 <h3 className="text-white font-semibold mb-4">Blandade varianter</h3>
                 <p className="text-white/60 mb-4">Sektion 1</p>

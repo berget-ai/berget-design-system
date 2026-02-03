@@ -108,7 +108,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
                 {...props}
             >
                 {tagline && (
-                    <Badge variant="sage" className="mb-6 text-sm">
+                    <Badge variant="default" className="mb-6 text-sm">
                         {tagline}
                     </Badge>
                 )}

@@ -80,9 +80,7 @@ const DemoBox = ({
  */
 export const Vertical: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -99,9 +97,7 @@ export const Vertical: Story = {
  */
 export const Horizontal: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -118,9 +114,7 @@ export const Horizontal: Story = {
  */
 export const SpacingVariants: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -189,9 +183,7 @@ export const SpacingVariants: Story = {
  */
 export const AlignmentOptions: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -256,9 +248,7 @@ export const AlignmentOptions: Story = {
  */
 export const JustifyOptions: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -349,9 +339,7 @@ export const JustifyOptions: Story = {
  */
 export const ButtonGroup: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -368,9 +356,7 @@ export const ButtonGroup: Story = {
  */
 export const FormLayout: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -409,9 +395,7 @@ export const FormLayout: Story = {
  */
 export const CardContent: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -425,8 +409,10 @@ export const CardContent: Story = {
                 </Stack>
 
                 <Stack direction="horizontal" spacing="sm">
-                    <Badge variant="success">Active</Badge>
-                    <Badge variant="outline">EU Region</Badge>
+                    <Badge variant="semantic" status="success">
+                        Active
+                    </Badge>
+                    <Badge variant="tag">EU Region</Badge>
                 </Stack>
 
                 <div className="h-px bg-[hsl(var(--border))]" />
@@ -459,9 +445,7 @@ export const CardContent: Story = {
  */
 export const Navigation: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -481,9 +465,7 @@ export const Navigation: Story = {
  */
 export const NestedStacks: Story = {
     parameters: {
-
         controls: { hide: true }
-
     },
 
     render: () => (
@@ -510,7 +492,9 @@ export const NestedStacks: Story = {
                         </Stack>
 
                         <Stack direction="horizontal" spacing="sm" align="center">
-                            <Badge variant="success">Active</Badge>
+                            <Badge variant="semantic" status="success">
+                                Active
+                            </Badge>
                             <Button variant="ghost" size="sm">
                                 Configure
                             </Button>

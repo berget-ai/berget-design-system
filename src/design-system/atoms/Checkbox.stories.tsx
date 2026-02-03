@@ -60,7 +60,12 @@ export const Interactive: Story = {
         size: "default",
         label: "Acceptera villkor",
         description: "Jag har läst och accepterat användarvillkoren"
-    }
+    },
+    render: args => (
+        <div className="p-4">
+            <Checkbox {...args} />
+        </div>
+    )
 };
 
 /**
@@ -72,7 +77,7 @@ export const AllVariants: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <Checkbox
                 variant="default"
                 label="Variant: Default"
@@ -107,7 +112,7 @@ export const AllSizes: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <Checkbox
                 size="sm"
                 label="Liten checkbox"
@@ -137,7 +142,7 @@ export const States: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <Checkbox label="Omarkerad" />
             <Checkbox label="Markerad" defaultChecked />
             <Checkbox label="Inaktiverad" disabled />
@@ -156,7 +161,7 @@ export const WithError: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <Checkbox
                 label="Godkänn villkor"
                 error="Du måste godkänna villkoren för att fortsätta"
@@ -181,7 +186,7 @@ export const WithDescription: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <Checkbox
                 label="Prenumerera på nyhetsbrev"
                 description="Få de senaste uppdateringarna direkt i din inkorg"
@@ -210,7 +215,7 @@ export const CheckboxGroup: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <h3 className="text-white font-semibold">Välj dina intressen</h3>
             <div className="space-y-3">
                 <Checkbox
@@ -238,7 +243,7 @@ export const InForm: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="bg-white/5 rounded-xl p-6 space-y-6">
+        <div className="p-4 bg-white/5 rounded-xl p-6 space-y-6">
             <h3 className="text-white font-semibold text-lg">Kontoinställningar</h3>
 
             <div className="space-y-4">
@@ -282,7 +287,7 @@ export const MixedVariants: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <h3 className="text-white font-semibold">Behörigheter</h3>
             <div className="space-y-3">
                 <Checkbox variant="default" label="Läsåtkomst" defaultChecked />
@@ -300,7 +305,7 @@ export const MixedVariants: Story = {
  */
 export const InCard: Story = {
     render: () => (
-        <div className="bg-white/5 rounded-xl p-6">
+        <div className="p-4 bg-white/5 rounded-xl p-6">
             <div className="space-y-4">
                 <div className="flex items-start gap-3">
                     <Checkbox
@@ -333,7 +338,7 @@ export const InCard: Story = {
  */
 export const WithValidation: Story = {
     render: () => (
-        <div className="space-y-4">
+        <div className="p-4 space-y-4">
             <Checkbox
                 label="Jag är 18 år eller äldre"
                 error="Du måste vara 18 år för att fortsätta"

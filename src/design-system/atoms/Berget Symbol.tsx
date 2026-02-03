@@ -58,4 +58,4 @@ export const BergetSymbol = React.forwardRef<SVGSVGElement, BergetSymbolProps>(
         );
     }
 );
-BergetSymbol.displayName = "BergetSymbol";
+BergetSymbol.displayName = "Berget Symbol";

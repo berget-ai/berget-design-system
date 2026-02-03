@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { BergetLogotype } from "./BergetLogotype";
+import { BergetLogotype } from "./Berget Logotype";
 
 const meta = {
-    title: "Atoms/BergetLogotype",
+    title: "Atoms/Berget Logotype",
     component: BergetLogotype,
     parameters: {
         layout: "centered",
@@ -55,7 +55,12 @@ export const Default: Story = {
     args: {
         size: 48,
         variant: "light"
-    }
+    },
+    render: args => (
+        <div className={args.variant === "light" ? "bg-background p-4" : "bg-white p-4"}>
+            <BergetLogotype {...args} />
+        </div>
+    )
 };
 
 /**
@@ -65,7 +70,12 @@ export const Small: Story = {
     args: {
         size: 24,
         variant: "light"
-    }
+    },
+    render: args => (
+        <div className={args.variant === "light" ? "bg-background p-4" : "bg-white p-4"}>
+            <BergetLogotype {...args} />
+        </div>
+    )
 };
 
 /**
@@ -75,7 +85,12 @@ export const Medium: Story = {
     args: {
         size: 48,
         variant: "light"
-    }
+    },
+    render: args => (
+        <div className={args.variant === "light" ? "bg-background p-4" : "bg-white p-4"}>
+            <BergetLogotype {...args} />
+        </div>
+    )
 };
 
 /**
@@ -85,7 +100,12 @@ export const Large: Story = {
     args: {
         size: 96,
         variant: "light"
-    }
+    },
+    render: args => (
+        <div className={args.variant === "light" ? "bg-background p-4" : "bg-white p-4"}>
+            <BergetLogotype {...args} />
+        </div>
+    )
 };
 
 /**
@@ -95,7 +115,12 @@ export const ExtraLarge: Story = {
     args: {
         size: 160,
         variant: "light"
-    }
+    },
+    render: args => (
+        <div className={args.variant === "light" ? "bg-background p-4" : "bg-white p-4"}>
+            <BergetLogotype {...args} />
+        </div>
+    )
 };
 
 /**
