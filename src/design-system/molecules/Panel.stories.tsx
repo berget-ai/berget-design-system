@@ -8,7 +8,7 @@ import { Panel } from "./Panel";
  * Use controls below to explore different variants and padding options.
  */
 const meta = {
-    title: "Atoms/Panel",
+    title: "Molecules/Panel",
     component: Panel,
     parameters: {
         docs: {

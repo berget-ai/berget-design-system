@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { List, ListItem, ListHeader } from "./List";
 import { Panel } from "./Panel";
-import { Button } from "./Button";
+import { Button } from "../atoms/Button";
 import { Key, Database, Server, Users, Calendar, Clock } from "lucide-react";
 
 const meta = {
-    title: "Atoms/List",
+    title: "Molecules/List",
     component: List,
     parameters: {
         layout: "centered"
