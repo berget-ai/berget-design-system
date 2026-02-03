@@ -9,23 +9,34 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default:
-                    "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg hover:bg-[hsl(var(--primary))]/90 hover:shadow-xl hover:-translate-y-0.5",
+                    "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg hover:bg-[hsl(var(--primary))]/90 hover:shadow-xl",
                 primary:
-                    "bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] shadow-lg hover:bg-[hsl(var(--secondary))]/90 hover:shadow-xl hover:-translate-y-0.5",
+                    "bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] shadow-lg hover:bg-[hsl(var(--secondary))]/90 hover:shadow-xl",
                 secondary:
-                    "bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))] shadow hover:bg-[hsl(var(--accent))]/80",
+                    "bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))] shadow hover:bg-[hsl(var(--accent))]/80 hover:shadow-lg",
                 outline:
-                    "border-2 border-[hsl(var(--border))] bg-transparent hover:bg-[hsl(var(--accent))]/10 hover:border-[hsl(var(--accent))]",
-                ghost: "hover:bg-[hsl(var(--accent))]/10 hover:text-[hsl(var(--accent-foreground))]",
+                    "border-2 border-[hsl(var(--border))] bg-transparent hover:bg-[hsl(var(--accent))]/20 hover:border-[hsl(var(--accent))]",
+                ghost: "hover:bg-[hsl(var(--accent))]/20 hover:text-[hsl(var(--accent-foreground))]",
                 destructive:
-                    "bg-[hsl(var(--destructive))] text-[hsl(var(--destructive-foreground))] shadow-sm hover:bg-[hsl(var(--destructive))]/90",
-                link: "text-[hsl(var(--primary))] underline-offset-4 hover:underline"
+                    "bg-[hsl(var(--destructive))] text-[hsl(var(--destructive-foreground))] shadow-sm hover:bg-[hsl(var(--destructive))]/80 hover:shadow",
+                link: "text-[hsl(var(--primary))] underline-offset-4 hover:underline",
+                highlight:
+                    "relative overflow-hidden bg-[rgba(26,26,26,0.4)] border border-[rgba(26,26,26,0.4)] backdrop-blur-[5px] text-white hover:bg-[rgba(26,26,26,0.8)] hover:border-[rgba(26,26,26,0.6)] hover:shadow-lg"
             },
             size: {
-                default: "h-11 px-5 py-2.5",
-                sm: "h-9 px-3 text-xs",
-                lg: "h-12 px-8 text-base",
-                icon: "h-11 w-11"
+                default: "h-8 px-8 py-2",
+                sm: "h-8 px-8 text-xs",
+                lg: "h-8 px-8 text-base",
+                icon: "h-8 w-8"
+            },
+            width: {
+                default: "w-auto",
+                full: "w-full"
+            },
+            defaultVariants: {
+                variant: "default",
+                size: "default",
+                width: "default"
             }
         },
         defaultVariants: {
@@ -59,12 +70,17 @@ export interface ButtonProps
  * - `ghost` - Transparent, hover effect only
  * - `destructive` - Red for dangerous actions
  * - `link` - Styled as a link
+ * - `highlight` - Dark glass with radial gradient and top highlight
  *
  * **Sizes:**
- * - `sm` - Small (36px height)
- * - `default` - Medium (44px height)
- * - `lg` - Large (48px height)
- * - `icon` - Square for icon-only buttons
+ * - `sm` - Small (32px height)
+ * - `default` - Medium (32px height)
+ * - `lg` - Large (32px height)
+ * - `icon` - Square for icon-only buttons (32px)
+ *
+ * **Widths:**
+ * - `default` - Auto width based on content
+ * - `full` - Full width of container
  *
  * **Border System:**
  * Outline variant uses semantic `--border` token that adapts to theme.
@@ -91,14 +107,34 @@ export interface ButtonProps
  * ```
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, asChild = false, ...props }, ref) => {
+    ({ className, variant, size, width, asChild = false, children, ...props }, ref) => {
         const Comp = asChild ? Slot : "button";
+        const isHighlight = variant === "highlight";
+
         return (
             <Comp
-                className={cn(buttonVariants({ variant, size, className }))}
+                className={cn(buttonVariants({ variant, size, width, className }))}
                 ref={ref}
                 {...props}
-            />
+            >
+                {isHighlight && (
+                    <>
+                        {/* Gradient overlay */}
+                        <div className="absolute inset-0 top-[1px] h-[calc(100%-1px)] w-full bg-[radial-gradient(100%_100%_at_49.87%_0%,rgba(229,221,213,0.04)_0%,rgba(26,26,26,0)_100%)] pointer-events-none" />
+
+                        {/* Top gradient highlight */}
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,#E5DDD5_0%,rgba(229,221,213,0)_92.4%)] opacity-[0.3] pointer-events-none" />
+                    </>
+                )}
+                <span
+                    className={cn(
+                        "inline-flex items-center",
+                        isHighlight && "relative z-10"
+                    )}
+                >
+                    {children}
+                </span>
+            </Comp>
         );
     }
 );
