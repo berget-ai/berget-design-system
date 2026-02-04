@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HeroBlock } from "../organisms/HeroBlock";
-import { SectionHeader } from "../organisms/SectionHeader";
+import { SectionHeader } from "../molecules/SectionHeader";
 import { Button } from "../atoms/Button";
 import { Shield } from "lucide-react";
 
