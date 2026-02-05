@@ -1,22 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FeatureCard } from "./FeatureCards";
+import { FeatureCard, FeatureCards } from "./FeatureCards";
 import { Zap, Shield, Database, Globe, Lock, Cpu } from "lucide-react";
 
 const meta = {
-    title: "Organisms/Feature Cards",
+    title: "Organisms/Feature Card",
     component: FeatureCard,
     parameters: {
         layout: "centered",
         docs: {
             description: {
                 component: `
-Feature cards for showcasing product features and benefits.
+Individual feature card with icon, title, description, and optional badge/link.
 
 **Perfect for:**
 - Feature showcases
 - Product highlights
 - Service descriptions
 - Benefits sections
+
+**Note:** Use FeatureCards component for grid layouts.
         `
             }
         }
@@ -77,48 +79,39 @@ export const WithoutIcon: Story = {
 };
 
 /**
- * Grid of feature cards
+ * Three column grid
  */
-export const Grid: Story = {
+export const ThreeColumns: Story = {
     render: () => (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-            <FeatureCard
-                icon={Zap}
-                title="Lightning Fast"
-                description="Optimized for speed and performance."
-                badge="New"
-            />
-            <FeatureCard
-                icon={Shield}
-                title="Secure by Default"
-                description="Enterprise-grade security built in."
-                linkText="Learn more"
-                linkHref="#"
-            />
-            <FeatureCard
-                icon={Database}
-                title="Scalable Database"
-                description="Handle millions of requests effortlessly."
-            />
-            <FeatureCard
-                icon={Globe}
-                title="Global CDN"
-                description="Deploy close to your users worldwide."
-                badge="Popular"
-            />
-            <FeatureCard
-                icon={Lock}
-                title="Data Privacy"
-                description="Your data never leaves the EU."
-                linkText="Read more"
-                linkHref="#"
-            />
-            <FeatureCard
-                icon={Cpu}
-                title="Auto Scaling"
-                description="Scale automatically based on demand."
-            />
-        </div>
+        <FeatureCards
+            features={[
+                {
+                    icon: Zap,
+                    title: "Lightning Fast",
+                    description:
+                        "Optimized for speed and performance with sub-millisecond latency.",
+                    badge: "New"
+                },
+                {
+                    icon: Shield,
+                    title: "Secure by Default",
+                    description:
+                        "Enterprise-grade security built in with end-to-end encryption.",
+                    linkText: "Learn more",
+                    linkHref: "#"
+                },
+                {
+                    icon: Database,
+                    title: "Scalable Database",
+                    description:
+                        "Handle millions of requests effortlessly with auto-sharding.",
+                    badge: "Popular",
+                    linkText: "View docs",
+                    linkHref: "#"
+                }
+            ]}
+            columns={3}
+        />
     ),
     parameters: {
         layout: "padded"
@@ -130,22 +123,143 @@ export const Grid: Story = {
  */
 export const TwoColumns: Story = {
     render: () => (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 max-w-4xl">
-            <FeatureCard
-                icon={Zap}
-                title="Lightning Fast"
-                description="Optimized for speed and performance with sub-millisecond latency."
-                linkText="Learn more"
-                linkHref="#"
-            />
-            <FeatureCard
-                icon={Shield}
-                title="Secure by Default"
-                description="Enterprise-grade security built in with end-to-end encryption."
-                linkText="Learn more"
-                linkHref="#"
-            />
-        </div>
+        <FeatureCards
+            features={[
+                {
+                    icon: Zap,
+                    title: "Lightning Fast",
+                    description:
+                        "Optimized for speed and performance with sub-millisecond latency.",
+                    linkText: "Learn more",
+                    linkHref: "#"
+                },
+                {
+                    icon: Shield,
+                    title: "Secure by Default",
+                    description:
+                        "Enterprise-grade security built in with end-to-end encryption.",
+                    linkText: "Learn more",
+                    linkHref: "#"
+                }
+            ]}
+            columns={2}
+        />
+    ),
+    parameters: {
+        layout: "padded"
+    }
+};
+
+/**
+ * Four column grid
+ */
+export const FourColumns: Story = {
+    render: () => (
+        <FeatureCards
+            features={[
+                {
+                    icon: Zap,
+                    title: "Lightning Fast",
+                    description: "Optimized for speed and performance.",
+                    badge: "New"
+                },
+                {
+                    icon: Shield,
+                    title: "Secure by Default",
+                    description: "Enterprise-grade security built in.",
+                    linkText: "Learn more",
+                    linkHref: "#"
+                },
+                {
+                    icon: Database,
+                    title: "Scalable Database",
+                    description: "Handle millions of requests effortlessly."
+                },
+                {
+                    icon: Globe,
+                    title: "Global CDN",
+                    description: "Deploy close to your users worldwide.",
+                    badge: "Popular"
+                }
+            ]}
+            columns={4}
+        />
+    ),
+    parameters: {
+        layout: "padded"
+    }
+};
+
+/**
+ * One column grid
+ */
+export const OneColumn: Story = {
+    render: () => (
+        <FeatureCards
+            features={[
+                {
+                    icon: Zap,
+                    title: "Lightning Fast",
+                    description:
+                        "Optimized for speed and performance with sub-millisecond latency.",
+                    linkText: "Learn more",
+                    linkHref: "#"
+                }
+            ]}
+            columns={1}
+        />
+    ),
+    parameters: {
+        layout: "padded"
+    }
+};
+
+/**
+ * Full grid with six features
+ */
+export const FullGrid: Story = {
+    render: () => (
+        <FeatureCards
+            features={[
+                {
+                    icon: Zap,
+                    title: "Lightning Fast",
+                    description: "Optimized for speed and performance.",
+                    badge: "New"
+                },
+                {
+                    icon: Shield,
+                    title: "Secure by Default",
+                    description: "Enterprise-grade security built in.",
+                    linkText: "Learn more",
+                    linkHref: "#"
+                },
+                {
+                    icon: Database,
+                    title: "Scalable Database",
+                    description: "Handle millions of requests effortlessly."
+                },
+                {
+                    icon: Globe,
+                    title: "Global CDN",
+                    description: "Deploy close to your users worldwide.",
+                    badge: "Popular"
+                },
+                {
+                    icon: Lock,
+                    title: "Data Privacy",
+                    description: "Your data never leaves the EU.",
+                    linkText: "Read more",
+                    linkHref: "#"
+                },
+                {
+                    icon: Cpu,
+                    title: "Auto Scaling",
+                    description: "Scale automatically based on demand."
+                }
+            ]}
+            columns={3}
+        />
     ),
     parameters: {
         layout: "padded"

@@ -43,6 +43,11 @@ export interface FeatureCardProps
      * Optional link href
      */
     linkHref?: string;
+    /**
+     * Number of columns in the grid
+     * @default 3
+     */
+    columns?: 1 | 2 | 3 | 4;
 }
 
 /**
@@ -66,6 +71,7 @@ export interface FeatureCardProps
  *   badge="New"
  *   linkText="Learn more"
  *   linkHref="/features"
+ *   columns={3}
  * />
  * ```
  */
@@ -80,6 +86,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             badge,
             linkText,
             linkHref,
+            columns,
             ...props
         },
         ref
@@ -89,17 +96,14 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                 ref={ref}
                 variant="highlight"
                 className={cn(
-                    "p-6 transition-all duration-300 hover:scale-105",
+                    "w-full min-w-[280px] max-w-[400px] p-6 transition-all duration-300 hover:scale-105",
                     className
                 )}
                 {...props}
             >
                 {Icon && (
                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(var(--secondary))]/20">
-                        <Icon
-                            className="h-6 w-6 text-[hsl(var(--secondary))]"
-                            strokeWidth={2}
-                        />
+                        <Icon className="h-6 w-6 text-white" strokeWidth={2} />
                     </div>
                 )}
 
@@ -129,5 +133,72 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
     }
 );
 FeatureCard.displayName = "FeatureCard";
+
+export interface FeatureCardsProps {
+    /**
+     * Array of feature cards to display
+     */
+    features: FeatureCardProps[];
+    /**
+     * Number of columns in the grid
+     * @default 3
+     */
+    columns?: 1 | 2 | 3 | 4;
+    /**
+     * Additional CSS classes
+     */
+    className?: string;
+}
+
+/**
+ * Feature Cards Component
+ *
+ * Displays multiple feature cards in a responsive grid layout.
+ * Perfect for feature showcases, product highlights, and benefits sections.
+ *
+ * @example
+ * ```tsx
+ * const features = [
+ *   {
+ *     icon: Zap,
+ *     title: "Lightning Fast",
+ *     description: "Optimized for speed and performance.",
+ *     badge: "New"
+ *   },
+ *   {
+ *     icon: Shield,
+ *     title: "Secure by Default",
+ *     description: "Enterprise-grade security built in.",
+ *     linkText: "Learn more",
+ *     linkHref="/security"
+ *   },
+ * ]
+ *
+ * <FeatureCards features={features} columns={3} />
+ * ```
+ */
+export const FeatureCards = React.forwardRef<HTMLDivElement, FeatureCardsProps>(
+    ({ features, columns = 3, className }, ref) => {
+        return (
+            <div
+                ref={ref}
+                className={cn(
+                    "grid gap-6 md:gap-8 p-6",
+                    // Explicit classes so Tailwind compiles them
+                    columns === 1 && "grid-cols-1 max-w-md mx-auto",
+                    columns === 2 && "grid-cols-1 md:grid-cols-2",
+                    columns === 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+                    columns === 4 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+                    className
+                )}
+            >
+                {features.map((feature, index) => (
+                    <FeatureCard key={index} {...feature} />
+                ))}
+            </div>
+        );
+    }
+);
+FeatureCards.displayName = "FeatureCards";
 
 export { FeatureCard, featureCardVariants };
