@@ -45,7 +45,8 @@ It supports all native button attributes and can be used with the \`asChild\` pr
                 "ghost",
                 "destructive",
                 "link",
-                "highlight"
+                "highlight",
+                "stone"
             ],
             description: "Visual style variant"
         },
@@ -122,6 +123,7 @@ export const AllVariants: Story = {
                     <Button variant="destructive">Destructive</Button>
                     <Button variant="link">Link</Button>
                     <Button variant="highlight">Highlight</Button>
+                    <Button variant="stone">Stone</Button>
                 </div>
             </div>
 
@@ -131,6 +133,9 @@ export const AllVariants: Story = {
                     <Button size="sm">Small</Button>
                     <Button size="default">Default</Button>
                     <Button size="lg">Large</Button>
+                    <Button size="icon">
+                        <Plus className="size-4" strokeWidth={1.5} />
+                    </Button>
                 </div>
             </div>
 

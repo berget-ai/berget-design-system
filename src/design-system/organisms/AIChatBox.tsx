@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Send, Paperclip, Image, Mic, X } from "lucide-react";
+import { ArrowUp, Plus, Mic, X } from "lucide-react";
 import { Panel } from "../molecules/Panel";
 import { Button } from "../atoms/Button";
+import { Textarea } from "../atoms/Textarea";
 
 export interface AIChatMessage {
     id: string;
@@ -15,10 +16,6 @@ export interface AIChatBoxProps {
      * Array of chat messages
      */
     messages?: AIChatMessage[];
-    /**
-     * Placeholder text for the input
-     */
-    placeholder?: string;
     /**
      * Whether the chat is in a loading state
      */
@@ -40,10 +37,6 @@ export interface AIChatBoxProps {
      */
     onAttachmentClick?: () => void;
     /**
-     * Callback when image is clicked
-     */
-    onImageClick?: () => void;
-    /**
      * Callback when voice is clicked
      */
     onVoiceClick?: () => void;
@@ -55,14 +48,6 @@ export interface AIChatBoxProps {
      * Header title
      */
     headerTitle?: string;
-    /**
-     * Whether to show the attachment button
-     */
-    showAttachment?: boolean;
-    /**
-     * Whether to show the image button
-     */
-    showImage?: boolean;
     /**
      * Whether to show the voice button
      */
@@ -83,18 +68,14 @@ export interface AIChatBoxProps {
 
 export const AIChatBox: React.FC<AIChatBoxProps> = ({
     messages = [],
-    placeholder = "Type your message...",
     loading = false,
     disabled = false,
     maxHeight = "500px",
     onSendMessage,
     onAttachmentClick,
-    onImageClick,
     onVoiceClick,
     showHeader = true,
     headerTitle = "AI Assistant",
-    showAttachment = true,
-    showImage = true,
     showVoice = true,
     showClear = false,
     onClearClick,
@@ -203,65 +184,55 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
 
             {/* Input area */}
             <div className="flex items-end gap-2">
-                {showAttachment && onAttachmentClick && (
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={onAttachmentClick}
-                        disabled={disabled || loading}
-                        className="shrink-0"
-                    >
-                        <Paperclip className="size-4" />
-                    </Button>
-                )}
-
-                {showImage && onImageClick && (
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={onImageClick}
-                        disabled={disabled || loading}
-                        className="shrink-0"
-                    >
-                        <Image className="size-4" />
-                    </Button>
-                )}
-
-                <div className="flex-1 relative">
-                    <textarea
+                <div className="flex-1">
+                    <Textarea
                         ref={inputRef}
                         value={inputValue}
                         onChange={e => setInputValue(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        placeholder={placeholder}
+                        placeholder="Ask anything"
                         disabled={disabled || loading}
                         rows={1}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 resize-none focus:outline-none focus:border-white/20 transition-colors"
+                        variant="default"
+                        className="w-full bg-white/5 border-white/10 text-white placeholder-gray-400 resize-none"
                         style={{ minHeight: "44px", maxHeight: "120px" }}
+                        icon={
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={onAttachmentClick}
+                                disabled={disabled || loading}
+                                className="pointer-events-auto"
+                            >
+                                <Plus className="size-4" />
+                            </Button>
+                        }
+                        secondaryIcon={
+                            showVoice &&
+                            onVoiceClick && (
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    onClick={onVoiceClick}
+                                    disabled={disabled || loading}
+                                    className="pointer-events-auto"
+                                >
+                                    <Mic className="size-4" />
+                                </Button>
+                            )
+                        }
+                        actionButton={
+                            <Button
+                                variant="stone"
+                                size="icon"
+                                onClick={handleSend}
+                                disabled={disabled || loading}
+                            >
+                                <ArrowUp className="size-4" />
+                            </Button>
+                        }
                     />
                 </div>
-
-                {showVoice && onVoiceClick && (
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={onVoiceClick}
-                        disabled={disabled || loading}
-                        className="shrink-0"
-                    >
-                        <Mic className="size-4" />
-                    </Button>
-                )}
-
-                <Button
-                    variant="primary"
-                    size="icon"
-                    onClick={handleSend}
-                    disabled={disabled || loading || !inputValue.trim()}
-                    className="shrink-0"
-                >
-                    <Send className="size-4" />
-                </Button>
             </div>
         </Panel>
     );

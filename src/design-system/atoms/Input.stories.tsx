@@ -96,9 +96,12 @@ export const Search: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="relative w-[350px]">
-            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input type="search" placeholder="Search..." className="pl-10" />
+        <div className="w-[350px]">
+            <Input
+                type="search"
+                placeholder="Search..."
+                icon={<SearchIcon className="w-4 h-4 text-muted-foreground" />}
+            />
         </div>
     )
 };
@@ -419,12 +422,11 @@ export const SearchBar: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <div className="w-[500px] relative">
-            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <div className="w-[500px]">
             <Input
                 type="search"
                 placeholder="Search models, documentation, or deployments..."
-                className="w-full pl-10"
+                icon={<SearchIcon className="w-4 h-4 text-muted-foreground" />}
             />
         </div>
     )

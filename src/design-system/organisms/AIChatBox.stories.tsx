@@ -36,12 +36,10 @@ const sampleMessages: AIChatMessage[] = [
 
 export const Default: Story = {
     args: {
-        placeholder: "Type your message...",
         showHeader: true,
         headerTitle: "AI Assistant",
-        showAttachment: true,
-        showImage: true,
-        showVoice: true
+        showVoice: true,
+        onVoiceClick: () => console.log("Voice clicked")
     }
 };
 
@@ -62,49 +60,45 @@ export const Loading: Story = {
 export const Minimal: Story = {
     args: {
         messages: sampleMessages,
-        placeholder: "Type your message...",
         showHeader: false,
-        showAttachment: false,
-        showImage: false,
-        showVoice: false
+        showVoice: true,
+        onVoiceClick: () => console.log("Voice clicked")
     }
 };
 
 export const Full: Story = {
     args: {
         messages: sampleMessages,
-        placeholder: "Ask me anything...",
         loading: false,
         showHeader: true,
         headerTitle: "AI Assistant",
-        showAttachment: true,
-        showImage: true,
         showVoice: true,
         showClear: true,
-        maxHeight: "600px"
+        maxHeight: "600px",
+        onVoiceClick: () => console.log("Voice clicked")
     }
 };
 
 export const Disabled: Story = {
     args: {
         messages: sampleMessages,
-        placeholder: "Chat is disabled",
         disabled: true,
         showHeader: true,
-        headerTitle: "AI Assistant (Offline)"
+        headerTitle: "AI Assistant (Offline)",
+        showVoice: true,
+        onVoiceClick: () => console.log("Voice clicked"),
+        onAttachmentClick: () => console.log("Attachment clicked")
     }
 };
 
 export const Compact: Story = {
     args: {
         messages: sampleMessages.slice(0, 2),
-        placeholder: "Type...",
         compact: true,
         showHeader: false,
-        showAttachment: false,
-        showImage: false,
-        showVoice: false,
-        maxHeight: "300px"
+        showVoice: true,
+        maxHeight: "300px",
+        onVoiceClick: () => console.log("Voice clicked")
     }
 };
 
@@ -119,10 +113,6 @@ export const Interactive: Story = {
         onAttachmentClick: () => {
             console.log("Attachment clicked");
             alert("Attachment dialog opened");
-        },
-        onImageClick: () => {
-            console.log("Image clicked");
-            alert("Image dialog opened");
         },
         onVoiceClick: () => {
             console.log("Voice clicked");
