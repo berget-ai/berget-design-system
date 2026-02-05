@@ -1,5 +1,7 @@
 import * as React from "react";
 import { cn } from "../../utils/cn";
+import { Card } from "../molecules/Card";
+import { buttonVariants } from "../atoms/Button";
 
 export interface EmailTemplateProps {
     /**
@@ -101,28 +103,21 @@ export const EmailTemplate = React.forwardRef<HTMLDivElement, EmailTemplateProps
 
                 {/* Main Container */}
                 <div className="max-w-[600px] mx-auto">
-                    {/* Logo */}
-                    <div className="text-center mb-8">
-                        <img
-                            src={logoUrl}
-                            alt={companyName}
-                            style={{
-                                height: "48px",
-                                width: "auto",
-                                display: "inline-block"
-                            }}
-                            height={48}
-                        />
-                    </div>
-
                     {/* Card */}
-                    <div
-                        className="rounded-2xl border border-[hsl(var(--border))] p-10"
-                        style={{
-                            background:
-                                "linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(32, 32, 32, 0.9) 100%)"
-                        }}
-                    >
+                    <Card variant="highlight" className="p-10">
+                        {/* Logo */}
+                        <div className="text-center mb-8">
+                            <img
+                                src={logoUrl}
+                                alt={companyName}
+                                style={{
+                                    height: "48px",
+                                    width: "auto",
+                                    display: "inline-block"
+                                }}
+                                height={48}
+                            />
+                        </div>
                         {title && (
                             <h1
                                 className="text-3xl font-medium text-white mb-6 text-center"
@@ -135,7 +130,7 @@ export const EmailTemplate = React.forwardRef<HTMLDivElement, EmailTemplateProps
                         <div className="text-white text-[15px] leading-relaxed">
                             {children}
                         </div>
-                    </div>
+                    </Card>
 
                     {/* Footer */}
                     <div className="text-center mt-8 text-white/40 text-sm">
@@ -192,16 +187,13 @@ export const EmailButton = React.forwardRef<HTMLAnchorElement, EmailButtonProps>
                     ref={ref}
                     href={href}
                     className={cn(
-                        "inline-block px-8 py-3.5 rounded-lg font-medium text-[15px] no-underline transition-colors",
-                        variant === "primary" && "bg-white text-black hover:bg-white/90",
-                        variant === "secondary" &&
-                            "bg-[hsl(var(--secondary))] text-white hover:bg-[hsl(var(--secondary))]/90",
+                        buttonVariants({
+                            variant: variant === "primary" ? "default" : "secondary"
+                        }),
+                        "px-8 py-3.5 text-[15px] no-underline",
                         className
                     )}
-                    style={{
-                        textDecoration: "none",
-                        display: "inline-block"
-                    }}
+                    style={{ textDecoration: "none" }}
                     {...props}
                 >
                     {children}
