@@ -22,7 +22,7 @@ Feature cards for showcasing product features and benefits.
         }
     },
     tags: ["autodocs"]
-} satisfies Meta<typeof FeatureCards>;
+} satisfies Meta<typeof FeatureCard>;
 
 export default meta;
 type Story = StoryObj<typeof FeatureCard>;
