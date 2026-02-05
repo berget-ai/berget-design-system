@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FeatureCard } from "./FeatureCard";
+import { FeatureCard } from "./FeatureCardOld";
 import { Zap, Shield, Database, CircleX } from "lucide-react";
 
 const meta: Meta<typeof FeatureCard> = {
-    title: "Sandbox/FeatureCard",
+    title: "Sandbox/Feature Card Old",
     component: FeatureCard,
     parameters: {
         layout: "centered"

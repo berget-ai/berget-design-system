@@ -2,6 +2,7 @@ import * as React from "react";
 import { Check } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { Button } from "../atoms/Button";
+import { Card } from "../molecules/Card";
 
 export interface PricingTier {
     /**
@@ -51,7 +52,7 @@ export interface PricingCardsProps {
      * Number of columns in the grid
      * @default 3
      */
-    columns?: 2 | 3 | 4;
+    columns?: 1 | 2 | 3 | 4;
     /**
      * Additional CSS classes
      */
@@ -108,8 +109,9 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
             <div
                 ref={ref}
                 className={cn(
-                    "grid gap-6 md:gap-8",
+                    "grid gap-6 md:gap-8 p-6",
                     // Explicit classes so Tailwind compiles them
+                    columns === 1 && "grid-cols-1 max-w-md mx-auto",
                     columns === 2 && "grid-cols-1 md:grid-cols-2",
                     columns === 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
                     columns === 4 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
@@ -117,21 +119,11 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
                 )}
             >
                 {tiers.map(tier => (
-                    <div
+                    <Card
                         key={tier.id}
-                        className={cn(
-                            "relative rounded-2xl border backdrop-blur-xl p-6 md:p-8 transition-all duration-300",
-                            tier.recommended
-                                ? "border-[hsl(var(--secondary))] bg-[hsl(var(--secondary))]/5 shadow-lg shadow-[hsl(var(--secondary))]/10 scale-105"
-                                : "border-[hsl(var(--border))] bg-white/5 hover:border-[hsl(var(--border-hover))] hover:bg-white/10"
-                        )}
+                        variant="highlight"
+                        className="w-full min-w-[280px] max-w-[400px] p-6 md:p-8 transition-all duration-300"
                     >
-                        {tier.recommended && (
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] text-sm px-4 py-1.5 rounded-full font-medium shadow-lg">
-                                Recommended
-                            </div>
-                        )}
-
                         <div className="mb-6">
                             <h3 className="text-xl md:text-2xl font-medium mb-2">
                                 {tier.name}
@@ -166,7 +158,7 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </Card>
                 ))}
             </div>
         );

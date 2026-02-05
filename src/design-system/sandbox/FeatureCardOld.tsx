@@ -33,7 +33,7 @@ export interface FeatureCardProps {
     className?: string;
 }
 
-export const FeatureCard: React.FC<FeatureCardProps> = ({
+export const FeatureCardOld: React.FC<FeatureCardProps> = ({
     icon,
     title,
     description,
@@ -62,3 +62,5 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
         </Panel>
     );
 };
+
+export { FeatureCardOld as FeatureCard };

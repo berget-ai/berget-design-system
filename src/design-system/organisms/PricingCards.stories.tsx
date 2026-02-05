@@ -73,32 +73,78 @@ const sampleTiers: PricingTier[] = [
 ];
 
 /**
- * Default 3-column pricing layout
+ * Default single pricing card
  */
 export const Default: Story = {
     args: {
-        tiers: sampleTiers,
-        columns: 3
+        tiers: [
+            {
+                id: "pro",
+                name: "Professional",
+                description: "For growing teams and businesses",
+                price: "$29/month",
+                features: [
+                    "Up to 10 users",
+                    "Unlimited projects",
+                    "Priority support",
+                    "100GB storage",
+                    "Advanced analytics",
+                    "Custom branding"
+                ],
+                recommended: true,
+                ctaText: "Start Free Trial",
+                ctaVariant: "primary"
+            }
+        ],
+        columns: 1
     }
 };
 
 /**
- * 4-column layout with more tiers
+ * Free tier card
  */
-export const FourColumns: Story = {
+export const FreeTier: Story = {
     args: {
         tiers: [
             {
-                id: "starter",
-                name: "Starter",
-                description: "Just getting started",
-                price: "Free",
-                features: ["1 user", "5 projects", "Community support"],
-                ctaText: "Start Free"
-            },
-            ...sampleTiers
+                id: "free",
+                name: "Free",
+                description: "Perfect for trying out our service",
+                price: "$0",
+                features: ["1 user", "10 projects", "Basic support", "1GB storage"],
+                ctaText: "Get Started",
+                ctaVariant: "outline"
+            }
         ],
-        columns: 4
+        columns: 1
+    }
+};
+
+/**
+ * Enterprise tier card
+ */
+export const EnterpriseTier: Story = {
+    args: {
+        tiers: [
+            {
+                id: "enterprise",
+                name: "Enterprise",
+                description: "For large organizations",
+                price: "Contact Sales",
+                features: [
+                    "Unlimited users",
+                    "Unlimited projects",
+                    "24/7 dedicated support",
+                    "Unlimited storage",
+                    "Advanced security",
+                    "SLA guarantee",
+                    "Custom integrations"
+                ],
+                ctaText: "Contact Us",
+                ctaVariant: "default"
+            }
+        ],
+        columns: 1
     }
 };
 
@@ -139,6 +185,36 @@ export const TwoColumns: Story = {
             }
         ],
         columns: 2
+    }
+};
+
+/**
+ * Three columns layout
+ */
+export const ThreeColumns: Story = {
+    args: {
+        tiers: sampleTiers,
+        columns: 3
+    }
+};
+
+/**
+ * 4-column layout with more tiers
+ */
+export const FourColumns: Story = {
+    args: {
+        tiers: [
+            {
+                id: "starter",
+                name: "Starter",
+                description: "Just getting started",
+                price: "Free",
+                features: ["1 user", "5 projects", "Community support"],
+                ctaText: "Start Free"
+            },
+            ...sampleTiers
+        ],
+        columns: 4
     }
 };
 
