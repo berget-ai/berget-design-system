@@ -80,18 +80,36 @@ interface EmailButtonProps {
 
 export function EmailButton({ href, children }: EmailButtonProps) {
     return (
-        <div style={{ margin: "32px 0", textAlign: "center" }}>
+        <div style={{ margin: "32px 0" }}>
             <a
                 href={href}
                 style={{
-                    display: "inline-block",
-                    padding: "14px 32px",
-                    backgroundColor: "#ffffff",
-                    color: "#0a0a0a",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                    padding: "0.5rem 2rem",
+                    backgroundColor: "#E5DDD5",
+                    color: "#1a1a1a",
                     textDecoration: "none",
-                    borderRadius: 8,
+                    borderRadius: "9999px",
                     fontWeight: 500,
-                    fontSize: 15
+                    fontSize: "0.875rem",
+                    fontFamily: "DM Sans, sans-serif",
+                    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                    transition: "all 0.2s ease",
+                    border: "none",
+                    cursor: "pointer"
+                }}
+                onMouseEnter={e => {
+                    e.currentTarget.style.backgroundColor = "rgba(229, 221, 213, 0.9)";
+                    e.currentTarget.style.boxShadow =
+                        "0 20px 25px -5px rgba(0, 0, 0, 0.1)";
+                }}
+                onMouseLeave={e => {
+                    e.currentTarget.style.backgroundColor = "#E5DDD5";
+                    e.currentTarget.style.boxShadow =
+                        "0 10px 15px -3px rgba(0, 0, 0, 0.1)";
                 }}
             >
                 {children}

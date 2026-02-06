@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
 const cardVariants = cva(
-    "relative overflow-hidden rounded-[16px] flex flex-col items-start",
+    "relative overflow-hidden rounded-[16px] flex flex-col items-stretch",
     {
         variants: {
             variant: {
@@ -81,7 +81,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
                         <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,#E5DDD5_0%,rgba(229,221,213,0)_92.4%)] opacity-[0.3] pointer-events-none" />
                     </>
                 )}
-                <div className="relative z-10">{children}</div>
+                <div className="relative z-10 w-full">{children}</div>
             </div>
         );
     }

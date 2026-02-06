@@ -178,32 +178,8 @@ body {
     display: block;
 }
 
-/* Submit buttons */
-.berget-keycloak-body input[type="submit"],
-.berget-keycloak-body button[type="submit"] {
-    background: hsl(var(--berget-primary));
-    color: hsl(var(--berget-primary-foreground));
-    border: none;
-    border-radius: 0.75rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 100%;
-}
-
-.berget-keycloak-body input[type="submit"]:hover,
-.berget-keycloak-body button[type="submit"]:hover {
-    background: hsl(var(--berget-secondary));
-}
-
-.berget-keycloak-body input[type="submit"]:focus,
-.berget-keycloak-body button[type="submit"]:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px hsl(var(--berget-ring) / 0.2);
-}
+/* Submit buttons - Using Berget Design System Button component */
+/* Legacy submit button styles removed - now using Button from design-system/atoms */
 
 /* Links */
 .berget-keycloak-body a {
@@ -383,85 +359,8 @@ textarea::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 
-/* Buttons */
-.pf-c-button,
-.btn,
-button[type="submit"],
-input[type="submit"] {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-    border-radius: 0.75rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: none;
-    text-decoration: none;
-}
-
-/* Primary button - white */
-.pf-c-button.pf-m-primary,
-.btn-primary,
-button[type="submit"],
-input[type="submit"],
-#kc-login,
-#kc-register,
-#kc-accept,
-#kc-confirm {
-    background-color: white !important;
-    color: black !important;
-    box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.1);
-}
-
-.pf-c-button.pf-m-primary:hover,
-.btn-primary:hover,
-button[type="submit"]:hover,
-input[type="submit"]:hover,
-#kc-login:hover,
-#kc-register:hover,
-#kc-accept:hover,
-#kc-confirm:hover {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 6px 20px 0 rgba(255, 255, 255, 0.15);
-}
-
-/* Secondary/cancel buttons */
-.pf-c-button.pf-m-secondary,
-.btn-secondary,
-#kc-cancel,
-#kc-decline,
-button[name="cancel"] {
-    background-color: transparent !important;
-    color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-.pf-c-button.pf-m-secondary:hover,
-.btn-secondary:hover,
-#kc-cancel:hover,
-#kc-decline:hover,
-button[name="cancel"]:hover {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Link buttons */
-.pf-c-button.pf-m-link,
-.btn-link {
-    background: transparent !important;
-    color: hsl(142 33% 46%) !important;
-    padding: 0.5rem;
-}
-
-.pf-c-button.pf-m-link:hover,
-.btn-link:hover {
-    color: hsl(151 33% 62%) !important;
-    text-decoration: underline;
-}
+/* Buttons - Using Berget Design System Button component */
+/* Legacy Keycloak button styles removed - now using Button from design-system/atoms */
 
 /* Links */
 a {
