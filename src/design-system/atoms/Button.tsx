@@ -22,33 +22,28 @@ const buttonVariants = cva(
                 link: "text-[hsl(var(--primary))] underline-offset-4 hover:underline",
                 highlight:
                     "relative overflow-hidden bg-[rgba(26,26,26,0.4)] border border-[rgba(26,26,26,0.4)] backdrop-blur-[5px] text-white hover:bg-[rgba(26,26,26,0.8)] hover:border-[rgba(26,26,26,0.6)] hover:shadow-lg",
-                stone: "!bg-[#E5DDD5] !text-[#1a1a1a] shadow-lg hover:!bg-[#E5DDD5]/90 hover:shadow-xl"
+                stone: "!bg-[#E5DDD5] !text-[#1a1a1a] shadow-lg hover:!bg-[#E5DDD5]/90 hover:shadow-xl",
+                icon: "!flex !flex-row !justify-center !items-center !p-0 !w-[32px] !h-[32px] !bg-[#E5DDD5] !text-[#1a1a1a] shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-[20px]"
             },
             size: {
-                default: "h-8 px-8 py-2",
-                sm: "h-8 px-8 text-xs",
-                lg: "h-8 px-8 text-base",
-                icon: "!rounded-full h-8 w-8 p-2"
+                default: "h-8 px-8 py-2"
             },
             width: {
                 default: "w-auto",
                 full: "w-full"
-            },
-            defaultVariants: {
-                variant: "default",
-                size: "default",
-                width: "default"
             }
         },
         defaultVariants: {
             variant: "default",
-            size: "default"
+            size: "default",
+            width: "default"
         }
     }
 );
 
 export interface ButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    extends
+        React.ButtonHTMLAttributes<HTMLButtonElement>,
         VariantProps<typeof buttonVariants> {
     /**
      * Change the component to a Slot component that merges props.
@@ -60,24 +55,20 @@ export interface ButtonProps
 /**
  * Button Component
  *
- * Versatile button with multiple variants and sizes.
+ * Versatile button with multiple variants.
  * Follows Scandinavian design principles with natural colors and smooth interactions.
  *
  * **Variants:**
- * - `default` - Primary Berget Stone button (beige)
+ * - `default` - Primary Berget Cloud button (cream white)
  * - `primary` - Moss green button
- * - `secondary` - Sage green button
+ * - `secondary` - Lichen green button
  * - `outline` - Transparent with border
  * - `ghost` - Transparent, hover effect only
  * - `destructive` - Red for dangerous actions
  * - `link` - Styled as a link
  * - `highlight` - Dark glass with radial gradient and top highlight
- *
- * **Sizes:**
- * - `sm` - Small (32px height)
- * - `default` - Medium (32px height)
- * - `lg` - Large (32px height)
- * - `icon` - Square for icon-only buttons (32px)
+ * - `stone` - Stone colored button
+ * - `icon` - Fixed size icon button (32px × 32px, no padding)
  *
  * **Widths:**
  * - `default` - Auto width based on content
@@ -95,8 +86,13 @@ export interface ButtonProps
  * <Button>Click me</Button>
  *
  * // Different variants
- * <Button variant="primary" size="lg">Large Primary</Button>
+ * <Button variant="primary">Primary</Button>
  * <Button variant="outline">Outlined</Button>
+ *
+ * // Icon-only button (32px × 32px, no padding)
+ * <Button variant="icon">
+ *   <X className="w-4 h-4" />
+ * </Button>
  *
  * // As link (with React Router)
  * <Button asChild>

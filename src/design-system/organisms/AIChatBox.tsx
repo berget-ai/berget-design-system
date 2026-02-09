@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowUp, Plus, Mic, X } from "lucide-react";
-import { Panel } from "../molecules/Panel";
+import { Panel } from "../atoms/Panel";
 import { Button } from "../atoms/Button";
 import { Textarea } from "../atoms/Textarea";
 
@@ -123,14 +123,14 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
                 <div className="flex items-center justify-between mb-4">
                     <h3 className="text-lg font-semibold text-white">{headerTitle}</h3>
                     {showClear && onClearClick && (
-                        <Button
-                            variant="ghost"
-                            size="sm"
+                        <button
+                            type="button"
                             onClick={onClearClick}
                             disabled={disabled}
+                            className="hover:bg-white/10 rounded-full p-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <X className="size-4" />
-                        </Button>
+                        </button>
                     )}
                 </div>
             )}
@@ -184,7 +184,8 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
 
             {/* Input area */}
             <div className="flex items-end gap-2">
-                <div className="flex-1">
+                <div className="flex-1 relative">
+                    {/* Plus icon - inside textarea */}
                     <Textarea
                         ref={inputRef}
                         value={inputValue}
@@ -197,41 +198,40 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
                         className="w-full bg-white/5 border-white/10 text-white placeholder-gray-400 resize-none"
                         style={{ minHeight: "44px", maxHeight: "120px" }}
                         icon={
-                            <Button
-                                variant="ghost"
-                                size="icon"
+                            <button
+                                type="button"
                                 onClick={onAttachmentClick}
                                 disabled={disabled || loading}
-                                className="pointer-events-auto"
+                                className="pointer-events-auto hover:bg-white/10 rounded-full p-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <Plus className="size-4" />
-                            </Button>
-                        }
-                        secondaryIcon={
-                            showVoice &&
-                            onVoiceClick && (
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    onClick={onVoiceClick}
-                                    disabled={disabled || loading}
-                                    className="pointer-events-auto"
-                                >
-                                    <Mic className="size-4" />
-                                </Button>
-                            )
-                        }
-                        actionButton={
-                            <Button
-                                variant="stone"
-                                size="icon"
-                                onClick={handleSend}
-                                disabled={disabled || loading}
-                            >
-                                <ArrowUp className="size-4" />
-                            </Button>
+                            </button>
                         }
                     />
+
+                    {/* Mic icon and Arrow-up button - outside textarea */}
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                        {/* Mic icon - clickable, outside button */}
+                        {showVoice && onVoiceClick && (
+                            <button
+                                type="button"
+                                onClick={onVoiceClick}
+                                disabled={disabled || loading}
+                                className="pointer-events-auto hover:bg-white/10 rounded-full p-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                <Mic className="size-4" />
+                            </button>
+                        )}
+
+                        {/* Arrow-up button - icon variant (32px × 32px, no padding, centered icon) */}
+                        <Button
+                            variant="icon"
+                            onClick={handleSend}
+                            disabled={disabled || loading}
+                        >
+                            <ArrowUp className="size-4" strokeWidth={2} />
+                        </Button>
+                    </div>
                 </div>
             </div>
         </Panel>
