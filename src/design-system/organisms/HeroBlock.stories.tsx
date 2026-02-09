@@ -60,10 +60,8 @@ export const Default: Story = {
 
         actions: (
             <>
-                <Button size="lg">Get Started</Button>
-                <Button size="lg" variant="outline">
-                    Learn More
-                </Button>
+                <Button>Get Started</Button>
+                <Button variant="outline">Learn More</Button>
             </>
         ),
 
@@ -87,10 +85,8 @@ export const WithTagline: Story = {
 
         actions: (
             <>
-                <Button size="lg" className="px-8 py-6 text-lg">
-                    Get Started
-                </Button>
-                <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
+                <Button className="px-8 py-6 text-lg">Get Started</Button>
+                <Button variant="outline" className="px-8 py-6 text-lg">
                     Book a Demo
                 </Button>
             </>
@@ -116,10 +112,8 @@ export const MossVariant: Story = {
 
         actions: (
             <>
-                <Button size="lg">Try for Free</Button>
-                <Button size="lg" variant="outline">
-                    View Pricing
-                </Button>
+                <Button>Try for Free</Button>
+                <Button variant="outline">View Pricing</Button>
             </>
         ),
 
@@ -143,10 +137,8 @@ export const GradientVariant: Story = {
 
         actions: (
             <>
-                <Button size="lg">Get Started</Button>
-                <Button size="lg" variant="ghost">
-                    See Benchmarks →
-                </Button>
+                <Button>Get Started</Button>
+                <Button variant="ghost">See Benchmarks →</Button>
             </>
         ),
 
@@ -165,7 +157,7 @@ export const WithoutPattern: Story = {
         withPattern: false,
         actions: (
             <>
-                <Button size="lg">Get Started</Button>
+                <Button>Get Started</Button>
             </>
         )
     }
@@ -182,10 +174,8 @@ export const WithoutTagline: Story = {
         variant: "moss",
         actions: (
             <>
-                <Button size="lg">Start Building</Button>
-                <Button size="lg" variant="outline">
-                    Read Docs
-                </Button>
+                <Button>Start Building</Button>
+                <Button variant="outline">Read Docs</Button>
             </>
         )
     }
@@ -203,7 +193,7 @@ export const SingleCTA: Story = {
             "Customize leading AI models with your own data. Enterprise-grade fine-tuning coming Q2 2026.",
 
         variant: "gradient",
-        actions: <Button size="lg">Join Waitlist</Button>,
+        actions: <Button>Join Waitlist</Button>,
         withPattern: true
     }
 };
@@ -220,13 +210,9 @@ export const ThreeCTAs: Story = {
 
         actions: (
             <>
-                <Button size="lg">For Startups</Button>
-                <Button size="lg" variant="outline">
-                    For Enterprise
-                </Button>
-                <Button size="lg" variant="ghost">
-                    For Developers
-                </Button>
+                <Button>For Startups</Button>
+                <Button variant="outline">For Enterprise</Button>
+                <Button variant="ghost">For Developers</Button>
             </>
         ),
 
@@ -248,10 +234,8 @@ export const ProductsPageHero: Story = {
 
         actions: (
             <>
-                <Button size="lg">View All Products</Button>
-                <Button size="lg" variant="outline">
-                    Compare Plans
-                </Button>
+                <Button>View All Products</Button>
+                <Button variant="outline">Compare Plans</Button>
             </>
         ),
 
@@ -275,10 +259,8 @@ export const WhyBergetHero: Story = {
 
         actions: (
             <>
-                <Button size="lg" className="px-8 py-6 text-lg">
-                    Get Started
-                </Button>
-                <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
+                <Button className="px-8 py-6 text-lg">Get Started</Button>
+                <Button variant="outline" className="px-8 py-6 text-lg">
                     Book Demo
                 </Button>
             </>
@@ -304,10 +286,8 @@ export const AnnouncementHero: Story = {
 
         actions: (
             <>
-                <Button size="lg">Request Access</Button>
-                <Button size="lg" variant="outline">
-                    Read Announcement
-                </Button>
+                <Button>Request Access</Button>
+                <Button variant="outline">Read Announcement</Button>
             </>
         ),
 
@@ -323,7 +303,7 @@ export const MinimalHero: Story = {
         title: "Welcome to Berget AI",
         description: "European AI infrastructure for modern applications.",
         withPattern: false,
-        actions: <Button size="lg">Explore</Button>
+        actions: <Button>Explore</Button>
     }
 };
 
@@ -344,10 +324,8 @@ export const LongDescription: Story = {
 
         actions: (
             <>
-                <Button size="lg">Contact Sales</Button>
-                <Button size="lg" variant="outline">
-                    Download Whitepaper
-                </Button>
+                <Button>Contact Sales</Button>
+                <Button variant="outline">Download Whitepaper</Button>
             </>
         )
     }

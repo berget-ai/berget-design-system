@@ -44,10 +44,8 @@ export const ProductsPageExample: Story = {
                 description="Complete infrastructure for deploying and scaling AI models in Europe. From serverless inference to dedicated compute."
                 actions={
                     <>
-                        <Button size="lg">Get Started</Button>
-                        <Button size="lg" variant="outline">
-                            View Pricing
-                        </Button>
+                        <Button>Get Started</Button>
+                        <Button variant="outline">View Pricing</Button>
                     </>
                 }
             />
@@ -116,10 +114,8 @@ export const ProductsPageExample: Story = {
                         maxWidth="lg"
                     />
                     <div className="flex gap-4 justify-center mt-8">
-                        <Button size="lg">Create Account</Button>
-                        <Button size="lg" variant="outline">
-                            Contact Sales
-                        </Button>
+                        <Button>Create Account</Button>
+                        <Button variant="outline">Contact Sales</Button>
                     </div>
                 </div>
             </section>
@@ -146,10 +142,8 @@ export const WhyBergetPageExample: Story = {
                 variant="moss"
                 actions={
                     <>
-                        <Button size="lg" className="px-8 py-6 text-lg">
-                            Get Started
-                        </Button>
-                        <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
+                        <Button className="px-8 py-6 text-lg">Get Started</Button>
+                        <Button variant="outline" className="px-8 py-6 text-lg">
                             Book Demo
                         </Button>
                     </>
@@ -216,13 +210,10 @@ export const WhyBergetPageExample: Story = {
                     <SectionHeader
                         title="Start Building Today"
                         description="Join the growing community of developers building on Berget AI"
-                        size="lg"
                     />
                     <div className="flex gap-4 justify-center mt-8">
-                        <Button size="lg">Create Account</Button>
-                        <Button size="lg" variant="outline">
-                            Talk to Sales
-                        </Button>
+                        <Button>Create Account</Button>
+                        <Button variant="outline">Talk to Sales</Button>
                     </div>
                 </div>
             </section>
@@ -246,10 +237,8 @@ export const SimpleLandingPage: Story = {
                 description="The simplest way to add AI to your applications"
                 actions={
                     <>
-                        <Button size="lg">Start Free Trial</Button>
-                        <Button size="lg" variant="ghost">
-                            See Demo →
-                        </Button>
+                        <Button>Start Free Trial</Button>
+                        <Button variant="ghost">See Demo →</Button>
                     </>
                 }
             />
@@ -262,7 +251,7 @@ export const SimpleLandingPage: Story = {
                         description="Start your free trial today"
                     />
                     <div className="flex justify-center mt-8">
-                        <Button size="lg">Get Started</Button>
+                        <Button>Get Started</Button>
                     </div>
                 </div>
             </section>

@@ -46,14 +46,10 @@ It supports all native button attributes and can be used with the \`asChild\` pr
                 "destructive",
                 "link",
                 "highlight",
-                "stone"
+                "stone",
+                "icon"
             ],
             description: "Visual style variant"
-        },
-        size: {
-            control: "select",
-            options: ["sm", "default", "lg", "icon"],
-            description: "Size of the button"
         },
         width: {
             control: "select",
@@ -81,13 +77,12 @@ export const Interactive: Story = {
     args: {
         children: "Button",
         variant: "default",
-        size: "default",
         width: "default"
     },
     render: args => (
         <div className={cn("p-4", args.width === "full" && "w-64")}>
             <Button {...args}>
-                {args.size === "icon" ? (
+                {args.variant === "icon" ? (
                     <Plus className="size-4" strokeWidth={1.5} />
                 ) : (
                     args.children
@@ -124,16 +119,7 @@ export const AllVariants: Story = {
                     <Button variant="link">Link</Button>
                     <Button variant="highlight">Highlight</Button>
                     <Button variant="stone">Stone</Button>
-                </div>
-            </div>
-
-            <div className="border-t border-[hsl(var(--border))] pt-4">
-                <h3 className="text-sm font-medium text-muted-foreground mb-3">Sizes</h3>
-                <div className="flex items-center flex-wrap gap-3">
-                    <Button size="sm">Small</Button>
-                    <Button size="default">Default</Button>
-                    <Button size="lg">Large</Button>
-                    <Button size="icon">
+                    <Button variant="icon">
                         <Plus className="size-4" strokeWidth={1.5} />
                     </Button>
                 </div>
@@ -182,7 +168,7 @@ export const WithIcons: Story = {
                 Continue
                 <ArrowRight className="ml-2 size-4" strokeWidth={1.5} />
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="icon">
                 <Plus className="size-4" strokeWidth={1.5} />
             </Button>
             <Button variant="highlight">

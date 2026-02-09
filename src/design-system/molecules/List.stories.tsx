@@ -37,9 +37,7 @@ export const APIKeysList: Story = {
                         Manage API keys for accessing Berget AI services
                     </p>
                 </div>
-                <Button variant="secondary" size="lg">
-                    + Create New Key
-                </Button>
+                <Button variant="secondary">+ Create New Key</Button>
             </div>
 
             {/* List Panel */}
