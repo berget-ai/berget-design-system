@@ -271,7 +271,7 @@ export const WhyBerget: Story = {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl w-full">
                     {/* Card 1 */}
                     <Card variant="glass" className="flex flex-col p-8 h-full">
-                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans']">
                             "With a Swedish cloud provider, administrative work and
                             regulatory risk decrease as there is no third-country
                             transfer, eliminating the need to stay updated with
@@ -282,20 +282,22 @@ export const WhyBerget: Story = {
                             provider in a way that's already adapted to Swedish
                             conditions."
                         </p>
-                        <Divider className="mb-4" />
-                        <div>
-                            <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
-                                Jim Runsten
-                            </h3>
-                            <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
-                                CEO Synch Law Firm
-                            </p>
+                        <div className="mt-auto">
+                            <Divider className="mb-4" />
+                            <div>
+                                <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
+                                    Jim Runsten
+                                </h3>
+                                <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
+                                    CEO Synch Law Firm
+                                </p>
+                            </div>
                         </div>
                     </Card>
 
                     {/* Card 2 */}
                     <Card variant="glass" className="flex flex-col p-8 h-full">
-                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans']">
                             "Berget's approach with reused hardware is smart from both a
                             sustainability and security perspective. By building the
                             system with the assumption that things can break,
@@ -303,34 +305,38 @@ export const WhyBerget: Story = {
                             exploit the fact that many servers remain untouched for too
                             long without important security updates."
                         </p>
-                        <Divider className="mb-4" />
-                        <div>
-                            <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
-                                Ann-Marie Eklund Löwinder
-                            </h3>
-                            <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
-                                one of Sweden's leading IT security experts
-                            </p>
+                        <div className="mt-auto">
+                            <Divider className="mb-4" />
+                            <div>
+                                <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
+                                    Ann-Marie Eklund Löwinder
+                                </h3>
+                                <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
+                                    one of Sweden's leading IT security experts
+                                </p>
+                            </div>
                         </div>
                     </Card>
 
                     {/* Card 3 */}
                     <Card variant="glass" className="flex flex-col p-8 h-full">
-                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans']">
                             "Data is today one of the most valuable assets that exists.
                             It's a reasonable business decision to train AI models in
                             services that don't use your data to train someone else's
                             models."
                         </p>
-                        <Divider className="mb-4" />
-                        <div>
-                            <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
-                                André Catry
-                            </h3>
-                            <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
-                                Senior Advisor in IT/Information Security and Cyber Risk,
-                                Kahn Pedersen Law Firm
-                            </p>
+                        <div className="mt-auto">
+                            <Divider className="mb-4" />
+                            <div>
+                                <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
+                                    André Catry
+                                </h3>
+                                <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
+                                    Senior Advisor in IT/Information Security and Cyber
+                                    Risk, Kahn Pedersen Law Firm
+                                </p>
+                            </div>
                         </div>
                     </Card>
                 </div>
