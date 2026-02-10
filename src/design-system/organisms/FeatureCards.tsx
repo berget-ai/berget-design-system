@@ -24,6 +24,10 @@ export interface FeatureCardProps
      */
     icon?: LucideIcon;
     /**
+     * Custom color for the icon (e.g., "#52B788" or "text-[#52B788]")
+     */
+    iconColor?: string;
+    /**
      * Title of the feature
      */
     title: string;
@@ -87,6 +91,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             className,
             variant,
             icon: Icon,
+            iconColor,
             title,
             description,
             badge,
@@ -109,17 +114,28 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                 {...props}
             >
                 <div className="flex flex-col items-start gap-[32px]">
-                    {Icon && (
-                        <div className="flex h-7 w-7 items-center justify-center">
-                            <Icon className="h-7 w-7 text-white" strokeWidth={1.5} />
-                        </div>
-                    )}
+                    {/* Icon and badge on same row */}
+                    {(Icon || badge) && (
+                        <div className="flex items-center justify-between w-full">
+                            {Icon && (
+                                <div className="flex h-7 w-7 items-center justify-center">
+                                    <Icon
+                                        className={cn(
+                                            "h-7 w-7",
+                                            iconColor || "text-white"
+                                        )}
+                                        strokeWidth={1.5}
+                                    />
+                                </div>
+                            )}
 
-                    {badge && (
-                        <div className="flex h-6 items-center justify-start px-6 bg-[#2D6A4F] rounded-full">
-                            <span className="text-xs font-normal leading-4 text-[#CFFF8B]">
-                                {badge}
-                            </span>
+                            {badge && (
+                                <div className="flex h-6 items-center justify-start px-6 bg-[#2D6A4F] rounded-full">
+                                    <span className="text-xs font-normal leading-4 text-[#CFFF8B]">
+                                        {badge}
+                                    </span>
+                                </div>
+                            )}
                         </div>
                     )}
 
