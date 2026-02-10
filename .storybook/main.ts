@@ -1,25 +1,11 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
-    stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-    addons: [],
+    stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
     framework: {
         name: "@storybook/react-vite",
-        options: {
-            builder: {
-                viteConfigPath: undefined
-            }
-        }
+        options: {}
     },
-    staticDirs: ["../public"],
-    // For GitHub Pages deployment
-    viteFinal: async config => {
-        // Set base path for GitHub Pages if GITHUB_REPOSITORY is set
-        if (process.env.GITHUB_REPOSITORY) {
-            const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
-            config.base = `/${repo}/`;
-        }
-        return config;
-    }
+    staticDirs: ["../public"]
 };
 export default config;
