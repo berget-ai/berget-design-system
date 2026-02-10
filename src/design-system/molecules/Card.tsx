@@ -81,7 +81,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
                         <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,#E5DDD5_0%,rgba(229,221,213,0)_92.4%)] opacity-[0.3] pointer-events-none" />
                     </>
                 )}
-                <div className="relative z-10 w-full">{children}</div>
+                <div className="relative z-10 w-full flex flex-col h-full">
+                    {children}
+                </div>
             </div>
         );
     }
