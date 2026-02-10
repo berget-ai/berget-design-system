@@ -271,7 +271,7 @@ export const WhyBerget: Story = {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl w-full">
                     {/* Card 1 */}
                     <Card variant="glass" className="flex flex-col p-8 h-full">
-                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans']">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
                             "With a Swedish cloud provider, administrative work and
                             regulatory risk decrease as there is no third-country
                             transfer, eliminating the need to stay updated with
@@ -297,7 +297,7 @@ export const WhyBerget: Story = {
 
                     {/* Card 2 */}
                     <Card variant="glass" className="flex flex-col p-8 h-full">
-                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans']">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
                             "Berget's approach with reused hardware is smart from both a
                             sustainability and security perspective. By building the
                             system with the assumption that things can break,
@@ -320,7 +320,7 @@ export const WhyBerget: Story = {
 
                     {/* Card 3 */}
                     <Card variant="glass" className="flex flex-col p-8 h-full">
-                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans']">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
                             "Data is today one of the most valuable assets that exists.
                             It's a reasonable business decision to train AI models in
                             services that don't use your data to train someone else's
