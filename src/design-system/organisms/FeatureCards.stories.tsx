@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { FeatureCard, FeatureCards } from "./FeatureCards";
-import { Zap, Shield, Database, Globe, Lock, Cpu } from "lucide-react";
+import { Zap, Shield, Database, Globe, Lock, Server } from "lucide-react";
 
 const meta = {
     title: "Organisms/Feature Card",
@@ -38,6 +38,20 @@ export const Default: Story = {
         title: "Lightning Fast",
         description: "Optimized for speed and performance with sub-millisecond latency.",
         badge: "New"
+    }
+};
+
+/**
+ * With list items (Figma design)
+ */
+export const WithListItems: Story = {
+    args: {
+        icon: Server,
+        title: "Dedicated Inference",
+        description:
+            "Run and scale any model, including your own fine-tuned models on dedicated capacity.",
+        badge: "Coming Soon",
+        items: ["Customizable instances", "High-demand workloads", "Dedicated resources"]
     }
 };
 
@@ -151,76 +165,23 @@ export const TwoColumns: Story = {
 };
 
 /**
- * Four column grid
- */
-export const FourColumns: Story = {
-    render: () => (
-        <FeatureCards
-            features={[
-                {
-                    icon: Zap,
-                    title: "Lightning Fast",
-                    description: "Optimized for speed and performance.",
-                    badge: "New"
-                },
-                {
-                    icon: Shield,
-                    title: "Secure by Default",
-                    description: "Enterprise-grade security built in.",
-                    linkText: "Learn more",
-                    linkHref: "#"
-                },
-                {
-                    icon: Database,
-                    title: "Scalable Database",
-                    description: "Handle millions of requests effortlessly."
-                },
-                {
-                    icon: Globe,
-                    title: "Global CDN",
-                    description: "Deploy close to your users worldwide.",
-                    badge: "Popular"
-                }
-            ]}
-            columns={4}
-        />
-    ),
-    parameters: {
-        layout: "padded"
-    }
-};
-
-/**
- * One column grid
- */
-export const OneColumn: Story = {
-    render: () => (
-        <FeatureCards
-            features={[
-                {
-                    icon: Zap,
-                    title: "Lightning Fast",
-                    description:
-                        "Optimized for speed and performance with sub-millisecond latency.",
-                    linkText: "Learn more",
-                    linkHref: "#"
-                }
-            ]}
-            columns={1}
-        />
-    ),
-    parameters: {
-        layout: "padded"
-    }
-};
-
-/**
  * Full grid with six features
  */
 export const FullGrid: Story = {
     render: () => (
         <FeatureCards
             features={[
+                {
+                    icon: Server,
+                    title: "Dedicated Inference",
+                    description: "Run and scale any model on dedicated capacity.",
+                    badge: "Coming Soon",
+                    items: [
+                        "Customizable instances",
+                        "High-demand workloads",
+                        "Dedicated resources"
+                    ]
+                },
                 {
                     icon: Zap,
                     title: "Lightning Fast",
@@ -251,11 +212,6 @@ export const FullGrid: Story = {
                     description: "Your data never leaves the EU.",
                     linkText: "Read more",
                     linkHref: "#"
-                },
-                {
-                    icon: Cpu,
-                    title: "Auto Scaling",
-                    description: "Scale automatically based on demand."
                 }
             ]}
             columns={3}

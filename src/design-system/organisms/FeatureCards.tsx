@@ -44,6 +44,10 @@ export interface FeatureCardProps
      */
     linkHref?: string;
     /**
+     * Optional list items to display below description
+     */
+    items?: string[];
+    /**
      * Number of columns in the grid
      * @default 3
      */
@@ -53,7 +57,7 @@ export interface FeatureCardProps
 /**
  * Feature Card Component
  *
- * Feature card with icon, title, description, and optional badge/link.
+ * Feature card with icon, badge, title, description, and optional list items.
  * Based on Card highlight variant.
  *
  * **Use Cases:**
@@ -65,13 +69,15 @@ export interface FeatureCardProps
  * @example
  * ```tsx
  * <FeatureCard
- *   icon={Zap}
- *   title="Lightning Fast"
- *   description="Optimized for speed and performance."
- *   badge="New"
- *   linkText="Learn more"
- *   linkHref="/features"
- *   columns={3}
+ *   icon={Cpu}
+ *   title="Dedicated Inference"
+ *   description="Run and scale any model, including your own fine-tuned models on dedicated capacity."
+ *   badge="Coming Soon"
+ *   items={[
+ *     "Customizable instances",
+ *     "High-demand workloads",
+ *     "Dedicated resources"
+ *   ]}
  * />
  * ```
  */
@@ -86,6 +92,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             badge,
             linkText,
             linkHref,
+            items,
             columns,
             ...props
         },
@@ -96,38 +103,58 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                 ref={ref}
                 variant="highlight"
                 className={cn(
-                    "w-full min-w-[280px] max-w-[400px] p-6 transition-all duration-300 hover:scale-105",
+                    "w-full min-w-[280px] max-w-[413px] p-[48px_40px] transition-all duration-300 hover:scale-105",
                     className
                 )}
                 {...props}
             >
-                {Icon && (
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(var(--secondary))]/20">
-                        <Icon className="h-6 w-6 text-white" strokeWidth={2} />
-                    </div>
-                )}
+                <div className="flex flex-col items-start gap-[32px]">
+                    {Icon && (
+                        <div className="flex h-7 w-7 items-center justify-center">
+                            <Icon className="h-7 w-7 text-white" strokeWidth={1.5} />
+                        </div>
+                    )}
 
-                <div className="mb-2 flex items-center gap-2">
-                    <h3 className="text-lg font-medium text-white">{title}</h3>
                     {badge && (
-                        <span className="rounded-full bg-[#2D6A4F] px-2 py-0.5 text-xs font-medium text-[#CFFF8B]">
-                            {badge}
-                        </span>
+                        <div className="flex h-6 items-center justify-start px-6 bg-[#2D6A4F] rounded-full">
+                            <span className="text-xs font-normal leading-4 text-[#CFFF8B]">
+                                {badge}
+                            </span>
+                        </div>
+                    )}
+
+                    <h3 className="text-[40px] leading-[56px] tracking-[-1px] text-white font-normal font-['Ovo']">
+                        {title}
+                    </h3>
+
+                    <p className="text-base leading-6 text-white/80 font-normal font-['DM_Sans']">
+                        {description}
+                    </p>
+
+                    {items && items.length > 0 && (
+                        <ul className="flex flex-col items-start gap-3">
+                            {items.map((item, index) => (
+                                <li key={index} className="flex items-center gap-3">
+                                    <span className="flex h-[18px] w-[18px] items-center justify-center p-1.5">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-white/60" />
+                                    </span>
+                                    <span className="text-base leading-6 text-white/80 font-normal font-['DM_Sans']">
+                                        {item}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+
+                    {linkText && linkHref && (
+                        <a
+                            href={linkHref}
+                            className="text-sm text-[hsl(var(--secondary))] hover:underline"
+                        >
+                            {linkText} →
+                        </a>
                     )}
                 </div>
-
-                <p className="text-sm text-[hsl(var(--muted-foreground))] mb-4">
-                    {description}
-                </p>
-
-                {linkText && linkHref && (
-                    <a
-                        href={linkHref}
-                        className="text-sm text-[hsl(var(--secondary))] hover:underline"
-                    >
-                        {linkText} →
-                    </a>
-                )}
             </Card>
         );
     }
@@ -160,17 +187,17 @@ export interface FeatureCardsProps {
  * ```tsx
  * const features = [
  *   {
+ *     icon: Cpu,
+ *     title: "Dedicated Inference",
+ *     description: "Run and scale any model on dedicated capacity.",
+ *     badge: "Coming Soon",
+ *     items: ["Customizable instances", "High-demand workloads", "Dedicated resources"]
+ *   },
+ *   {
  *     icon: Zap,
  *     title: "Lightning Fast",
  *     description: "Optimized for speed and performance.",
  *     badge: "New"
- *   },
- *   {
- *     icon: Shield,
- *     title: "Secure by Default",
- *     description: "Enterprise-grade security built in.",
- *     linkText: "Learn more",
- *     linkHref="/security"
  *   },
  * ]
  *
