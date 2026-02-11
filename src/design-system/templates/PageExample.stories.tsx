@@ -64,7 +64,7 @@ export const HeroLanding: Story = {
                     {/* Button */}
                     <Button className="inline-flex items-center gap-2">
                         Get Started
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-6 h-6 text-white" strokeWidth={1.5} />
                     </Button>
                 </div>
             </div>
@@ -149,7 +149,7 @@ export const Services: Story = {
                 {/* Button */}
                 <Button className="inline-flex items-center gap-2 mt-16">
                     Learn more
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-6 h-6 text-white" strokeWidth={1.5} />
                 </Button>
             </div>
         </PatternBackground>
@@ -230,7 +230,7 @@ export const Benefits: Story = {
                 {/* Button */}
                 <Button className="inline-flex items-center gap-2 mt-16">
                     Learn more
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-6 h-6 text-white" strokeWidth={1.5} />
                 </Button>
             </div>
         </PatternBackground>

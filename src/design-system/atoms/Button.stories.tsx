@@ -83,7 +83,7 @@ export const Interactive: Story = {
         <div className={cn("p-4", args.width === "full" && "w-64")}>
             <Button {...args}>
                 {args.variant === "icon" ? (
-                    <Plus className="size-4" strokeWidth={1.5} />
+                    <Plus className="w-6 h-6" strokeWidth={1.5} />
                 ) : (
                     args.children
                 )}
@@ -120,7 +120,7 @@ export const AllVariants: Story = {
                     <Button variant="highlight">Highlight</Button>
                     <Button variant="stone">Stone</Button>
                     <Button variant="icon">
-                        <Plus className="size-4" strokeWidth={1.5} />
+                        <Plus className="w-6 h-6" strokeWidth={1.5} />
                     </Button>
                 </div>
             </div>
@@ -130,7 +130,10 @@ export const AllVariants: Story = {
                 <div className="flex flex-wrap gap-3">
                     <Button disabled>Disabled</Button>
                     <Button>
-                        <Loader2 className="mr-2 size-4 animate-spin" strokeWidth={1.5} />
+                        <Loader2
+                            className="mr-2 w-6 h-6 animate-spin"
+                            strokeWidth={1.5}
+                        />
                         Loading
                     </Button>
                 </div>
@@ -153,31 +156,31 @@ export const WithIcons: Story = {
     render: () => (
         <div className="flex flex-wrap gap-3">
             <Button>
-                <Mail className="mr-2 size-4" strokeWidth={1.5} />
+                <Mail className="mr-2 w-6 h-6" strokeWidth={1.5} />
                 Email
             </Button>
             <Button variant="primary">
-                <Plus className="mr-2 size-4" strokeWidth={1.5} />
+                <Plus className="mr-2 w-6 h-6" strokeWidth={1.5} />
                 Add New
             </Button>
             <Button variant="secondary">
                 Download
-                <Download className="ml-2 size-4" strokeWidth={1.5} />
+                <Download className="ml-2 w-6 h-6" strokeWidth={1.5} />
             </Button>
             <Button variant="outline">
                 Continue
-                <ArrowRight className="ml-2 size-4" strokeWidth={1.5} />
+                <ArrowRight className="ml-2 w-6 h-6" strokeWidth={1.5} />
             </Button>
             <Button variant="icon">
-                <Plus className="size-4" strokeWidth={1.5} />
+                <Plus className="w-6 h-6" strokeWidth={1.5} />
             </Button>
             <Button variant="highlight">
-                <Mail className="mr-2 size-4" strokeWidth={1.5} />
+                <Mail className="mr-2 w-6 h-6" strokeWidth={1.5} />
                 View Pricing
             </Button>
             <Button variant="highlight">
                 View Pricing
-                <ArrowRight className="ml-2 size-4" strokeWidth={1.5} />
+                <ArrowRight className="ml-2 w-6 h-6" strokeWidth={1.5} />
             </Button>
         </div>
     )
@@ -197,12 +200,12 @@ export const FullWidth: Story = {
         <div className="w-64 space-y-3">
             <Button width="full">Full Width Default</Button>
             <Button variant="primary" width="full">
-                <Plus className="mr-2 size-4" strokeWidth={1.5} />
+                <Plus className="mr-2 w-6 h-6" strokeWidth={1.5} />
                 Add New
             </Button>
             <Button variant="highlight" width="full">
                 View Pricing
-                <ArrowRight className="ml-2 size-4" strokeWidth={1.5} />
+                <ArrowRight className="ml-2 w-6 h-6" strokeWidth={1.5} />
             </Button>
         </div>
     )

@@ -173,7 +173,7 @@ export const FeatureCard: Story = {
             <>
                 <CardHeader>
                     <div className="w-12 h-12  flex items-center justify-center mb-4">
-                        <Zap className="w-7 h-7 text-white" strokeWidth={2} />
+                        <Zap className="w-6 h-6 text-white" strokeWidth={1.5} />
                     </div>
                     <CardTitle>Lightning Fast</CardTitle>
                     <CardDescription>Optimized for performance</CardDescription>
@@ -215,7 +215,7 @@ export const FeatureGrid: Story = {
                 >
                     <CardHeader>
                         <div className="w-12 h-12  flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <Shield className="w-7 h-7 text-white" strokeWidth={2} />
+                            <Shield className="w-6 h-6 text-white" strokeWidth={1.5} />
                         </div>
                         <CardTitle>Secure</CardTitle>
                     </CardHeader>
@@ -232,7 +232,7 @@ export const FeatureGrid: Story = {
                 >
                     <CardHeader>
                         <div className="w-12 h-12  flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <Zap className="w-7 h-7 text-white" strokeWidth={2} />
+                            <Zap className="w-6 h-6 text-white" strokeWidth={1.5} />
                         </div>
                         <CardTitle>Fast</CardTitle>
                     </CardHeader>
@@ -249,7 +249,7 @@ export const FeatureGrid: Story = {
                 >
                     <CardHeader>
                         <div className="w-12 h-12  flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <Database className="w-7 h-7 text-white" strokeWidth={2} />
+                            <Database className="w-6 h-6 text-white" strokeWidth={1.5} />
                         </div>
                         <CardTitle>Scalable</CardTitle>
                     </CardHeader>

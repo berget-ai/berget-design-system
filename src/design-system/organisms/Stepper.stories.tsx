@@ -23,7 +23,10 @@ const InteractiveStepper = () => {
                         onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
                         disabled={currentStep === 0}
                     >
-                        <ArrowLeft className="mr-2 w-7 h-7" strokeWidth={2} />
+                        <ArrowLeft
+                            className="mr-2 w-6 h-6 text-white"
+                            strokeWidth={1.5}
+                        />
                         Back
                     </Button>
 
@@ -36,7 +39,10 @@ const InteractiveStepper = () => {
                         }
                     >
                         {currentStep === sampleSteps.length - 1 ? "Submit" : "Continue"}
-                        <ArrowRight className="ml-2 w-7 h-7" strokeWidth={2} />
+                        <ArrowRight
+                            className="ml-2 w-6 h-6 text-white"
+                            strokeWidth={1.5}
+                        />
                     </Button>
                 </div>
             </div>
@@ -90,7 +96,10 @@ const RegistrationFlowExample = () => {
                             variant="outline"
                             onClick={() => setCurrentStep(currentStep - 1)}
                         >
-                            <ArrowLeft className="mr-2 w-7 h-7" strokeWidth={2} />
+                            <ArrowLeft
+                                className="mr-2 w-6 h-6 text-white"
+                                strokeWidth={1.5}
+                            />
                             Back
                         </Button>
                     ) : (
@@ -110,7 +119,10 @@ const RegistrationFlowExample = () => {
                         {currentStep === registrationSteps.length - 1
                             ? "Complete"
                             : "Continue"}
-                        <ArrowRight className="ml-2 w-7 h-7" strokeWidth={2} />
+                        <ArrowRight
+                            className="ml-2 w-6 h-6 text-white"
+                            strokeWidth={1.5}
+                        />
                     </Button>
                 </div>
             </div>

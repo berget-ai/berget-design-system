@@ -100,7 +100,7 @@ export const Search: Story = {
             <Input
                 type="search"
                 placeholder="Search..."
-                icon={<SearchIcon className="w-4 h-4 text-muted-foreground" />}
+                icon={<SearchIcon className="w-6 h-6 text-white" strokeWidth={1.5} />}
             />
         </div>
     )
@@ -426,7 +426,7 @@ export const SearchBar: Story = {
             <Input
                 type="search"
                 placeholder="Search models, documentation, or deployments..."
-                icon={<SearchIcon className="w-4 h-4 text-muted-foreground" />}
+                icon={<SearchIcon className="w-6 h-6 text-white" strokeWidth={1.5} />}
             />
         </div>
     )
