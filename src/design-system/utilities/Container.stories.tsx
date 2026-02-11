@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Container } from "./Container";
-import { Panel } from "../atoms/Panel";
+import { Panel } from "../molecules/Panel";
 
 const meta = {
     title: "Utilities/Container",

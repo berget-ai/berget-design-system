@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { ArrowRight, Download, Loader2, Mail, Plus } from "lucide-react";
+import { cn } from "../../utils/cn";
 
 /**
  * Button component - the primary interaction element in the Berget Design System.
@@ -20,7 +21,7 @@ It supports all native button attributes and can be used with the \`asChild\` pr
 
 **Features:**
 - Multiple variants (default, primary, secondary, outline, ghost, destructive, link)
-- Three sizes (sm, default, lg)
+- Three sizes (sm, default, lg) - all 32px height
 - Icon support
 - Loading states
 - Disabled states
@@ -43,7 +44,8 @@ It supports all native button attributes and can be used with the \`asChild\` pr
                 "outline",
                 "ghost",
                 "destructive",
-                "link"
+                "link",
+                "highlight"
             ],
             description: "Visual style variant"
         },
@@ -51,6 +53,11 @@ It supports all native button attributes and can be used with the \`asChild\` pr
             control: "select",
             options: ["sm", "default", "lg", "icon"],
             description: "Size of the button"
+        },
+        width: {
+            control: "select",
+            options: ["default", "full"],
+            description: "Width of the button"
         },
         disabled: {
             control: "boolean",
@@ -73,11 +80,18 @@ export const Interactive: Story = {
     args: {
         children: "Button",
         variant: "default",
-        size: "default"
+        size: "default",
+        width: "default"
     },
     render: args => (
-        <div className="p-4">
-            <Button {...args} />
+        <div className={cn("p-4", args.width === "full" && "w-64")}>
+            <Button {...args}>
+                {args.size === "icon" ? (
+                    <Plus className="size-4" strokeWidth={1.5} />
+                ) : (
+                    args.children
+                )}
+            </Button>
         </div>
     )
 };
@@ -107,6 +121,7 @@ export const AllVariants: Story = {
                     <Button variant="ghost">Ghost</Button>
                     <Button variant="destructive">Destructive</Button>
                     <Button variant="link">Link</Button>
+                    <Button variant="highlight">Highlight</Button>
                 </div>
             </div>
 
@@ -124,7 +139,7 @@ export const AllVariants: Story = {
                 <div className="flex flex-wrap gap-3">
                     <Button disabled>Disabled</Button>
                     <Button>
-                        <Loader2 className="mr-2 w-7 h-7 animate-spin" strokeWidth={2} />
+                        <Loader2 className="mr-2 size-4 animate-spin" strokeWidth={1.5} />
                         Loading
                     </Button>
                 </div>
@@ -147,23 +162,56 @@ export const WithIcons: Story = {
     render: () => (
         <div className="flex flex-wrap gap-3">
             <Button>
-                <Mail className="mr-2 w-7 h-7" strokeWidth={2} />
+                <Mail className="mr-2 size-4" strokeWidth={1.5} />
                 Email
             </Button>
             <Button variant="primary">
-                <Plus className="mr-2 w-7 h-7" strokeWidth={2} />
+                <Plus className="mr-2 size-4" strokeWidth={1.5} />
                 Add New
             </Button>
             <Button variant="secondary">
                 Download
-                <Download className="ml-2 w-7 h-7" strokeWidth={2} />
+                <Download className="ml-2 size-4" strokeWidth={1.5} />
             </Button>
             <Button variant="outline">
                 Continue
-                <ArrowRight className="ml-2 w-7 h-7" strokeWidth={2} />
+                <ArrowRight className="ml-2 size-4" strokeWidth={1.5} />
             </Button>
             <Button variant="ghost" size="icon">
-                <Plus className="w-7 h-7" strokeWidth={2} />
+                <Plus className="size-4" strokeWidth={1.5} />
+            </Button>
+            <Button variant="highlight">
+                <Mail className="mr-2 size-4" strokeWidth={1.5} />
+                View Pricing
+            </Button>
+            <Button variant="highlight">
+                View Pricing
+                <ArrowRight className="ml-2 size-4" strokeWidth={1.5} />
+            </Button>
+        </div>
+    )
+};
+
+/**
+ * Full width buttons - shows buttons that fill their container
+ */
+export const FullWidth: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
+    args: {
+        children: undefined as any
+    },
+    render: () => (
+        <div className="w-64 space-y-3">
+            <Button width="full">Full Width Default</Button>
+            <Button variant="primary" width="full">
+                <Plus className="mr-2 size-4" strokeWidth={1.5} />
+                Add New
+            </Button>
+            <Button variant="highlight" width="full">
+                View Pricing
+                <ArrowRight className="ml-2 size-4" strokeWidth={1.5} />
             </Button>
         </div>
     )

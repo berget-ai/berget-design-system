@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Panel } from "../atoms/Panel";
+import { Panel } from "../molecules/Panel";
 import { Activity, ArrowUpRight, TrendingUp, Cpu } from "lucide-react";
 
 const meta: Meta = {
