@@ -21,6 +21,10 @@ export interface TerminalStep {
      * Delay before moving to next step (ms)
      */
     delay?: number;
+    /**
+     * Language for syntax highlighting (e.g., "bash", "javascript", "typescript")
+     */
+    language?: string;
 }
 
 export interface TerminalProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -48,7 +52,31 @@ export interface TerminalProps extends React.HTMLAttributes<HTMLDivElement> {
      * @default 150
      */
     outputSpeed?: number;
+    /**
+     * Enable syntax highlighting for commands
+     * @default false
+     */
+    enableSyntaxHighlight?: boolean;
 }
+
+const syntaxHighlight = (command: string): React.ReactNode => {
+    const keywords = ["npm", "yarn", "pnpm", "pip", "cargo", "go", "git", "berget", "docker", "kubectl", "terraform", "ansible", "helm"];
+    const flags = ["--save", "--dev", "-D", "-g", "--global", "--force", "-f", "--help", "-h", "--version", "-v", "install", "update", "remove", "uninstall", "run", "start", "build", "test", "lint", "init", "clone", "push", "pull", "commit", "add", "status", "log", "branch", "checkout", "merge", "auth", "login", "logout", "code"];
+
+    let parts = command.split(/(\s+)/);
+    let highlighted = parts.map((part, index) => {
+        if (part.match(/^\s+$/)) return part;
+        if (keywords.includes(part)) {
+            return <span key={index} className="text-[#FF79C6]">{part}</span>;
+        }
+        if (part.startsWith("-") || flags.includes(part)) {
+            return <span key={index} className="text-[#8BE9FD]">{part}</span>;
+        }
+        return part;
+    });
+
+    return <>{highlighted}</>;
+};
 
 /**
  * Terminal Component
@@ -62,12 +90,13 @@ export interface TerminalProps extends React.HTMLAttributes<HTMLDivElement> {
  * - Success/error/warning icons (✓, ✗, ⚠)
  * - Console-style design
  * - Auto-loop support
+ * - Optional syntax highlighting
  *
  * @example
  * ```tsx
  * const steps = [
  *   {
- *     command: "npm install @berget/design-system",
+ *     command: "npm install @berget/ui",
  *     output: [
  *       "Installing dependencies...",
  *       "✓ Package installed successfully"
@@ -98,6 +127,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
         const [outputLines, setOutputLines] = useState<string[]>([]);
         const [completedSteps, setCompletedSteps] = useState<TerminalStep[]>([]);
         const contentRef = React.useRef<HTMLDivElement>(null);
+        const { enableSyntaxHighlight = false } = props;
 
         // Reset animation
         const resetAnimation = React.useCallback(() => {
@@ -246,7 +276,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
                         <div key={stepIndex} className="mb-4">
                             <div className="flex items-center gap-2 text-[#52B788]">
                                 <span className="text-white/50">$</span>
-                                <span>{step.command}</span>
+                                <span>{enableSyntaxHighlight ? syntaxHighlight(step.command) : step.command}</span>
                             </div>
                             {step.output.map((line, lineIndex) =>
                                 renderOutputLine(line, lineIndex)
@@ -259,7 +289,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
                         <div>
                             <div className="flex items-center gap-2 text-[#52B788]">
                                 <span className="text-white/50">$</span>
-                                <span>{typedCommand}</span>
+                                <span>{enableSyntaxHighlight ? syntaxHighlight(typedCommand) : typedCommand}</span>
                                 {typedCommand.length <
                                     steps[currentStep].command.length && (
                                     <span className="inline-block w-2 h-4 bg-[#52B788] animate-pulse" />
