@@ -71,11 +71,11 @@ export const NPMInstall: Story = {
     args: {
         steps: [
             {
-                command: "npm install @berget/design-system",
+                command: "npm install @berget/ui",
                 output: [
                     "Installing dependencies...",
                     "✓ Resolved 47 packages",
-                    "✓ Downloaded @berget/design-system@2.0.0",
+                    "✓ Downloaded @berget/ui@2.0.0",
                     "✓ All dependencies installed",
                     "",
                     "added 47 packages in 3.2s"
@@ -305,7 +305,7 @@ export const LongOutput: Story = {
                     "✓ Resolved 100 packages",
                     "",
                     "Downloading packages...",
-                    "✓ Downloaded @berget/design-system@2.0.0",
+                    "✓ Downloaded @berget/ui@2.0.0",
                     "✓ Downloaded react@18.2.0",
                     "✓ Downloaded react-dom@18.2.0",
                     "✓ Downloaded typescript@5.2.2",
@@ -316,7 +316,7 @@ export const LongOutput: Story = {
                     "✓ Downloaded tailwind-merge@2.5.2",
                     "",
                     "Building fresh packages...",
-                    "✓ Built @berget/design-system",
+                    "✓ Built @berget/ui",
                     "✓ Built react",
                     "✓ Built react-dom",
                     "",
@@ -324,7 +324,7 @@ export const LongOutput: Story = {
                     "✓ Linked 127 packages",
                     "",
                     "Running lifecycle scripts...",
-                    "✓ Ran postinstall for @berget/design-system",
+                    "✓ Ran postinstall for @berget/ui",
                     "",
                     "Generating TypeScript declarations...",
                     "✓ Generated declarations",

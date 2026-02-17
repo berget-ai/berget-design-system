@@ -393,11 +393,11 @@ export const CodeLinks: Story = {
             <div className="bg-[rgba(0,0,0,0.3)] p-4 rounded-lg font-mono text-sm mb-4">
                 <p className="text-white/60 mb-2"># Using npm</p>
                 <p className="text-[hsl(var(--primary))]">
-                    npm install @berget/design-system
+                    npm install @berget/ui
                 </p>
                 <p className="text-white/60 mt-4 mb-2"># Using yarn</p>
                 <p className="text-[hsl(var(--primary))]">
-                    yarn add @berget/design-system
+                    yarn add @berget/ui
                 </p>
             </div>
             <p className="text-white/80 mb-4">
