@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SectionHeader } from "./SectionHeader";
 
 const meta = {
-    title: "Organisms/Section Header",
+    title: "Molecules/Section Header",
     component: SectionHeader,
     parameters: {
         layout: "centered",
@@ -171,7 +171,7 @@ export const ProductsPageHeader: Story = {
         title: ""
     },
     render: () => (
-        <div className="bg-gradient-to-b from-background to-background/50 py-24">
+        <div className="py-24">
             <div className="container mx-auto px-4">
                 <SectionHeader
                     title="Berget AI Products"
@@ -264,7 +264,7 @@ export const CTASectionPattern: Story = {
         title: ""
     },
     render: () => (
-        <div className="py-24 bg-gradient-to-b from-background to-[#2D6A4F]/10">
+        <div className="py-24">
             <div className="container mx-auto px-4">
                 <SectionHeader
                     title="Ready to Get Started?"

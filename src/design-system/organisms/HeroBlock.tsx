@@ -3,24 +3,29 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 import { LucideIcon } from "lucide-react";
 import { Badge } from "../atoms/Badge";
+import { PatternBackground } from "../foundations/PatternBackground";
 
-const heroBlockVariants = cva("relative overflow-hidden min-h-[70vh] flex items-center", {
-    variants: {
-        variant: {
-            default: "bg-gradient-to-b from-background to-background/50",
-            moss: "bg-gradient-to-b from-[#2D6A4F]/30 via-background to-background",
-            gradient: "bg-gradient-to-br from-[#2D6A4F]/20 via-background to-[#40916C]/10"
+const heroBlockVariants = cva(
+    "relative overflow-hidden min-h-[70vh] flex items-center py-16",
+    {
+        variants: {
+            variant: {
+                default: "bg-gradient-to-b from-background to-background/50",
+                moss: "bg-gradient-to-b from-[#2D6A4F]/30 via-background to-background",
+                gradient:
+                    "bg-gradient-to-br from-[#2D6A4F]/20 via-background to-[#40916C]/10"
+            },
+            withPattern: {
+                true: "",
+                false: ""
+            }
         },
-        withGrid: {
-            true: "[&>div:first-child]:bg-grid-white/5 [&>div:first-child]:bg-[size:32px_32px]",
-            false: ""
+        defaultVariants: {
+            variant: "default",
+            withPattern: true
         }
-    },
-    defaultVariants: {
-        variant: "default",
-        withGrid: true
     }
-});
+);
 
 export interface HeroBlockProps
     extends React.HTMLAttributes<HTMLDivElement>,
@@ -45,6 +50,11 @@ export interface HeroBlockProps
      * Call-to-action buttons
      */
     actions?: React.ReactNode;
+    /**
+     * Show pattern background
+     * @default true
+     */
+    withPattern?: boolean;
 }
 
 /**
@@ -92,7 +102,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
         {
             className,
             variant,
-            withGrid,
+            withPattern,
             taglineIcon: TaglineIcon,
             tagline,
             title,
@@ -105,14 +115,12 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
         return (
             <div
                 ref={ref}
-                className={cn(heroBlockVariants({ variant, withGrid }), className)}
+                className={cn(heroBlockVariants({ variant, withPattern }), className)}
                 {...props}
             >
                 {/* Background Effects */}
                 <div className="absolute inset-0 pointer-events-none">
-                    {withGrid && (
-                        <div className="absolute inset-0 bg-grid-white/5 bg-[size:32px_32px]" />
-                    )}
+                    {withPattern && <PatternBackground tileSize={32} overlayOnly />}
                     {variant === "moss" && (
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(45,106,79,0.15)_0%,transparent_70%)]" />
                     )}

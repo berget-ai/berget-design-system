@@ -6,7 +6,10 @@ const { KcPageStory } = createKcPageStory({ pageId: "login.ftl" });
 
 const meta = {
     title: "Berget/Login",
-    component: KcPageStory
+    component: KcPageStory,
+    parameters: {
+        layout: "fullscreen"
+    }
 } satisfies Meta<typeof KcPageStory>;
 
 export default meta;

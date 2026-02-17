@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
 const textareaVariants = cva(
-    "flex w-full rounded-xl border bg-white/5 px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:cursor-not-allowed disabled:opacity-50 resize-y",
+    "flex w-full rounded-xl border bg-white/5 px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 resize-y",
     {
         variants: {
             variant: {
@@ -42,6 +42,12 @@ export interface TextareaProps
     showCount?: boolean;
     /** Number of rows */
     rows?: number;
+    /** Icon to display inside the textarea (left side) */
+    icon?: React.ReactNode;
+    /** Secondary icon to display inside the textarea (right side, before action button) */
+    secondaryIcon?: React.ReactNode;
+    /** Action button to display inside the textarea */
+    actionButton?: React.ReactNode;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -60,6 +66,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             id,
             disabled,
             value,
+            icon,
+            secondaryIcon,
+            actionButton,
             ...props
         },
         ref
@@ -84,24 +93,48 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                     </label>
                 )}
 
-                <textarea
-                    ref={ref}
-                    id={textareaId}
-                    disabled={disabled}
-                    aria-invalid={!!error}
-                    aria-describedby={cn(error && errorId, description && descriptionId)}
-                    className={cn(
-                        textareaVariants({ variant, size }),
-                        error && "border-red-500/50 bg-red-500/10",
-                        disabled && "cursor-not-allowed",
-                        className
+                <div className="relative">
+                    {icon && (
+                        <div className="absolute left-2 top-1/2 -translate-y-1/2">
+                            {icon}
+                        </div>
                     )}
-                    placeholder={placeholder}
-                    maxLength={maxLength}
-                    rows={rows}
-                    value={value}
-                    {...props}
-                />
+                    <textarea
+                        ref={ref}
+                        id={textareaId}
+                        disabled={disabled}
+                        aria-invalid={!!error}
+                        aria-describedby={cn(
+                            error && errorId,
+                            description && descriptionId
+                        )}
+                        className={cn(
+                            textareaVariants({ variant, size }),
+                            error && "border-red-500/50 bg-red-500/10",
+                            disabled && "cursor-not-allowed",
+                            icon && "pl-11",
+                            secondaryIcon && "pr-20",
+                            actionButton && !secondaryIcon && "pr-12",
+                            secondaryIcon && actionButton && "pr-20",
+                            className
+                        )}
+                        placeholder={placeholder}
+                        maxLength={maxLength}
+                        rows={rows}
+                        value={value}
+                        {...props}
+                    />
+                    {secondaryIcon && (
+                        <div className="absolute right-12 top-1/2 -translate-y-1/2">
+                            {secondaryIcon}
+                        </div>
+                    )}
+                    {actionButton && (
+                        <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                            {actionButton}
+                        </div>
+                    )}
+                </div>
 
                 {(description || error || (showCount && maxLength)) && (
                     <div className="flex items-center justify-between gap-2">

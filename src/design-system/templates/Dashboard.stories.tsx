@@ -48,7 +48,7 @@ export const ConsoleDashboard: Story = {
                             <span className="text-base text-white/40">
                                 Account Balance
                             </span>
-                            <Activity className="w-7 h-7 text-white/80" strokeWidth={2} />
+                            <Activity className="w-6 h-6 text-white" strokeWidth={1.5} />
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-baseline gap-3">
@@ -66,7 +66,7 @@ export const ConsoleDashboard: Story = {
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">API Usage</span>
-                            <Cpu className="w-7 h-7 text-white/80" strokeWidth={2} />
+                            <Cpu className="w-6 h-6 text-white" strokeWidth={1.5} />
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-baseline gap-3">
@@ -86,8 +86,8 @@ export const ConsoleDashboard: Story = {
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">Growth</span>
                             <TrendingUp
-                                className="w-7 h-7 text-white/80"
-                                strokeWidth={2}
+                                className="w-6 h-6 text-white"
+                                strokeWidth={1.5}
                             />
                         </div>
                         <div className="space-y-2">
@@ -108,8 +108,8 @@ export const ConsoleDashboard: Story = {
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">Status</span>
                             <ArrowUpRight
-                                className="w-7 h-7 text-white/80"
-                                strokeWidth={2}
+                                className="w-6 h-6 text-white"
+                                strokeWidth={1.5}
                             />
                         </div>
                         <div className="space-y-2">
@@ -250,8 +250,8 @@ export const StatCards: Story = {
                                     Account Balance
                                 </span>
                                 <Activity
-                                    className="w-7 h-7 text-white/80"
-                                    strokeWidth={2}
+                                    className="w-6 h-6 text-white"
+                                    strokeWidth={1.5}
                                 />
                             </div>
                             <div className="space-y-2">
@@ -267,7 +267,7 @@ export const StatCards: Story = {
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">API Usage</span>
-                                <Cpu className="w-7 h-7 text-white/80" strokeWidth={2} />
+                                <Cpu className="w-6 h-6 text-white" strokeWidth={1.5} />
                             </div>
                             <div className="space-y-2">
                                 <div className="flex items-baseline gap-3">
@@ -292,8 +292,8 @@ export const StatCards: Story = {
                                     With Glass
                                 </span>
                                 <TrendingUp
-                                    className="w-7 h-7 text-white/80"
-                                    strokeWidth={2}
+                                    className="w-6 h-6 text-white"
+                                    strokeWidth={1.5}
                                 />
                             </div>
                             <div className="space-y-2">
@@ -312,8 +312,8 @@ export const StatCards: Story = {
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">No Bokeh</span>
                                 <ArrowUpRight
-                                    className="w-7 h-7 text-white/80"
-                                    strokeWidth={2}
+                                    className="w-6 h-6 text-white"
+                                    strokeWidth={1.5}
                                 />
                             </div>
                             <div className="space-y-2">

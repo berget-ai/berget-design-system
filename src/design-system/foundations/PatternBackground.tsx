@@ -7,6 +7,11 @@ export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElem
      * @default 48
      */
     tileSize?: 32 | 48;
+    /**
+     * Don't set background color, only show pattern overlay
+     * @default false
+     */
+    overlayOnly?: boolean;
 }
 
 /**
@@ -39,7 +44,7 @@ export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElem
  * ```
  */
 export const PatternBackground = React.forwardRef<HTMLDivElement, PatternBackgroundProps>(
-    ({ children, className, tileSize = 48, ...props }, ref) => {
+    ({ children, className, tileSize = 48, overlayOnly = false, ...props }, ref) => {
         // Pattern configurations for different tile sizes
         const patterns = {
             32: {
@@ -81,7 +86,12 @@ export const PatternBackground = React.forwardRef<HTMLDivElement, PatternBackgro
         return (
             <div
                 ref={ref}
-                className={cn("relative overflow-hidden bg-[#0A0A0A]", className)}
+                className={cn(
+                    "relative overflow-hidden",
+                    overlayOnly && "absolute inset-0",
+                    !overlayOnly && "bg-[#0A0A0A]",
+                    className
+                )}
                 {...props}
             >
                 {/* Pattern overlay */}
@@ -96,7 +106,7 @@ export const PatternBackground = React.forwardRef<HTMLDivElement, PatternBackgro
                 />
 
                 {/* Content */}
-                <div className="relative z-10">{children}</div>
+                {children && <div className="relative z-10">{children}</div>}
             </div>
         );
     }

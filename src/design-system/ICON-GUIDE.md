@@ -166,10 +166,10 @@ In marketing contexts (FeatureCard, hero sections), icons can use brand colors.
 
 **Approved Brand Colors for Icons:**
 
--   `text-[#52B788]` - Moss green (primary)
--   `text-[#74C69D]` - Sage green (secondary)
--   `text-[#FFB700]` - Gold (accent)
--   `text-white` - White (on dark backgrounds)
+- `text-[#52B788]` - Moss green (primary)
+- `text-[#74C69D]` - Sage green (secondary)
+- `text-[#FFB700]` - Gold (accent)
+- `text-white` - White (on dark backgrounds)
 
 ### Rule 4: Never Use Backgrounds or Borders
 
@@ -291,8 +291,8 @@ Icons in buttons should be subtle and support the text.
   <ArrowRight className="w-4 h-4 ml-2" />
 </Button>
 
-// Icon only (with aria-label)
-<Button size="icon" aria-label="Close">
+// Icon only (with aria-label) - Fixed 32px × 32px button
+<Button variant="icon" aria-label="Close">
   <X className="w-5 h-5" />
 </Button>
 ```
@@ -434,12 +434,12 @@ Clear, consistent navigation icons.
 
 Before using an icon, ask:
 
--   [ ] Does this icon serve a functional purpose?
--   [ ] Am I using the standard icon for this purpose?
--   [ ] Is the icon inheriting the correct text color?
--   [ ] Is the size appropriate for the context?
--   [ ] Have I avoided adding backgrounds or borders?
--   [ ] Is this icon consistent with other uses in the system?
+- [ ] Does this icon serve a functional purpose?
+- [ ] Am I using the standard icon for this purpose?
+- [ ] Is the icon inheriting the correct text color?
+- [ ] Is the size appropriate for the context?
+- [ ] Have I avoided adding backgrounds or borders?
+- [ ] Is this icon consistent with other uses in the system?
 
 ---
 
@@ -555,20 +555,20 @@ import {
 
 **Icons in Berget Design System should be:**
 
--   ✅ Monochrome (inherit text color)
--   ✅ Functional (serve a purpose)
--   ✅ Consistent (same icon = same meaning)
--   ✅ Minimal (no borders, no backgrounds)
--   ✅ Appropriately sized (use size scale)
--   ✅ Contextual (match semantic colors in alerts)
+- ✅ Monochrome (inherit text color)
+- ✅ Functional (serve a purpose)
+- ✅ Consistent (same icon = same meaning)
+- ✅ Minimal (no borders, no backgrounds)
+- ✅ Appropriately sized (use size scale)
+- ✅ Contextual (match semantic colors in alerts)
 
 **Icons should NOT be:**
 
--   ❌ Decorative
--   ❌ Colorful (except approved brand colors in marketing)
--   ❌ Wrapped in backgrounds
--   ❌ Inconsistently sized
--   ❌ Used just to "make it pretty"
+- ❌ Decorative
+- ❌ Colorful (except approved brand colors in marketing)
+- ❌ Wrapped in backgrounds
+- ❌ Inconsistently sized
+- ❌ Used just to "make it pretty"
 
 ---
 

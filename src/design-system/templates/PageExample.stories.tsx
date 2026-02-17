@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HeroBlock } from "../organisms/HeroBlock";
-import { SectionHeader } from "../organisms/SectionHeader";
+import { Badge } from "../atoms/Badge";
 import { Button } from "../atoms/Button";
-import { Shield } from "lucide-react";
+import { FeatureCards } from "../organisms/FeatureCards";
+import { Card } from "../molecules/Card";
+import { Divider } from "../atoms/Divider";
+import { PatternBackground } from "../foundations/PatternBackground";
+import { ArrowRight, Cloud, Server, Cpu, Library, Heart, Leaf } from "lucide-react";
 
 const meta = {
     title: "Templates/Page Examples",
@@ -12,12 +15,6 @@ const meta = {
             description: {
                 component: `
 Complete page examples showing how to combine block components.
-
-These examples demonstrate the real patterns from berget.ai website:
-- /products page structure
-- /why-berget page layout
-- Feature section patterns
-- CTA section patterns
         `
             }
         }
@@ -29,243 +26,321 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Complete Products Page Pattern
+ * Hero Landing Page
+ *
+ * Centered hero section with background image.
  */
-export const ProductsPageExample: Story = {
+export const HeroLanding: Story = {
     parameters: {
         controls: { hide: true }
     },
-
     render: () => (
-        <main className="min-h-screen">
-            {/* Hero */}
-            <HeroBlock
-                title="Berget AI Products"
-                description="Complete infrastructure for deploying and scaling AI models in Europe. From serverless inference to dedicated compute."
-                actions={
-                    <>
-                        <Button size="lg">Get Started</Button>
-                        <Button size="lg" variant="outline">
-                            View Pricing
-                        </Button>
-                    </>
-                }
-            />
+        <div
+            className="relative min-h-screen bg-cover bg-center"
+            style={{ backgroundImage: "url('/hero_bg_001.png')" }}
+        >
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/60" />
 
-            {/* Serverless Inference Section */}
-            <section className="py-24">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                        {/* Sticky Header */}
-                        <div className="lg:col-span-4 lg:sticky lg:top-24">
-                            <SectionHeader
-                                title="Serverless Inference"
-                                description="Deploy AI models without managing infrastructure"
-                                alignment="left"
-                                size="sm"
-                                maxWidth="full"
-                            />
-                        </div>
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
+                <div className="max-w-3xl text-center space-y-8">
+                    {/* Badge */}
+                    <Badge variant="default" status="default" size="md">
+                        No data leaves Sweden
+                    </Badge>
 
-                        {/* Feature Cards - Temporarily commented out until FeatureCard is recreated */}
-                        {/* <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <FeatureCard
-                                icon={Cloud}
-                                iconColor="text-white"
-                                title="Easy Integration"
-                                variant="moss"
-                                features={[
-                                    "OpenAI-compatible API",
-                                    "Drop-in replacement",
-                                    "SDK for all languages"
-                                ]}
-                            />
-                            <FeatureCard
-                                icon={Zap}
-                                iconColor="text-white"
-                                title="Pay-per-Use"
-                                variant="moss"
-                                features={[
-                                    "No minimum commitment",
-                                    "Per-token billing",
-                                    "Volume discounts"
-                                ]}
-                            />
-                            <FeatureCard
-                                icon={Server}
-                                iconColor="text-white"
-                                title="EU Infrastructure"
-                                variant="earth"
-                                features={[
-                                    "Multiple EU regions",
-                                    "Low latency",
-                                    "Data residency"
-                                ]}
-                            />
-                        </div> */}
-                    </div>
+                    {/* Heading */}
+                    <h1 className="text-[48px] md:text-[64px] leading-[1.1] tracking-[-0.02em] text-white font-normal font-['Ovo']">
+                        We champion AI sovereignty to unlock innovation and growth in
+                        Europe
+                    </h1>
+
+                    {/* Body */}
+                    <p className="text-lg md:text-xl leading-[1.6] text-white/80 font-normal font-['DM_Sans'] max-w-2xl mx-auto">
+                        EU-compliant inference service and AI infrastructure built by
+                        developers for developers.
+                    </p>
+
+                    {/* Button */}
+                    <Button className="inline-flex items-center gap-2">
+                        Get Started
+                        <ArrowRight className="w-6 h-6 text-white" strokeWidth={1.5} />
+                    </Button>
                 </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-24">
-                <div className="container mx-auto px-4">
-                    <SectionHeader
-                        title="Ready to Get Started?"
-                        description="Join hundreds of developers building on European AI infrastructure"
-                        maxWidth="lg"
-                    />
-                    <div className="flex gap-4 justify-center mt-8">
-                        <Button size="lg">Create Account</Button>
-                        <Button size="lg" variant="outline">
-                            Contact Sales
-                        </Button>
-                    </div>
-                </div>
-            </section>
-        </main>
+            </div>
+        </div>
     )
 };
 
 /**
- * Why Berget Page Pattern
+ * Services Page
+ *
+ * Pattern background with radial gradient overlay, centered text, and 3 feature cards.
  */
-export const WhyBergetPageExample: Story = {
+export const Services: Story = {
     parameters: {
         controls: { hide: true }
     },
-
     render: () => (
-        <main className="min-h-screen">
-            {/* Hero */}
-            <HeroBlock
-                taglineIcon={Shield}
-                tagline="Built for Europe"
-                title="AI That Respects Your Data"
-                description="The only AI platform designed specifically for European organizations with strict data sovereignty requirements."
-                variant="moss"
-                actions={
-                    <>
-                        <Button size="lg" className="px-8 py-6 text-lg">
-                            Get Started
-                        </Button>
-                        <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
-                            Book Demo
-                        </Button>
-                    </>
-                }
+        <PatternBackground className="min-h-screen">
+            {/* Radial gradient overlay */}
+            <div
+                className="absolute left-0 right-0 top-0 h-[1090px] opacity-30"
+                style={{
+                    background:
+                        "radial-gradient(37.47% 75.74% at 50% 0.05%, rgba(229, 221, 213, 0.2) 0%, rgba(229, 221, 213, 0) 100%)",
+                    zIndex: 1
+                }}
             />
 
-            {/* Key Benefits */}
-            <section className="py-32 bg-[#2D6A4F]/5">
-                <div className="container mx-auto px-4">
-                    <SectionHeader
-                        title="Key Benefits"
-                        description="Why leading European organizations choose Berget AI"
-                        maxWidth="lg"
-                    />
+            <div className="relative z-10 flex flex-col items-center px-4 py-24">
+                {/* Centered text block */}
+                <div className="max-w-3xl text-center mb-16 space-y-6">
+                    <h1 className="text-[48px] md:text-[56px] leading-[1.1] tracking-[-0.02em] text-white font-normal font-['Ovo']">
+                        Inference services and agentic infrastructure in one place
+                    </h1>
+                    <p className="text-lg md:text-xl leading-[1.6] text-white/80 font-normal font-['DM_Sans']">
+                        Sovereign, Open and Sustainable AI – ready to scale.
+                    </p>
+                </div>
 
-                    {/* Feature Cards - Temporarily commented out until FeatureCard is recreated */}
-                    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mt-20">
-                        <FeatureCard
-                            icon={Lock}
-                            iconColor="text-white"
-                            title="EU Based"
-                            description="Built for European organizations with strict data requirements"
-                            features={[
-                                "GDPR compliant by default",
-                                "Data stays in Europe",
-                                "EU-CLOUD certified",
-                                "Local support team"
-                            ]}
-                            variant="default"
-                        />
-                        <FeatureCard
-                            icon={Heart}
-                            iconColor="text-white"
-                            title="Developer Friendly"
-                            description="Designed for developers, by developers"
-                            features={[
+                {/* Feature Cards */}
+                <FeatureCards
+                    features={[
+                        {
+                            icon: Cloud,
+                            title: "Serverless Inference",
+                            description:
+                                "Use the power of the world's leading LLMs without managing infrastructure.",
+                            items: [
                                 "OpenAI-compatible API",
-                                "Extensive documentation",
-                                "Active community",
-                                "Fast support response"
-                            ]}
-                            variant="default"
-                        />
-                        <FeatureCard
-                            icon={Leaf}
-                            iconColor="text-white"
-                            title="Sustainable AI"
-                            description="Lower your carbon footprint"
-                            features={[
-                                "Renewable energy powered",
-                                "Carbon-neutral operations",
-                                "Energy-efficient hardware",
-                                "Transparent reporting"
-                            ]}
-                            variant="default"
-                        />
-                    </div> */}
-                </div>
-            </section>
+                                "Get started in minutes",
+                                "Scale as you go"
+                            ]
+                        },
+                        {
+                            icon: Server,
+                            title: "Dedicated Inference",
+                            description:
+                                "Run and scale any model, including your own fine-tuned models on dedicated capacity.",
+                            badge: "Coming Soon",
+                            items: [
+                                "Customizable instances",
+                                "High-demand workloads",
+                                "Dedicated resources"
+                            ]
+                        },
+                        {
+                            icon: Cpu,
+                            title: "Berget AI Platform",
+                            description:
+                                "Unlock your developer team with our intuitive platform designed for development and deployment of AI applications.",
+                            badge: "Coming Soon",
+                            items: [
+                                "Powerful dashboard",
+                                "Resource management",
+                                "Cost transparency"
+                            ]
+                        }
+                    ]}
+                    columns={3}
+                />
 
-            {/* CTA */}
-            <section className="py-24">
-                <div className="container mx-auto px-4">
-                    <SectionHeader
-                        title="Start Building Today"
-                        description="Join the growing community of developers building on Berget AI"
-                        size="lg"
-                    />
-                    <div className="flex gap-4 justify-center mt-8">
-                        <Button size="lg">Create Account</Button>
-                        <Button size="lg" variant="outline">
-                            Talk to Sales
-                        </Button>
-                    </div>
-                </div>
-            </section>
-        </main>
+                {/* Button */}
+                <Button className="inline-flex items-center gap-2 mt-16">
+                    Learn more
+                    <ArrowRight className="w-6 h-6 text-white" strokeWidth={1.5} />
+                </Button>
+            </div>
+        </PatternBackground>
     )
 };
 
 /**
- * Simple Landing Page
+ * Benefits Page
+ *
+ * Pattern background with radial gradient overlay, centered text, and 3 feature cards.
  */
-export const SimpleLandingPage: Story = {
+export const Benefits: Story = {
     parameters: {
         controls: { hide: true }
     },
-
     render: () => (
-        <main className="min-h-screen">
-            {/* Hero */}
-            <HeroBlock
-                title="Build Faster with Berget AI"
-                description="The simplest way to add AI to your applications"
-                actions={
-                    <>
-                        <Button size="lg">Start Free Trial</Button>
-                        <Button size="lg" variant="ghost">
-                            See Demo →
-                        </Button>
-                    </>
-                }
+        <PatternBackground className="min-h-screen">
+            {/* Radial gradient overlay */}
+            <div
+                className="absolute left-0 right-0 top-0 h-[1090px] opacity-30"
+                style={{
+                    background:
+                        "radial-gradient(37.47% 75.74% at 50% 0.05%, rgba(229, 221, 213, 0.2) 0%, rgba(229, 221, 213, 0) 100%)",
+                    zIndex: 1
+                }}
             />
 
-            {/* CTA */}
-            <section className="py-24">
-                <div className="container mx-auto px-4">
-                    <SectionHeader
-                        title="Ready to build?"
-                        description="Start your free trial today"
-                    />
-                    <div className="flex justify-center mt-8">
-                        <Button size="lg">Get Started</Button>
-                    </div>
+            <div className="relative z-10 flex flex-col items-center px-4 py-24">
+                {/* Centered text block */}
+                <div className="max-w-3xl text-center mb-16 space-y-6">
+                    <h1 className="text-[48px] md:text-[56px] leading-[1.1] tracking-[-0.02em] text-white font-normal font-['Ovo']">
+                        Benefits of Berget AI
+                    </h1>
+                    <p className="text-lg md:text-xl leading-[1.6] text-white/80 font-normal font-['DM_Sans']">
+                        We serve (public and private sector) organisations that seek to
+                        harness the power of AI with full control and with a minimum
+                        impact on the planet.
+                    </p>
                 </div>
-            </section>
-        </main>
+
+                {/* Feature Cards */}
+                <FeatureCards
+                    features={[
+                        {
+                            icon: Library,
+                            title: "Sovereign AI",
+                            description:
+                                "Run models while all data stays within EU borders, our infrastructure is all in Europe, with full compliance with EU regulations.",
+                            items: [
+                                "Enables AI and Data Sovereignty",
+                                "Aligned with EU regulations",
+                                "Full control of your data"
+                            ]
+                        },
+                        {
+                            icon: Heart,
+                            title: "(truly) Open AI",
+                            description:
+                                "We are champions of open innovation and we host and serve open models. Our services are fully built on open source.",
+                            items: ["Open Models", "Open Source", "Open Innovation"]
+                        },
+                        {
+                            icon: Leaf,
+                            iconColor: "text-[#52B788]",
+                            title: "Sustainable AI",
+                            description:
+                                "Our infrastructure is built with sustainability in focus, from fossil-free electricity to heat recovery and circular hardware.",
+                            items: [
+                                "100% Fossil-free Energy",
+                                "CO₂ Tracking",
+                                "Circular Hardware"
+                            ]
+                        }
+                    ]}
+                    columns={3}
+                />
+
+                {/* Button */}
+                <Button className="inline-flex items-center gap-2 mt-16">
+                    Learn more
+                    <ArrowRight className="w-6 h-6 text-white" strokeWidth={1.5} />
+                </Button>
+            </div>
+        </PatternBackground>
+    )
+};
+
+/**
+ * Why Berget Page
+ *
+ * Background image with dark overlay, centered text, and 3 quote cards.
+ */
+export const WhyBerget: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
+    render: () => (
+        <div
+            className="relative min-h-screen bg-cover bg-center"
+            style={{ backgroundImage: "url('/Why_Berget_001.png')" }}
+        >
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/50" />
+
+            <div className="relative z-10 flex flex-col items-center px-4 py-24">
+                {/* Centered text block */}
+                <div className="max-w-3xl text-center mb-16 space-y-6">
+                    <h1 className="text-[48px] md:text-[56px] leading-[1.1] tracking-[-0.02em] text-white font-normal font-['Ovo']">
+                        Why do we need Berget?
+                    </h1>
+                    <p className="text-lg md:text-xl leading-[1.6] text-white/80 font-normal font-['DM_Sans']">
+                        We asked some of Sweden's leading experts in law and data security
+                        about why a Swedish cloud service for AI and sensitive data
+                        handling is needed.
+                    </p>
+                </div>
+
+                {/* Quote Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl w-full">
+                    {/* Card 1 */}
+                    <Card variant="glass" className="p-8 h-full">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
+                            "With a Swedish cloud provider, administrative work and
+                            regulatory risk decrease as there is no third-country
+                            transfer, eliminating the need to stay updated with
+                            third-country transfer regulations, adequacy decisions, or
+                            conduct impact assessments. Furthermore, you get a provider
+                            that must comply with the same legislation that applies to
+                            you, meaning much of the documentation will be prepared by the
+                            provider in a way that's already adapted to Swedish
+                            conditions."
+                        </p>
+                        <div className="mt-auto">
+                            <Divider className="mb-4" />
+                            <div>
+                                <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
+                                    Jim Runsten
+                                </h3>
+                                <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
+                                    CEO Synch Law Firm
+                                </p>
+                            </div>
+                        </div>
+                    </Card>
+
+                    {/* Card 2 */}
+                    <Card variant="glass" className="p-8 h-full">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
+                            "Berget's approach with reused hardware is smart from both a
+                            sustainability and security perspective. By building the
+                            system with the assumption that things can break,
+                            vulnerability is reduced. Many of today's cyber attacks
+                            exploit the fact that many servers remain untouched for too
+                            long without important security updates."
+                        </p>
+                        <div className="mt-auto">
+                            <Divider className="mb-4" />
+                            <div>
+                                <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
+                                    Ann-Marie Eklund Löwinder
+                                </h3>
+                                <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
+                                    one of Sweden's leading IT security experts
+                                </p>
+                            </div>
+                        </div>
+                    </Card>
+
+                    {/* Card 3 */}
+                    <Card variant="glass" className="p-8 h-full">
+                        <p className="flex-grow text-base leading-[1.6] text-white/90 font-normal font-['DM_Sans'] mb-6">
+                            "Data is today one of the most valuable assets that exists.
+                            It's a reasonable business decision to train AI models in
+                            services that don't use your data to train someone else's
+                            models."
+                        </p>
+                        <div className="mt-auto">
+                            <Divider className="mb-4" />
+                            <div>
+                                <h3 className="text-lg font-medium text-white font-['Ovo'] mb-1">
+                                    André Catry
+                                </h3>
+                                <p className="text-sm text-white/70 font-normal font-['DM_Sans']">
+                                    Senior Advisor in IT/Information Security and Cyber
+                                    Risk, Kahn Pedersen Law Firm
+                                </p>
+                            </div>
+                        </div>
+                    </Card>
+                </div>
+            </div>
+        </div>
     )
 };

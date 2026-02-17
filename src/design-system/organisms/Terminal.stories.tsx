@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Terminal } from "./Terminal";
 
 const meta = {
-    title: "Molecules/Terminal",
+    title: "Organisms/Terminal",
     component: Terminal,
     parameters: {
         layout: "centered"

@@ -11,7 +11,7 @@ import { PatternBackground } from "./PatternBackground";
  * See BACKGROUNDS.md for complete usage guide.
  */
 const meta = {
-    title: "0-Foundations/Backgrounds",
+    title: "Foundations/Backgrounds",
     parameters: {
         layout: "fullscreen",
         docs: {

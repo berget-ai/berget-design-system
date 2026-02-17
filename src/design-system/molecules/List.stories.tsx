@@ -37,9 +37,7 @@ export const APIKeysList: Story = {
                         Manage API keys for accessing Berget AI services
                     </p>
                 </div>
-                <Button variant="secondary" size="lg">
-                    + Create New Key
-                </Button>
+                <Button variant="secondary">+ Create New Key</Button>
             </div>
 
             {/* List Panel */}
@@ -58,7 +56,9 @@ export const APIKeysList: Story = {
                     {/* List Items */}
                     <List>
                         <ListItem
-                            icon={<Key className="w-7 h-7 text-white" strokeWidth={1} />}
+                            icon={
+                                <Key className="w-6 h-6 text-white" strokeWidth={1.5} />
+                            }
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex-1">
@@ -78,7 +78,9 @@ export const APIKeysList: Story = {
                         </ListItem>
 
                         <ListItem
-                            icon={<Key className="w-7 h-7 text-white" strokeWidth={1} />}
+                            icon={
+                                <Key className="w-6 h-6 text-white" strokeWidth={1.5} />
+                            }
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex-1">
@@ -98,7 +100,9 @@ export const APIKeysList: Story = {
                         </ListItem>
 
                         <ListItem
-                            icon={<Key className="w-7 h-7 text-white" strokeWidth={1} />}
+                            icon={
+                                <Key className="w-6 h-6 text-white" strokeWidth={1.5} />
+                            }
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex-1">
@@ -138,7 +142,9 @@ export const SimpleList: Story = {
             <div className="relative z-10">
                 <List>
                     <ListItem
-                        icon={<Database className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={
+                            <Database className="w-6 h-6 text-white" strokeWidth={1.5} />
+                        }
                     >
                         <div>
                             <h3 className="text-base font-medium mb-1">
@@ -149,7 +155,7 @@ export const SimpleList: Story = {
                     </ListItem>
 
                     <ListItem
-                        icon={<Server className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={<Server className="w-6 h-6 text-white" strokeWidth={1.5} />}
                     >
                         <div>
                             <h3 className="text-base font-medium mb-1">API Server</h3>
@@ -158,7 +164,7 @@ export const SimpleList: Story = {
                     </ListItem>
 
                     <ListItem
-                        icon={<Users className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={<Users className="w-6 h-6 text-white" strokeWidth={1.5} />}
                     >
                         <div>
                             <h3 className="text-base font-medium mb-1">Team Members</h3>
@@ -194,7 +200,7 @@ export const WithHeader: Story = {
 
                 <List>
                     <ListItem
-                        icon={<Server className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={<Server className="w-6 h-6 text-white" strokeWidth={1.5} />}
                     >
                         <div className="flex items-center gap-4">
                             <div className="flex-1">
@@ -212,7 +218,9 @@ export const WithHeader: Story = {
                     </ListItem>
 
                     <ListItem
-                        icon={<Database className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={
+                            <Database className="w-6 h-6 text-white" strokeWidth={1.5} />
+                        }
                     >
                         <div className="flex items-center gap-4">
                             <div className="flex-1">
@@ -230,7 +238,9 @@ export const WithHeader: Story = {
                     </ListItem>
 
                     <ListItem
-                        icon={<Calendar className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={
+                            <Calendar className="w-6 h-6 text-white" strokeWidth={1.5} />
+                        }
                     >
                         <div className="flex items-center gap-4">
                             <div className="flex-1">
@@ -320,7 +330,7 @@ export const InteractiveList: Story = {
 
                 <List>
                     <ListItem
-                        icon={<Clock className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={<Clock className="w-6 h-6 text-white" strokeWidth={1.5} />}
                     >
                         <div>
                             <h3 className="text-base font-medium mb-1">Model Deployed</h3>
@@ -331,7 +341,7 @@ export const InteractiveList: Story = {
                     </ListItem>
 
                     <ListItem
-                        icon={<Users className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={<Users className="w-6 h-6 text-white" strokeWidth={1.5} />}
                     >
                         <div>
                             <h3 className="text-base font-medium mb-1">
@@ -344,7 +354,7 @@ export const InteractiveList: Story = {
                     </ListItem>
 
                     <ListItem
-                        icon={<Key className="w-7 h-7 text-white" strokeWidth={1} />}
+                        icon={<Key className="w-6 h-6 text-white" strokeWidth={1.5} />}
                     >
                         <div>
                             <h3 className="text-base font-medium mb-1">

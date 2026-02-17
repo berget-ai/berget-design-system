@@ -495,9 +495,7 @@ export const NestedStacks: Story = {
                             <Badge variant="semantic" status="success">
                                 Active
                             </Badge>
-                            <Button variant="ghost" size="sm">
-                                Configure
-                            </Button>
+                            <Button variant="ghost">Configure</Button>
                         </Stack>
                     </Stack>
                 ))}

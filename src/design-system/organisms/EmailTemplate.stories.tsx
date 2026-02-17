@@ -171,7 +171,7 @@ export const Newsletter: Story = {
                                 fontWeight: "500"
                             }}
                         >
-                            🚀 New: GPT-4 Turbo Support
+                            New: GPT-4 Turbo Support
                         </h2>
                         <p
                             style={{
@@ -212,7 +212,7 @@ export const Newsletter: Story = {
                                 fontWeight: "500"
                             }}
                         >
-                            📊 Enhanced Analytics
+                            Enhanced Analytics
                         </h2>
                         <p
                             style={{

@@ -3,7 +3,10 @@ import SimpleBergetPage from "./SimpleBergetPage";
 
 const meta = {
     title: "Berget/Simple",
-    component: SimpleBergetPage
+    component: SimpleBergetPage,
+    parameters: {
+        layout: "fullscreen"
+    }
 } satisfies Meta<typeof SimpleBergetPage>;
 
 export default meta;
