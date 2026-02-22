@@ -4,14 +4,14 @@ import { cn } from "../../utils/cn";
 import { ChevronDown } from "lucide-react";
 
 const selectVariants = cva(
-    "flex w-full items-center justify-between rounded-xl border bg-white/5 px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+    "flex w-full items-center justify-between rounded-xl border bg-input px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
     {
         variants: {
             variant: {
-                default: "border-white/20 hover:bg-white/10",
-                primary: "border-primary/50 bg-primary/10 hover:bg-primary/20",
-                subtle: "border-white/10 hover:bg-white/10",
-                muted: "border-white/5 hover:bg-white/10"
+                default: "border-cloud/20 hover:bg-moss/10",
+                primary: "border-moss/50 bg-moss/10 hover:bg-moss/20",
+                subtle: "border-cloud/10 hover:bg-moss/10",
+                muted: "border-cloud/5 hover:bg-moss/10"
             },
             size: {
                 sm: "px-3 py-2 text-xs",
@@ -82,8 +82,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                         htmlFor={selectId}
                         className={cn(
                             "text-sm font-medium leading-none",
-                            disabled ? "text-white/40 cursor-not-allowed" : "text-white",
-                            error && "text-red-400"
+                            disabled ? "text-muted-foreground cursor-not-allowed" : "text-foreground",
+                            error && "text-error"
                         )}
                     >
                         {label}
@@ -103,7 +103,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                         className={cn(
                             selectVariants({ variant, size }),
                             "appearance-none pr-10",
-                            error && "border-red-500/50 bg-red-500/10",
+                            error && "border-error/50 bg-error/10",
                             disabled && "cursor-not-allowed",
                             className
                         )}
@@ -130,25 +130,25 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                         {icon || (
                             <ChevronDown
                                 className={cn(
-                                    "text-white/60",
+                                    "text-muted-foreground",
                                     size === "sm" && "w-4 h-4",
                                     size === "default" && "w-5 h-5",
                                     size === "lg" && "w-6 h-6"
                                 )}
-                                strokeWidth={1}
+                                strokeWidth={1.5}
                             />
                         )}
                     </div>
                 </div>
 
                 {description && (
-                    <p id={descriptionId} className="text-xs text-white/60">
+                    <p id={descriptionId} className="text-xs text-muted-foreground">
                         {description}
                     </p>
                 )}
 
                 {error && (
-                    <p id={errorId} className="text-xs text-red-400">
+                    <p id={errorId} className="text-xs text-error">
                         {error}
                     </p>
                 )}

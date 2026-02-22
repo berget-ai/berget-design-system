@@ -105,7 +105,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                                     size === "lg" && "w-4 h-4",
                                     "text-white"
                                 )}
-                                strokeWidth={2}
+                                strokeWidth={1.5}
                             />
                         )}
                     </label>

@@ -68,7 +68,7 @@ export const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
                 "flex items-center gap-4 px-6 py-5 border-t border-[hsl(var(--border))]",
                 "first:border-t-0",
                 interactive &&
-                    "transition-all duration-200 hover:bg-white/[0.02] cursor-pointer",
+                    "transition-all duration-200 hover:bg-cloud/[0.02] cursor-pointer",
                 className
             )}
             {...props}
@@ -112,7 +112,7 @@ export const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
         <div
             ref={ref}
             className={cn(
-                "px-6 py-4 text-sm text-white/40 border-b border-[hsl(var(--border))]",
+                "px-6 py-4 text-sm text-muted-foreground border-b border-[hsl(var(--border))]",
                 className
             )}
             {...props}
@@ -122,3 +122,95 @@ export const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
     )
 );
 ListHeader.displayName = "ListHeader";
+
+export interface FeatureListProps extends React.HTMLAttributes<HTMLUListElement> {
+    /**
+     * List items to display
+     */
+    items: string[];
+    /**
+     * Checkmark color
+     * @default "success"
+     */
+    checkColor?: "success" | "primary";
+}
+
+const checkColorStyles = {
+    success: "bg-success text-success-foreground",
+    primary: "bg-primary text-primary-foreground",
+} as const;
+
+/**
+ * FeatureList Component
+ *
+ * Feature lists with checkmarks or bullet points for showcasing features and benefits.
+ * Designed for use in feature cards, benefits sections, and product highlights.
+ *
+ * **Design Principles:**
+ * - Clear visual hierarchy
+ * - Consistent spacing
+ * - Semantic list structure
+ * - Accessible color contrast
+ *
+ * **When to Use:**
+ * - Feature descriptions in cards
+ * - Benefits sections
+ * - Product highlights
+ * - Comparison lists
+ *
+ * @example
+ * ```tsx
+ * <FeatureList items={["Feature 1", "Feature 2", "Feature 3"]} />
+ *
+ * <FeatureList
+ *   items={["Benefit 1", "Benefit 2"]}
+ *   variant="checkmark"
+ *   checkColor="success"
+ * />
+ *
+ * <FeatureList
+ *   items={["Point 1", "Point 2", "Point 3"]}
+ *   variant="bullet"
+ *   bulletColor="primary"
+ * />
+ * ```
+ */
+export const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
+    (
+        {
+            items,
+            checkColor = "success",
+            className,
+            ...props
+        },
+        ref
+    ) => {
+        return (
+            <ul ref={ref} className={cn("space-y-3", className)} {...props}>
+                {items.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                        <div
+                            className={cn(
+                                "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5",
+                                checkColorStyles[checkColor]
+                            )}
+                        >
+                            <svg
+                                className="w-3.5 h-3.5"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth={2.5}
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </div>
+                        <span className="text-sm text-muted-foreground">{item}</span>
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+);
+
+FeatureList.displayName = "FeatureList";

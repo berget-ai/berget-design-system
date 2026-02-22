@@ -1,6 +1,6 @@
 import type { KcContext } from "./KcContext";
 import type { I18n } from "./i18n";
-import { Card } from "../design-system/molecules/Card";
+import { Card } from "../design-system/atoms/Card";
 import { Alert, AlertDescription } from "../components/ui/Alert";
 import { Button } from "../design-system/atoms/Button";
 import Checkbox from "../components/ui/Checkbox";

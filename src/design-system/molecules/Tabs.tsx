@@ -4,14 +4,14 @@ import { cn } from "../../utils/cn";
 
 // Tab List Variants
 const tabListVariants = cva(
-    "inline-flex items-center justify-center rounded-xl border bg-white/5 p-1 transition-all duration-200",
+    "inline-flex items-center justify-center rounded-xl border bg-cloud/5 p-1 transition-all duration-200",
     {
         variants: {
             variant: {
-                default: "border-white/20",
-                primary: "border-primary/50 bg-primary/10",
-                subtle: "border-white/10",
-                muted: "border-white/5"
+                default: "border-cloud/20",
+                primary: "border-moss/50 bg-moss/10",
+                subtle: "border-cloud/10",
+                muted: "border-cloud/5"
             },
             size: {
                 sm: "gap-1",
@@ -33,11 +33,11 @@ const tabTriggerVariants = cva(
         variants: {
             variant: {
                 default:
-                    "text-white/60 hover:text-white hover:bg-white/10 data-[state=active]:text-white data-[state=active]:bg-white/10",
+                    "text-muted-foreground hover:text-foreground hover:bg-cloud/10 data-[state=active]:text-foreground data-[state=active]:bg-cloud/10",
                 primary:
-                    "text-primary/60 hover:text-primary hover:bg-primary/20 data-[state=active]:text-primary data-[state=active]:bg-primary/20",
-                subtle: "text-white/50 hover:text-white hover:bg-white/5 data-[state=active]:text-white data-[state=active]:bg-white/5",
-                muted: "text-white/40 hover:text-white/80 hover:bg-white/5 data-[state=active]:text-white/80 data-[state=active]:bg-white/5"
+                    "text-moss/60 hover:text-moss hover:bg-moss/20 data-[state=active]:text-moss data-[state=active]:bg-moss/20",
+                subtle: "text-muted-foreground hover:text-foreground hover:bg-cloud/5 data-[state=active]:text-foreground data-[state=active]:bg-cloud/5",
+                muted: "text-muted-foreground hover:text-foreground/80 hover:bg-cloud/5 data-[state=active]:text-foreground/80 data-[state=active]:bg-cloud/5"
             },
             size: {
                 sm: "px-2 py-1 text-xs",
@@ -130,11 +130,11 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
                 >
                     {label && (
                         <div className="flex flex-col gap-1">
-                            <label className="text-sm font-medium text-white">
+                            <label className="text-sm font-medium text-foreground">
                                 {label}
                             </label>
                             {description && (
-                                <p className="text-xs text-white/60">{description}</p>
+                                <p className="text-xs text-muted-foreground">{description}</p>
                             )}
                         </div>
                     )}

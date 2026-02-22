@@ -16,7 +16,7 @@ export const Icon = ({
 }: IconProps) => {
     const sizeClasses = size === "sm" ? "w-5 h-5" : "w-6 h-6";
     const strokeWidth = size === "sm" ? 1 : 1.5;
-    const variantClasses = variant === "leaf" ? "text-[#52B788]" : "text-white";
+    const variantClasses = variant === "leaf" ? "text-moss" : "text-foreground";
 
     return (
         <Icon

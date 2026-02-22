@@ -50,33 +50,33 @@ export const PatternBackground = React.forwardRef<HTMLDivElement, PatternBackgro
             32: {
                 size: "32px 32px",
                 backgroundImage: `
-                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px),
-                radial-gradient(circle at 30px 30px, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 30px 0, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 0 30px, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 31px 31px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 1px 31px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 31px 1px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px)
+                linear-gradient(hsl(var(--cloud)/0.1) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(var(--cloud)/0.1) 1px, transparent 1px),
+                radial-gradient(circle at 0 0, hsl(var(--cloud)/0.05) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 30px 30px, hsl(var(--cloud)/0.05) 1px, transparent 1px),
+                radial-gradient(circle at 30px 0, hsl(var(--cloud)/0.05) 1px, transparent 1px),
+                radial-gradient(circle at 0 30px, hsl(var(--cloud)/0.05) 1px, transparent 1px),
+                radial-gradient(circle at 0 0, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 31px 31px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 1px 31px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 1px 1px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 31px 1px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px)
             `
             },
             48: {
                 size: "48px 48px",
                 backgroundImage: `
-                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px),
-                radial-gradient(circle at 46px 46px, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 46px 0, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 0 46px, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 47px 47px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 1px 47px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 47px 1px, rgba(255, 255, 255, 0.1) 0.5px, transparent 0.5px)
+                linear-gradient(hsl(var(--cloud)/0.1) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(var(--cloud)/0.1) 1px, transparent 1px),
+                radial-gradient(circle at 0 0, hsl(var(--cloud)/0.05) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 46px 46px, hsl(var(--cloud)/0.05) 1px, transparent 1px),
+                radial-gradient(circle at 46px 0, hsl(var(--cloud)/0.05) 1px, transparent 1px),
+                radial-gradient(circle at 0 46px, hsl(var(--cloud)/0.05) 1px, transparent 1px),
+                radial-gradient(circle at 0 0, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 47px 47px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 1px 47px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 1px 1px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 47px 1px, hsl(var(--cloud)/0.1) 0.5px, transparent 0.5px)
             `
             }
         };
@@ -89,7 +89,7 @@ export const PatternBackground = React.forwardRef<HTMLDivElement, PatternBackgro
                 className={cn(
                     "relative overflow-hidden",
                     overlayOnly && "absolute inset-0",
-                    !overlayOnly && "bg-[#0A0A0A]",
+                    !overlayOnly && "bg-night",
                     className
                 )}
                 {...props}

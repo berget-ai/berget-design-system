@@ -3,14 +3,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
 const textareaVariants = cva(
-    "flex w-full rounded-xl border bg-white/5 px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 resize-y",
+    "flex w-full rounded-xl border bg-input px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 resize-y",
     {
         variants: {
             variant: {
-                default: "border-white/20 hover:bg-white/10",
-                primary: "border-primary/50 bg-primary/10 hover:bg-primary/20",
-                subtle: "border-white/10 hover:bg-white/10",
-                muted: "border-white/5 hover:bg-white/10"
+                default: "border-cloud/20 hover:bg-moss/10",
+                primary: "border-moss/50 bg-moss/10 hover:bg-moss/20",
+                subtle: "border-cloud/10 hover:bg-moss/10",
+                muted: "border-cloud/5 hover:bg-moss/10"
             },
             size: {
                 sm: "px-3 py-2 text-xs min-h-[60px]",
@@ -85,8 +85,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                         htmlFor={textareaId}
                         className={cn(
                             "text-sm font-medium leading-none",
-                            disabled ? "text-white/40 cursor-not-allowed" : "text-white",
-                            error && "text-red-400"
+                            disabled ? "text-muted-foreground cursor-not-allowed" : "text-foreground",
+                            error && "text-error"
                         )}
                     >
                         {label}
@@ -110,7 +110,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                         )}
                         className={cn(
                             textareaVariants({ variant, size }),
-                            error && "border-red-500/50 bg-red-500/10",
+                            error && "border-error/50 bg-error/10",
                             disabled && "cursor-not-allowed",
                             icon && "pl-11",
                             secondaryIcon && "pr-20",
@@ -139,7 +139,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                 {(description || error || (showCount && maxLength)) && (
                     <div className="flex items-center justify-between gap-2">
                         {description && (
-                            <p id={descriptionId} className="text-xs text-white/60">
+                            <p id={descriptionId} className="text-xs text-muted-foreground">
                                 {description}
                             </p>
                         )}
@@ -150,15 +150,15 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                                         className={cn(
                                             "text-xs",
                                             characterCount >= maxLength
-                                                ? "text-red-400"
-                                                : "text-white/60"
+                                                ? "text-error"
+                                                : "text-muted-foreground"
                                         )}
                                     >
                                         {characterCount}/{maxLength}
                                     </span>
                                 )}
                                 {error && (
-                                    <p id={errorId} className="text-xs text-red-400">
+                                    <p id={errorId} className="text-xs text-error">
                                         {error}
                                     </p>
                                 )}

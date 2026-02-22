@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Stack } from "./Stack";
 import { Button } from "../atoms/Button";
-import { Card } from "../molecules/Card";
+import { Card } from "../atoms/Card";
 import { Badge } from "../atoms/Badge";
 
 const meta = {

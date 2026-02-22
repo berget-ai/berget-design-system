@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "../../../design-system/molecules/Card";
+import { Card } from "../../../design-system/atoms/Card";
 import { BergetSymbol } from "../../../design-system/atoms/Berget Symbol";
 import { EmailButton, EmailDivider, EmailLink } from "./EmailTemplate";
 

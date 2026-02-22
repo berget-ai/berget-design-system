@@ -42,7 +42,7 @@ export const GrainyGradientBackground = React.forwardRef<
     return (
         <div
             ref={ref}
-            className={cn("relative overflow-hidden bg-[#0A0A0A]", className)}
+            className={cn("relative overflow-hidden bg-night", className)}
             {...props}
         >
             {/* Frame 4 with blur filter */}
@@ -69,7 +69,7 @@ export const GrainyGradientBackground = React.forwardRef<
                         className="absolute inset-0 animate-float-slow"
                         style={
                             {
-                                background: "#22714A",
+                                background: "#52B788",
                                 borderRadius: "50%"
                             } as React.CSSProperties
                         }
@@ -93,7 +93,7 @@ export const GrainyGradientBackground = React.forwardRef<
                         className="absolute inset-0 animate-float-medium"
                         style={
                             {
-                                background: "#22714A",
+                                background: "#52B788",
                                 borderRadius: "50%"
                             } as React.CSSProperties
                         }
@@ -113,11 +113,11 @@ export const GrainyGradientBackground = React.forwardRef<
                         } as React.CSSProperties
                     }
                 >
-                    <div
+<div
                         className="absolute inset-0 animate-float-slow"
                         style={
                             {
-                                background: "#74C69D",
+                                background: "#52B788",
                                 borderRadius: "50%"
                             } as React.CSSProperties
                         }

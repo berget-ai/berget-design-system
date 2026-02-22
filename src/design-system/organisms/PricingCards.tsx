@@ -2,7 +2,7 @@ import * as React from "react";
 import { Check } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { Button } from "../atoms/Button";
-import { Card } from "../molecules/Card";
+import { Card } from "../atoms/Card";
 
 export interface PricingTier {
     /**

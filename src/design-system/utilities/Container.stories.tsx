@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Container } from "./Container";
-import { Panel } from "../molecules/Panel";
+import { Panel } from "../atoms/Panel";
 
 const meta = {
     title: "Utilities/Container",
@@ -47,7 +47,7 @@ type Story = StoryObj<typeof meta>;
 
 // Demo content component - console style with Panel
 const DemoContent = () => (
-    <Panel variant="highlight" padding="lg" radius="lg">
+    padding="lg" radius="lg">
         <div className="relative z-10">
             <h2 className="text-2xl font-medium mb-4">Container Content</h2>
             <p className="text-white/60 mb-4">
@@ -56,19 +56,19 @@ const DemoContent = () => (
                 sizes.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Panel variant="glass" padding="md" radius="default">
+                padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 1</h3>
                         <p className="text-sm text-white/60">Description here</p>
                     </div>
                 </Panel>
-                <Panel variant="glass" padding="md" radius="default">
+                padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 2</h3>
                         <p className="text-sm text-white/60">Description here</p>
                     </div>
                 </Panel>
-                <Panel variant="glass" padding="md" radius="default">
+                padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 3</h3>
                         <p className="text-sm text-white/60">Description here</p>
@@ -175,7 +175,7 @@ export const AllSizes: Story = {
     render: () => (
         <div className="min-h-screen bg-background py-12 space-y-8">
             <Container size="sm">
-                <Panel variant="highlight" padding="md" radius="lg">
+                padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Small (max-w-3xl / 768px)</p>
                     </div>
@@ -183,7 +183,7 @@ export const AllSizes: Story = {
             </Container>
 
             <Container size="md">
-                <Panel variant="highlight" padding="md" radius="lg">
+                padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Medium (max-w-5xl / 1024px)</p>
                     </div>
@@ -191,7 +191,7 @@ export const AllSizes: Story = {
             </Container>
 
             <Container size="lg">
-                <Panel variant="highlight" padding="md" radius="lg">
+                padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Large (max-w-7xl / 1280px)</p>
                     </div>
@@ -199,7 +199,7 @@ export const AllSizes: Story = {
             </Container>
 
             <Container size="xl">
-                <Panel variant="highlight" padding="md" radius="lg">
+                padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">
                             Extra Large (max-w-[1400px])
@@ -209,7 +209,7 @@ export const AllSizes: Story = {
             </Container>
 
             <Container size="full">
-                <Panel variant="highlight" padding="md" radius="lg">
+                padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Full Width (max-w-full)</p>
                     </div>
@@ -304,7 +304,7 @@ export const DashboardLayout: Story = {
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <Panel variant="highlight" padding="lg" radius="lg">
+                        padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <h3 className="text-lg font-medium mb-4">
                                     Recent Activity
@@ -325,7 +325,7 @@ export const DashboardLayout: Story = {
                             </div>
                         </Panel>
 
-                        <Panel variant="highlight" padding="lg" radius="lg">
+                        padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <h3 className="text-lg font-medium mb-4">Usage Stats</h3>
                                 <div className="h-[200px] flex items-center justify-center text-white/60">

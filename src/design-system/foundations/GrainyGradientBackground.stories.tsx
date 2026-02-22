@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { GrainyGradientBackground } from "./GrainyGradientBackground";
-import { Card, CardContent, CardHeader, CardTitle } from "../molecules/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "../atoms/Card";
 import { Button } from "../atoms/Button";
 import { Rocket, Zap, Target, Lightbulb, Leaf } from "lucide-react";
 

@@ -9,24 +9,26 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default:
-                    "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-lg hover:bg-[hsl(var(--primary))]/90 hover:shadow-xl",
+                    "bg-cloud text-slate shadow-lg hover:bg-cloud/90 hover:shadow-xl",
                 primary:
-                    "bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] shadow-lg hover:bg-[hsl(var(--secondary))]/90 hover:shadow-xl",
+                    "bg-moss text-peak shadow-lg hover:bg-moss/90 hover:shadow-xl",
                 secondary:
-                    "bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))] shadow hover:bg-[hsl(var(--accent))]/80 hover:shadow-lg",
+                    "bg-lichen text-night shadow hover:bg-lichen/80 hover:shadow-lg",
                 outline:
-                    "border-2 border-[hsl(var(--border))] bg-transparent hover:bg-[hsl(var(--accent))]/20 hover:border-[hsl(var(--accent))]",
-                ghost: "hover:bg-[hsl(var(--accent))]/20 hover:text-[hsl(var(--accent-foreground))]",
+                    "border-2 border-cloud/20 bg-transparent hover:bg-moss/20 hover:border-moss/40",
+                ghost: "hover:bg-moss/20 hover:text-foreground",
                 destructive:
-                    "!bg-[#D1392E] !text-white shadow-sm hover:!bg-[#D1392E]/80 hover:shadow",
-                link: "text-[hsl(var(--primary))] underline-offset-4 hover:underline",
+                    "bg-error text-peak shadow-sm hover:bg-error/80 hover:shadow",
+                link: "text-moss underline-offset-4 hover:underline",
                 highlight:
-                    "relative overflow-hidden bg-[rgba(26,26,26,0.4)] border border-[rgba(26,26,26,0.4)] backdrop-blur-[5px] text-white hover:bg-[rgba(26,26,26,0.8)] hover:border-[rgba(26,26,26,0.6)] hover:shadow-lg",
-                stone: "!bg-[#E5DDD5] !text-[#1a1a1a] shadow-lg hover:!bg-[#E5DDD5]/90 hover:shadow-xl",
-                icon: "!flex !flex-row !justify-center !items-center !p-0 !w-[32px] !h-[32px] !bg-[#E5DDD5] !text-[#1a1a1a] shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-[20px]"
+                    "relative overflow-hidden bg-night border border-cloud/20 backdrop-blur-[5px] text-foreground hover:bg-night/80 hover:border-cloud/30 hover:shadow-lg",
+                icon: "!flex !flex-row !justify-center !items-center !p-0 !w-[32px] !h-[32px] !bg-cloud !text-slate shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-full"
             },
             size: {
-                default: "h-8 px-8 py-2"
+                sm: "h-6 px-4 py-1.5 text-xs",
+                default: "h-8 px-8 py-2",
+                lg: "h-10 px-10 py-2.5 text-base",
+                icon: "!w-[32px] !h-[32px] !p-0"
             },
             width: {
                 default: "w-auto",
@@ -59,15 +61,14 @@ export interface ButtonProps
  * Follows Scandinavian design principles with natural colors and smooth interactions.
  *
  * **Variants:**
- * - `default` - Primary Berget Cloud button (cream white)
- * - `primary` - Moss green button
- * - `secondary` - Lichen green button
- * - `outline` - Transparent with border
- * - `ghost` - Transparent, hover effect only
- * - `destructive` - Red for dangerous actions
- * - `link` - Styled as a link
+ * - `default` - Cloud colored button (cream white with slate text)
+ * - `primary` - Moss green button with white text
+ * - `secondary` - Lichen green button with dark text
+ * - `outline` - Transparent with border, moss hover
+ * - `ghost` - Transparent, moss hover effect only
+ * - `destructive` - Error red for dangerous actions
+ * - `link` - Styled as a link (moss color)
  * - `highlight` - Dark glass with radial gradient and top highlight
- * - `stone` - Stone colored button
  * - `icon` - Fixed size icon button (32px × 32px, no padding)
  *
  * **Widths:**
@@ -75,7 +76,7 @@ export interface ButtonProps
  * - `full` - Full width of container
  *
  * **Border System:**
- * Outline variant uses semantic `--border` token that adapts to theme.
+ * Outline variant uses cloud border with moss hover.
  *
  * **Composition:**
  * Supports `asChild` prop for composition with other components like links.
@@ -117,10 +118,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 {isHighlight && (
                     <>
                         {/* Gradient overlay */}
-                        <div className="absolute inset-0 top-[1px] h-[calc(100%-1px)] w-full bg-[radial-gradient(100%_100%_at_49.87%_0%,rgba(229,221,213,0.04)_0%,rgba(26,26,26,0)_100%)] pointer-events-none" />
+                        <div className="absolute inset-0 top-[1px] h-[calc(100%-1px)] w-full bg-[radial-gradient(100%_100%_at_49.87%_0%,hsl(var(--cloud)/0.04)_0%,transparent_100%)] pointer-events-none" />
 
                         {/* Top gradient highlight */}
-                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,#E5DDD5_0%,rgba(229,221,213,0)_92.4%)] opacity-[0.3] pointer-events-none" />
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,hsl(var(--cloud))_0%,transparent_92.4%)] opacity-[0.3] pointer-events-none" />
                     </>
                 )}
                 <span

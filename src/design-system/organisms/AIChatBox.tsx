@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowUp, Plus, Mic, X } from "lucide-react";
-import { Panel } from "../molecules/Panel";
+import { Panel } from "../atoms/Panel";
 import { Button } from "../atoms/Button";
 import { Textarea } from "../atoms/Textarea";
 

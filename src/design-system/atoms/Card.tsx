@@ -3,18 +3,23 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
 const cardVariants = cva(
-    "relative overflow-hidden rounded-[16px] flex flex-col items-stretch",
+    "rounded-2xl border relative overflow-hidden transition-colors duration-200",
     {
         variants: {
             variant: {
-                highlight:
-                    "bg-[rgba(26,26,26,0.4)] border border-[rgba(26,26,26,0.4)] backdrop-blur-[5px]",
-                glass: "bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] shadow-[0px_8px_8px_2px_rgba(0,0,0,0.10)] backdrop-blur-[10px]",
-                solid: "bg-[#1A1A1A] border border-[rgba(26,26,26,0.4)] backdrop-blur-[5px]"
+                highlight: "bg-slate/20 border-slate/40 hover:border-slate/50 backdrop-blur-[12px]",
+                glass: "bg-cloud/5 border-cloud/10 hover:border-cloud/15 backdrop-blur-[24px] shadow-xl",
+                solid: "bg-slate border-slate/40 hover:border-slate/50"
+            },
+            padding: {
+                sm: "p-4",
+                md: "p-6",
+                lg: "p-8"
             }
         },
         defaultVariants: {
-            variant: "highlight"
+            variant: "highlight",
+            padding: "md"
         }
     }
 );
@@ -23,67 +28,54 @@ export interface CardProps
     extends React.HTMLAttributes<HTMLDivElement>,
         VariantProps<typeof cardVariants> {
     /**
-     * Add Bokeh effect background (legacy prop)
-     * @deprecated
+     * Content to render inside the card
      */
-    withBokeh?: boolean;
+    children: React.ReactNode;
 }
 
 /**
  * Card Component
  *
- * Structured content container with optional sections.
+ * Base container component for all card-like surfaces.
+ * Provides consistent styling with rounded corners, backdrop blur, and border.
  *
  * **Variants:**
- * - `default` - Standard panel styling with hover effect
- * - `highlight` - Dark glass with subtle radial gradient
- * - `glass` - Light glass morphism with shadow
- * - `solid` - Solid dark background with gradient accent
- * - `elevated` - Shadow with hover lift effect
- * - `flat` - No border, subtle background
+ * - `highlight` (default) - Semi-transparent, blends into background with sharp edge
+ * - `glass` - Lighter, ethereal feel with cloud/5, perfect for overlays
+ * - `solid` - Most authoritative, no transparency, perfect for fixed elements
  *
- * **Composition:**
- * Card is composed of:
- * - CardHeader (optional)
- * - CardTitle (in header)
- * - CardDescription (in header)
- * - CardContent (main area)
- * - CardFooter (optional)
+ * **Common styling:**
+ * - rounded-2xl (24px)
+ * - Radial gradient overlay with cloud opacity 0.04
+ * - Top highlight (3px) with radial ellipse gradient, cloud opacity 0.3
+ *
+ * **Padding:**
+ * - `sm` - Small padding (16px)
+ * - `md` - Medium padding (24px, default)
+ * - `lg` - Large padding (32px)
+ *
+ * **Usage:**
+ * This is a base atom with optional padding.
  *
  * @example
  * ```tsx
- * <Card variant="highlight">
- *   <CardHeader>
- *     <CardTitle>Card Title</CardTitle>
- *   </CardHeader>
- *   <CardContent>
- *     Main content goes here
- *   </CardContent>
- * </Card>
+ * <Card>Content</Card>
+ * <Card variant="glass">Content</Card>
+ * <Card variant="solid">Content</Card>
+ * <Card padding="lg">Content with large padding</Card>
  * ```
  */
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-    ({ className, variant, withBokeh = false, children, ...props }, ref) => {
+    ({ className, variant, padding, children, ...props }, ref) => {
         return (
             <div
                 ref={ref}
-                className={cn(cardVariants({ variant }), className)}
+                className={cn(cardVariants({ variant, padding }), className)}
                 {...props}
             >
-                {(variant === "highlight" ||
-                    variant === "glass" ||
-                    variant === "solid") && (
-                    <>
-                        {/* Gradient overlay */}
-                        <div className="absolute inset-0 top-[3px] h-[calc(100%-3px)] w-full bg-[radial-gradient(100%_100%_at_49.87%_0%,rgba(229,221,213,0.04)_0%,rgba(26,26,26,0)_100%)] pointer-events-none" />
-
-                        {/* Top gradient highlight */}
-                        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,#E5DDD5_0%,rgba(229,221,213,0)_92.4%)] opacity-[0.3] pointer-events-none" />
-                    </>
-                )}
-                <div className="relative z-10 w-full flex flex-col h-full">
-                    {children}
-                </div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(229,221,213,0.04)_0%,_transparent_50%)] pointer-events-none" />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(ellipse_50%_100%_at_50%_0%,_hsl(var(--berget-cloud)/0.3)_0%,_transparent_100%)] pointer-events-none" />
+                <div className="relative z-10">{children}</div>
             </div>
         );
     }
@@ -115,7 +107,7 @@ const CardTitle = React.forwardRef<
     HTMLHeadingElement,
     React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-    <h2
+    <h3
         ref={ref}
         className={cn("text-2xl font-medium leading-none tracking-tight", className)}
         {...props}
@@ -134,7 +126,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <p
         ref={ref}
-        className={cn("text-sm text-[hsl(var(--muted-foreground))]", className)}
+        className={cn("text-sm text-muted-foreground", className)}
         {...props}
     />
 ));

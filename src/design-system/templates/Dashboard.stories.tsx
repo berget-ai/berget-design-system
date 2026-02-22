@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Panel } from "../molecules/Panel";
+import { Panel } from "../atoms/Panel";
 import { Activity, ArrowUpRight, TrendingUp, Cpu } from "lucide-react";
 
 const meta: Meta = {
@@ -42,7 +42,7 @@ export const ConsoleDashboard: Story = {
             {/* Stat Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {/* Account Balance */}
-                <Panel variant="highlight" padding="lg" radius="lg">
+                padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">
@@ -62,7 +62,7 @@ export const ConsoleDashboard: Story = {
                 </Panel>
 
                 {/* API Usage */}
-                <Panel variant="highlight" padding="lg" radius="lg">
+                padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">API Usage</span>
@@ -81,7 +81,7 @@ export const ConsoleDashboard: Story = {
                 </Panel>
 
                 {/* Growth */}
-                <Panel variant="highlight" padding="lg" radius="lg">
+                padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">Growth</span>
@@ -103,7 +103,7 @@ export const ConsoleDashboard: Story = {
                 </Panel>
 
                 {/* Status */}
-                <Panel variant="highlight" padding="lg" radius="lg">
+                padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">Status</span>
@@ -171,7 +171,7 @@ export const ConsoleDashboard: Story = {
                 </Panel>
 
                 {/* Sidebar Panel */}
-                <Panel variant="highlight" padding="lg" radius="xl">
+                padding="lg" radius="xl">
                     <div className="relative z-10">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-xl font-medium">Recent Activity</h2>
@@ -243,7 +243,7 @@ export const StatCards: Story = {
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-2xl font-medium mb-8">Console-Style Stat Cards</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <Panel variant="highlight" padding="lg" radius="lg">
+                    padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">
@@ -263,7 +263,7 @@ export const StatCards: Story = {
                         </div>
                     </Panel>
 
-                    <Panel variant="highlight" padding="lg" radius="lg">
+                    padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">API Usage</span>
@@ -285,7 +285,7 @@ export const StatCards: Story = {
                         </div>
                     </Panel>
 
-                    <Panel variant="glass" padding="lg" radius="lg">
+                    padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">
@@ -307,7 +307,7 @@ export const StatCards: Story = {
                         </div>
                     </Panel>
 
-                    <Panel variant="highlight" padding="lg" radius="lg">
+                    padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">No Bokeh</span>
@@ -329,7 +329,7 @@ export const StatCards: Story = {
                 <div className="mt-12">
                     <h3 className="text-xl font-medium mb-4">Radius Variants</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Panel variant="highlight" padding="lg" radius="default">
+                        padding="lg" radius="default">
                             <div className="relative z-10">
                                 <p className="text-white/60 mb-2">
                                     Default (rounded-2xl)
@@ -338,14 +338,14 @@ export const StatCards: Story = {
                             </div>
                         </Panel>
 
-                        <Panel variant="highlight" padding="lg" radius="lg">
+                        padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <p className="text-white/60 mb-2">Large (rounded-3xl)</p>
                                 <p className="text-2xl font-medium">48px</p>
                             </div>
                         </Panel>
 
-                        <Panel variant="highlight" padding="lg" radius="xl">
+                        padding="lg" radius="xl">
                             <div className="relative z-10">
                                 <p className="text-white/60 mb-2">XL (rounded-[2rem])</p>
                                 <p className="text-2xl font-medium">64px</p>

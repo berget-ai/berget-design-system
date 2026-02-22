@@ -1,4 +1,4 @@
-import { Card } from "../design-system/molecules/Card";
+import { Card } from "../design-system/atoms/Card";
 import { Button } from "../design-system/atoms/Button";
 import { BergetSymbol } from "../design-system/atoms/Berget Symbol";
 

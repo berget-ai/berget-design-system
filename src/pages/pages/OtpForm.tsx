@@ -1,7 +1,7 @@
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import { Card } from "../../design-system/molecules/Card";
+import { Card } from "../../design-system/atoms/Card";
 import { Button } from "../../design-system/atoms/Button";
 import { BergetSymbol } from "../../design-system/atoms/Berget Symbol";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";

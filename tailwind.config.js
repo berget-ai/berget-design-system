@@ -3,7 +3,7 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     darkMode: ["class", '[data-theme="dark"]'],
     theme: {
-        extend: {
+extend: {
             colors: {
                 border: "hsl(var(--border) / <alpha-value>)",
                 input: "hsl(var(--input) / <alpha-value>)",
@@ -29,7 +29,27 @@ export default {
                 card: {
                     DEFAULT: "hsl(var(--card) / <alpha-value>)",
                     foreground: "hsl(var(--card-foreground) / <alpha-value>)"
-                }
+                },
+                // Brand Colors (V2)
+                moss: "hsl(var(--berget-moss))",
+                lichen: "hsl(var(--berget-lichen))",
+                spruce: "hsl(var(--berget-spruce))",
+                fjord: "hsl(var(--berget-fjord))",
+                peak: "hsl(var(--berget-peak))",
+                cloud: "hsl(var(--berget-cloud))",
+                slate: "hsl(var(--berget-slate))",
+                night: "hsl(var(--berget-night))",
+                // Semantic Colors (direct HSL values for text/bg)
+                success: "hsl(var(--success))",
+                warning: "hsl(var(--warning))",
+                error: "hsl(var(--destructive))",
+                destructive: "hsl(var(--destructive))",
+                info: "hsl(var(--info))",
+                successForeground: "hsl(var(--success-foreground))",
+                warningForeground: "hsl(var(--warning-foreground))",
+                errorForeground: "hsl(var(--destructive-foreground))",
+                destructiveForeground: "hsl(var(--destructive-foreground))",
+                infoForeground: "hsl(var(--info-foreground))"
             },
             fontFamily: {
                 serif: ["Ovo", "serif"],

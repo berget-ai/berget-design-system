@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { GradientBackground } from "./GradientBackground";
 import { NetworkBackground } from "./NetworkBackground";
-import { Card, CardContent, CardHeader, CardTitle } from "../molecules/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "../atoms/Card";
 import { Button } from "../atoms/Button";
 import { Zap, Shield, Palette } from "lucide-react";
 

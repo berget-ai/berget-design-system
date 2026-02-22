@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PatternBackground } from "./PatternBackground";
-import { Card, CardContent, CardHeader, CardTitle } from "../molecules/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "../atoms/Card";
 
 const meta = {
     title: "Foundations/PatternBackground",

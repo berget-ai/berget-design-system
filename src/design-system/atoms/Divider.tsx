@@ -9,11 +9,11 @@ const dividerVariants = cva("w-full border-0", {
             vertical: "h-full border-l"
         },
         variant: {
-            default: "border-white/10",
-            subtle: "border-white/5",
-            strong: "border-white/20",
-            primary: "border-primary/50",
-            muted: "border-white/5"
+            default: "border-cloud/10",
+            subtle: "border-cloud/5",
+            strong: "border-cloud/20",
+            primary: "border-moss/50",
+            muted: "border-cloud/5"
         },
         size: {
             thin: "border-t",
@@ -69,7 +69,7 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
                             )}
                         />
                     )}
-                    <span className="px-4 text-sm text-white/60 whitespace-nowrap">
+                    <span className="px-4 text-sm text-muted-foreground whitespace-nowrap">
                         {label}
                     </span>
                     {labelPosition !== "left" && (

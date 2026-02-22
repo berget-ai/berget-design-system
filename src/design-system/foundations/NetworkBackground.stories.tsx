@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { NetworkBackground } from "./NetworkBackground";
-import { Card, CardContent, CardHeader, CardTitle } from "../molecules/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "../atoms/Card";
 import { Link, Zap, Shield } from "lucide-react";
 
 const meta = {

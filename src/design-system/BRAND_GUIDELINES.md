@@ -1,290 +1,337 @@
-# Berget AI Brand Guidelines - Design System Implementation
+# Berget AI Design System - Brand Guidelines V2
 
-Detta dokument beskriver hur Berget AI's brand guidelines är implementerade i designsystemet.
+**Single Source of Truth** för Berget AI:s grafiska profil och design tokens.
+Ersätter alla tidigare versioner.
+
+---
+
+## 📋 Innehåll
+
+1. [Färgpalett](#färgpalett)
+2. [Semantiska Färger](#semantiska-färger)
+3. [Border Tokens](#border-tokens)
+4. [Typografi](#typografi)
+5. [Spacing & Layout](#spacing--layout)
+6. [Effekter](#effekter)
+7. [Migreringsguide](#migreringsguide)
+
+---
 
 ## 🎨 Färgpalett
 
-### Primära Färger (från brand-guidelines.md)
+### Primära Brand Färger
 
-```css
-/* Bakgrund */
---background: #0a0a0a (0 0% 4%) /* Console-inspired deep black */
-    /* Primär Grön (Primary Green) */ --berget-moss: #52b788 (151 29% 49%)
-    /* Används för: primära knappar, accenter, nyckel-UI-element */
-    /* Sekundär Grön (Secondary Green) */ --berget-sage: #74c69d (151 33% 62%)
-    /* Används för: gradienter, sekundära element, hover-states */
-    /* Accent Guld (Accent Gold) */ --accent: #ffb700 (45 100% 50%)
-    /* Används sparsamt för: highlights, CTA, speciella element */
-    /* Berget Stone (vår egen komplettering) */ --berget-stone: #e5ddd5 (45 15% 88%)
-    /* Används för: ljusa accenter, kontrast mot mörk bakgrund */;
-```
+| Token | Hex | HSL | Beskrivning |
+|-------|-----|-----|-------------|
+| `--berget-moss` | #52B788 | 151 44% 52% | Primary Brand Green |
+| `--berget-lichen` | #74C69D | 151 37% 63% | Secondary Green |
+| `--berget-spruce` | #2D6A4F | 153 38% 30% | Deep Forest Green |
+| `--berget-fjord` | #0F405A | 204 67% 21% | Deep Navy Blue |
 
-### Textfärger
+### Neutrala Färger
 
-```css
-/* Primär text */
-color: #FFFFFF (100% opacity)
+| Token | Hex | HSL | Beskrivning |
+|-------|-----|-----|-------------|
+| `--berget-peak` | #FFFFFF | 0 0% 100% | Pure White |
+| `--berget-cloud` | #E5DDD5 | 25 10% 84% | Cloud Off-White |
+| `--berget-slate` | #1A1A1A | 0 0% 10% | Dark Gray |
+| `--berget-night` | #0A0A0A | 0 0% 4% | Deep Black |
 
-/* Sekundär text */
-color: rgba(255, 255, 255, 0.6) (60% opacity)
+### Feedback Färger
 
-/* Tertiär text */
-color: rgba(255, 255, 255, 0.4) (40% opacity)
-```
+| Token | Hex | HSL | Användning |
+|-------|-----|-----|-----------|
+| `--success` | #52B788 | 151 44% 52% | Success, positivt (Moss) |
+| `--warning` | #CFFF8B | 71 100% 75% | Varning, uppmärksamhet |
+| `--error` | #D1392E | 6 74% 50% | Fel, destruktiva handlingar |
+| `--info` | #3975D6 | 217 68% 53% | Information |
 
-### Funktionella Färger
+---
 
-```css
---success: #22c55e --error: #ff0033 --warning: #f59e0b --info: #3b82f6;
-```
+## 🎭 Semantiska Färger
+
+Dessa tokens mappar brand-färgerna till UI-komponenter.
+
+### Dark Theme (Default)
+
+| Semantic Token | HSL Värde | Brand Källa | Användning |
+|----------------|-----------|-------------|-----------|
+| `--background` | 0 0% 4% | Night | Huvudbakgrund |
+| `--foreground` | 0 0% 100% | Peak | Primär text |
+| `--card` | 0 0% 7% | Night | Card bakgrund |
+| `--card-foreground` | 0 0% 100% | Peak | Card text |
+| `--primary` | 151 44% 52% | Moss | Primära actions |
+| `--primary-foreground` | 0 0% 100% | Peak | Text på primary |
+| `--secondary` | 151 37% 63% | Lichen | Sekundära actions |
+| `--secondary-foreground` | 0 0% 4% | Night | Text på secondary |
+| `--accent` | 204 67% 21% | Fjord | Accenter, highlights |
+| `--accent-foreground` | 0 0% 100% | Peak | Text på accent |
+| `--muted` | 0 0% 10% | Slate | Muted bakgrunder |
+| `--muted-foreground` | 25 10% 84% / 0.6 | Cloud 60% | Muted text |
+
+### Light Theme
+
+| Semantic Token | HSL Värde | Brand Källa |
+|----------------|-----------|-------------|
+| `--background` | 0 0% 96% | Ljus bakgrund |
+| `--foreground` | 0 0% 10% | Mörk text |
+| `--card` | 0 0% 100% | Vit card bakgrund |
+| `--card-foreground` | 0 0% 10% | Mörk card text |
+| `--muted` | 0 0% 90% | Ljus muted bakgrund |
+
+---
+
+## 🔲 Border Tokens
+
+### Base Borders (Subtla, console-inspired)
+
+| Token | HSL Värde | Opacity | Användning |
+|-------|-----------|---------|-----------|
+| `--border` | 25 10% 84% | 0.05 | Standard borders |
+| `--border-hover` | 25 10% 84% | 0.1 | Hover states |
+| `--border-strong` | 25 10% 84% | 0.08 | Starkare borders |
+
+### Themed Borders (Brand-färgade)
+
+| Token | HSL Värde | Opacity | Brand Källa |
+|-------|-----------|---------|-------------|
+| `--border-moss` | 151 44% 52% | 0.2 | Moss green |
+| `--border-lichen` | 151 37% 63% | 0.2 | Lichen green |
+| `--border-spruce` | 153 38% 30% | 0.2 | Spruce green |
+| `--border-fjord` | 204 67% 21% | 0.2 | Fjord blue |
+| `--border-cloud` | 25 10% 84% | 0.2 | Cloud gray |
+
+### State Borders
+
+| Token | HSL Värde | Opacity | Användning |
+|-------|-----------|---------|-----------|
+| `--border-success` | 151 44% 52% | 0.5 | Success states |
+| `--border-warning` | 71 100% 75% | 0.5 | Warning states |
+| `--border-destructive` | 6 74% 50% | 0.5 | Error states |
+| `--border-info` | 217 68% 53% | 0.5 | Info states |
+
+### Input & Focus
+
+| Token | HSL Värde | Användning |
+|-------|-----------|-----------|
+| `--input` | 0 0% 15% | Input bakgrunder |
+| `--ring` | 151 44% 52% | Focus ring (Moss) |
+
+### Special Effects
+
+| Token | Värde | Användning |
+|-------|-------|-----------|
+| `--grid-line` | rgba(229, 221, 213, 0.02) | Subtla grid lines (Cloud) |
+| `--glass` | rgba(26, 26, 26, 0.4) | Glass morphism |
+| `--glow` | rgba(82, 183, 136, 0.1) | Glow effects (Moss) |
+
+---
 
 ## 📝 Typografi
 
 ### Fonter
 
-**Headings (h1-h6):**
+| Element | Font | Weight | Features |
+|---------|------|--------|----------|
+| H1, H2 | Ovo | 400 (Regular) | Serif |
+| H3, H4, H5, H6 | DM Sans | 400 (Regular) | Sans-serif |
+| Body, UI | DM Sans | 400 (Regular) | Sans-serif, ss01, ss02, cv01, cv02 |
 
--   Font: Ovo (serif)
--   Weight: 400 (font-medium i vårt system)
--   Letter spacing: -0.04em (vårt system) vs -0.05em (guidelines)
--   Features: 'ss01', 'ss02', 'cv01', 'cv02'
+### Rubriker
 
-**Body Text & UI:**
+| Level | Font | Storlek | Line Height | Letter Spacing |
+|-------|------|---------|-------------|----------------|
+| H1 | Ovo | 5rem (64px) | 1.375 (88px) | -0.03em |
+| H2 | Ovo | 2.5rem (40px) | 1.4 (56px) | -0.03em |
+| H3 | DM Sans | 1.5rem (24px) | 2.33 (56px) | 0 |
+| H4 | DM Sans | 1.25rem (20px) | 1.5 (30px) | 0 |
+| H5 | DM Sans | 1.125rem (18px) | 1.67 (30px) | 0 |
+| H6 | DM Sans | 1rem (16px) | 1.5 (24px) | 0 |
 
--   Font: DM Sans (sans-serif)
--   Features: 'ss01', 'ss02', 'cv01', 'cv02'
--   Clean, modern, läsbar
+### Body Text
 
-### Font Sizes
+| Element | Font | Storlek | Line Height |
+|---------|------|---------|-------------|
+| Body | DM Sans | 1rem (16px) | 1.5 (24px) |
+| Small | DM Sans | 0.875rem (14px) | 1.43 (20px) |
+| XSmall | DM Sans | 0.75rem (12px) | 1.67 (20px) |
 
-Från guidelines:
+### Text Färger
 
-```
-H1: 2.25rem (36px) - font-medium
-H2: 1.5rem (24px) - font-medium
-H3: 1.25rem (20px) - font-medium
-Body: 1rem (16px)
-Small: 0.875rem (14px)
-Micro: 0.75rem (12px)
-```
+| Element | Token | Hex |
+|---------|-------|-----|
+| Primary text | `--foreground` | #FFFFFF |
+| Secondary text | `--muted-foreground` | #E5DDD5 @ 60% |
+| Muted text | `--muted-foreground` | #E5DDD5 @ 60% |
 
-## 🎭 Gradienter
+---
 
-### Primär Gradient
+## 📐 Spacing & Layout
+
+### Border Radius
+
+| Element | Värde | Tailwind |
+|---------|-------|---------|
+| Cards | 1.5rem (24px) | `rounded-2xl` |
+| Buttons | Full rounded | `rounded-full` |
+| Badges | Full rounded | `rounded-full` |
+| Inputs | 0.5rem (8px) | `rounded-md` |
+
+### Container Max Widths
+
+| Size | Värde | Tailwind |
+|------|-------|---------|
+| Small | 768px | `max-w-3xl` |
+| Medium | 1024px | `max-w-5xl` |
+| Large | 1280px | `max-w-7xl` |
+| Extra Large | 1400px | `max-w-[1400px]` |
+| Full | 100% | `max-w-full` |
+
+### Grid Gaps
+
+| Size | Värde | Tailwind |
+|------|-------|---------|
+| Small | 1rem | `gap-4` |
+| Medium | 2rem | `gap-8` |
+| Large | 3rem | `gap-12` |
+| Extra Large | 4rem | `gap-16` |
+
+---
+
+## ✨ Effekter
+
+### Animationer
+
+| Name | Duration | Easing | Användning |
+|------|----------|--------|-----------|
+| `bokeh-float` | 20s | ease-in-out | Bokeh effects |
+| `fade-in` | 0.5s | ease-out | Fade in elements |
+| `slide-up` | 0.6s | ease-out | Slide up elements |
+| `shimmer` | 2s | linear | Loading states |
+| `gradient-flow` | 15s | ease | Gradient animations |
+
+### Glass Effects
+
+| Effect | Blur | Användning |
+|--------|------|-----------|
+| Standard glass | 12px | Glass panels |
+| Liquid glass | 12px + SVG filter | Apple-inspired refraction |
+
+### Glow Effects
+
+| Effect | Values | Användning |
+|--------|--------|-----------|
+| Panel glow (static) | 0 0 0 1px rgba(229, 221, 213, 0.02) | Subtla borders |
+| Panel glow (hover) | 0 0 0 1px rgba(229, 221, 213, 0.05) | Hover states |
+
+### Backdrop Blur
+
+| Element | Blur | Användning |
+|---------|------|-----------|
+| Cards | 20px | Glaseffekter |
+| Panels | 12px | Glass panels |
+
+### Icon Stroke
+
+| Element | Stroke Width | Användning |
+|---------|--------------|-----------|
+| Icons | 1.5px | Lucide standard |
+
+---
+
+## 🔄 Migreringsguide
+
+### Gammal → Ny Mappning
+
+| Gammal Token | Ny Token / Värde | Status |
+|--------------|------------------|--------|
+| `--berget-sage` | `--berget-lichen` (#74C69D) | Uppdaterad |
+| `--accent` (Guld) | `--warning` (#CFFF8B) | Ersatt |
+| `--berget-stone` | `--berget-cloud` (#E5DDD5) | Namnbyte |
+| H1 (36px) | H1 (64px) | Storleksändring |
+| H2 (32px) | H2 (40px) | Storleksändring |
+
+### Tailwind Klasser
+
+Använd alltid dessa klasser istället för hårdkodade värden:
+
+| Färg | Tailwind Klass |
+|------|---------------|
+| Moss | `bg-moss`, `text-moss`, `border-moss` |
+| Lichen | `bg-lichen`, `text-lichen`, `border-lichen` |
+| Spruce | `bg-spruce`, `text-spruce`, `border-spruce` |
+| Fjord | `bg-fjord`, `text-fjord`, `border-fjord` |
+| Peak | `bg-peak`, `text-peak` |
+| Cloud | `bg-cloud`, `text-cloud` |
+| Slate | `bg-slate`, `text-slate` |
+| Night | `bg-night`, `text-night` |
+
+### Opacity Modifier
+
+Använd `/` för opacity på Tailwind-klasser:
+
+| Exempel | Resultat |
+|---------|----------|
+| `bg-cloud/60` | Cloud @ 60% opacity |
+| `text-moss/50` | Moss @ 50% opacity |
+| `border-lichen/20` | Lichen @ 20% opacity |
+
+---
+
+## ✅ Compliance Checklist
+
+För Berget Code:
+
+- [ ] Använder Ovo endast för H1 och H2
+- [ ] Använder DM Sans för H3 och nedåt
+- [ ] Inga hårdkodade hex-koder; använd endast variabler
+- [ ] Ikoner använder `strokeWidth={1.5}`
+- [ ] Border radius för cards är 1.5rem (24px)
+- [ ] Buttons och badges är full rounded
+- [ ] Färgpalett enligt BRAND_GUIDELINES.md V2
+- [ ] Typografi enligt spec (H1: 64px, H2: 40px, letter-spacing: -0.03em)
+
+---
+
+## 📚 Användning
+
+### CSS Variables
 
 ```css
-background: linear-gradient(to-br, #52b788, #74c69d);
+/* Färger */
+color: hsl(var(--foreground));
+background: hsl(var(--background));
+border-color: hsl(var(--border));
+
+/* Borders */
+border: 1px solid hsl(var(--border));
+box-shadow: 0 0 0 1px hsl(var(--border-moss));
 ```
 
-**Användning:** Knappar, kort, feature highlights
-
-### Accent Gradient
-
-```css
-background: linear-gradient(to-b, #52b788, #74c69d, #ffb700);
-```
-
-**Användning:** Hero sections, viktiga UI-element, bakgrunder
-
-## 🖼️ Visuella Effekter
-
-### Grid Pattern
-
--   Storlek: 24px × 24px
--   Färg: rgba(229, 221, 213, 0.02) (vita linjer)
--   Syfte: Textur och djup utan distraktion
-
-**Implementation:**
+### Tailwind Classes
 
 ```tsx
-<GridBackground gridSize={24} opacity={0.02} />
+/* Färger */
+<div className="bg-background text-foreground">
+<div className="bg-moss text-white">
+<div className="border-lichen/20">
+
+/* Spacing */
+<div className="rounded-2xl"> {/* Cards */}
+<div className="rounded-full"> {/* Buttons, Badges */}
+
+/* Layout */
+<Grid gap="md" columns={{ sm: 1, md: 2, lg: 3 }}>
+<Container size="lg">
 ```
 
-### Bokeh Effect
+---
 
--   Mjuka, suddiga cirkulära element
--   Opacity: 0.15-0.3
--   Användning: Sparsamt, atmosfärisk känsla
+## 📞 Support
 
-**Implementation:**
+Frågor? Kontakta design teamet eller se `AGENTS.md` för agent-specifik information.
 
-```tsx
-<Card withBokeh>...</Card>
-```
+---
 
-### Network Visualization
-
--   Animerade noder och kopplingar
--   Representerar AI-kopplingar och dataflöde
--   Subtil, stör inte läsbarhet
-
-**Implementation:**
-
-```tsx
-<NetworkBackground opacity={0.4} nodeCount={50} />
-```
-
-## 🎯 UI-Komponenter
-
-### Cards
-
-```
-Border radius: 0.75rem (12px i guidelines) → 1rem (16px i vårt system)
-Border: 1px solid rgba(255, 255, 255, 0.1)
-Backdrop blur: blur(16px i guidelines) → blur(20px i vårt system)
-```
-
-**Hover effects:**
-
--   Slight elevation
--   Border brightening
--   Subtle transform (-translate-y-1)
-
-### Buttons
-
-```
-Border radius: 0.75rem (12px)
-Padding: 0.75rem 1.5rem (12px 24px)
-```
-
-**Vårt system:**
-
-```
-Border radius: 0.75rem → 1rem (xl)
-Default padding: h-11 px-5 py-2.5
-Small: h-9 px-3
-Large: h-12 px-8
-```
-
-### Ikoner (Lucide)
-
-**Storlekar:**
-
--   Small: 16px (text-level)
--   Medium: 20px (buttons, UI)
--   Large: 24px (features, navigation)
--   XL: 32px+ (hero, features)
-
-**Stil:**
-
--   Stroke width: 1.5px
--   Rounded caps/joins
--   Consistent padding
-
-## 🎬 Animationer
-
-### Principer
-
-1. Subtil och målmedveten
-2. Snabb och responsiv
-3. Smooth easing: cubic-bezier(0.4, 0, 0.2, 1)
-
-### Timing
-
-```css
-/* Fast interactions */
-duration: 150-200ms
-
-/* Standard transitions */
-duration: 200-300ms
-
-/* Emphasis animations */
-duration: 300-500ms
-```
-
-**Vårt system använder:**
-
--   Button/Card hover: 300ms
--   Bokeh float: 20s
--   Slide transitions: 500ms
-
-### Motion
-
--   Prefer transforms över opacity
--   Konsistent riktning för relaterade element
--   Behåll spatial relationships
-
-## ♿ Accessibility (WCAG 2.1 AA)
-
-✅ Kontrast:
-
--   Normal text: 4.5:1 minimum
--   Large text: 3:1 minimum
-
-✅ Interactive elements:
-
--   Tydliga focus states
--   Ring-2 ring-offset-2 på fokus
-
-✅ Färg:
-
--   Använd aldrig endast färg för att förmedla mening
--   Ikoner + text, inte bara färgkodning
-
-✅ Screen readers:
-
--   Semantisk HTML
--   ARIA-attribut där nödvändigt
--   Keyboard navigation
-
-## 📐 Mappning: Guidelines → Design System
-
-| Guideline                 | Design System Implementation  |
-| ------------------------- | ----------------------------- |
-| Primary Green (#52B788)   | `--secondary` (used for CTAs) |
-| Secondary Green (#74C69D) | `--accent`                    |
-| Accent Gold (#FFB700)     | Används i gradienter          |
-| Stone (#E5DDD5)           | `--primary` (vår tillägg)     |
-| Ovo (serif)               | h1, h2, h3, h4, h5, h6        |
-| DM Sans (sans-serif)      | body, buttons, UI             |
-| Grid 24px                 | GridBackground component      |
-| Bokeh effect              | Card withBokeh prop           |
-| Network viz               | NetworkBackground component   |
-
-## 🔄 Avvikelser från Guidelines
-
-### Justerade värden:
-
-1. **Border radius**: 0.75rem → 1rem (rundare för mjukare känsla)
-2. **Backdrop blur**: 16px → 20px (mer frostat glas)
-3. **Letter spacing**: -0.05em → -0.04em (lite mer andrum)
-
-### Tillägg:
-
-1. **Berget Stone** (#E5DDD5) - ljus accent som komplement
-2. **Light theme** - dark + light theme support
-3. **Stepper/Wizard** - komplex komponent för multi-step flows
-
-## 📚 Använda Komponenter
-
-```tsx
-// Primära färger
-<Button variant="primary">    // Moss green #52B788
-<Button variant="secondary">  // Sage green #74C69D
-<Button variant="default">    // Stone beige #E5DDD5
-
-// Bakgrunder
-<GridBackground />            // 24px grid
-<GradientBackground variant="berget" />  // Grön gradient
-<NetworkBackground />         // Animerat nätverk
-
-// Cards med effekter
-<Card variant="glass" withBokeh />
-
-// Marketing
-<PricingCards />
-<BlogGrid />
-<EmailTemplate />
-```
-
-## ✅ Brand Compliance Checklist
-
--   [ ] Använder Ovo för alla rubriker
--   [ ] Använder DM Sans för all body text
--   [ ] Primär grön (#52B788) för huvudsakliga CTAs
--   [ ] Grid pattern (24px) på lämpliga bakgrunder
--   [ ] Bokeh-effekt används sparsamt (opacity 0.15-0.3)
--   [ ] Border radius minst 0.75rem
--   [ ] Animationer 150-500ms
--   [ ] WCAG 2.1 AA kontrast upprätthålls
--   [ ] Focus states på alla interaktiva element
+*Senast uppdaterad: 2026-02-20*
+*Version: V2*
