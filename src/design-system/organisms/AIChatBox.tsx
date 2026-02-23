@@ -115,7 +115,6 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
 
     return (
         <Panel
-            variant="glass"
             className={`flex flex-col ${compact ? "p-4" : "p-6"}`}
             style={{ maxHeight }}
         >

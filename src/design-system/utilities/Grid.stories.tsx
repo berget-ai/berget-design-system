@@ -53,7 +53,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DemoCard = ({ title, description, icon: Icon }: { title: string; description: string; icon: any }) => (
-    padding="lg" radius="lg">
+    <Panel padding="lg" radius="lg">
         <div className="relative z-10">
             <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-4">
                 <Icon className="w-6 h-6" strokeWidth={1.5} />

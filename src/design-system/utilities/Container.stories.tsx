@@ -47,7 +47,7 @@ type Story = StoryObj<typeof meta>;
 
 // Demo content component - console style with Panel
 const DemoContent = () => (
-    padding="lg" radius="lg">
+    <Panel padding="lg" radius="lg">
         <div className="relative z-10">
             <h2 className="text-2xl font-medium mb-4">Container Content</h2>
             <p className="text-white/60 mb-4">
@@ -56,19 +56,19 @@ const DemoContent = () => (
                 sizes.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                padding="md" radius="default">
+                <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 1</h3>
                         <p className="text-sm text-white/60">Description here</p>
                     </div>
                 </Panel>
-                padding="md" radius="default">
+                <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 2</h3>
                         <p className="text-sm text-white/60">Description here</p>
                     </div>
                 </Panel>
-                padding="md" radius="default">
+                <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 3</h3>
                         <p className="text-sm text-white/60">Description here</p>
@@ -172,46 +172,36 @@ export const AllSizes: Story = {
         controls: { hide: true }
     },
 
-    render: () => (
+render: () => (
         <div className="min-h-screen bg-background py-12 space-y-8">
             <Container size="sm">
-                padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Small (max-w-3xl / 768px)</p>
                     </div>
                 </Panel>
             </Container>
-
+            
             <Container size="md">
-                padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Medium (max-w-5xl / 1024px)</p>
                     </div>
                 </Panel>
             </Container>
-
+            
             <Container size="lg">
-                padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Large (max-w-7xl / 1280px)</p>
                     </div>
                 </Panel>
             </Container>
-
+            
             <Container size="xl">
-                padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
-                        <p className="text-sm font-medium">
-                            Extra Large (max-w-[1400px])
-                        </p>
-                    </div>
-                </Panel>
-            </Container>
-
-            <Container size="full">
-                padding="md" radius="lg">
-                    <div className="relative z-10">
-                        <p className="text-sm font-medium">Full Width (max-w-full)</p>
+                        <p className="text-sm font-medium">Extra Large (max-w-[1400px])</p>
                     </div>
                 </Panel>
             </Container>
@@ -292,7 +282,7 @@ export const DashboardLayout: Story = {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {Array.from({ length: 4 }).map((_, i) => (
-                            <Panel key={i} variant="highlight" padding="lg" radius="lg">
+                            <Panel key={i} padding="lg" radius="lg">
                                 <div className="relative z-10">
                                     <h3 className="text-sm font-medium text-white/40 mb-2">
                                         Metric {i + 1}
@@ -304,7 +294,7 @@ export const DashboardLayout: Story = {
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        padding="lg" radius="lg">
+                        <Panel padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <h3 className="text-lg font-medium mb-4">
                                     Recent Activity
@@ -322,10 +312,10 @@ export const DashboardLayout: Story = {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+</div>
                         </Panel>
-
-                        padding="lg" radius="lg">
+                    
+                        <Panel padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <h3 className="text-lg font-medium mb-4">Usage Stats</h3>
                                 <div className="h-[200px] flex items-center justify-center text-white/60">

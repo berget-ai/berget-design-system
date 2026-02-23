@@ -173,7 +173,9 @@ export const WithContent: Story = {
  * All Variants - shows all variants side by side on gradient background
  */
 export const AllVariants: Story = {
-    args: {},
+    args: {
+        children: undefined
+    },
     parameters: {
         controls: { hide: true }
     },
@@ -213,7 +215,9 @@ export const AllVariants: Story = {
  * Padding Options - shows all padding options side by side
  */
 export const PaddingOptions: Story = {
-    args: {},
+    args: {
+        children: undefined
+    },
     parameters: {
         controls: { hide: true }
     },

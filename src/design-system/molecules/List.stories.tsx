@@ -41,7 +41,7 @@ export const APIKeysList: Story = {
             </div>
 
             {/* List Panel */}
-            padding="none" radius="lg">
+            <Panel padding="sm" radius="lg">
                 <div className="relative z-10">
                     {/* Table Header */}
                     <ListHeader>
@@ -138,7 +138,7 @@ export const SimpleList: Story = {
         controls: { hide: true }
     },
     render: () => (
-        padding="none" radius="lg" className="w-[600px]">
+        <Panel padding="sm" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <List>
                     <ListItem
@@ -184,11 +184,11 @@ export const WithHeader: Story = {
     args: {
         children: ""
     },
-    parameters: {
+parameters: {
         controls: { hide: true }
     },
     render: () => (
-        padding="none" radius="lg" className="w-[800px]">
+        <Panel padding="sm" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <ListHeader>
                     <div className="flex items-center gap-4 pl-14">
@@ -271,7 +271,7 @@ export const CompactList: Story = {
         controls: { hide: true }
     },
     render: () => (
-        padding="none" radius="lg" className="w-[500px]">
+        <Panel padding="sm" radius="lg" className="w-[500px]">
             <div className="relative z-10">
                 <List>
                     <ListItem icon={null} interactive={false}>
@@ -322,7 +322,7 @@ export const InteractiveList: Story = {
         controls: { hide: true }
     },
     render: () => (
-        padding="none" radius="lg" className="w-[600px]">
+        <Panel padding="sm" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <div className="px-6 py-4 border-b border-[hsl(var(--border))]">
                     <h2 className="text-xl font-medium">Recent Activity</h2>
@@ -383,7 +383,7 @@ export const FeatureListCheckmarkSuccess: Story = {
         layout: "padded"
     },
     render: () => (
-        padding="lg" radius="lg">
+        <Panel padding="lg" radius="lg">
             <div className="relative z-10">
                 <h3 className="text-xl font-medium mb-4">Features</h3>
                 <FeatureList
@@ -411,7 +411,7 @@ export const FeatureListCheckmarkPrimary: Story = {
         layout: "padded"
     },
     render: () => (
-        padding="lg" radius="lg">
+        <Panel padding="lg" radius="lg">
             <div className="relative z-10">
                 <h3 className="text-xl font-medium mb-4">Benefits</h3>
                 <FeatureList
@@ -440,7 +440,7 @@ export const FeatureListLong: Story = {
         layout: "padded"
     },
     render: () => (
-        padding="lg" radius="lg">
+        <Panel padding="lg" radius="lg">
             <div className="relative z-10">
                 <h3 className="text-xl font-medium mb-4">Comprehensive Features</h3>
                 <FeatureList

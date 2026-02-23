@@ -42,7 +42,7 @@ export const ConsoleDashboard: Story = {
             {/* Stat Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {/* Account Balance */}
-                padding="lg" radius="lg">
+                <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">
@@ -59,10 +59,10 @@ export const ConsoleDashboard: Story = {
                             <p className="text-sm text-white/40">Available balance</p>
                         </div>
                     </div>
-                </Panel>
-
+</Panel>
+            
                 {/* API Usage */}
-                padding="lg" radius="lg">
+                <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">API Usage</span>
@@ -78,10 +78,10 @@ export const ConsoleDashboard: Story = {
                             <p className="text-sm text-white/40">Requests this period</p>
                         </div>
                     </div>
-                </Panel>
-
+</Panel>
+            
                 {/* Growth */}
-                padding="lg" radius="lg">
+                <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">Growth</span>
@@ -103,7 +103,7 @@ export const ConsoleDashboard: Story = {
                 </Panel>
 
                 {/* Status */}
-                padding="lg" radius="lg">
+                <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                             <span className="text-base text-white/40">Status</span>
@@ -129,12 +129,7 @@ export const ConsoleDashboard: Story = {
             {/* Large Content Panels */}
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
                 {/* Main Content - Larger radius for bigger panels */}
-                <Panel
-                    variant="highlight"
-                    padding="lg"
-                    radius="xl"
-                    className="xl:col-span-2"
-                >
+                <Panel padding="lg" radius="xl" className="xl:col-span-2">
                     <div className="relative z-10">
                         <div className="flex items-center justify-between mb-6">
                             <div>
@@ -171,7 +166,7 @@ export const ConsoleDashboard: Story = {
                 </Panel>
 
                 {/* Sidebar Panel */}
-                padding="lg" radius="xl">
+                <Panel padding="lg" radius="xl">
                     <div className="relative z-10">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-xl font-medium">Recent Activity</h2>
@@ -243,7 +238,7 @@ export const StatCards: Story = {
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-2xl font-medium mb-8">Console-Style Stat Cards</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    padding="lg" radius="lg">
+                    <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">
@@ -263,7 +258,7 @@ export const StatCards: Story = {
                         </div>
                     </Panel>
 
-                    padding="lg" radius="lg">
+                    <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">API Usage</span>
@@ -285,7 +280,7 @@ export const StatCards: Story = {
                         </div>
                     </Panel>
 
-                    padding="lg" radius="lg">
+                    <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">
@@ -307,7 +302,7 @@ export const StatCards: Story = {
                         </div>
                     </Panel>
 
-                    padding="lg" radius="lg">
+                    <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <span className="text-base text-white/40">No Bokeh</span>
@@ -329,7 +324,7 @@ export const StatCards: Story = {
                 <div className="mt-12">
                     <h3 className="text-xl font-medium mb-4">Radius Variants</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        padding="lg" radius="default">
+                        <Panel padding="lg" radius="default">
                             <div className="relative z-10">
                                 <p className="text-white/60 mb-2">
                                     Default (rounded-2xl)
@@ -338,14 +333,14 @@ export const StatCards: Story = {
                             </div>
                         </Panel>
 
-                        padding="lg" radius="lg">
+                        <Panel padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <p className="text-white/60 mb-2">Large (rounded-3xl)</p>
                                 <p className="text-2xl font-medium">48px</p>
                             </div>
                         </Panel>
 
-                        padding="lg" radius="xl">
+                        <Panel padding="lg" radius="xl">
                             <div className="relative z-10">
                                 <p className="text-white/60 mb-2">XL (rounded-[2rem])</p>
                                 <p className="text-2xl font-medium">64px</p>
