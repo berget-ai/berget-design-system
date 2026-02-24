@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, CardContent, CardHeader, CardTitle } from "../atoms/Card";
 import { Home, Settings, User, Search, Bell, Heart, Star, ChevronRight, Plus, Minus, Check, X, Zap, Bot, Server, Cloud, Shield, Folder, Cog, BrainCircuit, Layers, Leaf } from "lucide-react";
 
 const meta = {
