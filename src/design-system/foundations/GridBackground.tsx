@@ -14,7 +14,7 @@ export interface GridBackgroundProps extends React.HTMLAttributes<HTMLDivElement
     opacity?: number;
     /**
      * Grid line color in HSL format
-     * @default "229, 221, 213" (Berget Stone)
+     * @default "229, 221, 213" (Cloud)
      */
     color?: string;
     /**
@@ -66,7 +66,7 @@ export const GridBackground = React.forwardRef<HTMLDivElement, GridBackgroundPro
         return (
             <div
                 ref={ref}
-                className={cn("relative min-h-screen", className)}
+                className={cn("relative min-h-screen bg-night", className)}
                 style={{
                     backgroundImage: `
             linear-gradient(to bottom, rgba(${color}, ${opacity}) 1px, transparent 1px),
