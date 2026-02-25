@@ -1,4 +1,4 @@
-import { Card } from "../design-system/molecules/Card";
+import { Card } from "../design-system/atoms/Card";
 import { Button } from "../design-system/atoms/Button";
 import { BergetSymbol } from "../design-system/atoms/Berget Symbol";
 
@@ -14,7 +14,7 @@ export default function SimpleBergetPage() {
             }}
         >
             <div style={{ maxWidth: 600, margin: "0 auto" }}>
-                <Card variant="highlight" className="p-10">
+                <Card variant="solid" className="p-10">
                     {/* Berget Symbol inside Card */}
                     <div className="text-center mb-8">
                         <BergetSymbol size={48} variant="light" />

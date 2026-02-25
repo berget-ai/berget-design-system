@@ -46,16 +46,20 @@ It supports all native button attributes and can be used with the \`asChild\` pr
                 "destructive",
                 "link",
                 "highlight",
-                "stone",
                 "icon"
             ],
             description: "Visual style variant"
         },
-        width: {
-            control: "select",
-            options: ["default", "full"],
-            description: "Width of the button"
-        },
+size: {
+                control: "select",
+                options: ["sm", "default", "lg", "icon"],
+                description: "Size of the button"
+            },
+            width: {
+                control: "select",
+                options: ["default", "full"],
+                description: "Width of the button"
+            },
         disabled: {
             control: "boolean",
             description: "Disabled state"
@@ -118,7 +122,6 @@ export const AllVariants: Story = {
                     <Button variant="destructive">Destructive</Button>
                     <Button variant="link">Link</Button>
                     <Button variant="highlight">Highlight</Button>
-                    <Button variant="stone">Stone</Button>
                     <Button variant="icon">
                         <Plus className="w-6 h-6" strokeWidth={1.5} />
                     </Button>
@@ -182,6 +185,32 @@ export const WithIcons: Story = {
                 View Pricing
                 <ArrowRight className="ml-2 w-6 h-6" strokeWidth={1.5} />
             </Button>
+        </div>
+    )
+};
+
+/**
+ * Sizes showcase - shows all button sizes (sm, default, lg)
+ * Note: This is a static showcase. Use Interactive story to test individual sizes with controls.
+ */
+export const Sizes: Story = {
+    parameters: {
+        controls: { hide: true }
+    },
+    args: {
+        children: undefined as any
+    },
+    render: () => (
+        <div className="flex flex-wrap gap-3 items-center">
+            <Button size="sm">Small</Button>
+            <Button size="default">Default</Button>
+            <Button size="lg">Large</Button>
+            <Button variant="primary" size="sm">Primary Small</Button>
+            <Button variant="primary" size="default">Primary Default</Button>
+            <Button variant="primary" size="lg">Primary Large</Button>
+            <Button variant="secondary" size="sm">Secondary Small</Button>
+            <Button variant="secondary" size="default">Secondary Default</Button>
+            <Button variant="secondary" size="lg">Secondary Large</Button>
         </div>
     )
 };

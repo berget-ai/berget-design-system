@@ -3,7 +3,7 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     darkMode: ["class", '[data-theme="dark"]'],
     theme: {
-        extend: {
+extend: {
             colors: {
                 border: "hsl(var(--border) / <alpha-value>)",
                 input: "hsl(var(--input) / <alpha-value>)",
@@ -29,7 +29,27 @@ export default {
                 card: {
                     DEFAULT: "hsl(var(--card) / <alpha-value>)",
                     foreground: "hsl(var(--card-foreground) / <alpha-value>)"
-                }
+                },
+                // Brand Colors (V2)
+                moss: "hsl(var(--berget-moss) / <alpha-value>)",
+                lichen: "hsl(var(--berget-lichen) / <alpha-value>)",
+                spruce: "hsl(var(--berget-spruce) / <alpha-value>)",
+                fjord: "hsl(var(--berget-fjord) / <alpha-value>)",
+                peak: "hsl(var(--berget-peak) / <alpha-value>)",
+                cloud: "hsl(var(--berget-cloud) / <alpha-value>)",
+                slate: "hsl(var(--berget-slate) / <alpha-value>)",
+                night: "hsl(var(--berget-night) / <alpha-value>)",
+                // Semantic Colors (direct HSL values for text/bg)
+                success: "hsl(var(--success) / <alpha-value>)",
+                warning: "hsl(var(--warning) / <alpha-value>)",
+                error: "hsl(var(--destructive) / <alpha-value>)",
+                destructive: "hsl(var(--destructive) / <alpha-value>)",
+                info: "hsl(var(--info) / <alpha-value>)",
+                successForeground: "hsl(var(--success-foreground) / <alpha-value>)",
+                warningForeground: "hsl(var(--warning-foreground) / <alpha-value>)",
+                errorForeground: "hsl(var(--destructive-foreground) / <alpha-value>)",
+                destructiveForeground: "hsl(var(--destructive-foreground) / <alpha-value>)",
+                infoForeground: "hsl(var(--info-foreground) / <alpha-value>)"
             },
             fontFamily: {
                 serif: ["Ovo", "serif"],
@@ -39,9 +59,9 @@ export default {
                 fadeIn: "fadeIn 0.3s ease-in-out",
                 "pulse-subtle": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
                 "bounce-subtle": "bounce 2s ease-in-out infinite",
-                "float-slow": "float 20s ease-in-out infinite",
-                "float-medium": "float 15s ease-in-out infinite",
-                "float-fast": "float 10s ease-in-out infinite"
+                "float-slow": "float 40s ease-in-out infinite",
+                "float-medium": "float 30s ease-in-out infinite",
+                "float-fast": "float 20s ease-in-out infinite"
             },
             keyframes: {
                 fadeIn: {

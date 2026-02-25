@@ -1,7 +1,7 @@
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import { Card } from "../../design-system/molecules/Card";
+import { Card } from "../../design-system/atoms/Card";
 import { Button } from "../../design-system/atoms/Button";
 import { BergetSymbol } from "../../design-system/atoms/Berget Symbol";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
@@ -26,7 +26,7 @@ export default function OtpForm(
             }}
         >
             <div style={{ maxWidth: 600, margin: "0 auto" }}>
-                <Card variant="highlight" className="p-10">
+                <Card variant="solid" className="p-10">
                     {/* Berget Symbol inside Card */}
                     <div className="text-center mb-8">
                         <BergetSymbol size={48} variant="light" />

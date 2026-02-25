@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { List, ListItem, ListHeader } from "./List";
-import { Panel } from "./Panel";
+import { List, ListItem, ListHeader, FeatureList } from "./List";
+import { Panel } from "../atoms/Panel";
 import { Button } from "../atoms/Button";
 import { Key, Database, Server, Users, Calendar, Clock } from "lucide-react";
 
@@ -41,7 +41,7 @@ export const APIKeysList: Story = {
             </div>
 
             {/* List Panel */}
-            <Panel variant="highlight" padding="none" radius="lg">
+            <Panel padding="sm" radius="lg">
                 <div className="relative z-10">
                     {/* Table Header */}
                     <ListHeader>
@@ -138,7 +138,7 @@ export const SimpleList: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <Panel variant="highlight" padding="none" radius="lg" className="w-[600px]">
+        <Panel padding="sm" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <List>
                     <ListItem
@@ -184,11 +184,11 @@ export const WithHeader: Story = {
     args: {
         children: ""
     },
-    parameters: {
+parameters: {
         controls: { hide: true }
     },
     render: () => (
-        <Panel variant="highlight" padding="none" radius="lg" className="w-[800px]">
+        <Panel padding="sm" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <ListHeader>
                     <div className="flex items-center gap-4 pl-14">
@@ -271,7 +271,7 @@ export const CompactList: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <Panel variant="highlight" padding="none" radius="lg" className="w-[500px]">
+        <Panel padding="sm" radius="lg" className="w-[500px]">
             <div className="relative z-10">
                 <List>
                     <ListItem icon={null} interactive={false}>
@@ -322,7 +322,7 @@ export const InteractiveList: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <Panel variant="highlight" padding="none" radius="lg" className="w-[600px]">
+        <Panel padding="sm" radius="lg" className="w-[600px]">
             <div className="relative z-10">
                 <div className="px-6 py-4 border-b border-[hsl(var(--border))]">
                     <h2 className="text-xl font-medium">Recent Activity</h2>
@@ -366,6 +366,62 @@ export const InteractiveList: Story = {
                         </div>
                     </ListItem>
                 </List>
+            </div>
+        </Panel>
+    )
+};
+
+/**
+ * FeatureList - Bullet
+ */
+export const FeatureListBullet: Story = {
+    args: {
+        children: ""
+    },
+    parameters: {
+        controls: { hide: true },
+        layout: "padded"
+    },
+    render: () => (
+        <Panel padding="lg" radius="lg">
+            <div className="relative z-10">
+                <h3 className="text-xl font-medium mb-4">Features</h3>
+                <FeatureList
+                    items={[
+                        "Optimized for speed and performance",
+                        "Enterprise-grade security built in",
+                        "Handle millions of requests effortlessly"
+                    ]}
+                    variant="bullet"
+                />
+            </div>
+        </Panel>
+    )
+};
+
+/**
+ * FeatureList - Checkmark
+ */
+export const FeatureListCheckmark: Story = {
+    args: {
+        children: ""
+    },
+    parameters: {
+        controls: { hide: true },
+        layout: "padded"
+    },
+    render: () => (
+        <Panel padding="lg" radius="lg">
+            <div className="relative z-10">
+                <h3 className="text-xl font-medium mb-4">Benefits</h3>
+                <FeatureList
+                    items={[
+                        "Customizable instances",
+                        "High-demand workloads",
+                        "Dedicated resources"
+                    ]}
+                    variant="checkmark"
+                />
             </div>
         </Panel>
     )

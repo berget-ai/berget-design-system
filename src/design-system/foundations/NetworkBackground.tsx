@@ -13,6 +13,11 @@ export interface NetworkBackgroundProps {
      */
     opacity?: number;
     /**
+     * Color for network elements (cloud color token)
+     * @default [229, 221, 213] (Cloud RGB)
+     */
+    color?: [number, number, number];
+    /**
      * Additional CSS classes
      */
     className?: string;
@@ -57,6 +62,7 @@ export interface NetworkBackgroundProps {
 export function NetworkBackground({
     nodeCount = 50,
     opacity = 0.4,
+    color = [229, 221, 213],
     className
 }: NetworkBackgroundProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -72,7 +78,8 @@ export function NetworkBackground({
         const container = canvas.parentElement;
         if (!container) return;
 
-        // Create nodes in a grid pattern
+        const [r, g, b] = color;
+
         const gridSize = Math.ceil(Math.sqrt(nodeCount));
         const spacingX = canvas.width / (gridSize - 1);
         const spacingY = canvas.height / (gridSize - 1);
@@ -80,7 +87,6 @@ export function NetworkBackground({
         const nodes = Array.from({ length: nodeCount }, (_, i) => {
             const row = Math.floor(i / gridSize);
             const col = i % gridSize;
-            // Add small random offset to make it look more organic
             const randomOffsetX = (Math.random() - 0.5) * (spacingX * 0.3);
             const randomOffsetY = (Math.random() - 0.5) * (spacingY * 0.3);
             return {
@@ -98,7 +104,6 @@ export function NetworkBackground({
             canvas.width = rect.width;
             canvas.height = rect.height;
 
-            // Maintain grid pattern when resizing
             const gridSize = Math.ceil(Math.sqrt(nodes.length));
             const spacingX = canvas.width / (gridSize - 1);
             const spacingY = canvas.height / (gridSize - 1);
@@ -112,7 +117,6 @@ export function NetworkBackground({
                 node.y = spacingY * row + randomOffsetY;
             });
 
-            // Recalculate connections
             nodes.forEach((node, i) => {
                 node.connections = [];
                 nodes.forEach((otherNode, j) => {
@@ -134,7 +138,6 @@ export function NetworkBackground({
         resizeObserver.observe(container);
         resize();
 
-        // Spark effect
         class Spark {
             x: number;
             y: number;
@@ -163,7 +166,7 @@ export function NetworkBackground({
 
             draw(ctx: CanvasRenderingContext2D) {
                 const opacity = this.life / this.maxLife;
-                ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
                 ctx.beginPath();
                 ctx.moveTo(this.x, this.y);
                 ctx.lineTo(this.x - this.vx, this.y - this.vy);
@@ -173,7 +176,6 @@ export function NetworkBackground({
 
         const sparks: Spark[] = [];
 
-        // Particles for connections
         const particles: {
             nodeIndex: number;
             targetIndex: number;
@@ -192,7 +194,6 @@ export function NetworkBackground({
         const draw = (time: number) => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Update node positions
             nodes.forEach(node => {
                 node.x += node.vx;
                 node.y += node.vy;
@@ -216,8 +217,7 @@ export function NetworkBackground({
                 }
             });
 
-            // Draw connections
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
+            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.12)`;
             ctx.lineWidth = 0.5;
             nodes.forEach(node => {
                 node.connections.forEach(targetIndex => {
@@ -229,16 +229,14 @@ export function NetworkBackground({
                 });
             });
 
-            // Draw nodes
-            ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
+            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.3)`;
             nodes.forEach(node => {
                 ctx.beginPath();
                 ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
                 ctx.fill();
             });
 
-            // Update and draw particles
-            ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
+            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.6)`;
             particles.forEach(particle => {
                 const sourceNode = nodes[particle.nodeIndex];
                 const targetNode = nodes[particle.targetIndex];
@@ -246,7 +244,6 @@ export function NetworkBackground({
                 const prevProgress = particle.progress;
                 particle.progress += 0.002;
 
-                // Create spark when particle reaches target
                 if (prevProgress < 1 && particle.progress >= 1) {
                     for (let i = 0; i < 5; i++) {
                         sparks.push(new Spark(targetNode.x, targetNode.y));
@@ -265,7 +262,6 @@ export function NetworkBackground({
                 ctx.fill();
             });
 
-            // Update and draw sparks
             ctx.lineWidth = 2;
             for (let i = sparks.length - 1; i >= 0; i--) {
                 const spark = sparks[i];
@@ -276,8 +272,7 @@ export function NetworkBackground({
                 }
             }
 
-            // Subtle pulse effect
-            ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.15)`;
             nodes.forEach(node => {
                 const pulseSize = Math.sin(time / 2000 + node.x + node.y) * 1.5 + 2;
                 ctx.beginPath();
@@ -296,7 +291,7 @@ export function NetworkBackground({
                 cancelAnimationFrame(animationFrameRef.current);
             }
         };
-    }, [nodeCount]);
+    }, [nodeCount, color]);
 
     return (
         <canvas

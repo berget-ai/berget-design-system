@@ -13,15 +13,15 @@ const badgeVariants = cva(
                 semantic: "px-3"
             },
             status: {
-                default: "bg-[#2D6A4F] text-[#CFFF8B]",
-                active: "bg-[#2D6A4F] text-[rgba(255,255,255,0.8)]",
-                tagDefault: "bg-[#E5DDD5] text-[rgba(26,26,26,0.8)]",
-                tagActive: "bg-[#1a1a1a] text-[#E5DDD5]",
-                tagGhost: "bg-[#E5DDD5]/30 text-[rgba(26,26,26,0.6)]",
-                info: "bg-[#3975D6]/20 text-[#3975D6]",
-                success: "bg-[#52B788]/20 text-[#52B788]",
-                warning: "bg-[#CFFF8B]/20 text-[#CFFF8B]",
-                error: "bg-[#D1392E]/20 text-[#D1392E]"
+                default: "bg-spruce text-warning",
+                active: "bg-spruce text-peak/80",
+                tagDefault: "bg-cloud text-slate/80",
+                tagActive: "bg-slate text-cloud",
+                tagGhost: "bg-cloud/30 text-slate/60",
+                info: "bg-info/20 text-info",
+                success: "bg-success/20 text-success",
+                warning: "bg-warning/20 text-warning",
+                error: "bg-error/20 text-error"
             },
             size: {
                 sm: "text-xs h-5",

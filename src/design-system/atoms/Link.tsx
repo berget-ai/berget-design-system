@@ -7,13 +7,13 @@ const linkVariants = cva(
     {
         variants: {
             variant: {
-                default: "text-white hover:text-white/80",
-                primary: "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80",
+                default: "text-foreground hover:text-foreground/80",
+                primary: "text-moss hover:text-moss/80",
                 secondary:
-                    "text-[hsl(var(--secondary))] hover:text-[hsl(var(--secondary))]/80",
-                ghost: "text-white/60 hover:text-white",
-                muted: "text-white/40 hover:text-white/60",
-                code: "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80 font-mono text-sm bg-[hsl(var(--primary))]/10 px-2 py-1 rounded hover:bg-[hsl(var(--primary))]/20"
+                    "text-lichen hover:text-lichen/80",
+                ghost: "text-muted-foreground hover:text-foreground",
+                muted: "text-muted-foreground hover:text-muted-foreground/80",
+                code: "text-moss hover:text-moss/80 font-mono text-sm bg-moss/10 px-2 py-1 rounded hover:bg-moss/20"
             },
             size: {
                 sm: "text-sm",

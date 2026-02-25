@@ -2,7 +2,8 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 import { LucideIcon } from "lucide-react";
-import { Card } from "../molecules/Card";
+import { Card } from "../atoms/Card";
+import { FeatureList } from "../molecules/List";
 
 const featureCardVariants = cva("", {
     variants: {
@@ -122,7 +123,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                                     <Icon
                                         className={cn(
                                             "h-7 w-7",
-                                            iconColor || "text-white"
+                                            iconColor || "text-foreground"
                                         )}
                                         strokeWidth={1.5}
                                     />
@@ -130,8 +131,8 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                             )}
 
                             {badge && (
-                                <div className="flex h-6 items-center justify-start px-6 bg-[#2D6A4F] rounded-full">
-                                    <span className="text-xs font-normal leading-4 text-[#CFFF8B]">
+                                <div className="flex h-6 items-center justify-start px-6 bg-spruce rounded-full">
+                                    <span className="text-xs font-normal leading-4 text-warning">
                                         {badge}
                                     </span>
                                 </div>
@@ -139,33 +140,22 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                         </div>
                     )}
 
-                    <h3 className="text-[40px] leading-[56px] tracking-[-1px] text-white font-normal font-['Ovo']">
+                    <h3 className="text-[40px] leading-[56px] tracking-[-0.03em] text-foreground font-normal font-['Ovo']">
                         {title}
                     </h3>
 
-                    <p className="text-base leading-6 text-white/80 font-normal font-['DM_Sans']">
+                    <p className="text-base leading-6 text-foreground/80 font-normal font-[\'DM_Sans\']">
                         {description}
                     </p>
 
                     {items && items.length > 0 && (
-                        <ul className="flex flex-col items-start gap-3">
-                            {items.map((item, index) => (
-                                <li key={index} className="flex items-center gap-3">
-                                    <span className="flex h-[18px] w-[18px] items-center justify-center p-1.5">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-white/60" />
-                                    </span>
-                                    <span className="text-base leading-6 text-white/80 font-normal font-['DM_Sans']">
-                                        {item}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
+                        <FeatureList items={items} variant="bullet" />
                     )}
 
                     {linkText && linkHref && (
                         <a
                             href={linkHref}
-                            className="text-sm text-[hsl(var(--secondary))] hover:underline"
+                            className="text-sm text-lichen hover:underline"
                         >
                             {linkText} →
                         </a>

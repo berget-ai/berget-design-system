@@ -192,23 +192,4 @@ export const InNavigation: Story = {
     )
 };
 
-/**
- * Variant Comparison - Light vs Dark
- */
-export const VariantComparison: Story = {
-    parameters: {
-        controls: { hide: true }
-    },
-    render: () => (
-        <div className="grid grid-cols-2 gap-8">
-            <div className="bg-background p-8 rounded-lg border border-[hsl(var(--border))]">
-                <p className="text-sm text-muted-foreground mb-4">Light (on dark bg)</p>
-                <BergetSymbol size={64} variant="light" />
-            </div>
-            <div className="bg-white p-8 rounded-lg">
-                <p className="text-sm text-gray-600 mb-4">Dark (on light bg)</p>
-                <BergetSymbol size={64} variant="dark" />
-            </div>
-        </div>
-    )
-};
+

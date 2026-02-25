@@ -4,14 +4,14 @@ import { cn } from "../../utils/cn";
 import { Check } from "lucide-react";
 
 const checkboxVariants = cva(
-    "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:cursor-not-allowed disabled:opacity-50",
+    "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
     {
         variants: {
             variant: {
-                default: "border-white/20 bg-white/5 hover:bg-white/10",
+                default: "border-cloud/20 bg-cloud/5 hover:bg-cloud/10",
                 primary: "border-primary/50 bg-primary/10 hover:bg-primary/20",
-                subtle: "border-white/10 bg-white/5 hover:bg-white/10",
-                muted: "border-white/5 bg-white/5 hover:bg-white/10"
+                subtle: "border-cloud/10 bg-cloud/5 hover:bg-cloud/10",
+                muted: "border-cloud/5 bg-cloud/5 hover:bg-cloud/10"
             },
             size: {
                 sm: "w-4 h-4",
@@ -105,7 +105,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                                     size === "lg" && "w-4 h-4",
                                     "text-white"
                                 )}
-                                strokeWidth={2}
+                                strokeWidth={1.5}
                             />
                         )}
                     </label>

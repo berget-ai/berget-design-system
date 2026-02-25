@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Container } from "./Container";
-import { Panel } from "../molecules/Panel";
+import { Panel } from "../atoms/Panel";
 
 const meta = {
     title: "Utilities/Container",
@@ -47,31 +47,31 @@ type Story = StoryObj<typeof meta>;
 
 // Demo content component - console style with Panel
 const DemoContent = () => (
-    <Panel variant="highlight" padding="lg" radius="lg">
+    <Panel padding="lg" radius="lg">
         <div className="relative z-10">
             <h2 className="text-2xl font-medium mb-4">Container Content</h2>
-            <p className="text-white/60 mb-4">
+            <p className="text-muted-foreground mb-4">
                 This content is centered with consistent horizontal padding. Resize the
                 browser window to see how the container responds to different screen
                 sizes.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Panel variant="glass" padding="md" radius="default">
+                <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 1</h3>
-                        <p className="text-sm text-white/60">Description here</p>
+                        <p className="text-sm text-muted-foreground">Description here</p>
                     </div>
                 </Panel>
-                <Panel variant="glass" padding="md" radius="default">
+                <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 2</h3>
-                        <p className="text-sm text-white/60">Description here</p>
+                        <p className="text-sm text-muted-foreground">Description here</p>
                     </div>
                 </Panel>
-                <Panel variant="glass" padding="md" radius="default">
+                <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 3</h3>
-                        <p className="text-sm text-white/60">Description here</p>
+                        <p className="text-sm text-muted-foreground">Description here</p>
                     </div>
                 </Panel>
             </div>
@@ -172,46 +172,36 @@ export const AllSizes: Story = {
         controls: { hide: true }
     },
 
-    render: () => (
+render: () => (
         <div className="min-h-screen bg-background py-12 space-y-8">
             <Container size="sm">
-                <Panel variant="highlight" padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Small (max-w-3xl / 768px)</p>
                     </div>
                 </Panel>
             </Container>
-
+            
             <Container size="md">
-                <Panel variant="highlight" padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Medium (max-w-5xl / 1024px)</p>
                     </div>
                 </Panel>
             </Container>
-
+            
             <Container size="lg">
-                <Panel variant="highlight" padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
                         <p className="text-sm font-medium">Large (max-w-7xl / 1280px)</p>
                     </div>
                 </Panel>
             </Container>
-
+            
             <Container size="xl">
-                <Panel variant="highlight" padding="md" radius="lg">
+                <Panel padding="md" radius="lg">
                     <div className="relative z-10">
-                        <p className="text-sm font-medium">
-                            Extra Large (max-w-[1400px])
-                        </p>
-                    </div>
-                </Panel>
-            </Container>
-
-            <Container size="full">
-                <Panel variant="highlight" padding="md" radius="lg">
-                    <div className="relative z-10">
-                        <p className="text-sm font-medium">Full Width (max-w-full)</p>
+                        <p className="text-sm font-medium">Extra Large (max-w-[1400px])</p>
                     </div>
                 </Panel>
             </Container>
@@ -292,9 +282,9 @@ export const DashboardLayout: Story = {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {Array.from({ length: 4 }).map((_, i) => (
-                            <Panel key={i} variant="highlight" padding="lg" radius="lg">
+                            <Panel key={i} padding="lg" radius="lg">
                                 <div className="relative z-10">
-                                    <h3 className="text-sm font-medium text-white/40 mb-2">
+                                    <h3 className="text-sm font-medium text-muted-foreground mb-2">
                                         Metric {i + 1}
                                     </h3>
                                     <p className="text-3xl font-medium">1,234</p>
@@ -304,7 +294,7 @@ export const DashboardLayout: Story = {
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <Panel variant="highlight" padding="lg" radius="lg">
+                        <Panel padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <h3 className="text-lg font-medium mb-4">
                                     Recent Activity
@@ -315,20 +305,20 @@ export const DashboardLayout: Story = {
                                             key={i}
                                             className="flex items-center gap-3 text-sm"
                                         >
-                                            <div className="w-2 h-2 rounded-full bg-[#22C55E]" />
-                                            <span className="text-white/60">
+                                            <div className="w-2 h-2 rounded-full bg-success" />
+                                            <span className="text-muted-foreground">
                                                 Activity item {i + 1}
                                             </span>
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+</div>
                         </Panel>
 
-                        <Panel variant="highlight" padding="lg" radius="lg">
+                        <Panel padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <h3 className="text-lg font-medium mb-4">Usage Stats</h3>
-                                <div className="h-[200px] flex items-center justify-center text-white/60">
+                                <div className="h-[200px] flex items-center justify-center text-muted-foreground">
                                     Chart placeholder
                                 </div>
                             </div>

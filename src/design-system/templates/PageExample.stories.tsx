@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "../atoms/Badge";
 import { Button } from "../atoms/Button";
 import { FeatureCards } from "../organisms/FeatureCards";
-import { Card } from "../molecules/Card";
+import { Card } from "../atoms/Card";
 import { Divider } from "../atoms/Divider";
 import { PatternBackground } from "../foundations/PatternBackground";
 import { ArrowRight, Cloud, Server, Cpu, Library, Heart, Leaf } from "lucide-react";

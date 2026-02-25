@@ -6,9 +6,10 @@ export interface GradientBackgroundProps extends React.HTMLAttributes<HTMLDivEle
      * Gradient variant
      * - berget: Green gradient (Berget brand colors)
      * - subtle: Very subtle dark gradient
+     * - night: Dark gradient (night to slate)
      * @default "berget"
      */
-    variant?: "berget" | "subtle";
+    variant?: "berget" | "subtle" | "night";
     /**
      * Children to render on top of the gradient
      */
@@ -16,8 +17,9 @@ export interface GradientBackgroundProps extends React.HTMLAttributes<HTMLDivEle
 }
 
 const gradientVariants = {
-    berget: "from-[#2D6A4F] via-[#40916C] to-[#52B788]",
-    subtle: "from-[#0A0A0A] via-[#121212] to-[#1A1A1A]"
+    berget: "from-spruce via-moss to-lichen",
+    subtle: "from-night via-slate to-night",
+    night: "from-slate via-night to-slate"
 };
 
 /**
@@ -50,6 +52,10 @@ const gradientVariants = {
  *
  * <GradientBackground variant="subtle">
  *   <PricingSection />
+ * </GradientBackground>
+ *
+ * <GradientBackground variant="night">
+ *   <AboutSection />
  * </GradientBackground>
  * ```
  */

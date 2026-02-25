@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../utils/cn";
-import { Card } from "../molecules/Card";
+import { Card } from "../atoms/Card";
 import { buttonVariants } from "../atoms/Button";
 
 export interface EmailTemplateProps {
@@ -77,7 +77,7 @@ export const EmailTemplate = React.forwardRef<HTMLDivElement, EmailTemplateProps
         return (
             <div
                 ref={ref}
-                className="min-h-screen bg-[#0a0a0a] py-10 px-4"
+                className="min-h-screen bg-night py-10 px-4"
                 style={{
                     fontFamily:
                         '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
@@ -104,7 +104,7 @@ export const EmailTemplate = React.forwardRef<HTMLDivElement, EmailTemplateProps
                 {/* Main Container */}
                 <div className="max-w-[600px] mx-auto">
                     {/* Card */}
-                    <Card variant="highlight" className="p-10">
+                    <Card variant="solid" className="p-10">
                         {/* Logo */}
                         <div className="text-center mb-8">
                             <img
@@ -120,20 +120,20 @@ export const EmailTemplate = React.forwardRef<HTMLDivElement, EmailTemplateProps
                         </div>
                         {title && (
                             <h1
-                                className="text-3xl font-medium text-white mb-6 text-center"
+                                className="text-3xl font-medium text-foreground mb-6 text-center"
                                 style={{ margin: "0 0 24px 0" }}
                             >
                                 {title}
                             </h1>
                         )}
 
-                        <div className="text-white text-[15px] leading-relaxed">
+                        <div className="text-foreground text-[15px] leading-relaxed">
                             {children}
                         </div>
                     </Card>
 
                     {/* Footer */}
-                    <div className="text-center mt-8 text-white/40 text-sm">
+                    <div className="text-center mt-8 text-muted-foreground text-sm">
                         {footer || (
                             <>
                                 <p style={{ margin: "0 0 8px 0" }}>
@@ -144,7 +144,7 @@ export const EmailTemplate = React.forwardRef<HTMLDivElement, EmailTemplateProps
                                     style={{
                                         margin: 0,
                                         fontSize: "12px",
-                                        color: "rgba(255, 255, 255, 0.3)"
+                                        color: "hsl(var(--cloud)/0.3)"
                                     }}
                                 >
                                     European AI Infrastructure

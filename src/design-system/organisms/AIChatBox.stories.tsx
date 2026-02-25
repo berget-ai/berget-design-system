@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { AIChatBox, AIChatMessage } from "./AIChatBox";
 
 const meta: Meta<typeof AIChatBox> = {
-    title: "Organisms/AIChatBox",
+    title: "Organisms/AI Chat Box",
     component: AIChatBox,
     parameters: {
         layout: "centered"
