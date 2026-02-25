@@ -4,6 +4,9 @@ import { GradientBackground } from "./GradientBackground";
 import { NetworkBackground } from "./NetworkBackground";
 import { GrainyGradientBackground } from "./GrainyGradientBackground";
 import { PatternBackground } from "./PatternBackground";
+import { Card, CardContent } from "../atoms/Card";
+import { Button } from "../atoms/Button";
+import { Badge } from "../atoms/Badge";
 
 /**
  * Background components showcasing different background styles in the Berget Design System.
@@ -54,15 +57,21 @@ export const SolidDark: StoryObj = {
                     interfaces. Use in dashboards, forms, and admin pages.
                 </p>
                 <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-white/5 p-6 rounded-lg border border-[hsl(var(--border))]">
-                        <div className="text-sm text-white/60">Sample Card 1</div>
-                    </div>
-                    <div className="bg-white/5 p-6 rounded-lg border border-[hsl(var(--border))]">
-                        <div className="text-sm text-white/60">Sample Card 2</div>
-                    </div>
-                    <div className="bg-white/5 p-6 rounded-lg border border-[hsl(var(--border))]">
-                        <div className="text-sm text-white/60">Sample Card 3</div>
-                    </div>
+                    <Card variant="highlight">
+                        <CardContent className="p-6">
+                            <div className="text-sm text-white/60">Sample Card 1</div>
+                        </CardContent>
+                    </Card>
+                    <Card variant="highlight">
+                        <CardContent className="p-6">
+                            <div className="text-sm text-white/60">Sample Card 2</div>
+                        </CardContent>
+                    </Card>
+                    <Card variant="highlight">
+                        <CardContent className="p-6">
+                            <div className="text-sm text-white/60">Sample Card 3</div>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </div>
@@ -88,15 +97,21 @@ export const GridDefault: StoryObj = {
                     staying minimal and focused.
                 </p>
                 <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-white/5 p-6 rounded-lg border border-[hsl(var(--border))]">
-                        <div className="text-sm text-white/60">Sample Card 1</div>
-                    </div>
-                    <div className="bg-white/5 p-6 rounded-lg border border-[hsl(var(--border))]">
-                        <div className="text-sm text-white/60">Sample Card 2</div>
-                    </div>
-                    <div className="bg-white/5 p-6 rounded-lg border border-[hsl(var(--border))]">
-                        <div className="text-sm text-white/60">Sample Card 3</div>
-                    </div>
+                    <Card variant="highlight">
+                        <CardContent className="p-6">
+                            <div className="text-sm text-white/60">Sample Card 1</div>
+                        </CardContent>
+                    </Card>
+                    <Card variant="highlight">
+                        <CardContent className="p-6">
+                            <div className="text-sm text-white/60">Sample Card 2</div>
+                        </CardContent>
+                    </Card>
+                    <Card variant="highlight">
+                        <CardContent className="p-6">
+                            <div className="text-sm text-white/60">Sample Card 3</div>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </GridBackground>
@@ -171,9 +186,7 @@ export const GradientBerget: StoryObj = {
                     Green gradient with Berget brand colors. Creates strong visual impact
                     perfect for hero sections and landing pages.
                 </p>
-                <button className="bg-white text-[#2D6A4F] px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors">
-                    Call to Action
-                </button>
+                <Button>Call to Action</Button>
             </div>
         </GradientBackground>
     )
@@ -248,9 +261,7 @@ export const GrainyGradient: StoryObj = {
                     overlay. Creates organic, textured background perfect for creative
                     sections.
                 </p>
-                <button className="bg-white text-[#2D6A4F] px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors">
-                    Explore
-                </button>
+                <Button>Explore</Button>
             </div>
         </GrainyGradientBackground>
     )
@@ -275,9 +286,7 @@ export const Pattern: StoryObj = {
                     background. Creates a subtle, structured grid effect perfect for
                     technical interfaces and data visualization.
                 </p>
-                <button className="bg-white text-[#2D6A4F] px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors">
-                    View Details
-                </button>
+                <Button>View Details</Button>
             </div>
         </PatternBackground>
     )
@@ -303,9 +312,7 @@ export const PatternCompact: StoryObj = {
                     Same L-shaped pattern but with smaller 32px tiles for a denser, more
                     detailed grid effect.
                 </p>
-                <button className="bg-white text-[#2D6A4F] px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors">
-                    View Details
-                </button>
+                <Button>View Details</Button>
             </div>
         </PatternBackground>
     )
@@ -325,9 +332,7 @@ export const CombinedHero: StoryObj = {
         <GradientBackground variant="berget" className="flex items-center justify-center">
             <NetworkBackground opacity={0.3} nodeCount={40} />
             <div className="relative z-10 text-center max-w-3xl px-6">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-[hsl(var(--border-hover))] mb-6 backdrop-blur-sm">
-                    <span className="text-sm text-white/90">Maximum Visual Impact</span>
-                </div>
+                <Badge className="mb-6">Maximum Visual Impact</Badge>
                 <h1 className="text-6xl mb-6 text-white font-light">
                     Gradient + Network
                 </h1>
@@ -336,12 +341,8 @@ export const CombinedHero: StoryObj = {
                     animated network for tech platforms and enterprise SaaS products.
                 </p>
                 <div className="flex gap-4 justify-center">
-                    <button className="bg-white text-[#2D6A4F] px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors shadow-lg">
-                        Get Started
-                    </button>
-                    <button className="border-2 border-[hsl(var(--border-strong))] text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
-                        Learn More
-                    </button>
+                    <Button>Get Started</Button>
+                    <Button variant="outline">Learn More</Button>
                 </div>
             </div>
         </GradientBackground>

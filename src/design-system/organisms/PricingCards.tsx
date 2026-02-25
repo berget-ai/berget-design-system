@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Check } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { Button } from "../atoms/Button";
 import { Card } from "../atoms/Card";
+import { FeatureList } from "../molecules/List";
 
 export interface PricingTier {
     /**
@@ -147,17 +147,7 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
                             {tier.ctaText || "Get Started"}
                         </Button>
 
-                        <div className="space-y-3">
-                            {tier.features.map((feature, index) => (
-                                <div key={index} className="flex items-start gap-3">
-                                    <Check
-                                        className="w-7 h-7 text-[hsl(var(--secondary))] shrink-0 mt-0.5"
-                                        strokeWidth={2}
-                                    />
-                                    <span className="text-sm">{feature}</span>
-                                </div>
-                            ))}
-                        </div>
+                        <FeatureList items={tier.features} variant="bullet" />
                     </Card>
                 ))}
             </div>

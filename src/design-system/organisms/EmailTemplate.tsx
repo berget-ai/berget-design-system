@@ -104,7 +104,7 @@ export const EmailTemplate = React.forwardRef<HTMLDivElement, EmailTemplateProps
                 {/* Main Container */}
                 <div className="max-w-[600px] mx-auto">
                     {/* Card */}
-                    <Card variant="highlight" className="p-10">
+                    <Card variant="solid" className="p-10">
                         {/* Logo */}
                         <div className="text-center mb-8">
                             <img

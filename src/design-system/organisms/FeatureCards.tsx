@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 import { LucideIcon } from "lucide-react";
 import { Card } from "../atoms/Card";
+import { FeatureList } from "../molecules/List";
 
 const featureCardVariants = cva("", {
     variants: {
@@ -143,23 +144,12 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                         {title}
                     </h3>
 
-                    <p className="text-base leading-6 text-foreground/80 font-normal font-['DM_Sans']">
+                    <p className="text-base leading-6 text-foreground/80 font-normal font-[\'DM_Sans\']">
                         {description}
                     </p>
 
                     {items && items.length > 0 && (
-                        <ul className="flex flex-col items-start gap-3">
-                            {items.map((item, index) => (
-                                <li key={index} className="flex items-center gap-3">
-                                    <span className="flex h-[18px] w-[18px] items-center justify-center p-1.5">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-cloud/60" />
-                                    </span>
-                                    <span className="text-base leading-6 text-foreground/80 font-normal font-['DM_Sans']">
-                                        {item}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
+                        <FeatureList items={items} variant="bullet" />
                     )}
 
                     {linkText && linkHref && (

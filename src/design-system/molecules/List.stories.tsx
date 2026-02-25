@@ -372,9 +372,9 @@ export const InteractiveList: Story = {
 };
 
 /**
- * Feature List - Checkmark Success
+ * FeatureList - Bullet
  */
-export const FeatureListCheckmarkSuccess: Story = {
+export const FeatureListBullet: Story = {
     args: {
         children: ""
     },
@@ -392,7 +392,7 @@ export const FeatureListCheckmarkSuccess: Story = {
                         "Enterprise-grade security built in",
                         "Handle millions of requests effortlessly"
                     ]}
-                    checkColor="success"
+                    variant="bullet"
                 />
             </div>
         </Panel>
@@ -400,9 +400,9 @@ export const FeatureListCheckmarkSuccess: Story = {
 };
 
 /**
- * Feature List - Checkmark Primary
+ * FeatureList - Checkmark
  */
-export const FeatureListCheckmarkPrimary: Story = {
+export const FeatureListCheckmark: Story = {
     args: {
         children: ""
     },
@@ -420,44 +420,7 @@ export const FeatureListCheckmarkPrimary: Story = {
                         "High-demand workloads",
                         "Dedicated resources"
                     ]}
-                    
-                    checkColor="primary"
-                />
-            </div>
-        </Panel>
-    )
-};
-
-/**
- * Feature List - Long List
- */
-export const FeatureListLong: Story = {
-    args: {
-        children: ""
-    },
-    parameters: {
-        controls: { hide: true },
-        layout: "padded"
-    },
-    render: () => (
-        <Panel padding="lg" radius="lg">
-            <div className="relative z-10">
-                <h3 className="text-xl font-medium mb-4">Comprehensive Features</h3>
-                <FeatureList
-                    items={[
-                        "Optimized for speed and performance",
-                        "Enterprise-grade security built in",
-                        "Handle millions of requests effortlessly",
-                        "Sub-millisecond latency",
-                        "End-to-end encryption",
-                        "Auto-scaling capacity",
-                        "Data stays in EU",
-                        "Zero data retention policy",
-                        "Transparent pricing",
-                        "24/7 support"
-                    ]}
-                    
-                    checkColor="success"
+                    variant="checkmark"
                 />
             </div>
         </Panel>

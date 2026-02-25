@@ -50,7 +50,7 @@ const DemoContent = () => (
     <Panel padding="lg" radius="lg">
         <div className="relative z-10">
             <h2 className="text-2xl font-medium mb-4">Container Content</h2>
-            <p className="text-white/60 mb-4">
+            <p className="text-muted-foreground mb-4">
                 This content is centered with consistent horizontal padding. Resize the
                 browser window to see how the container responds to different screen
                 sizes.
@@ -59,19 +59,19 @@ const DemoContent = () => (
                 <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 1</h3>
-                        <p className="text-sm text-white/60">Description here</p>
+                        <p className="text-sm text-muted-foreground">Description here</p>
                     </div>
                 </Panel>
                 <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 2</h3>
-                        <p className="text-sm text-white/60">Description here</p>
+                        <p className="text-sm text-muted-foreground">Description here</p>
                     </div>
                 </Panel>
                 <Panel padding="md" radius="default">
                     <div className="relative z-10">
                         <h3 className="font-medium mb-2">Feature 3</h3>
-                        <p className="text-sm text-white/60">Description here</p>
+                        <p className="text-sm text-muted-foreground">Description here</p>
                     </div>
                 </Panel>
             </div>
@@ -284,7 +284,7 @@ export const DashboardLayout: Story = {
                         {Array.from({ length: 4 }).map((_, i) => (
                             <Panel key={i} padding="lg" radius="lg">
                                 <div className="relative z-10">
-                                    <h3 className="text-sm font-medium text-white/40 mb-2">
+                                    <h3 className="text-sm font-medium text-muted-foreground mb-2">
                                         Metric {i + 1}
                                     </h3>
                                     <p className="text-3xl font-medium">1,234</p>
@@ -305,8 +305,8 @@ export const DashboardLayout: Story = {
                                             key={i}
                                             className="flex items-center gap-3 text-sm"
                                         >
-                                            <div className="w-2 h-2 rounded-full bg-[#22C55E]" />
-                                            <span className="text-white/60">
+                                            <div className="w-2 h-2 rounded-full bg-success" />
+                                            <span className="text-muted-foreground">
                                                 Activity item {i + 1}
                                             </span>
                                         </div>
@@ -314,11 +314,11 @@ export const DashboardLayout: Story = {
                                 </div>
 </div>
                         </Panel>
-                    
+
                         <Panel padding="lg" radius="lg">
                             <div className="relative z-10">
                                 <h3 className="text-lg font-medium mb-4">Usage Stats</h3>
-                                <div className="h-[200px] flex items-center justify-center text-white/60">
+                                <div className="h-[200px] flex items-center justify-center text-muted-foreground">
                                     Chart placeholder
                                 </div>
                             </div>

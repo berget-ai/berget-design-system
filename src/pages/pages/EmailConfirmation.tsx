@@ -25,7 +25,7 @@ export default function EmailConfirmation(
             }}
         >
             <div style={{ maxWidth: 600, margin: "0 auto" }}>
-                <Card variant="highlight" className="p-10">
+                <Card variant="solid" className="p-10">
                     {/* Berget Symbol inside Card */}
                     <div className="text-center mb-8">
                         <BergetSymbol size={48} variant="light" />

@@ -30,7 +30,7 @@ export default function Login({ kcContext, i18n }: LoginProps) {
             }}
         >
             <div style={{ maxWidth: 600, margin: "0 auto" }}>
-                <Card variant="highlight" className="p-10">
+                <Card variant="solid" className="p-10">
                     {/* Berget Symbol inside Card */}
                     <div className="text-center mb-8">
                         <BergetSymbol size={48} variant="light" />
@@ -91,11 +91,10 @@ export default function Login({ kcContext, i18n }: LoginProps) {
                                             key={provider.providerId}
                                             variant="outline"
                                             width="full"
-                                            asChild
                                         >
                                             <a
                                                 href={provider.loginUrl}
-                                                className="flex items-center justify-center gap-2"
+                                                className="flex items-center justify-center gap-2 w-full h-full"
                                             >
                                                 <i className={provider.iconClasses} />
                                                 <span>{provider.displayName}</span>

@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from "./Card";
 import { GradientBackground } from "../foundations/GradientBackground";
+import { PatternBackground } from "../foundations/PatternBackground";
+import { FeatureCard } from "../organisms/FeatureCards";
+import { Cpu } from "lucide-react";
 
 /**
  * Card component - base container for card-like surfaces.
@@ -73,11 +76,11 @@ export const Default: Story = {
         )
     },
     render: args => (
-        <GradientBackground variant="berget">
+        <PatternBackground>
             <div className="p-4 w-full max-w-md">
                 <Card {...args} />
             </div>
-        </GradientBackground>
+        </PatternBackground>
     )
 };
 
@@ -121,11 +124,11 @@ export const Solid: Story = {
         )
     },
     render: args => (
-        <GradientBackground variant="berget">
+        <PatternBackground>
             <div className="p-4 w-full max-w-md">
                 <Card {...args} />
             </div>
-        </GradientBackground>
+        </PatternBackground>
     )
 };
 
@@ -134,38 +137,27 @@ export const Solid: Story = {
  */
 export const WithContent: Story = {
     args: {
-        variant: "highlight",
-        children: (
-            <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-moss/20 flex items-center justify-center">
-                        <span className="text-moss">AI</span>
-                    </div>
-                    <div>
-                        <h3 className="font-medium">AI Assistant</h3>
-                        <p className="text-xs text-muted-foreground">Online</p>
-                    </div>
-                </div>
-                <p className="text-muted-foreground text-sm mb-4">
-                    This card demonstrates how to add rich content including icons, headers, and descriptions.
-                </p>
-                <div className="flex gap-2">
-                    <button className="px-3 py-1.5 text-sm rounded-full bg-moss text-peak">
-                        Action
-                    </button>
-                    <button className="px-3 py-1.5 text-sm rounded-full border border-cloud/20">
-                        Cancel
-                    </button>
-                </div>
-            </div>
-        )
+        children: undefined
     },
-    render: args => (
-        <GradientBackground variant="berget">
-            <div className="p-4 w-full max-w-md">
-                <Card {...args} />
+    parameters: {
+        controls: { hide: true }
+    },
+    render: () => (
+        <PatternBackground>
+            <div className="p-4 w-full max-w-[413px]">
+                <FeatureCard
+                    icon={Cpu}
+                    title="Dedicated Inference"
+                    description="Run and scale any model, including your own fine-tuned models on dedicated capacity."
+                    badge="Coming Soon"
+                    items={[
+                        "Customizable instances",
+                        "High-demand workloads",
+                        "Dedicated resources"
+                    ]}
+                />
             </div>
-        </GradientBackground>
+        </PatternBackground>
     )
 };
 
@@ -222,7 +214,7 @@ export const PaddingOptions: Story = {
         controls: { hide: true }
     },
     render: () => (
-        <GradientBackground variant="berget">
+        <PatternBackground>
             <div className="flex flex-wrap gap-6 p-6">
                 <Card variant="highlight" padding="sm">
                     <h3 className="text-lg font-medium mb-2">Small Padding</h3>
@@ -243,6 +235,6 @@ export const PaddingOptions: Story = {
                     </p>
                 </Card>
             </div>
-        </GradientBackground>
+        </PatternBackground>
     )
 };

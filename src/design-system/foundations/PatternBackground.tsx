@@ -14,12 +14,12 @@ export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElem
     overlayOnly?: boolean;
     /**
      * Opacity of the grid lines (0-1)
-     * @default 0.08
+     * @default 0.04
      */
     lineOpacity?: number;
     /**
      * Opacity of the dots in the pattern (0-1)
-     * @default 0.04
+     * @default 0.02
      */
     dotOpacity?: number;
 }
@@ -54,7 +54,7 @@ export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElem
  * ```
  */
 export const PatternBackground = React.forwardRef<HTMLDivElement, PatternBackgroundProps>(
-    ({ children, className, tileSize = 48, overlayOnly = false, lineOpacity = 0.08, dotOpacity = 0.04, ...props }, ref) => {
+    ({ children, className, tileSize = 48, overlayOnly = false, lineOpacity = 0.04, dotOpacity = 0.02, ...props }, ref) => {
         const patterns = {
             32: {
                 size: "32px 32px",
@@ -98,7 +98,7 @@ export const PatternBackground = React.forwardRef<HTMLDivElement, PatternBackgro
                 className={cn(
                     "relative overflow-hidden",
                     overlayOnly && "absolute inset-0",
-                    !overlayOnly && "bg-[#0A0A0A]",
+                    !overlayOnly && "bg-night",
                     className
                 )}
                 {...props}

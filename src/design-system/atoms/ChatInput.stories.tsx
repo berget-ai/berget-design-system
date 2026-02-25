@@ -10,7 +10,7 @@ import { Button } from "./Button";
  * Use controls below to explore different configurations.
  */
 const meta = {
-    title: "Atoms/ChatInput",
+    title: "Atoms/Chat Input",
     component: ChatInput,
     parameters: {
         docs: {

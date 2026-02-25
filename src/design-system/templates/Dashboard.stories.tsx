@@ -34,7 +34,7 @@ export const ConsoleDashboard: Story = {
                 <h1 className="text-4xl font-medium tracking-tight mb-2">
                     Welcome, Christina
                 </h1>
-                <p className="text-white/60">
+                <p className="text-muted-foreground">
                     Here's the latest overview of your account and resources.
                 </p>
             </div>
@@ -45,10 +45,10 @@ export const ConsoleDashboard: Story = {
                 <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
-                            <span className="text-base text-white/40">
+                            <span className="text-base text-muted-foreground">
                                 Account Balance
                             </span>
-                            <Activity className="w-6 h-6 text-white" strokeWidth={1.5} />
+                            <Activity className="w-6 h-6 text-peak" strokeWidth={1.5} />
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-baseline gap-3">
@@ -56,37 +56,37 @@ export const ConsoleDashboard: Story = {
                                     1157.87 EUR
                                 </h3>
                             </div>
-                            <p className="text-sm text-white/40">Available balance</p>
+                            <p className="text-sm text-muted-foreground">Available balance</p>
                         </div>
                     </div>
 </Panel>
-            
+
                 {/* API Usage */}
                 <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
-                            <span className="text-base text-white/40">API Usage</span>
-                            <Cpu className="w-6 h-6 text-white" strokeWidth={1.5} />
+                            <span className="text-base text-muted-foreground">API Usage</span>
+                            <Cpu className="w-6 h-6 text-peak" strokeWidth={1.5} />
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-baseline gap-3">
                                 <h3 className="text-3xl font-medium tracking-tight">
                                     24.3K
                                 </h3>
-                                <span className="text-base text-white/60">12.45 EUR</span>
+                                <span className="text-base text-foreground/60">12.45 EUR</span>
                             </div>
-                            <p className="text-sm text-white/40">Requests this period</p>
+                            <p className="text-sm text-muted-foreground">Requests this period</p>
                         </div>
                     </div>
 </Panel>
-            
+
                 {/* Growth */}
                 <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
-                            <span className="text-base text-white/40">Growth</span>
+                            <span className="text-base text-muted-foreground">Growth</span>
                             <TrendingUp
-                                className="w-6 h-6 text-white"
+                                className="w-6 h-6 text-peak"
                                 strokeWidth={1.5}
                             />
                         </div>
@@ -95,9 +95,9 @@ export const ConsoleDashboard: Story = {
                                 <h3 className="text-3xl font-medium tracking-tight">
                                     +23.5%
                                 </h3>
-                                <span className="text-base text-[#22C55E]">+18.2%</span>
+                                <span className="text-base text-success">+18.2%</span>
                             </div>
-                            <p className="text-sm text-white/40">vs. last period</p>
+                            <p className="text-sm text-muted-foreground">vs. last period</p>
                         </div>
                     </div>
                 </Panel>
@@ -106,9 +106,9 @@ export const ConsoleDashboard: Story = {
                 <Panel padding="lg" radius="lg">
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
-                            <span className="text-base text-white/40">Status</span>
+                            <span className="text-base text-muted-foreground">Status</span>
                             <ArrowUpRight
-                                className="w-6 h-6 text-white"
+                                className="w-6 h-6 text-peak"
                                 strokeWidth={1.5}
                             />
                         </div>
@@ -118,7 +118,7 @@ export const ConsoleDashboard: Story = {
                                     Active
                                 </h3>
                             </div>
-                            <p className="text-sm text-white/40">
+                            <p className="text-sm text-muted-foreground">
                                 All systems operational
                             </p>
                         </div>
@@ -134,31 +134,31 @@ export const ConsoleDashboard: Story = {
                         <div className="flex items-center justify-between mb-6">
                             <div>
                                 <h2 className="text-xl font-medium">Account Overview</h2>
-                                <p className="text-white/60">
+                                <p className="text-muted-foreground">
                                     Current balance and usage for the past week
                                 </p>
                             </div>
                         </div>
 
                         {/* Chart Placeholder */}
-                        <div className="h-64 rounded-xl bg-white/5 flex items-center justify-center mb-6">
-                            <p className="text-white/40">Chart Component</p>
+                        <div className="h-64 rounded-xl bg-card/5 flex items-center justify-center mb-6">
+                            <p className="text-muted-foreground/60">Chart Component</p>
                         </div>
 
                         {/* Metrics Grid */}
                         <div className="grid grid-cols-3 gap-4">
-                            <div className="p-4 rounded-xl bg-white/5">
-                                <p className="text-sm text-white/40 mb-1">
+                            <div className="p-4 rounded-xl bg-card/5">
+                                <p className="text-sm text-muted-foreground mb-1">
                                     Total Requests
                                 </p>
                                 <p className="text-2xl font-medium">127.4K</p>
                             </div>
-                            <div className="p-4 rounded-xl bg-white/5">
-                                <p className="text-sm text-white/40 mb-1">Avg Latency</p>
+                            <div className="p-4 rounded-xl bg-card/5">
+                                <p className="text-sm text-muted-foreground mb-1">Avg Latency</p>
                                 <p className="text-2xl font-medium">42ms</p>
                             </div>
-                            <div className="p-4 rounded-xl bg-white/5">
-                                <p className="text-sm text-white/40 mb-1">Success Rate</p>
+                            <div className="p-4 rounded-xl bg-card/5">
+                                <p className="text-sm text-muted-foreground mb-1">Success Rate</p>
                                 <p className="text-2xl font-medium">99.8%</p>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ export const ConsoleDashboard: Story = {
                     <div className="relative z-10">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-xl font-medium">Recent Activity</h2>
-                            <button className="text-sm text-white/40 hover:text-white transition-colors">
+                            <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                                 View all
                             </button>
                         </div>
@@ -199,17 +199,17 @@ export const ConsoleDashboard: Story = {
                                 }
                             ].map((activity, i) => (
                                 <div key={i} className="flex items-start gap-4">
-                                    <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
-                                        <div className="w-2 h-2 rounded-full bg-white/60" />
+                                    <div className="w-8 h-8 rounded-lg bg-card/5 flex items-center justify-center flex-shrink-0 mt-1">
+                                        <div className="w-2 h-2 rounded-full bg-cloud/60" />
                                     </div>
                                     <div>
                                         <p className="text-base font-medium">
                                             {activity.title}
                                         </p>
-                                        <p className="text-sm text-white/40">
+                                        <p className="text-sm text-muted-foreground">
                                             {activity.time}
                                         </p>
-                                        <p className="text-sm text-white/60 mt-1">
+                                        <p className="text-sm text-foreground/60 mt-1">
                                             {activity.desc}
                                         </p>
                                     </div>
@@ -241,11 +241,11 @@ export const StatCards: Story = {
                     <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
-                                <span className="text-base text-white/40">
+                                <span className="text-base text-muted-foreground">
                                     Account Balance
                                 </span>
                                 <Activity
-                                    className="w-6 h-6 text-white"
+                                    className="w-6 h-6 text-peak"
                                     strokeWidth={1.5}
                                 />
                             </div>
@@ -253,7 +253,7 @@ export const StatCards: Story = {
                                 <h3 className="text-3xl font-medium tracking-tight">
                                     1157.87 EUR
                                 </h3>
-                                <p className="text-sm text-white/40">Available balance</p>
+                                <p className="text-sm text-muted-foreground">Available balance</p>
                             </div>
                         </div>
                     </Panel>
@@ -261,19 +261,19 @@ export const StatCards: Story = {
                     <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
-                                <span className="text-base text-white/40">API Usage</span>
-                                <Cpu className="w-6 h-6 text-white" strokeWidth={1.5} />
+                                <span className="text-base text-muted-foreground">API Usage</span>
+                                <Cpu className="w-6 h-6 text-peak" strokeWidth={1.5} />
                             </div>
                             <div className="space-y-2">
                                 <div className="flex items-baseline gap-3">
                                     <h3 className="text-3xl font-medium tracking-tight">
                                         24.3K
                                     </h3>
-                                    <span className="text-base text-white/60">
+                                    <span className="text-base text-foreground/60">
                                         12.45 EUR
                                     </span>
                                 </div>
-                                <p className="text-sm text-white/40">
+                                <p className="text-sm text-muted-foreground">
                                     Requests this period
                                 </p>
                             </div>
@@ -283,11 +283,11 @@ export const StatCards: Story = {
                     <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
-                                <span className="text-base text-white/40">
+                                <span className="text-base text-muted-foreground">
                                     With Glass
                                 </span>
                                 <TrendingUp
-                                    className="w-6 h-6 text-white"
+                                    className="w-6 h-6 text-peak"
                                     strokeWidth={1.5}
                                 />
                             </div>
@@ -295,7 +295,7 @@ export const StatCards: Story = {
                                 <h3 className="text-3xl font-medium tracking-tight">
                                     +23.5%
                                 </h3>
-                                <p className="text-sm text-white/40">
+                                <p className="text-sm text-muted-foreground">
                                     Liquid glass variant
                                 </p>
                             </div>
@@ -305,9 +305,9 @@ export const StatCards: Story = {
                     <Panel padding="lg" radius="lg">
                         <div className="relative z-10">
                             <div className="flex justify-between items-start mb-6">
-                                <span className="text-base text-white/40">No Bokeh</span>
+                                <span className="text-base text-muted-foreground">No Bokeh</span>
                                 <ArrowUpRight
-                                    className="w-6 h-6 text-white"
+                                    className="w-6 h-6 text-peak"
                                     strokeWidth={1.5}
                                 />
                             </div>
@@ -315,7 +315,7 @@ export const StatCards: Story = {
                                 <h3 className="text-3xl font-medium tracking-tight">
                                     Clean
                                 </h3>
-                                <p className="text-sm text-white/40">Bokeh disabled</p>
+                                <p className="text-sm text-muted-foreground">Bokeh disabled</p>
                             </div>
                         </div>
                     </Panel>
@@ -326,7 +326,7 @@ export const StatCards: Story = {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <Panel padding="lg" radius="default">
                             <div className="relative z-10">
-                                <p className="text-white/60 mb-2">
+                                <p className="text-foreground/60 mb-2">
                                     Default (rounded-2xl)
                                 </p>
                                 <p className="text-2xl font-medium">32px</p>
@@ -335,14 +335,14 @@ export const StatCards: Story = {
 
                         <Panel padding="lg" radius="lg">
                             <div className="relative z-10">
-                                <p className="text-white/60 mb-2">Large (rounded-3xl)</p>
+                                <p className="text-foreground/60 mb-2">Large (rounded-3xl)</p>
                                 <p className="text-2xl font-medium">48px</p>
                             </div>
                         </Panel>
 
                         <Panel padding="lg" radius="xl">
                             <div className="relative z-10">
-                                <p className="text-white/60 mb-2">XL (rounded-[2rem])</p>
+                                <p className="text-foreground/60 mb-2">XL (rounded-[2rem])</p>
                                 <p className="text-2xl font-medium">64px</p>
                             </div>
                         </Panel>

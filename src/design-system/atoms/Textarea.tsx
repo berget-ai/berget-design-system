@@ -3,14 +3,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
 const textareaVariants = cva(
-    "flex w-full rounded-xl border bg-input px-4 py-3 text-sm transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 resize-y",
+    "flex w-full rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-moss/40 disabled:cursor-not-allowed disabled:opacity-50 resize-y",
     {
         variants: {
             variant: {
-                default: "border-cloud/20 hover:bg-moss/10",
-                primary: "border-moss/50 bg-moss/10 hover:bg-moss/20",
-                subtle: "border-cloud/10 hover:bg-moss/10",
-                muted: "border-cloud/5 hover:bg-moss/10"
+                default: "border-cloud/20 hover:bg-cloud/[0.02]",
+                primary: "border-moss/50 bg-moss/10 hover:bg-cloud/[0.02]",
+                subtle: "border-cloud/10 hover:bg-cloud/[0.02]",
+                muted: "border-cloud/5 hover:bg-cloud/[0.02]"
             },
             size: {
                 sm: "px-3 py-2 text-xs min-h-[60px]",

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Check } from "lucide-react";
 import { cn } from "../../utils/cn";
 
 export interface ListProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -129,16 +130,11 @@ export interface FeatureListProps extends React.HTMLAttributes<HTMLUListElement>
      */
     items: string[];
     /**
-     * Checkmark color
-     * @default "success"
+     * Variant style
+     * @default "bullet"
      */
-    checkColor?: "success" | "primary";
+    variant?: "bullet" | "checkmark";
 }
-
-const checkColorStyles = {
-    success: "bg-success text-success-foreground",
-    primary: "bg-primary text-primary-foreground",
-} as const;
 
 /**
  * FeatureList Component
@@ -165,13 +161,6 @@ const checkColorStyles = {
  * <FeatureList
  *   items={["Benefit 1", "Benefit 2"]}
  *   variant="checkmark"
- *   checkColor="success"
- * />
- *
- * <FeatureList
- *   items={["Point 1", "Point 2", "Point 3"]}
- *   variant="bullet"
- *   bulletColor="primary"
  * />
  * ```
  */
@@ -179,7 +168,7 @@ export const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
     (
         {
             items,
-            checkColor = "success",
+            variant = "bullet",
             className,
             ...props
         },
@@ -189,22 +178,14 @@ export const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
             <ul ref={ref} className={cn("space-y-3", className)} {...props}>
                 {items.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                        <div
-                            className={cn(
-                                "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5",
-                                checkColorStyles[checkColor]
-                            )}
-                        >
-                            <svg
-                                className="w-3.5 h-3.5"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth={2.5}
-                                viewBox="0 0 24 24"
-                            >
-                                <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
+                        {variant === "bullet" ? (
+                            <span className="w-1.5 h-1.5 rounded-full bg-cloud/60 flex-shrink-0 mt-2" />
+                        ) : (
+                            <Check
+                                className="w-5 h-5 flex-shrink-0 mt-0.5 text-peak"
+                                strokeWidth={1.5}
+                            />
+                        )}
                         <span className="text-sm text-muted-foreground">{item}</span>
                     </li>
                 ))}
