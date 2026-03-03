@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "../berget-design-system/src/**/*.{js,ts,jsx,tsx}"],
+
     darkMode: ["class", '[data-theme="dark"]'],
     theme: {
 extend: {
@@ -63,6 +64,19 @@ extend: {
                 "float-medium": "float 30s ease-in-out infinite",
                 "float-fast": "float 20s ease-in-out infinite"
             },
+            backdropBlur: {
+                "v2-soft": "12px",
+                "v2-glass": "24px"
+            },
+
+            backgroundImage: {
+                "card-surface-glow": "radial-gradient(circle at top, hsl(var(--berget-cloud) / 0.04) 0%, transparent 50%)",
+                "card-edge-highlight": "radial-gradient(ellipse 50% 100% at 50% 0%, hsl(var(--berget-cloud) / 0.3) 0%, transparent 100%)"
+                },
+            },
+            height: {
+                "card-edge": "3px"
+            },
             keyframes: {
                 fadeIn: {
                     "0%": { opacity: "0" },
@@ -98,6 +112,6 @@ extend: {
                 }
             }
         }
-    },
+    };
     plugins: []
-};
+;
